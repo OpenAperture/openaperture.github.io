@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Manager.Controllers.FormatHelper</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html">Manager</a> &rarr; Controllers &rarr; <a href="OpenAperture.Manager.Controllers.FormatHelper.html">FormatHelper</a></div>
+      <h1>
+        OpenAperture.Manager.Controllers.FormatHelper
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module provides helper functions that are used by controllers to
+format incoming and outgoing data.</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#keywords_to_map/1">keywords_to_map(kw)</a></td>
+  
+    <td class="summary_synopsis"><p>keywords<em>to</em>map converts a keyword list to a map, which is more easily
+transmitted as a JSON object. If a key is repeated in the keyword list, then
+the value in the map is represented as a list.
+Ex:
+[a: &quot;First value&quot;, b: &quot;Second value&quot;, c: &quot;Third value&quot;] becomes
+%{a: [&quot;First value&quot;, &quot;Third value&quot;], b: &quot;Second value&quot;}</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_sendable/2">to_sendable(item, allowed_fields \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>to<em>sendable prepares a List of structs or maps for transmission by converting structs
+to plain old maps (if a struct is passed in), and stripping out any fields
+in the allowed</em>fields list. If allowed_fields is empty, then all fields are
+sent</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="keywords_to_map/1">
+    <span class="signature"><strong>keywords_to_map(kw)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#keywords_to_map/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>keywords_to_map(Keyword) :: Map</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>keywords<em>to</em>map converts a keyword list to a map, which is more easily
+transmitted as a JSON object. If a key is repeated in the keyword list, then
+the value in the map is represented as a list.
+Ex:
+[a: &quot;First value&quot;, b: &quot;Second value&quot;, c: &quot;Third value&quot;] becomes
+%{a: [&quot;First value&quot;, &quot;Third value&quot;], b: &quot;Second value&quot;}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="to_sendable/2">
+    <span class="signature"><strong>to_sendable(item, allowed_fields \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#to_sendable/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>to_sendable(<a href="http://elixir-lang.org/docs/stable/elixir/List.html#t:t/0">List.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/List.html#t:t/0">List.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/List.html#t:t/0">List.t</a></li>
+      
+        <li>to_sendable(<a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/List.html#t:t/0">List.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>to<em>sendable prepares a List of structs or maps for transmission by converting structs
+to plain old maps (if a struct is passed in), and stripping out any fields
+in the allowed</em>fields list. If allowed_fields is empty, then all fields are
+sent.</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

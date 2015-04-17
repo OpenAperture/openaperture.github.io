@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Manager.Endpoint</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html">Manager</a> &rarr; <a href="OpenAperture.Manager.Endpoint.html">Endpoint</a></div>
+      <h1>
+        OpenAperture.Manager.Endpoint
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#broadcast!/3">broadcast!(topic, event, msg)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#broadcast/3">broadcast(topic, event, msg)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#broadcast_from!/4">broadcast_from!(from, topic, event, msg)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#broadcast_from/4">broadcast_from(from, topic, event, msg)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#call/2">call(conn, opts)</a></td>
+  
+    <td class="summary_synopsis"><p>Callback implementation for <code>c:Plug.call/2</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#config/2">config(key, default \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the endpoint configuration for <code>key</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#config_change/2">config_change(changed, removed)</a></td>
+  
+    <td class="summary_synopsis"><p>Reloads the configuration given the application environment changes</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#init/1">init(opts)</a></td>
+  
+    <td class="summary_synopsis"><p>Callback implementation for <code>c:Plug.init/1</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#path/1">path(path)</a></td>
+  
+    <td class="summary_synopsis"><p>Generates the path information including any necessary prefix</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
+  
+    <td class="summary_synopsis"><p>Starts the endpoint supervision tree</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#static_path/1">static_path(path)</a></td>
+  
+    <td class="summary_synopsis"><p>Generates a route to a static file based on the contents inside
+<code>priv/static</code> for the endpoint otp application</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#url/0">url()</a></td>
+  
+    <td class="summary_synopsis"><p>Generates the endpoint base URL without any path information</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="broadcast/3">
+    <span class="signature"><strong>broadcast(topic, event, msg)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#broadcast/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="broadcast!/3">
+    <span class="signature"><strong>broadcast!(topic, event, msg)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#broadcast!/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="broadcast_from/4">
+    <span class="signature"><strong>broadcast_from(from, topic, event, msg)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#broadcast_from/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="broadcast_from!/4">
+    <span class="signature"><strong>broadcast_from!(from, topic, event, msg)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#broadcast_from!/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="call/2">
+    <span class="signature"><strong>call(conn, opts)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#call/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code>c:Plug.call/2</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="config/2">
+    <span class="signature"><strong>config(key, default \\ nil)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#config/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Returns the endpoint configuration for <code>key</code></p>
+
+<p>Returns <code>default</code> if the key does not exist.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="config_change/2">
+    <span class="signature"><strong>config_change(changed, removed)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#config_change/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Reloads the configuration given the application environment changes.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="init/1">
+    <span class="signature"><strong>init(opts)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#init/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code>c:Plug.init/1</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="path/1">
+    <span class="signature"><strong>path(path)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#path/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Generates the path information including any necessary prefix.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/0">
+    <span class="signature"><strong>start_link()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Starts the endpoint supervision tree.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="static_path/1">
+    <span class="signature"><strong>static_path(path)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#static_path/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Generates a route to a static file based on the contents inside
+<code>priv/static</code> for the endpoint otp application.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="url/0">
+    <span class="signature"><strong>url()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#url/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Generates the endpoint base URL without any path information.</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

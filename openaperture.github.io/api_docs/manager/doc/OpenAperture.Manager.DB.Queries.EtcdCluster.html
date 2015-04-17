@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Manager.DB.Queries.EtcdCluster</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html">Manager</a> &rarr; DB &rarr; Queries &rarr; <a href="OpenAperture.Manager.DB.Queries.EtcdCluster.html">EtcdCluster</a></div>
+      <h1>
+        OpenAperture.Manager.DB.Queries.EtcdCluster
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#get_by_etcd_token/1">get_by_etcd_token(etcd_token)</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieves the database record for the provided etcd token string</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_by_id/1">get_by_id(cluster_id)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the DB.Models.EtcdCluster for an id</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_docker_build_clusters/0">get_docker_build_clusters()</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the DB.Models.EtcdCluster that have the allow<em>docker</em>builds set to true</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="get_by_etcd_token/1">
+    <span class="signature"><strong>get_by_etcd_token(etcd_token)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_by_etcd_token/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_by_etcd_token(term) :: <a href="OpenAperture.Manager.DB.Models.EtcdCluster.html#t:t/0">OpenAperture.Manager.DB.Models.EtcdCluster.t</a> | nil</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Retrieves the database record for the provided etcd token string.</p>
+
+<p>If no record is found, returns nil.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_by_id/1">
+    <span class="signature"><strong>get_by_id(cluster_id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_by_id/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_by_id(term) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the DB.Models.EtcdCluster for an id</p>
+
+<h2>Options</h2>
+
+<p>The <code>product_id</code> option is the integer identifier of the product</p>
+
+<h2>Return values</h2>
+
+<p>db query</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_docker_build_clusters/0">
+    <span class="signature"><strong>get_docker_build_clusters()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_docker_build_clusters/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_docker_build_clusters :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the DB.Models.EtcdCluster that have the allow<em>docker</em>builds set to true</p>
+
+<h2>Return values</h2>
+
+<p>db query</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
