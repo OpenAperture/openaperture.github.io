@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Timex.Extensions</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">timex_extensions v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; Timex &rarr; <a href="OpenAperture.Timex.Extensions.html">Extensions</a></div>
+      <h1>
+        OpenAperture.Timex.Extensions
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#date_from_unix_timestamp/1">date_from_unix_timestamp(timestamp)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to convert a Unix timestamp (Integer) into a Timex.Date struct
+<a href="https://github.com/bitwalker/timex/blob/master/lib/date/date.ex">https://github.com/bitwalker/timex/blob/master/lib/date/date.ex</a></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_elapased_timestamp/1">get_elapased_timestamp(start_time)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to evaluate the elapsed time (against now) and convert to a human-readable string</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#seconds_to_time/1">seconds_to_time(value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#time_from_unix_timestamp/1">time_from_unix_timestamp(timestamp)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to convert a Unix timestamp (Integer) into a Timex.Time struct
+<a href="https://github.com/bitwalker/timex/blob/master/lib/time/time.ex">https://github.com/bitwalker/timex/blob/master/lib/time/time.ex</a></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unix_timestamp_to_gregorian_seconds/1">unix_timestamp_to_gregorian_seconds(timestamp)</a></td>
+  
+    <td class="summary_synopsis"><p>As suggested here (<a href="http://erlang.2086793.n4.nabble.com/Working-with-dates-td2097402.html">http://erlang.2086793.n4.nabble.com/Working-with-dates-td2097402.html</a>), method
+to convert a unix timestamp into Gregorian calendar seconds</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="date_from_unix_timestamp/1">
+    <span class="signature"><strong>date_from_unix_timestamp(timestamp)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#date_from_unix_timestamp/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Method to convert a Unix timestamp (Integer) into a Timex.Date struct
+<a href="https://github.com/bitwalker/timex/blob/master/lib/date/date.ex">https://github.com/bitwalker/timex/blob/master/lib/date/date.ex</a></p>
+
+<h2>Options</h2>
+
+<p>The <code>timestamp</code> options is an Integer unix timestamp (<a href="http://en.wikipedia.org/wiki/Unix_time">http://en.wikipedia.org/wiki/Unix_time</a>) </p>
+
+<h2>Return Values</h2>
+
+<p>Timex.Date struct</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_elapased_timestamp/1">
+    <span class="signature"><strong>get_elapased_timestamp(start_time)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_elapased_timestamp/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_elapased_timestamp(term) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to evaluate the elapsed time (against now) and convert to a human-readable string.</p>
+
+<h2>Options</h2>
+
+<p>The <code>start_time</code> option was the starting Timex.Time struct</p>
+
+<h2>Return Values</h2>
+
+<p>String containing the timestamp</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="seconds_to_time/1">
+    <span class="signature"><strong>seconds_to_time(value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#seconds_to_time/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="time_from_unix_timestamp/1">
+    <span class="signature"><strong>time_from_unix_timestamp(timestamp)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#time_from_unix_timestamp/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Method to convert a Unix timestamp (Integer) into a Timex.Time struct
+<a href="https://github.com/bitwalker/timex/blob/master/lib/time/time.ex">https://github.com/bitwalker/timex/blob/master/lib/time/time.ex</a></p>
+
+<h2>Options</h2>
+
+<p>The <code>timestamp</code> options is an Integer unix timestamp (<a href="http://en.wikipedia.org/wiki/Unix_time">http://en.wikipedia.org/wiki/Unix_time</a>) </p>
+
+<h2>Return Values</h2>
+
+<p>Timex.Time struct</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="unix_timestamp_to_gregorian_seconds/1">
+    <span class="signature"><strong>unix_timestamp_to_gregorian_seconds(timestamp)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unix_timestamp_to_gregorian_seconds/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>As suggested here (<a href="http://erlang.2086793.n4.nabble.com/Working-with-dates-td2097402.html">http://erlang.2086793.n4.nabble.com/Working-with-dates-td2097402.html</a>), method
+to convert a unix timestamp into Gregorian calendar seconds</p>
+
+<h2>Options</h2>
+
+<p>The <code>timestamp</code> options is an Integer unix timestamp (<a href="http://en.wikipedia.org/wiki/Unix_time">http://en.wikipedia.org/wiki/Unix_time</a>) </p>
+
+<h2>Return Values</h2>
+
+<p>The # of Gregorian seconds (<a href="http://www.erlang.org/doc/man/calendar.html#datetime_to_gregorian_seconds-1">http://www.erlang.org/doc/man/calendar.html#datetime_to_gregorian_seconds-1</a>) - seconds from epoch</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
