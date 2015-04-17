@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Manager.DB.Queries.ProductEnvironmentalVariable</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html">Manager</a> &rarr; DB &rarr; Queries &rarr; <a href="OpenAperture.Manager.DB.Queries.ProductEnvironmentalVariable.html">ProductEnvironmentalVariable</a></div>
+      <h1>
+        OpenAperture.Manager.DB.Queries.ProductEnvironmentalVariable
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#find_all_for_environment/2">find_all_for_environment(product_name, environment_name)</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieve a query that coalesces the collection of environmental variables
+for a product, overriding product-wide values with any environment-specific
+settings. For example, if a product has two variables:
+A = 1
+B = 2
+but the products &quot;production&quot; environment has the variable
+B = 23
+calling this query with the ID of the &quot;production&quot; environment will
+return a list with variables
+A = 1
+B = 23</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#find_by_product_name/2">find_by_product_name(product_name, product_level_only \\ false)</a></td>
+  
+    <td class="summary_synopsis"><p>Finds all variables associated to the given product across environments,
+optionally filtering to <em>only</em> those variables associated to the product and
+no environment</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#find_by_product_name_environment_name/2">find_by_product_name_environment_name(product_name, environment_name)</a></td>
+  
+    <td class="summary_synopsis"><p>Finds all variables associated to the given product and environment</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#find_by_product_name_environment_name_variable_name/3">find_by_product_name_environment_name_variable_name(product_name, environment_name, name)</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieve a query that will fetch a list of a single row with the 
+environmental variable matching the product, product<em>environment, and name
+provided. This query uses joins between the products, product</em>environments,
+and product<em>environmental</em>variables tables to find the correct row</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#find_by_product_name_variable_name/3">find_by_product_name_variable_name(product_name, variable_name, product_level_only \\ false)</a></td>
+  
+    <td class="summary_synopsis"><p>Finds all variables with the given name associated to the given product,
+optionall filtering to <em>only</em> the variable associated to the given product
+and no environment</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="find_all_for_environment/2">
+    <span class="signature"><strong>find_all_for_environment(product_name, environment_name)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#find_all_for_environment/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>find_all_for_environment(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: Ecto.Query.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Retrieve a query that coalesces the collection of environmental variables
+for a product, overriding product-wide values with any environment-specific
+settings. For example, if a product has two variables:
+A = 1
+B = 2
+but the products &quot;production&quot; environment has the variable
+B = 23
+calling this query with the ID of the &quot;production&quot; environment will
+return a list with variables
+A = 1
+B = 23</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="find_by_product_name/2">
+    <span class="signature"><strong>find_by_product_name(product_name, product_level_only \\ false)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#find_by_product_name/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>find_by_product_name(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, boolean) :: Ecto.Query.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Finds all variables associated to the given product across environments,
+optionally filtering to <em>only</em> those variables associated to the product and
+no environment.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="find_by_product_name_environment_name/2">
+    <span class="signature"><strong>find_by_product_name_environment_name(product_name, environment_name)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#find_by_product_name_environment_name/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>find_by_product_name_environment_name(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: Ecto.Query.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Finds all variables associated to the given product and environment.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="find_by_product_name_environment_name_variable_name/3">
+    <span class="signature"><strong>find_by_product_name_environment_name_variable_name(product_name, environment_name, name)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#find_by_product_name_environment_name_variable_name/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>find_by_product_name_environment_name_variable_name(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: Ecto.Query.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Retrieve a query that will fetch a list of a single row with the 
+environmental variable matching the product, product<em>environment, and name
+provided. This query uses joins between the products, product</em>environments,
+and product<em>environmental</em>variables tables to find the correct row.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="find_by_product_name_variable_name/3">
+    <span class="signature"><strong>find_by_product_name_variable_name(product_name, variable_name, product_level_only \\ false)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#find_by_product_name_variable_name/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>find_by_product_name_variable_name(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, boolean) :: Ecto.Query.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Finds all variables with the given name associated to the given product,
+optionall filtering to <em>only</em> the variable associated to the given product
+and no environment.</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

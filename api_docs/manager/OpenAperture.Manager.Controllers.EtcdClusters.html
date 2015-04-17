@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Manager.Controllers.EtcdClusters</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html">Manager</a> &rarr; Controllers &rarr; <a href="OpenAperture.Manager.Controllers.EtcdClusters.html">EtcdClusters</a></div>
+      <h1>
+        OpenAperture.Manager.Controllers.EtcdClusters
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#action/2">action(conn, options)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#call/2">call(conn, action)</a></td>
+  
+    <td class="summary_synopsis"><p>Callback implementation for <code>c:Plug.call/2</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#destroy/2">destroy(conn, arg2)</a></td>
+  
+    <td class="summary_synopsis"><p>Remove an Etcd Cluster instance from the database</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#index/2">index(conn, params)</a></td>
+  
+    <td class="summary_synopsis"><p>List all Etcd Clusters the system knows about</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#init/1">init(action)</a></td>
+  
+    <td class="summary_synopsis"><p>Callback implementation for <code>c:Plug.init/1</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#machines/2">machines(conn, arg2)</a></td>
+  
+    <td class="summary_synopsis"><p>GET /clusters/:etcd_token/machines - Retrieve associated machines</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#products/2">products(conn, arg2)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#register/2">register(conn, params)</a></td>
+  
+    <td class="summary_synopsis"><p>Create a new Etcd Cluster instance</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#show/2">show(conn, arg2)</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieve a specific Etcd Cluster instance, specified by its etcd token</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unit_logs/2">unit_logs(conn, arg2)</a></td>
+  
+    <td class="summary_synopsis"><p>GET /clusters/:etcd<em>token/machines/:machine</em>id/units/:unit_name/logs - Retrieve associated units&#39; state</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#units/2">units(conn, arg2)</a></td>
+  
+    <td class="summary_synopsis"><p>GET /clusters/:etcd_token/units - Retrieve associated units</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#units_state/2">units_state(conn, arg2)</a></td>
+  
+    <td class="summary_synopsis"><p>GET /clusters/:etcd_token/state - Retrieve associated units&#39; state</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="action/2">
+    <span class="signature"><strong>action(conn, options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#action/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="call/2">
+    <span class="signature"><strong>call(conn, action)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#call/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code>c:Plug.call/2</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="destroy/2">
+    <span class="signature"><strong>destroy(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#destroy/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Remove an Etcd Cluster instance from the database.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="index/2">
+    <span class="signature"><strong>index(conn, params)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#index/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>List all Etcd Clusters the system knows about.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="init/1">
+    <span class="signature"><strong>init(action)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#init/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code>c:Plug.init/1</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="machines/2">
+    <span class="signature"><strong>machines(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#machines/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /clusters/:etcd_token/machines - Retrieve associated machines</p>
+
+<h2>Options</h2>
+
+<p>The <code>conn</code> option defines the underlying HTTP connection.</p>
+
+<p>The <code>params</code> option defines an array of arguments.</p>
+
+<h2>Return Values</h2>
+
+<p>Plug.Conn</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="products/2">
+    <span class="signature"><strong>products(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#products/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="register/2">
+    <span class="signature"><strong>register(conn, params)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#register/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Create a new Etcd Cluster instance.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="show/2">
+    <span class="signature"><strong>show(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#show/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Retrieve a specific Etcd Cluster instance, specified by its etcd token.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="unit_logs/2">
+    <span class="signature"><strong>unit_logs(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unit_logs/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /clusters/:etcd<em>token/machines/:machine</em>id/units/:unit_name/logs - Retrieve associated units&#39; state</p>
+
+<h2>Options</h2>
+
+<p>The <code>conn</code> option defines the underlying HTTP connection.</p>
+
+<p>The <code>params</code> option defines an array of arguments.</p>
+
+<h2>Return Values</h2>
+
+<p>Plug.Conn</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="units/2">
+    <span class="signature"><strong>units(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#units/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /clusters/:etcd_token/units - Retrieve associated units</p>
+
+<h2>Options</h2>
+
+<p>The <code>conn</code> option defines the underlying HTTP connection.</p>
+
+<p>The <code>params</code> option defines an array of arguments.</p>
+
+<h2>Return Values</h2>
+
+<p>Plug.Conn</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="units_state/2">
+    <span class="signature"><strong>units_state(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#units_state/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /clusters/:etcd_token/state - Retrieve associated units&#39; state</p>
+
+<h2>Options</h2>
+
+<p>The <code>conn</code> option defines the underlying HTTP connection.</p>
+
+<p>The <code>params</code> option defines an array of arguments.</p>
+
+<h2>Return Values</h2>
+
+<p>Plug.Conn</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
