@@ -1,0 +1,22 @@
+.borderless table {
+border-top-style: none;
+border-left-style: none;
+border-right-style: none;
+border-bottom-style: none;
+}
+
+.btn-txt {
+
+margin: 34px 0 0 20px;
+
+text-align: center;
+
+float: left;
+
+color: #fff;
+
+font-family: 'Arvo', serif;
+
+font-size: 27px;
+
+}

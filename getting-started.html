@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="css/app.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  <script src="css/os.css"></script>
 </head>
 <body>
 	<div class="container">
@@ -18,32 +17,17 @@
 	    <p>Cloud Application Management Platform</p> 
 	  </div>
 	  <div class="row">
-	  	<p class="col-md-12 lead">
-	  		OpenAperture is a free, open-source hybrid cloud management platform that delivers software quickly and consistently regardless of location or workload. This future-ready platform from Lexmark Enterprise Software provides a comprehensive management system to handle the six pillars of cloud management – provisioning, deployment, monitoring, maintenance, security and metering.
+			<p class="col-md-12 lead">
+				Products that are being developed for deployment into the Cloud should follow the guidance provided by <a href="http://12factor.net/" target="_blank">The 12 Factor App</a>. As a result of how OpenAperture deploys products, there are several design constraints that should be considered:
 			</p>
+			<br/>
+			<ul class="lead">
+				<li>Products must be able to scale horizontally.</li>
+				<li>Products must be able to accept configuration via environment variables (i.e. database URLs, etc...).</li>
+				<li>Products must be dockerizable. Currently, this requires products to run in a Linux environment.</li>
+			</ul>							
 		</div>
 		<br/>
-		<div class="row">
-			<a href="getting-started.html">
-				<button type="button" class="btn btn-success btn-lg col-sm-offset-5">
-						Get Started!
-				</button>				
-			</a>
-		</div>
-		<br/>
-		<br/>
-		<div class="row">
-	    <div class="col-md-6">
-	      <h3>For Developers</h3>
-	      <ul>
-          <li><a href="api-doc-index.html">API Documentation</a></li>
-        </ul>
-	    </div>
-	    <div class="col-md-6">
-	      <h3>For Sys Admins</h3>
-	      <p>The documentation is coming, we promise!
-	    </div>
-	  </div>
 	</div>
 
 	<div class="footer navbar-fixed-bottom">
