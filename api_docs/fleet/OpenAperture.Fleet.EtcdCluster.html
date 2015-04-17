@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Fleet.EtcdCluster</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_fleet v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Fleet.html">Fleet</a> &rarr; <a href="OpenAperture.Fleet.EtcdCluster.html">EtcdCluster</a></div>
+      <h1>
+        OpenAperture.Fleet.EtcdCluster
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#create!/1">create!(etcd_token)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to generate a new EtcdCluster agent</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#create/1">create(etcd_token)</a></td>
+  
+    <td class="summary_synopsis"><p>Creates a <code>GenServer</code> representing an etcd cluster</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#deploy_units/3">deploy_units(cluster, new_units, available_ports \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to deploy new units to the cluster</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_host_count/1">get_host_count(cluster)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the number current hosts (machines) in the cluster</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_hosts/1">get_hosts(cluster)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the current hosts (machines) in the cluster</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_token/1">get_token(cluster)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the token associated with the cluster</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_units/1">get_units(cluster)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the current units in the cluster</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_units_state/1">get_units_state(cluster)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the current units in the cluster</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="create/1">
+    <span class="signature"><strong>create(etcd_token)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>create(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Creates a <code>GenServer</code> representing an etcd cluster.</p>
+
+<h2>Return values</h2>
+
+<p>If the server is successfully created and initialized, the function returns
+<code>{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
+process with the specified server name, the function returns
+<code>{:error, {:already_started, pid}}</code> with the pid of that process.</p>
+
+<p>If the <code>init/1</code> callback fails with <code>reason</code>, the function returns
+<code>{:error, reason}</code>. Otherwise, if it returns <code>{:stop, reason}</code>
+or <code>:ignore</code>, the process is terminated and the function returns
+<code>{:error, reason}</code> or <code>:ignore</code>, respectively.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="create!/1">
+    <span class="signature"><strong>create!(etcd_token)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create!/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>create!(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: pid</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to generate a new EtcdCluster agent</p>
+
+<h2>Options</h2>
+
+<p>The <code>etcd_token</code> option defines the associated etcd token.</p>
+
+<h2>Return Values</h2>
+
+<p>pid</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="deploy_units/3">
+    <span class="signature"><strong>deploy_units(cluster, new_units, available_ports \\ nil)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#deploy_units/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>deploy_units(pid, List, List) :: List</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to deploy new units to the cluster</p>
+
+<h2>Options</h2>
+
+<p>The <code>cluster</code> options defines the etcd cluster PID</p>
+
+<p>The <code>new_units</code> options defines the List of new units</p>
+
+<p>The <code>available_ports</code> optional option defines a List of ports that will be used for deployment</p>
+
+<h2>Return Values</h2>
+
+<p>List of newly deployed Units</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_host_count/1">
+    <span class="signature"><strong>get_host_count(cluster)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_host_count/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_host_count(pid) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the number current hosts (machines) in the cluster</p>
+
+<h2>Options</h2>
+
+<p>The <code>cluster</code> options defines the etcd cluster PID</p>
+
+<h2>Return Values</h2>
+
+<p>Integer</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_hosts/1">
+    <span class="signature"><strong>get_hosts(cluster)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_hosts/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_hosts(pid) :: List</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the current hosts (machines) in the cluster</p>
+
+<h2>Options</h2>
+
+<p>The <code>cluster</code> options defines the etcd cluster PID</p>
+
+<h2>Return Values</h2>
+
+<p>List</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_token/1">
+    <span class="signature"><strong>get_token(cluster)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_token/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_token(pid) :: List</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the token associated with the cluster</p>
+
+<h2>Options</h2>
+
+<p>The <code>cluster</code> options defines the etcd cluster PID</p>
+
+<h2>Return Values</h2>
+
+<p>String</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_units/1">
+    <span class="signature"><strong>get_units(cluster)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_units/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_units(pid) :: List</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the current units in the cluster</p>
+
+<h2>Options</h2>
+
+<p>The <code>cluster</code> options defines the etcd cluster PID</p>
+
+<h2>Return Values</h2>
+
+<p>List</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_units_state/1">
+    <span class="signature"><strong>get_units_state(cluster)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_units_state/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_units_state(pid) :: List</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the current units in the cluster</p>
+
+<h2>Options</h2>
+
+<p>The <code>cluster</code> options defines the etcd cluster PID</p>
+
+<h2>Return Values</h2>
+
+<p>List</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
