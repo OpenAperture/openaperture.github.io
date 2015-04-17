@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.ManagerApi.Resource</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_manager_api v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.ManagerApi.html">ManagerApi</a> &rarr; <a href="OpenAperture.ManagerApi.Resource.html">Resource</a></div>
+      <h1>
+        OpenAperture.ManagerApi.Resource
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains reusable methods for creating httpc requests to the openaperture_manager.</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#build_query_string_from_params/1">build_query_string_from_params(query_params)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to generate a query param string</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete/2">delete(api, path)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete/4">delete(api, path, headers, options)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to execute a POST httpc request</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get/2">get(api, path)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get/4">get(api, path, headers, options)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to execute a GET httpc request</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_path/1">get_path(default_path)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_path/2">get_path(default_path, query_params)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to generate an relative path, including query params</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#post/3">post(api, path, body)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#post/5">post(api, path, object, headers, options)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to execute a POST httpc request</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#put/3">put(api, path, body)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#put/5">put(api, path, object, headers, options)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to execute a PUT httpc request</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="build_query_string_from_params/1">
+    <span class="signature"><strong>build_query_string_from_params(query_params)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#build_query_string_from_params/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>build_query_string_from_params(Map) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to generate a query param string</p>
+
+<h2>Option Values</h2>
+
+<p>The <code>query_params</code> option represents map of query param names to values</p>
+
+<h2>Return values</h2>
+
+<p>Query string</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="delete/2">
+    <span class="signature"><strong>delete(api, path)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#delete/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>delete(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="OpenAperture.ManagerApi.Response.html#t:t/0">OpenAperture.ManagerApi.Response.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="delete/4">
+    <span class="signature"><strong>delete(api, path, headers, options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#delete/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>delete(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, List, List) :: <a href="OpenAperture.ManagerApi.Response.html#t:t/0">OpenAperture.ManagerApi.Response.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute a POST httpc request</p>
+
+<h2>Option Values</h2>
+
+<p>The <code>api</code> option defines the ManagerApi pid</p>
+
+<p>The <code>path</code> option represents the relative url path</p>
+
+<p>The <code>headers</code> option represents a KeyWord list of headers</p>
+
+<p>The <code>options</code> option represents a KeyWord list of HTTP options</p>
+
+<h2>Return values</h2>
+
+<p>OpenAperture.ManagerApi.Response</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get/2">
+    <span class="signature"><strong>get(api, path)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="OpenAperture.ManagerApi.Response.html#t:t/0">OpenAperture.ManagerApi.Response.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get/4">
+    <span class="signature"><strong>get(api, path, headers, options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, List, List) :: <a href="OpenAperture.ManagerApi.Response.html#t:t/0">OpenAperture.ManagerApi.Response.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute a GET httpc request</p>
+
+<h2>Option Values</h2>
+
+<p>The <code>api</code> option defines the ManagerApi pid</p>
+
+<p>The <code>path</code> option represents the relative url path</p>
+
+<p>The <code>headers</code> option represents a KeyWord list of headers</p>
+
+<p>The <code>options</code> option represents a KeyWord list of HTTP options</p>
+
+<h2>Return values</h2>
+
+<p>OpenAperture.ManagerApi.Response</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_path/1">
+    <span class="signature"><strong>get_path(default_path)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_path/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_path(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_path/2">
+    <span class="signature"><strong>get_path(default_path, query_params)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_path/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_path(pid, Map) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to generate an relative path, including query params</p>
+
+<h2>Option Values</h2>
+
+<p>The <code>default_path</code> option represents the relative url</p>
+
+<p>The <code>query_params</code> option represents map of query param names to values</p>
+
+<h2>Return values</h2>
+
+<p>Absolute URL</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="post/3">
+    <span class="signature"><strong>post(api, path, body)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#post/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>post(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, any) :: <a href="OpenAperture.ManagerApi.Response.html#t:t/0">OpenAperture.ManagerApi.Response.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="post/5">
+    <span class="signature"><strong>post(api, path, object, headers, options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#post/5" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>post(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term, List, List) :: <a href="OpenAperture.ManagerApi.Response.html#t:t/0">OpenAperture.ManagerApi.Response.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute a POST httpc request</p>
+
+<h2>Option Values</h2>
+
+<p>The <code>api</code> option defines the ManagerApi pid</p>
+
+<p>The <code>path</code> option represents the relative url path</p>
+
+<p>The <code>object</code> option represents the payload of the post request</p>
+
+<p>The <code>headers</code> option represents a KeyWord list of headers</p>
+
+<p>The <code>options</code> option represents a KeyWord list of HTTP options</p>
+
+<h2>Return values</h2>
+
+<p>OpenAperture.ManagerApi.Response</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="put/3">
+    <span class="signature"><strong>put(api, path, body)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#put/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>put(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, any) :: <a href="OpenAperture.ManagerApi.Response.html#t:t/0">OpenAperture.ManagerApi.Response.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="put/5">
+    <span class="signature"><strong>put(api, path, object, headers, options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#put/5" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>put(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term, List, List) :: <a href="OpenAperture.ManagerApi.Response.html#t:t/0">OpenAperture.ManagerApi.Response.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute a PUT httpc request</p>
+
+<h2>Option Values</h2>
+
+<p>The <code>api</code> option defines the ManagerApi pid</p>
+
+<p>The <code>path</code> option represents the relative url path</p>
+
+<p>The <code>object</code> option represents the payload of the post request</p>
+
+<p>The <code>headers</code> option represents a KeyWord list of headers</p>
+
+<p>The <code>options</code> option represents a KeyWord list of HTTP options</p>
+
+<h2>Return values</h2>
+
+<p>OpenAperture.ManagerApi.Response</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

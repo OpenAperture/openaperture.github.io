@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.ManagerApi.Response</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_manager_api v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.ManagerApi.html">ManagerApi</a> &rarr; <a href="OpenAperture.ManagerApi.Response.html">Response</a></div>
+      <h1>
+        OpenAperture.ManagerApi.Response
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the ManagerApi response struct and reusable methods for processing responses from the openaperture_manager.</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#extract_identifier_from_location_header/1">extract_identifier_from_location_header(response)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to extract an identifier from the Location header of a response</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#extract_location_header/1">extract_location_header(response)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to extract an the Location header of a response</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#from_httpc_response/1">from_httpc_response(response)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to process an incoming httpc response into a OpenAperture.ManagerApi.Response</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#process/1">process(request)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to process an incoming http response into a OpenAperture.ManagerApi.Response</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="extract_identifier_from_location_header/1">
+    <span class="signature"><strong>extract_identifier_from_location_header(response)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#extract_identifier_from_location_header/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>extract_identifier_from_location_header(term) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to extract an identifier from the Location header of a response</p>
+
+<h2>Option Values</h2>
+
+<p>The <code>response</code> option defines the OpenAperture.ManagerApi.Response</p>
+
+<h2>Return values</h2>
+
+<p>String identifier</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="extract_location_header/1">
+    <span class="signature"><strong>extract_location_header(response)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#extract_location_header/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>extract_location_header(term) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to extract an the Location header of a response</p>
+
+<h2>Option Values</h2>
+
+<p>The <code>response</code> option defines the OpenAperture.ManagerApi.Response</p>
+
+<h2>Return values</h2>
+
+<p>String</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="from_httpc_response/1">
+    <span class="signature"><strong>from_httpc_response(response)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#from_httpc_response/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>from_httpc_response(term) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to process an incoming httpc response into a OpenAperture.ManagerApi.Response</p>
+
+<h2>Option Values</h2>
+
+<p>The <code>response</code> option defines the httpc response to be processed</p>
+
+<h2>Return values</h2>
+
+<p>OpenAperture.ManagerApi.Response</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="process/1">
+    <span class="signature"><strong>process(request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#process/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>process(term) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to process an incoming http response into a OpenAperture.ManagerApi.Response</p>
+
+<h2>Option Values</h2>
+
+<p>The <code>request</code> option defines the http request to be processed</p>
+
+<h2>Return values</h2>
+
+<p>OpenAperture.ManagerApi.Response</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
