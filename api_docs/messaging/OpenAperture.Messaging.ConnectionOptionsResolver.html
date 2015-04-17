@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Messaging.ConnectionOptionsResolver</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_messaging v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Messaging.html">Messaging</a> &rarr; <a href="OpenAperture.Messaging.ConnectionOptionsResolver.html">ConnectionOptionsResolver</a></div>
+      <h1>
+        OpenAperture.Messaging.ConnectionOptionsResolver
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the logic to resolve the appropriate connection options for a messaging client</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#cache_connection_options/3">cache_connection_options(state, broker_id, connection_options)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to cache connection options</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#cache_stale?/1">cache_stale?(cache)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to determine if the cached options are stale (i.e. retrieved &gt; 5 minutes prior)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_connection_option_for_broker/3">get_connection_option_for_broker(state, api, broker_id)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to select a connection option from a list of available options</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_connection_option_for_brokers/3">get_connection_option_for_brokers(state, api, brokers)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to identify a single connection option for a set of brokers</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_connection_options_from_cache/2">get_connection_options_from_cache(state, broker_id)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to check the cache for existing connection options</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_for_broker/2">get_for_broker(api, broker_id)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the appropriate connection option for a messaging client to a specific broker</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_restrictions_for_exchange/3">get_restrictions_for_exchange(state, api, exchange_id)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve any broker restrictions for a specific exchange identifier</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_call/3">handle_call(msg, from, state)</a></td>
+  
+    <td class="summary_synopsis"><p>Call handler to resolve the connection options</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#resolve/4">resolve(api, src_broker_id, src_exchange_id, dest_exchange_id)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the appropriate connection options for a messaging client</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#resolve_connection_option_for_broker/1">resolve_connection_option_for_broker(connection_options)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to select a connection option from a list of available options</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
+  
+    <td class="summary_synopsis"><p>Specific start_link implementation (required by the supervisor)</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="cache_connection_options/3">
+    <span class="signature"><strong>cache_connection_options(state, broker_id, connection_options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#cache_connection_options/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>cache_connection_options(Map, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, List) :: List</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to cache connection options</p>
+
+<h2>Options</h2>
+
+<p>The <code>api</code> option represents a OpenAperture.ManagerApi</p>
+
+<p>The <code>broker_id</code> option represents an MessageBroker identifier</p>
+
+<p>The <code>connection_options</code> option represents the options to cache</p>
+
+<h2>Return Values</h2>
+
+<p>updated state</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="cache_stale?/1">
+    <span class="signature"><strong>cache_stale?(cache)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#cache_stale?/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>cache_stale?(Map) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to determine if the cached options are stale (i.e. retrieved &gt; 5 minutes prior)</p>
+
+<h2>Return Values</h2>
+
+<p>Boolean</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_connection_option_for_broker/3">
+    <span class="signature"><strong>get_connection_option_for_broker(state, api, broker_id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_connection_option_for_broker/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_connection_option_for_broker(Map, term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {term, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to select a connection option from a list of available options</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option represents the server state</p>
+
+<p>The <code>api</code> option represents a OpenAperture.ManagerApi</p>
+
+<p>The <code>broker_id</code> option represents an MessageBroker identifier</p>
+
+<h2>Return Values</h2>
+
+<p>{Map, state}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_connection_option_for_brokers/3">
+    <span class="signature"><strong>get_connection_option_for_brokers(state, api, brokers)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_connection_option_for_brokers/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_connection_option_for_brokers(Map, term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {term, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to identify a single connection option for a set of brokers</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option represents the server state</p>
+
+<p>The <code>api</code> option represents a OpenAperture.ManagerApi</p>
+
+<p>The <code>exchange_id</code> option represents an MessageExchange identifier</p>
+
+<h2>Return Values</h2>
+
+<p>{Map, state}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_connection_options_from_cache/2">
+    <span class="signature"><strong>get_connection_options_from_cache(state, broker_id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_connection_options_from_cache/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_connection_options_from_cache(Map, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: List</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to check the cache for existing connection options</p>
+
+<h2>Options</h2>
+
+<p>The <code>api</code> option represents a OpenAperture.ManagerApi</p>
+
+<p>The <code>broker_id</code> option represents an MessageBroker identifier</p>
+
+<h2>Return Values</h2>
+
+<p>Map</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_for_broker/2">
+    <span class="signature"><strong>get_for_broker(api, broker_id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_for_broker/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_for_broker(term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the appropriate connection option for a messaging client to a specific broker</p>
+
+<h2>Options</h2>
+
+<p>The <code>api</code> option defines the OpenAperture.ManagerApi process</p>
+
+<p>The <code>src_broker_id</code> option defines the source broker identifier (where is the message going to start)</p>
+
+<h2>Return Values</h2>
+
+<p>Returns the connection_option</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_restrictions_for_exchange/3">
+    <span class="signature"><strong>get_restrictions_for_exchange(state, api, exchange_id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_restrictions_for_exchange/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_restrictions_for_exchange(Map, term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {List, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve any broker restrictions for a specific exchange identifier</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option represents the server state</p>
+
+<p>The <code>api</code> option represents a OpenAperture.ManagerApi</p>
+
+<p>The <code>exchange_id</code> option represents an MessageExchange identifier</p>
+
+<h2>Return Values</h2>
+
+<p>{List of broker Maps, state}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_call/3">
+    <span class="signature"><strong>handle_call(msg, from, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_call/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_call({:resolve, term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}, term, Map) :: {:reply, <a href="OpenAperture.Messaging.ConnectionOptions.html#t:t/0">OpenAperture.Messaging.ConnectionOptions.t</a>, Map}</li>
+      
+        <li>handle_call({:get_for_broker, term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}, term, Map) :: {:reply, <a href="OpenAperture.Messaging.ConnectionOptions.html#t:t/0">OpenAperture.Messaging.ConnectionOptions.t</a>, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Call handler to resolve the connection options</p>
+
+<h2>Options</h2>
+
+<p>The <code>api</code> option defines the OpenAperture.ManagerApi process</p>
+
+<p>The <code>src_broker_id</code> option defines the source broker identifier (where is the message going to start)</p>
+
+<p>The <code>src_exchange_id</code> option defines the source exchange identifier (where is the message going to start)</p>
+
+<p>The <code>dest_exchange_id</code> option defines the destination exchange identifier (where is the message going to end)</p>
+
+<p>The <code>_from</code> option defines the tuple {from, ref}</p>
+
+<p>The <code>state</code> option represents the server&#39;s current state</p>
+
+<h2>Return Values</h2>
+
+<p>{:reply, OpenAperture.Messaging.ConnectionOptions, resolved_state}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="resolve/4">
+    <span class="signature"><strong>resolve(api, src_broker_id, src_exchange_id, dest_exchange_id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#resolve/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>resolve(term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the appropriate connection options for a messaging client</p>
+
+<h2>Options</h2>
+
+<p>The <code>api</code> option defines the OpenAperture.ManagerApi process</p>
+
+<p>The <code>src_broker_id</code> option defines the source broker identifier (where is the message going to start)</p>
+
+<p>The <code>src_exchange_id</code> option defines the source exchange identifier (where is the message going to start)</p>
+
+<p>The <code>dest_exchange_id</code> option defines the destination exchange identifier (where is the message going to end)</p>
+
+<h2>Return Values</h2>
+
+<p>Returns the connection_option</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="resolve_connection_option_for_broker/1">
+    <span class="signature"><strong>resolve_connection_option_for_broker(connection_options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#resolve_connection_option_for_broker/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>resolve_connection_option_for_broker(List) :: {term, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to select a connection option from a list of available options</p>
+
+<h2>Options</h2>
+
+<p>The <code>api</code> option represents a OpenAperture.ManagerApi</p>
+
+<p>The <code>exchange_id</code> option represents an MessageExchange identifier</p>
+
+<h2>Return Values</h2>
+
+<p>Map</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/0">
+    <span class="signature"><strong>start_link()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Specific start_link implementation (required by the supervisor)</p>
+
+<h2>Options</h2>
+
+<h2>Return Values</h2>
+
+<p>{:ok, pid} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

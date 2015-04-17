@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Messaging.AMQP.ConnectionPool</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_messaging v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Messaging.html">Messaging</a> &rarr; AMQP &rarr; <a href="OpenAperture.Messaging.AMQP.ConnectionPool.html">ConnectionPool</a></div>
+      <h1>
+        OpenAperture.Messaging.AMQP.ConnectionPool
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the GenServer for a specific connection pool, which manages all connections to the AMQP host</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#close/1">close(connection_pool)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to close all subscriptions, channels, and connections associated with this ConnectionPool</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#create_channel_for_connection/2">create_channel_for_connection(state, connection_url)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to create a channel on an existing connection</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#create_connection/2">create_connection(connection_options, state)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to create a connection, based on connection options</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#create_connections/3">create_connections(connection_cnt, connection_options, state)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to create connections, based on connection options</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#deserialize/1">deserialize(binary)</a></td>
+  
+    <td class="summary_synopsis"><p>Proxies to :erlang.term<em>to</em>binary</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#failover_connection/2">failover_connection(state, old_connection_url)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to connect to a configured failover AMQP broker/exchange</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_channel/1">get_channel(state)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve a channel identifier, for a connection (existing or to be created)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_connection/1">get_connection(state)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to create a existing connection, based on the state&#39;s connection options and max<em>connection</em>cnt</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_call/3">handle_call(msg, from, state)</a></td>
+  
+    <td class="summary_synopsis"><p>GenServer callback - invoked to handle call (sync) messages.  Catches {:subscribe, ...} messages;
+this callback will store the connection options into the server&#39;s state</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_info/2">handle_info(arg1, state)</a></td>
+  
+    <td class="summary_synopsis"><p>GenServer callback - invoked to handle all other messages which are received by the process</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#init/1">init(args)</a></td>
+  
+    <td class="summary_synopsis"><p>GenServer callback - invoked when the server is started</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#publish/4">publish(connection_pool, exchange, queue, payload)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to public a message onto to a queue</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#restart_channel/4">restart_channel(state, connection_url, old_channel_id, retry_cnt)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to restart a channel within a specific connection, in the event of a failure</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#restart_connection/3">restart_connection(state, connection_url, retry_cnt)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to restart a connection, in the event of a failure</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#serilalize/1">serilalize(term)</a></td>
+  
+    <td class="summary_synopsis"><p>Proxies to :erlang.term<em>to</em>binary</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#set_connection_options/2">set_connection_options(connection_pool, connection_options)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to set the connection options into the GenServer.  This should be a Keyword List</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/1">start_link(connection_options)</a></td>
+  
+    <td class="summary_synopsis"><p>Specific start_link implementation</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#subscribe/4">subscribe(connection_pool, exchange, queue, callback_handler)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to subscribe to a queue and provide a callback handler</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#subscribe_to_queue/5">subscribe_to_queue(state, channel_id, exchange, queue, callback_handler)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to subscribe a callback handler to a specific queue</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#terminate/2">terminate(process, state)</a></td>
+  
+    <td class="summary_synopsis"><p>GenServer callback - called when the server is about to terminate, useful for cleaning up. It must return :ok</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unsubscribe/2">unsubscribe(connection_pool, subscription_handler)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to subscribe to a queue and provide a callback handler</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="close/1">
+    <span class="signature"><strong>close(connection_pool)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#close/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>close(pid) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to close all subscriptions, channels, and connections associated with this ConnectionPool</p>
+
+<h2>Options</h2>
+
+<p>The <code>connection_pool</code> option represents the PID of the GenServer</p>
+
+<h2>Return Values</h2>
+
+<p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="create_channel_for_connection/2">
+    <span class="signature"><strong>create_channel_for_connection(state, connection_url)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create_channel_for_connection/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>create_channel_for_connection(term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {term, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to create a channel on an existing connection</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option defines the state of the server</p>
+
+<p>The <code>connection_url</code> option defines which connection to use for creating the channel</p>
+
+<h2>Return Values</h2>
+
+<p>{channel_id, state} | {nil, state}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="create_connection/2">
+    <span class="signature"><strong>create_connection(connection_options, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create_connection/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>create_connection(List, term) :: {term, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to create a connection, based on connection options</p>
+
+<h2>Options</h2>
+
+<p>The <code>connection_options</code> option defines the connection options to use</p>
+
+<p>The <code>state</code> option defines the state of the server</p>
+
+<h2>Return Values</h2>
+
+<p>{ref, state}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="create_connections/3">
+    <span class="signature"><strong>create_connections(connection_cnt, connection_options, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create_connections/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>create_connections(term, List, term) :: term</li>
+      
+        <li>create_connections(0, List, term) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to create connections, based on connection options</p>
+
+<h2>Options</h2>
+
+<p>The <code>connection_cnt</code> option defines the number of remaining connections to create</p>
+
+<p>The <code>connection_options</code> option defines the connection options to use</p>
+
+<p>The <code>state</code> option defines the state of the server</p>
+
+<h2>Return Values</h2>
+
+<p>state</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="deserialize/1">
+    <span class="signature"><strong>deserialize(binary)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#deserialize/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>deserialize(binary) :: term</li>
+      
+        <li>deserialize(term) :: binary</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Proxies to :erlang.term<em>to</em>binary</p>
+
+<h2>Accepts:</h2>
+
+<ul>
+<li>binary</li>
+</ul>
+
+<h2>Returns</h2>
+
+<ul>
+<li>term</li>
+</ul>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="failover_connection/2">
+    <span class="signature"><strong>failover_connection(state, old_connection_url)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#failover_connection/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>failover_connection(term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to connect to a configured failover AMQP broker/exchange</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option defines the state of the server</p>
+
+<p>The <code>old_connection_url</code> option represents the URL of the AMQP connection</p>
+
+<h2>Return Values</h2>
+
+<p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_channel/1">
+    <span class="signature"><strong>get_channel(state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_channel/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_channel(term) :: {term, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve a channel identifier, for a connection (existing or to be created)</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option defines the state of the server</p>
+
+<h2>Return Values</h2>
+
+<p>{channel_id, state} | {nil, state}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_connection/1">
+    <span class="signature"><strong>get_connection(state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_connection/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_connection(term) :: {term, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to create a existing connection, based on the state&#39;s connection options and max<em>connection</em>cnt</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option defines the state of the server</p>
+
+<h2>Return Values</h2>
+
+<p>{connection_url, state} | {nil, state}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_call/3">
+    <span class="signature"><strong>handle_call(msg, from, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_call/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_call({:subscribe, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term}, term, term) :: {:reply, term, term}</li>
+      
+        <li>handle_call({:close}, term, Map) :: {:reply, term, term}</li>
+      
+        <li>handle_call({:prepare_close}, term, Map) :: {:reply, term, term}</li>
+      
+        <li>handle_call({:unsubscribe, pid}, term, Map) :: {:reply, term, term}</li>
+      
+        <li>handle_call({:publish, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term}, term, term) :: {:reply, term, term}</li>
+      
+        <li>handle_call({:set_connection_options, List}, term, term) :: {:reply, term, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>GenServer callback - invoked to handle call (sync) messages.  Catches {:subscribe, ...} messages;
+this callback will store the connection options into the server&#39;s state.</p>
+
+<h2>Options</h2>
+
+<p>The <code>connection_pool</code> option represents the PID of the GenServer</p>
+
+<p>The <code>exchange</code> option represents the AMQP exchange</p>
+
+<p>The <code>queue</code> option represents the AMQP queue</p>
+
+<p>The <code>callback_handler</code> option represents the method that should be called when a message is received.  The handler
+should be a function with 2 arguments.</p>
+
+<h2>Return Values</h2>
+
+<p>{:reply, {:ok, subscription<em>handler} | {:error, reason}, new</em>state}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_info/2">
+    <span class="signature"><strong>handle_info(arg1, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_info/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_info({term, term, term, term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}, term) :: {:noreply, term}</li>
+      
+        <li>handle_info({:DOWN, term, term, term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}, term) :: {:noreply, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>GenServer callback - invoked to handle all other messages which are received by the process.</p>
+
+<h2>Options</h2>
+
+<p>The <code>ref</code> option defines the PID reference</p>
+
+<p>The <code>_pid</code> option defines the PID</p>
+
+<p>The <code>reason</code> option represents the reason the PID has stopped</p>
+
+<h2>Return Values</h2>
+
+<p>{:noreply, new_state}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="init/1">
+    <span class="signature"><strong>init(args)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#init/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>init(term) :: {:ok, term} | {:ok, term, term} | :ignore | {:stop, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>GenServer callback - invoked when the server is started.</p>
+
+<h2>Options</h2>
+
+<p>The <code>args</code> option represents the args to the GenServer.  In this case, we&#39;re expecting
+this to be the GenEvent server, generated during start_link</p>
+
+<h2>Return Values</h2>
+
+<p>{:ok, state} | {:ok, state, timeout} | :ignore | {:stop, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="publish/4">
+    <span class="signature"><strong>publish(connection_pool, exchange, queue, payload)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#publish/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>publish(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to public a message onto to a queue</p>
+
+<h2>Options</h2>
+
+<p>The <code>connection_pool</code> option represents the PID of the GenServer</p>
+
+<p>The <code>exchange</code> option represents the AMQP exchange</p>
+
+<p>The <code>queue_name</code> option represents the AMQP queue</p>
+
+<p>The <code>payload</code> option represents the message data</p>
+
+<h2>Return Values</h2>
+
+<p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="restart_channel/4">
+    <span class="signature"><strong>restart_channel(state, connection_url, old_channel_id, retry_cnt)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#restart_channel/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>restart_channel(term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: {term, {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}} | {term, {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to restart a channel within a specific connection, in the event of a failure</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option defines the state of the server</p>
+
+<p>The <code>connection_url</code> option represents the URL of the AMQP connection</p>
+
+<p>The <code>old_channel_id</code> option represents the the original ID of the AMQP channel</p>
+
+<p>The <code>retry_cnt</code> option defines the number of remaining retries left</p>
+
+<h2>Return Values</h2>
+
+<p>{state, {:ok, channel_id}} | {state, {:error, reason}}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="restart_connection/3">
+    <span class="signature"><strong>restart_connection(state, connection_url, retry_cnt)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#restart_connection/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>restart_connection(term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to restart a connection, in the event of a failure</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option defines the state of the server</p>
+
+<p>The <code>connection_url</code> option represents the URL of the AMQP connection</p>
+
+<p>The <code>retry_cnt</code> option defines the number of remaining retries left</p>
+
+<h2>Return Values</h2>
+
+<p>:ok</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="serilalize/1">
+    <span class="signature"><strong>serilalize(term)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#serilalize/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Proxies to :erlang.term<em>to</em>binary</p>
+
+<h2>Accepts:</h2>
+
+<ul>
+<li>term — a single data structure of any type</li>
+</ul>
+
+<h2>Returns</h2>
+
+<p>binary</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="set_connection_options/2">
+    <span class="signature"><strong>set_connection_options(connection_pool, connection_options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#set_connection_options/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>set_connection_options(pid, List) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to set the connection options into the GenServer.  This should be a Keyword List</p>
+
+<h2>Options</h2>
+
+<p>The <code>connection_pool</code> option represents the PID of the GenServer</p>
+
+<p>The <code>connection_options</code> option represents the AMQP connection options required to connect to the host</p>
+
+<h2>Return Values</h2>
+
+<p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/1">
+    <span class="signature"><strong>start_link(connection_options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link(List) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Specific start_link implementation</p>
+
+<h2>Options</h2>
+
+<p>The <code>connection_options</code> option representings the AMQP connection options required to connect to the host</p>
+
+<h2>Return Values</h2>
+
+<p>{:ok, pid} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="subscribe/4">
+    <span class="signature"><strong>subscribe(connection_pool, exchange, queue, callback_handler)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#subscribe/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>subscribe(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: {:ok, term} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to subscribe to a queue and provide a callback handler</p>
+
+<h2>Options</h2>
+
+<p>The <code>connection_pool</code> option represents the PID of the GenServer</p>
+
+<p>The <code>exchange</code> option represents the AMQP exchange</p>
+
+<p>The <code>queue_name</code> option represents the AMQP queue</p>
+
+<p>The <code>callback_handler</code> option represents the method that should be called when a message is received.  The handler
+should be a function with 2 arguments (sync) or 3 arguments (async).</p>
+
+<h2>Return Values</h2>
+
+<p>{:ok, subscription_handler} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="subscribe_to_queue/5">
+    <span class="signature"><strong>subscribe_to_queue(state, channel_id, exchange, queue, callback_handler)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#subscribe_to_queue/5" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>subscribe_to_queue(term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: {Map, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to subscribe a callback handler to a specific queue</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option defines the state of the server</p>
+
+<p>The <code>channel_id</code> option represents the ID of the AMQP channel</p>
+
+<p>The <code>exchange</code> option represents the AMQP exchange name</p>
+
+<p>The <code>queue</code> option represents the AMQP queue name</p>
+
+<p>The <code>callback_handler</code> option represents the method that should be called when a message is received.  The handler
+should be a function with 2 or 3arguments.  </p>
+
+<h2>Return Values</h2>
+
+<p>{the updated state, the new SubscriptionHandler}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="terminate/2">
+    <span class="signature"><strong>terminate(process, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#terminate/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>terminate(pid, term) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>GenServer callback - called when the server is about to terminate, useful for cleaning up. It must return :ok.</p>
+
+<h2>Options</h2>
+
+<p>The <code>pid</code> option defines the PID of the server</p>
+
+<p>The <code>state</code> option represents the final state of the server</p>
+
+<h2>Return Values</h2>
+
+<p>:ok</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="unsubscribe/2">
+    <span class="signature"><strong>unsubscribe(connection_pool, subscription_handler)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unsubscribe/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>unsubscribe(pid, pid) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to subscribe to a queue and provide a callback handler</p>
+
+<h2>Options</h2>
+
+<p>The <code>subscription_handler</code> option represents the PID of the SubscriptionHandler</p>
+
+<h2>Return Values</h2>
+
+<p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

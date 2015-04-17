@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Messaging.AMQP.SubscriptionHandler</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_messaging v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Messaging.html">Messaging</a> &rarr; AMQP &rarr; <a href="OpenAperture.Messaging.AMQP.SubscriptionHandler.html">SubscriptionHandler</a></div>
+      <h1>
+        OpenAperture.Messaging.AMQP.SubscriptionHandler
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the GenServer for managing subscription callbacks</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#acknowledge/2">acknowledge(subscription_handler, delivery_tag)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to acknowledge a message from via the handler server</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#deserialize/1">deserialize(binary)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to deserialize an object from the AMQP callback handler</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#deserialize_payload/2">deserialize_payload(payload, delivery_tag)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to deserialize the request payload</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#execute_callback_handler/4">execute_callback_handler(subscription_handler_options, subscription_handler, payload, meta)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to execute the associated callback handler (either async or sync)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_subscription_options/1">get_subscription_options(subscription_handler)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to get the options from the handler server</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_call/3">handle_call(msg, from, state)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to execute reject a message, based on delivery tag</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#process_async_request/3">process_async_request(channel, callback_handler, subscription_handler)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to process messages from the AMQP client, and execute the corresponding callback_handler</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#process_request/3">process_request(subscription_handler, payload, meta)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#reject/3">reject(subscription_handler, delivery_tag, redeliver \\ false)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to reject a message from via the handler server</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#serilalize/1">serilalize(term)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to serialize an object going to the AMQP callback handler</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_async_handler/3">start_async_handler(channel, callback_handler, subscription_handler)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to establish a connection to the AMQP client.  Once you&#39;ve received confirmation (:basic<em>consume</em>ok),
+you&#39;ll start to receive messages</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#subscribe/1">subscribe(options)</a></td>
+  
+    <td class="summary_synopsis"><p>Creation method for subscription handlers (sync and async)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unsubscribe/1">unsubscribe(subscription_handler)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to unsubscribe from a queue (tied to the SubscriptionHandler)</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="acknowledge/2">
+    <span class="signature"><strong>acknowledge(subscription_handler, delivery_tag)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#acknowledge/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>acknowledge(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to acknowledge a message from via the handler server</p>
+
+<h2>Options</h2>
+
+<p>The <code>subscription_handler</code> option defines the PID of the SubscriptionHandler</p>
+
+<p>The <code>delivery_tag</code> option defines the delivery tag of the messsage</p>
+
+<p>The <code>_from</code> option defines the tuple {from, ref}</p>
+
+<p>The <code>state</code> option represents the server&#39;s current state</p>
+
+<h2>Return Value</h2>
+
+<p>:ok</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="deserialize/1">
+    <span class="signature"><strong>deserialize(binary)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#deserialize/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>deserialize(binary) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to deserialize an object from the AMQP callback handler</p>
+
+<h2>Options</h2>
+
+<p>The <code>binary</code> option defines the term to deserialize</p>
+
+<h2>Return Value</h2>
+
+<p>term</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="deserialize_payload/2">
+    <span class="signature"><strong>deserialize_payload(payload, delivery_tag)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#deserialize_payload/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>deserialize_payload(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to deserialize the request payload</p>
+
+<h2>Options</h2>
+
+<p>The <code>payload</code> option represents raw payload of the message</p>
+
+<p>The <code>delivery_tag</code> option represents the identifier of the message  </p>
+
+<h2>Return Value</h2>
+
+<p>{deserialization success/failure, payload}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="execute_callback_handler/4">
+    <span class="signature"><strong>execute_callback_handler(subscription_handler_options, subscription_handler, payload, meta)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#execute_callback_handler/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>execute_callback_handler(Map, pid, term, Map) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute the associated callback handler (either async or sync)</p>
+
+<h2>Options</h2>
+
+<p>The <code>subscription_handler_options</code> option defines the options associated with the SubscriptionHandler that will be used to process the message</p>
+
+<p>The <code>subscription_handler</code> option defines the PID of the SubscriptionHandler that will be used to process the message</p>
+
+<p>The <code>payload</code> option represents raw payload of the message</p>
+
+<p>The <code>meta</code> option represents the metadata associated with the message</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_subscription_options/1">
+    <span class="signature"><strong>get_subscription_options(subscription_handler)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_subscription_options/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_subscription_options(pid) :: Map</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to get the options from the handler server</p>
+
+<h2>Options</h2>
+
+<p>The <code>subscription_handler</code> option defines the PID of the SubscriptionHandler</p>
+
+<p>The <code>_from</code> option defines the tuple {from, ref}</p>
+
+<p>The <code>state</code> option represents the server&#39;s current state</p>
+
+<h2>Return Value</h2>
+
+<p>:ok</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_call/3">
+    <span class="signature"><strong>handle_call(msg, from, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_call/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_call({:reject, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term}, term, Map) :: {:reply, :ok, Map}</li>
+      
+        <li>handle_call({:acknowledge, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}, term, Map) :: {:reply, :ok, Map}</li>
+      
+        <li>handle_call({:process_request, Map, Map}, term, Map) :: {:reply, :ok, Map}</li>
+      
+        <li>handle_call({:subscribe_async}, term, Map) :: {:reply, :ok, Map}</li>
+      
+        <li>handle_call({:subscribe_sync}, term, Map) :: {:reply, :ok, Map}</li>
+      
+        <li>handle_call({:set_subscription_options, Map}, term, Map) :: {:reply, Map, Map}</li>
+      
+        <li>handle_call({:get_subscription_options}, term, Map) :: {:reply, :ok, Map}</li>
+      
+        <li>handle_call({:unsubscribe}, term, Map) :: {:reply, :ok, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute reject a message, based on delivery tag</p>
+
+<h2>Options</h2>
+
+<p>The <code>delivery_tag</code> option defines the delivery tag of the messsage</p>
+
+<p>The <code>redeliver</code> option defines a boolean that can requeue a message</p>
+
+<p>The <code>_from</code> option defines the tuple {from, ref}</p>
+
+<p>The <code>state</code> option represents the server&#39;s current state</p>
+
+<h2>Return Value</h2>
+
+<p>{:reply, :ok, state}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="process_async_request/3">
+    <span class="signature"><strong>process_async_request(channel, callback_handler, subscription_handler)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#process_async_request/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>process_async_request(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term, pid) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to process messages from the AMQP client, and execute the corresponding callback_handler</p>
+
+<h2>Options</h2>
+
+<p>The <code>channel_id</code> option represents the ID of the AMQP channel</p>
+
+<p>The <code>callback_handler</code> option represents the method that should be called when a message is received.  The handler
+should be a function with 2 or 3 arguments.    </p>
+
+<p>The <code>subscription_handler</code> option defines the PID of the SubscriptionHandler that will be used to process the message</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="process_request/3">
+    <span class="signature"><strong>process_request(subscription_handler, payload, meta)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#process_request/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="reject/3">
+    <span class="signature"><strong>reject(subscription_handler, delivery_tag, redeliver \\ false)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#reject/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>reject(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to reject a message from via the handler server</p>
+
+<h2>Options</h2>
+
+<p>The <code>subscription_handler</code> option defines the PID of the SubscriptionHandler</p>
+
+<p>The <code>delivery_tag</code> option defines the delivery tag of the messsage</p>
+
+<p>The <code>redeliver</code> option defines a boolean that can requeue a message</p>
+
+<h2>Return Value</h2>
+
+<p>:ok</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="serilalize/1">
+    <span class="signature"><strong>serilalize(term)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#serilalize/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>serilalize(term) :: binary</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to serialize an object going to the AMQP callback handler</p>
+
+<h2>Options</h2>
+
+<p>The <code>term</code> option defines the term to serialize</p>
+
+<h2>Return Value</h2>
+
+<p>term</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_async_handler/3">
+    <span class="signature"><strong>start_async_handler(channel, callback_handler, subscription_handler)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_async_handler/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_async_handler(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term, pid) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to establish a connection to the AMQP client.  Once you&#39;ve received confirmation (:basic<em>consume</em>ok),
+you&#39;ll start to receive messages</p>
+
+<h2>Options</h2>
+
+<p>The <code>channel_id</code> option represents the ID of the AMQP channel</p>
+
+<p>The <code>callback_handler</code> option represents the method that should be called when a message is received.  The handler
+should be a function with 2 or 3 arguments.    </p>
+
+<p>The <code>subscription_handler</code> option defines the PID of the SubscriptionHandler that will be used to process the message</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="subscribe/1">
+    <span class="signature"><strong>subscribe(options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#subscribe/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>subscribe(Map) :: pid</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Creation method for subscription handlers (sync and async)</p>
+
+<h2>Options</h2>
+
+<p>The <code>options</code> option provides the required AMQP subscription options.  The following options are required
+    * channel
+    * exchange
+    * queue
+    * callback_handler</p>
+
+<h2>Return Values</h2>
+
+<p>pid or rasies an error</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="unsubscribe/1">
+    <span class="signature"><strong>unsubscribe(subscription_handler)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unsubscribe/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>unsubscribe(pid) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to unsubscribe from a queue (tied to the SubscriptionHandler)</p>
+
+<h2>Options</h2>
+
+<p>The <code>subscription_handler</code> option defines the PID of the SubscriptionHandler</p>
+
+<h2>Return Value</h2>
+
+<p>:ok</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
