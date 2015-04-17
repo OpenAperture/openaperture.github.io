@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.WorkflowOrchestrator.Deployer.EtcdClusterMessagingResolver</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_workflow_orchestrator v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.WorkflowOrchestrator.html">WorkflowOrchestrator</a> &rarr; Deployer &rarr; <a href="OpenAperture.WorkflowOrchestrator.Deployer.EtcdClusterMessagingResolver.html">EtcdClusterMessagingResolver</a></div>
+      <h1>
+        OpenAperture.WorkflowOrchestrator.Deployer.EtcdClusterMessagingResolver
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the logic to resolve the correct MessagingExchange for an EtcdCluster</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#exchange_for_cluster/1">exchange_for_cluster(etcd_token)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the identifier for the MessagingExchange associated with an EtcdCluster</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_exchange_for_cluster/1">get_exchange_for_cluster(etcd_token)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the messaging<em>exchange</em>id for an etcd_token</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_call/3">handle_call(msg, from, state)</a></td>
+  
+    <td class="summary_synopsis"><p>Call handler to retrieve the identifier for the MessagingExchange associated with an EtcdCluster</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
+  
+    <td class="summary_synopsis"><p>Specific start_link implementation (required by the supervisor)</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="exchange_for_cluster/1">
+    <span class="signature"><strong>exchange_for_cluster(etcd_token)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#exchange_for_cluster/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>exchange_for_cluster(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the identifier for the MessagingExchange associated with an EtcdCluster</p>
+
+<h2>Options</h2>
+
+<p>The <code>etcd_token</code> option defines token for the EtcdCluster</p>
+
+<h2>Return Values</h2>
+
+<p>messaging<em>exchange</em>id</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_exchange_for_cluster/1">
+    <span class="signature"><strong>get_exchange_for_cluster(etcd_token)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_exchange_for_cluster/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_exchange_for_cluster(Map) :: List</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the messaging<em>exchange</em>id for an etcd_token</p>
+
+<h2>Options</h2>
+
+<p>The <code>etcd_token</code> option defines token for the EtcdCluster</p>
+
+<h2>Return Values</h2>
+
+<p>List of {messaging<em>exchange</em>id, cluster}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_call/3">
+    <span class="signature"><strong>handle_call(msg, from, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_call/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_call({:exchange_for_cluster, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}, term, Map) :: {:reply, {<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map}, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Call handler to retrieve the identifier for the MessagingExchange associated with an EtcdCluster</p>
+
+<h2>Options</h2>
+
+<p>The <code>etcd_token</code> option defines token for the EtcdCluster</p>
+
+<p>The <code>_from</code> option defines the tuple {from, ref}</p>
+
+<p>The <code>state</code> option represents the server&#39;s current state</p>
+
+<h2>Return Values</h2>
+
+<p>{:reply, {messaging<em>exchange</em>id, machine}, resolved_state}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/0">
+    <span class="signature"><strong>start_link()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Specific start_link implementation (required by the supervisor)</p>
+
+<h2>Options</h2>
+
+<h2>Return Values</h2>
+
+<p>{:ok, pid} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

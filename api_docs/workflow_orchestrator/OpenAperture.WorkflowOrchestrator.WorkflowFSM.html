@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.WorkflowOrchestrator.WorkflowFSM</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_workflow_orchestrator v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.WorkflowOrchestrator.html">WorkflowOrchestrator</a> &rarr; <a href="OpenAperture.WorkflowOrchestrator.WorkflowFSM.html">WorkflowFSM</a></div>
+      <h1>
+        OpenAperture.WorkflowOrchestrator.WorkflowFSM
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the gen_fsm for Workflow Orchestration</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#build/3">build(event, from, state_data)</a></td>
+  
+    <td class="summary_synopsis"><p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:StateName-3 for the state :build
+This callback will take the following action(s):
+  * Resolve a messaging<em>exchange to send a Builder message
+    * Fail the workflow if the resolution fails
+  * Publish a Builder request
+  * Transition to :workflow</em>completed</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#code_change/4">code_change(old_vsn, current_state, state_data, opts)</a></td>
+  
+    <td class="summary_synopsis"><p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:code_change-4</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#deploy/3">deploy(event, from, state_data)</a></td>
+  
+    <td class="summary_synopsis"><p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:StateName-3 for the state :deploy
+This callback will take the following action(s):
+  * Resolve a messaging<em>exchange to send a Deployer message
+    * Fail the workflow if the resolution fails
+  * Publish a Deployer request
+  * Transition to :workflow</em>completed</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#execute/1">execute(workflowfsm)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to execute a (rescursive) run of the WorkflowFSM</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_event/3">handle_event(event, current_state, state_data)</a></td>
+  
+    <td class="summary_synopsis"><p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:handle_event-3</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_info/3">handle_info(info, current_state, state_data)</a></td>
+  
+    <td class="summary_synopsis"><p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:handle_info-3</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_sync_event/4">handle_sync_event(event, from, current_state, state_data)</a></td>
+  
+    <td class="summary_synopsis"><p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:handle<em>sync</em>event-4</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#init/1">init(state_data)</a></td>
+  
+    <td class="summary_synopsis"><p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:init-1</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/2">start_link(payload, delivery_tag)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to start a WorkflowFSM</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#terminate/3">terminate(reason, current_state, state_data)</a></td>
+  
+    <td class="summary_synopsis"><p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:terminate-3</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#workflow_completed/3">workflow_completed(current_state, from, state_data)</a></td>
+  
+    <td class="summary_synopsis"><p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:StateName-3 for the state :workflow<em>completed
+This callback will take the following action(s):
+  * Stop the :gen</em>fsm</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#workflow_starting/3">workflow_starting(current_state, from, state_data)</a></td>
+  
+    <td class="summary_synopsis"><p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:StateName-3 for the state :workflow<em>starting
+This callback will take the following action(s):
+  * Save the current Workflow
+  * If workflow is not completed, transition to the next workflow state
+  * If workflow is completed, transition to :workflow</em>completed</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="build/3">
+    <span class="signature"><strong>build(event, from, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#build/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>build(term, term, Map) :: {:reply, :in_progress, :workflow_completed, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:StateName-3 for the state :build
+This callback will take the following action(s):
+  * Resolve a messaging<em>exchange to send a Builder message
+    * Fail the workflow if the resolution fails
+  * Publish a Builder request
+  * Transition to :workflow</em>completed</p>
+
+<h2>Options</h2>
+
+<p>The <code>current_state</code> option contains the last state of the :gen_fsm server</p>
+
+<p>The <code>from</code> option contains the caller of the state transition</p>
+
+<p>The <code>state_data</code> option contains the default state data of the :gen_fsm server</p>
+
+<h2>Return Values</h2>
+
+<p>{:reply, :in<em>progress, :workflow</em>completed, state_data}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="code_change/4">
+    <span class="signature"><strong>code_change(old_vsn, current_state, state_data, opts)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#code_change/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>code_change(term, term, Map, term) :: {:ok, term, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:code_change-4</p>
+
+<h2>Options</h2>
+
+<p>The <code>old_vsn</code> option:  OldVsn = Vsn | {down, Vsn}</p>
+
+<p>The <code>current_state</code> option contains the last state of the :gen_fsm server</p>
+
+<p>The <code>state_data</code> option contains the default state data of the :gen_fsm server</p>
+
+<p>The <code>opts</code> option contains additional extra options</p>
+
+<h2>Return Values</h2>
+
+<p>{:ok, term, Map}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="deploy/3">
+    <span class="signature"><strong>deploy(event, from, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#deploy/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>deploy(term, term, Map) :: {:reply, :in_progress, :workflow_completed, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:StateName-3 for the state :deploy
+This callback will take the following action(s):
+  * Resolve a messaging<em>exchange to send a Deployer message
+    * Fail the workflow if the resolution fails
+  * Publish a Deployer request
+  * Transition to :workflow</em>completed</p>
+
+<h2>Options</h2>
+
+<p>The <code>current_state</code> option contains the last state of the :gen_fsm server</p>
+
+<p>The <code>from</code> option contains the caller of the state transition</p>
+
+<p>The <code>state_data</code> option contains the default state data of the :gen_fsm server</p>
+
+<h2>Return Values</h2>
+
+<p>{:reply, :in<em>progress, :workflow</em>completed, state_data}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="execute/1">
+    <span class="signature"><strong>execute(workflowfsm)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#execute/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>execute(pid) :: :completed</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute a (rescursive) run of the WorkflowFSM</p>
+
+<h2>Options</h2>
+
+<p>The <code>workflowfsm</code> option defines the PID of the FSM</p>
+
+<h2>Return Values</h2>
+
+<p>:completed</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_event/3">
+    <span class="signature"><strong>handle_event(event, current_state, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_event/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_event(term, term, Map) :: {:next_state, term, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:handle_event-3</p>
+
+<h2>Options</h2>
+
+<p>The <code>event</code> option contains the current event received by the server</p>
+
+<p>The <code>current_state</code> option contains the last state of the :gen_fsm server</p>
+
+<p>The <code>state_data</code> option contains the default state data of the :gen_fsm server</p>
+
+<h2>Return Values</h2>
+
+<p>{:next_state,term,Map}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_info/3">
+    <span class="signature"><strong>handle_info(info, current_state, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_info/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_info(term, term, Map) :: {:next_state, term, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:handle_info-3</p>
+
+<h2>Options</h2>
+
+<p>The <code>info</code> option contains additional extra options</p>
+
+<p>The <code>current_state</code> option contains the last state of the :gen_fsm server</p>
+
+<p>The <code>state_data</code> option contains the default state data of the :gen_fsm server</p>
+
+<h2>Return Values</h2>
+
+<p>{:next_state,term,Map}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_sync_event/4">
+    <span class="signature"><strong>handle_sync_event(event, from, current_state, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_sync_event/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_sync_event(term, term, term, Map) :: {:next_state, term, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:handle<em>sync</em>event-4</p>
+
+<h2>Options</h2>
+
+<p>The <code>event</code> option contains the current event received by the server</p>
+
+<p>The <code>from</code> option contains the caller of the server</p>
+
+<p>The <code>current_state</code> option contains the last state of the :gen_fsm server</p>
+
+<p>The <code>state_data</code> option contains the default state data of the :gen_fsm server</p>
+
+<h2>Return Values</h2>
+
+<p>{:next_state,term,Map}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="init/1">
+    <span class="signature"><strong>init(state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#init/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>init(pid) :: {:ok, :workflow_starting, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:init-1</p>
+
+<h2>Options</h2>
+
+<p>The <code>state_data</code> option contains the default state data of the :gen_fsm server</p>
+
+<h2>Return Values</h2>
+
+<p>{:ok, :workflow<em>starting, state</em>data}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/2">
+    <span class="signature"><strong>start_link(payload, delivery_tag)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link(Map, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to start a WorkflowFSM</p>
+
+<h2>Options</h2>
+
+<p>The <code>payload</code> options defines the payload of the Workflow</p>
+
+<p>The <code>delivery_tag</code> options defines the identifier of the request message to which this FSM is associated</p>
+
+<h2>Return Values</h2>
+
+<p>{:ok, WorkflowFSM} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="terminate/3">
+    <span class="signature"><strong>terminate(reason, current_state, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#terminate/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>terminate(term, term, Map) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:terminate-3</p>
+
+<h2>Options</h2>
+
+<p>The <code>reason</code> option defines the termination reason (:shutdown, :normal)</p>
+
+<p>The <code>current_state</code> option contains the last state of the :gen_fsm server</p>
+
+<p>The <code>state_data</code> option contains the default state data of the :gen_fsm server</p>
+
+<h2>Return Values</h2>
+
+<p>:ok</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="workflow_completed/3">
+    <span class="signature"><strong>workflow_completed(current_state, from, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#workflow_completed/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>workflow_completed(term, term, Map) :: {:stop, :normal, {:completed, pid}, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:StateName-3 for the state :workflow<em>completed
+This callback will take the following action(s):
+  * Stop the :gen</em>fsm</p>
+
+<h2>Options</h2>
+
+<p>The <code>current_state</code> option contains the last state of the :gen_fsm server</p>
+
+<p>The <code>from</code> option contains the caller of the state transition</p>
+
+<p>The <code>state_data</code> option contains the default state data of the :gen_fsm server</p>
+
+<h2>Return Values</h2>
+
+<p>{:stop, :normal, {:completed, state<em>data[:workflow]}, state</em>data}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="workflow_starting/3">
+    <span class="signature"><strong>workflow_starting(current_state, from, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#workflow_starting/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>workflow_starting(term, term, Map) :: {:reply, :in_progress, term, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>:gen<em>fsm callback - <a href="http://www.erlang.org/doc/man/gen">http://www.erlang.org/doc/man/gen</a></em>fsm.html#Module:StateName-3 for the state :workflow<em>starting
+This callback will take the following action(s):
+  * Save the current Workflow
+  * If workflow is not completed, transition to the next workflow state
+  * If workflow is completed, transition to :workflow</em>completed</p>
+
+<h2>Options</h2>
+
+<p>The <code>current_state</code> option contains the last state of the :gen_fsm server</p>
+
+<p>The <code>from</code> option contains the caller of the state transition</p>
+
+<p>The <code>state_data</code> option contains the default state data of the :gen_fsm server</p>
+
+<h2>Return Values</h2>
+
+<p>{:reply, :in<em>progress, next</em>milestone, state_data}</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
