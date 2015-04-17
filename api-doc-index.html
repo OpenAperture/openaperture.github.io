@@ -19,11 +19,246 @@
 	  	<p class="col-md-12 lead">
 	  		Lexmark Enterprise Software's <b>free, open-source hybrid</b> cloud management platform delivers software quickly and consistently regardless of location or workload.  OpenAperture provides a comprehensive management system to handle the six pillars of cloud management – provisioning, deployment, monitoring, maintenance, security and metering.
 			</p>
-			
 		</div>
 		<br/>
 		<div class="row">
-			<h3>API Documentation Index</h3>
+	    <div class="col-md-6">
+	      <h3>REST Documentation</h3>
+	      <ul>
+          <li><a href="api-doc-index.html">API Documentation</a></li>
+        </ul>
+	    </div>
+	    <div class="col-md-6">
+	      <table class="table table-condensed" style="border-collapse:collapse;">
+	      	<thead>
+        		<tr>
+        			<h3>System Documentation</h3>
+        		</tr>
+        	</thead>
+	      	<tbody>
+	      		<tr data-toggle="collapse" data-target="#auth" class="accordion-toggle">
+	      			<td>
+	      				<h4>Auth</h4>
+	      			</td>
+	      		</tr>
+	      		<tr>
+	      			<td colspan="12" class="hiddenRow">
+	      				<div class="accordian-body collapse" id="auth"> 
+		            	<ul class="nav nav-pills nav-stacked">
+			          		<li>This repository contains an Elixir API library interacting with an OAuth2 provider.</li>
+			          		<li><a href="https://github.com/OpenAperture/auth" target="_blank">Github</a></li>
+			          		<li><a href="api_docs/auth/doc/index.html" target="_blank">ExDocs</a></li>
+			          	</ul>
+		          	</div>
+		          </td>
+	      		</tr>
+
+	      		<tr data-toggle="collapse" data-target="#builder" class="accordion-toggle">
+	      			<td>
+	      				<h4>Builder</h4>
+	      			</td>
+	      		</tr>
+	      		<tr>
+	      			<td colspan="12" class="hiddenRow">
+	      				<div class="accordian-body collapse" id="builder"> 
+		            	<ul class="nav nav-pills nav-stacked">
+			          		<li>The Builder module provides a standardized mechanism for building application Docker images.</li>
+			          		<li><a href="https://github.com/OpenAperture/builder" target="_blank">Github</a></li>
+			          		<li><a href="api_docs/builder/doc/index.html" target="_blank">ExDocs</a></li>
+			          	</ul>
+		          	</div>
+		          </td>
+	      		</tr>
+
+	      		<tr data-toggle="collapse" data-target="#deployer" class="accordion-toggle">
+	      			<td>
+	      				<h4>Deployer</h4>
+	      			</td>
+	      		</tr>
+	      		<tr>
+	      			<td colspan="12" class="hiddenRow">
+	      				<div class="accordian-body collapse" id="deployer"> 
+		            	<ul class="nav nav-pills nav-stacked">
+			          		<li>The Deployer module provides a standardized mechanism for executing application deployments.</li>
+			          		<li><a href="https://github.com/OpenAperture/deployer" target="_blank">Github</a></li>
+			          		<li><a href="api_docs/deployer/doc/index.html" target="_blank">ExDocs</a></li>
+			          	</ul>
+		          	</div>
+		          </td>
+	      		</tr>
+
+	      		<tr data-toggle="collapse" data-target="#fleet" class="accordion-toggle">
+	      			<td>
+	      				<h4>Fleet</h4>
+	      			</td>
+	      		</tr>
+	      		<tr>
+	      			<td colspan="12" class="hiddenRow">
+	      				<div class="accordian-body collapse" id="fleet"> 
+		            	<ul class="nav nav-pills nav-stacked">
+			          		<li>This repository contains an Elixir API library interacting with Fleet and systemd.</li>
+			          		<li><a href="https://github.com/OpenAperture/fleet" target="_blank">Github</a></li>
+			          		<li><a href="api_docs/deployer/doc/index.html" target="_blank">ExDocs</a></li>
+			          	</ul>
+		          	</div>
+		          </td>
+	      		</tr>
+
+	      		<tr data-toggle="collapse" data-target="#manager" class="accordion-toggle">
+	      			<td>
+	      				<h4>Manager</h4>
+	      			</td>
+	      		</tr>
+	      		<tr>
+	      			<td colspan="12" class="hiddenRow">
+	      				<div class="accordian-body collapse" id="manager"> 
+		            	<ul class="nav nav-pills nav-stacked">
+			          		<li>The Manager module provides a RESTful interface for interacting with OpenAperture</li>
+			          		<li><a href="https://github.com/OpenAperture/manager" target="_blank">Github</a></li>
+			          		<li><a href="api_docs/manager/doc/index.html" target="_blank">ExDocs</a></li>
+			          	</ul>
+		          	</div>
+		          </td>
+	      		</tr>
+
+	      		<tr data-toggle="collapse" data-target="#manager_api" class="accordion-toggle">
+	      			<td>
+	      				<h4>Manager API</h4>
+	      			</td>
+	      		</tr>
+	      		<tr>
+	      			<td colspan="12" class="hiddenRow">
+	      				<div class="accordian-body collapse" id="manager_api"> 
+		            	<ul class="nav nav-pills nav-stacked">
+			          		<li>This repository contains an Elixir API library for the OpenAperture Manager.</li>
+			          		<li><a href="https://github.com/OpenAperture/manager_api" target="_blank">Github</a></li>
+			          		<li><a href="api_docs/manager_api/doc/index.html" target="_blank">ExDocs</a></li>
+			          	</ul>
+		          	</div>
+		          </td>
+	      		</tr>
+
+	      		<tr data-toggle="collapse" data-target="#messaging" class="accordion-toggle">
+	      			<td>
+	      				<h4>Messaging</h4>
+	      			</td>
+	      		</tr>
+	      		<tr>
+	      			<td colspan="12" class="hiddenRow">
+	      				<div class="accordian-body collapse" id="messaging"> 
+		            	<ul class="nav nav-pills nav-stacked">
+			          		<li>This reusable Elixir messaging library provides abstracted methods for interacting with the OpenAperture Messaging system.</li>
+			          		<li><a href="https://github.com/OpenAperture/messaging" target="_blank">Github</a></li>
+			          		<li><a href="api_docs/messaging/doc/index.html" target="_blank">ExDocs</a></li>
+			          	</ul>
+		          	</div>
+		          </td>
+	      		</tr>
+
+	      		<tr data-toggle="collapse" data-target="#notifications" class="accordion-toggle">
+	      			<td>
+	      				<h4>Notifications</h4>
+	      			</td>
+	      		</tr>
+	      		<tr>
+	      			<td colspan="12" class="hiddenRow">
+	      				<div class="accordian-body collapse" id="notifications"> 
+		            	<ul class="nav nav-pills nav-stacked">
+			          		<li>The Notifications module provides a standardized mechanism to publish events that occur within OpenAperture.</li>
+			          		<li><a href="https://github.com/OpenAperture/notifications" target="_blank">Github</a></li>
+			          		<li><a href="api_docs/notifications/doc/index.html" target="_blank">ExDocs</a></li>
+			          	</ul>
+		          	</div>
+		          </td>
+	      		</tr>
+
+	      		<tr data-toggle="collapse" data-target="#overseer" class="accordion-toggle">
+	      			<td>
+	      				<h4>Overseer</h4>
+	      			</td>
+	      		</tr>
+	      		<tr>
+	      			<td colspan="12" class="hiddenRow">
+	      				<div class="accordian-body collapse" id="overseer"> 
+		            	<ul class="nav nav-pills nav-stacked">
+			          		<li>The Overseer module provides a standardized mechanism for monitoring system modules within OpenAperture.</li>
+			          		<li><a href="https://github.com/OpenAperture/overseer" target="_blank">Github</a></li>
+			          		<li><a href="api_docs/overseer/doc/index.html" target="_blank">ExDocs</a></li>
+			          	</ul>
+		          	</div>
+		          </td>
+	      		</tr>
+
+	      		<tr data-toggle="collapse" data-target="#overseer_api" class="accordion-toggle">
+	      			<td>
+	      				<h4>Overseer API</h4>
+	      			</td>
+	      		</tr>
+	      		<tr>
+	      			<td colspan="12" class="hiddenRow">
+	      				<div class="accordian-body collapse" id="overseer_api"> 
+		            	<ul class="nav nav-pills nav-stacked">
+			          		<li>This repository contains an Elixir API library for interacting with the OpenAperture Overseer.</li>
+			          		<li><a href="https://github.com/OpenAperture/overseer_api" target="_blank">Github</a></li>
+			          		<li><a href="api_docs/overseer_api/doc/index.html" target="_blank">ExDocs</a></li>
+			          	</ul>
+		          	</div>
+		          </td>
+	      		</tr>
+
+	      		<tr data-toggle="collapse" data-target="#router-manager" class="accordion-toggle">
+	      			<td>
+	      				<h4>Router Manager</h4>
+	      			</td>
+	      		</tr>
+	      		<tr>
+	      			<td colspan="12" class="hiddenRow">
+	      				<div class="accordian-body collapse" id="router-manager"> 
+		            	<ul class="nav nav-pills nav-stacked">
+			          		<li>Website and API for managing the OpenAperture Router.</li>
+			          		<li><a href="https://github.com/OpenAperture/router-manager" target="_blank">Github</a></li>
+			          		<li><a href="api_docs/router-manager/doc/index.html" target="_blank">ExDocs</a></li>
+			          	</ul>
+		          	</div>
+		          </td>
+	      		</tr>
+
+	      		<tr data-toggle="collapse" data-target="#timex_extensions" class="accordion-toggle">
+	      			<td>
+	      				<h4>Timex Extensions</h4>
+	      			</td>
+	      		</tr>
+	      		<tr>
+	      			<td colspan="12" class="hiddenRow">
+	      				<div class="accordian-body collapse" id="timex_extensions"> 
+		            	<ul class="nav nav-pills nav-stacked">
+			          		<li>This reusable Elixir library contains logic extending the Timex modules.</li>
+			          		<li><a href="https://github.com/OpenAperture/timex_extensions" target="_blank">Github</a></li>
+			          		<li><a href="api_docs/timex_extensions/doc/index.html" target="_blank">ExDocs</a></li>
+			          	</ul>
+		          	</div>
+		          </td>
+	      		</tr>	      		
+
+	      		<tr data-toggle="collapse" data-target="#workflow_orchestrator" class="accordion-toggle">
+	      			<td>
+	      				<h4>Workflow Orchestrator</h4>
+	      			</td>
+	      		</tr>
+	      		<tr>
+	      			<td colspan="12" class="hiddenRow">
+	      				<div class="accordian-body collapse" id="workflow_orchestrator"> 
+		            	<ul class="nav nav-pills nav-stacked">
+			          		<li>The Workflow Orchestrator module provides a standardized mechanism to coordinate Workflow events that occur within OpenAperture.</li>
+			          		<li><a href="https://github.com/OpenAperture/workflow_orchestrator" target="_blank">Github</a></li>
+			          		<li><a href="api_docs/workflow_orchestrator/doc/index.html" target="_blank">ExDocs</a></li>
+			          	</ul>
+		          	</div>
+		          </td>
+	      		</tr>		      		
+	      	</tbody>
+	      </table>
+	    </div>
 	  </div>
 	</div>
 

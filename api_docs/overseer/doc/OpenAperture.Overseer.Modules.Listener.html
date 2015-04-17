@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Overseer.Modules.Listener</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_overseer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Overseer.html">Overseer</a> &rarr; Modules &rarr; <a href="OpenAperture.Overseer.Modules.Listener.html">Listener</a></div>
+      <h1>
+        OpenAperture.Overseer.Modules.Listener
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the logic to subscribe and unsubscribe from Module-specific queues</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#close_connection/1">close_connection(connection_options \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc...)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_module/1">get_module(listener)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the module definition within the pid</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_call/3">handle_call(msg, from, state)</a></td>
+  
+    <td class="summary_synopsis"><p>GenServer callback for handling the :set_module event.  This method
+will store the module into the server&#39;s state</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_cast/2">handle_cast(msg, state)</a></td>
+  
+    <td class="summary_synopsis"><p>GenServer callback for handling the :retrieve<em>module</em>list event.  This method
+will retrieve MessagingExchangeModules for the configured messaging exchange</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#process_event/3">process_event(payload, delivery_tag, module)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to process an incoming request</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#publish/3">publish(connection_options \\ nil, queue, payload)</a></td>
+  
+    <td class="summary_synopsis"><p>Publishes a message/payload to a specific queue within the Messaging system</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#set_module/2">set_module(listener, module)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to update the module definition within the pid</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/1">start_link(module)</a></td>
+  
+    <td class="summary_synopsis"><p>Specific start_link implementation (required by the supervisor)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_listening/1">start_listening(module)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to subscribe from the module queue</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#stop_listening/1">stop_listening(listener)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to unsubscribe from the module queue</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#subscribe/3">subscribe(connection_options \\ nil, queue, callback_handler)</a></td>
+  
+    <td class="summary_synopsis"><p>Subscribes to a specific queue within the Messaging system</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unsubscribe/2">unsubscribe(connection_options \\ nil, subscription_handler)</a></td>
+  
+    <td class="summary_synopsis"><p>Unsubscribes to from a SubscriptionHandler in the Messaging system</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="close_connection/1">
+    <span class="signature"><strong>close_connection(connection_options \\ nil)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#close_connection/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>close_connection(OpenAperture.Messaging.ConnectionOptions.t) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc...)</p>
+
+<h2>Options</h2>
+
+<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+
+<h2>Returns</h2>
+
+<p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_module/1">
+    <span class="signature"><strong>get_module(listener)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_module/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_module(pid) :: Map</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the module definition within the pid</p>
+
+<h2>Options</h2>
+
+<p>The <code>listener</code> option defines the listener PID</p>
+
+<p>Current module definition</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_call/3">
+    <span class="signature"><strong>handle_call(msg, from, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_call/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_call({:set_module, Map}, term, Map) :: {:reply, Map, Map}</li>
+      
+        <li>handle_call({:get_module}, term, Map) :: {:reply, Map, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>GenServer callback for handling the :set_module event.  This method
+will store the module into the server&#39;s state.</p>
+
+<p>{:noreply, state}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_cast/2">
+    <span class="signature"><strong>handle_cast(msg, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_cast/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_cast({:stop_listening}, Map) :: {:noreply, List}</li>
+      
+        <li>handle_cast({:start_listening}, Map) :: {:noreply, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>GenServer callback for handling the :retrieve<em>module</em>list event.  This method
+will retrieve MessagingExchangeModules for the configured messaging exchange.</p>
+
+<p>{:noreply, new modules list}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="process_event/3">
+    <span class="signature"><strong>process_event(payload, delivery_tag, module)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#process_event/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>process_event(Map, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map) :: term</li>
+      
+        <li>process_event(Map, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to process an incoming request</p>
+
+<h2>Options</h2>
+
+<p>The <code>payload</code> option is the Map of HipChat options</p>
+
+<p>The <code>delivery_tag</code> option is the unique identifier of the message</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="publish/3">
+    <span class="signature"><strong>publish(connection_options \\ nil, queue, payload)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#publish/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>publish(OpenAperture.Messaging.ConnectionOptions.t, OpenAperture.Messaging.Queue.t, term) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Publishes a message/payload to a specific queue within the Messaging system</p>
+
+<h2>Options</h2>
+
+<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+
+<p>The <code>queue</code> options value provides the Queue to which to subscribe</p>
+
+<p>The <code>payload</code> option represents the message data</p>
+
+<h2>Returns</h2>
+
+<p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="set_module/2">
+    <span class="signature"><strong>set_module(listener, module)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#set_module/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>set_module(pid, Map) :: Map</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to update the module definition within the pid</p>
+
+<h2>Options</h2>
+
+<p>The <code>listener</code> option defines the listener PID</p>
+
+<p>The <code>module</code> option defines the system module map</p>
+
+<p>Current module definition</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/1">
+    <span class="signature"><strong>start_link(module)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link(Map) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Specific start_link implementation (required by the supervisor)</p>
+
+<h2>Options</h2>
+
+<p>The <code>module</code> option defines the Module options Map</p>
+
+<h2>Return Values</h2>
+
+<p>{:ok, pid} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_listening/1">
+    <span class="signature"><strong>start_listening(module)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_listening/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_listening(pid) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to subscribe from the module queue</p>
+
+<h2>Options</h2>
+
+<p>The <code>listener</code> option defines the listener PID</p>
+
+<p>:ok</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="stop_listening/1">
+    <span class="signature"><strong>stop_listening(listener)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#stop_listening/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>stop_listening(pid) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to unsubscribe from the module queue</p>
+
+<h2>Options</h2>
+
+<p>The <code>listener</code> option defines the listener PID</p>
+
+<p>:ok</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="subscribe/3">
+    <span class="signature"><strong>subscribe(connection_options \\ nil, queue, callback_handler)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#subscribe/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>subscribe(OpenAperture.Messaging.ConnectionOptions.t, OpenAperture.Messaging.Queue.t, term) :: {:ok, term} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Subscribes to a specific queue within the Messaging system.</p>
+
+<h2>Options</h2>
+
+<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+
+<p>The <code>queue</code> options value provides the Queue to which to subscribe</p>
+
+<p>The <code>callback_handler</code> option represents the method that should be called when a message is received.  The handler
+should be a function with 2 arguments (sync), or 3 arguments (async).</p>
+
+<h2>Returns</h2>
+
+<p>for AMQP:
+    {:ok, subscription_handler} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="unsubscribe/2">
+    <span class="signature"><strong>unsubscribe(connection_options \\ nil, subscription_handler)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unsubscribe/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>unsubscribe(OpenAperture.Messaging.ConnectionOptions.t, pid) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Unsubscribes to from a SubscriptionHandler in the Messaging system.</p>
+
+<h2>Options</h2>
+
+<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+
+<p>The <code>subscription_handler</code> option represents the PID of the SubscriptionHandler</p>
+
+<h2>Returns</h2>
+
+<p>for AMQP:
+  :ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

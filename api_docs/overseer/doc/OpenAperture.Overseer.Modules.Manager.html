@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Overseer.Modules.Manager</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_overseer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Overseer.html">Overseer</a> &rarr; Modules &rarr; <a href="OpenAperture.Overseer.Modules.Manager.html">Manager</a></div>
+      <h1>
+        OpenAperture.Overseer.Modules.Manager
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the GenServer for managing Module communication processes</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#find_deleted_modules/2">find_deleted_modules(state, modules)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to identify any modules which are no longer alive</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_cast/2">handle_cast(msg, state)</a></td>
+  
+    <td class="summary_synopsis"><p>GenServer callback for handling the :set_modules event.  This method
+will update the module list and stop/start listeners are needed</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#inactivate_listeners/1">inactivate_listeners(state)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to identify and update or delete any &quot;inactive&quot; listeners.  A listener is defined as &quot;inactive&quot; if:
+    * The last updated<em>at time is &gt; 10 minutes - set status to :inactive
+    * The last updated</em>at time is &gt; 20 minutes - delete reference</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#set_modules/1">set_modules(modules)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to set the known list of system modules into the manager</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
+  
+    <td class="summary_synopsis"><p>Specific start_link implementation</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_listeners/2">start_listeners(state, list2)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to &quot;start&quot; (subscribe to queue) a list of Modules</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#stop_listeners/2">stop_listeners(state, arg2)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to &quot;stop&quot; (unsubscribe from queue) a list of Modules</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="find_deleted_modules/2">
+    <span class="signature"><strong>find_deleted_modules(state, modules)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#find_deleted_modules/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>find_deleted_modules(Map, List) :: Map</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to identify any modules which are no longer alive</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option is the state of the GenServer</p>
+
+<p>The second option is the list of modules to start</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_cast/2">
+    <span class="signature"><strong>handle_cast(msg, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_cast/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_cast(pid, term) :: {:noreply, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>GenServer callback for handling the :set_modules event.  This method
+will update the module list and stop/start listeners are needed</p>
+
+<p>{:noreply, state}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="inactivate_listeners/1">
+    <span class="signature"><strong>inactivate_listeners(state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#inactivate_listeners/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>inactivate_listeners(Map) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to identify and update or delete any &quot;inactive&quot; listeners.  A listener is defined as &quot;inactive&quot; if:
+    * The last updated<em>at time is &gt; 10 minutes - set status to :inactive
+    * The last updated</em>at time is &gt; 20 minutes - delete reference</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option is the state of the GenServer</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="set_modules/1">
+    <span class="signature"><strong>set_modules(modules)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#set_modules/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>set_modules(List) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to set the known list of system modules into the manager</p>
+
+<h2>Options</h2>
+
+<p>The <code>modules</code> option is a list of system modules</p>
+
+<h2>Return Values</h2>
+
+<p>:ok</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/0">
+    <span class="signature"><strong>start_link()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Specific start_link implementation</p>
+
+<h2>Return Values</h2>
+
+<p>{:ok, pid} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_listeners/2">
+    <span class="signature"><strong>start_listeners(state, list2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_listeners/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_listeners(Map, List) :: Map</li>
+      
+        <li>start_listeners(Map, []) :: Map</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to &quot;start&quot; (subscribe to queue) a list of Modules</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option is the state of the GenServer</p>
+
+<p>The second option is the list of modules to start</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="stop_listeners/2">
+    <span class="signature"><strong>stop_listeners(state, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#stop_listeners/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>stop_listeners(Map, List) :: Map</li>
+      
+        <li>stop_listeners(Map, []) :: Map</li>
+      
+        <li>stop_listeners(Map, nil) :: Map</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to &quot;stop&quot; (unsubscribe from queue) a list of Modules</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option is the state of the GenServer</p>
+
+<p>The second option is the list of modules to stop</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
