@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Builder.Docker</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_builder v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Builder.html">Builder</a> &rarr; <a href="OpenAperture.Builder.Docker.html">Docker</a></div>
+      <h1>
+        OpenAperture.Builder.Docker
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the logic for interacting with Docker.</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#build/1">build(docker)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to execute a docker build</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#cleanup_cache/1">cleanup_cache(docker)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to cleanup any Docker cache files that were generated during builds</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#cleanup_container/2">cleanup_container(docker, list2)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to stop and remove the running containers</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#cleanup_dangling_images/1">cleanup_dangling_images(docker)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to cleanup any dangling images that remain on the host</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#cleanup_exited_containers/1">cleanup_exited_containers(docker)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to remove all exited containers</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#cleanup_image/2">cleanup_image(docker, image_id)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to cleanup any dangling images that remain on the host</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#cleanup_image_cache/2">cleanup_image_cache(docker, image_id \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to cleanup any cache associated with an image id</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#find_containers_for_image/3">find_containers_for_image(docker, image_id, containers)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to parse through a list of containers to determine if any are running against an image</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_containers/1">get_containers(docker)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to find all of the containers running on a docker host</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_exited_containers/1">get_exited_containers(docker)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve all exited containers</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#init/1">init(docker)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to initialize a Docker struct. Validates required values are populated</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#login/1">login(docker)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to execute a docker login against a specified Docker registry</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#pull/2">pull(docker, image_name)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to execute a docker pull from a specified Docker registry</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#push/1">push(docker)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to execute a docker push to a specified Docker registry</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#tag/3">tag(docker, image_id, list3)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to execute add a docker tag</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <section id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: %OpenAperture.Builder.Docker{authenticated: term, docker_host: term, docker_repo_url: term, image_id: term, output_dir: term, registry_email: term, registry_password: term, registry_url: term, registry_username: term}
+  </p>
+  
+</div>
+
+        </section>
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="build/1">
+    <span class="signature"><strong>build(docker)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#build/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>build(OpenAperture.Builder.Docker) :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute a docker build.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="cleanup_cache/1">
+    <span class="signature"><strong>cleanup_cache(docker)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#cleanup_cache/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Method to cleanup any Docker cache files that were generated during builds</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="cleanup_container/2">
+    <span class="signature"><strong>cleanup_container(docker, list2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#cleanup_container/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>cleanup_container(OpenAperture.Builder.Docker, List) :: :ok</li>
+      
+        <li>cleanup_container(OpenAperture.Builder.Docker, List) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to stop and remove the running containers</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="cleanup_dangling_images/1">
+    <span class="signature"><strong>cleanup_dangling_images(docker)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#cleanup_dangling_images/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>cleanup_dangling_images(OpenAperture.Builder.Docker) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to cleanup any dangling images that remain on the host</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="cleanup_exited_containers/1">
+    <span class="signature"><strong>cleanup_exited_containers(docker)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#cleanup_exited_containers/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>cleanup_exited_containers(OpenAperture.Builder.Docker) :: List</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to remove all exited containers</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="cleanup_image/2">
+    <span class="signature"><strong>cleanup_image(docker, image_id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#cleanup_image/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>cleanup_image(OpenAperture.Builder.Docker, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to cleanup any dangling images that remain on the host</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="cleanup_image_cache/2">
+    <span class="signature"><strong>cleanup_image_cache(docker, image_id \\ nil)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#cleanup_image_cache/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>cleanup_image_cache(OpenAperture.Builder.Docker, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to cleanup any cache associated with an image id</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="find_containers_for_image/3">
+    <span class="signature"><strong>find_containers_for_image(docker, image_id, containers)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#find_containers_for_image/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>find_containers_for_image(OpenAperture.Builder.Docker, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, List) :: List</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to parse through a list of containers to determine if any are running against an image</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_containers/1">
+    <span class="signature"><strong>get_containers(docker)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_containers/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_containers(OpenAperture.Builder.Docker) :: List</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to find all of the containers running on a docker host</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_exited_containers/1">
+    <span class="signature"><strong>get_exited_containers(docker)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_exited_containers/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_exited_containers(OpenAperture.Builder.Docker) :: List</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve all exited containers</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="init/1">
+    <span class="signature"><strong>init(docker)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#init/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>init(OpenAperture.Builder.Docker) :: {:ok, OpenAperture.Builder.Docker} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to initialize a Docker struct. Validates required values are populated.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="login/1">
+    <span class="signature"><strong>login(docker)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#login/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>login(OpenAperture.Builder.Docker) :: :ok | :error</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute a docker login against a specified Docker registry.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="pull/2">
+    <span class="signature"><strong>pull(docker, image_name)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#pull/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>pull(OpenAperture.Builder.Docker, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute a docker pull from a specified Docker registry.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="push/1">
+    <span class="signature"><strong>push(docker)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#push/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>push(OpenAperture.Builder.Docker) :: :ok | :error</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute a docker push to a specified Docker registry.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="tag/3">
+    <span class="signature"><strong>tag(docker, image_id, list3)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#tag/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>tag(OpenAperture.Builder.Docker, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, [<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>]) :: :ok | :error</li>
+      
+        <li>tag(OpenAperture.Builder.Docker, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, [<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>]) :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute add a docker tag.</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

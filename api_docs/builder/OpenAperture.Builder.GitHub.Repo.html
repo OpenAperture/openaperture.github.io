@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Builder.GitHub.Repo</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_builder v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Builder.html">Builder</a> &rarr; <a href="OpenAperture.Builder.GitHub.html">GitHub</a> &rarr; <a href="OpenAperture.Builder.GitHub.Repo.html">Repo</a></div>
+      <h1>
+        OpenAperture.Builder.GitHub.Repo
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module represents a Git repository, and is used to track the local
+repository&#39;s path, the remote repository&#39;s URL, and the current
+branch/tag/commit.</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#get_github_repo_url/1">get_github_repo_url(relative_repo)</a></td>
+  
+    <td class="summary_synopsis"><p>Given a [user|org]/project_name string, builds a GitHub URL. Prepends OAuth
+access credentials to the URL (if configured for the application.)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_github_url/0">get_github_url()</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieves the base GitHub URL, including an OAuth credential if one is set
+in the application&#39;s configuration</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_project_name/1">get_project_name(repo_url)</a></td>
+  
+    <td class="summary_synopsis"><p>Extracts the project name from a GitHub repo URL</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#resolve_github_repo_url/1">resolve_github_repo_url(raw_url)</a></td>
+  
+    <td class="summary_synopsis"><p>Given a A url (absolute, [user|org]/project<em>name, or [user|org]/project</em>name.git), builds a GitHub URL. Prepends OAuth
+access credentials to the URL (if configured for the application.)</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <section id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: %OpenAperture.Builder.GitHub.Repo{local_repo_path: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, remote_url: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, branch: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}
+  </p>
+  
+</div>
+
+        </section>
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="get_github_repo_url/1">
+    <span class="signature"><strong>get_github_repo_url(relative_repo)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_github_repo_url/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_github_repo_url(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Given a [user|org]/project_name string, builds a GitHub URL. Prepends OAuth
+access credentials to the URL (if configured for the application.)</p>
+
+<h2>Examples</h2>
+
+<p>iex&gt; OpenAperture.Builder.GitHub.Repo.get<em>github</em>repo<em>url(&quot;test</em>user/test<em>project&quot;)
+  &quot;<a href="https://github.com/test">https://github.com/test</a></em>user/test_project.git&quot;</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_github_url/0">
+    <span class="signature"><strong>get_github_url()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_github_url/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_github_url :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Retrieves the base GitHub URL, including an OAuth credential if one is set
+in the application&#39;s configuration.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_project_name/1">
+    <span class="signature"><strong>get_project_name(repo_url)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_project_name/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_project_name(Repo.t) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+        <li>get_project_name(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Extracts the project name from a GitHub repo URL.</p>
+
+<h2>Examples</h2>
+
+<p>iex&gt; OpenAperture.Builder.GitHub.Repo.get<em>project</em>name(&quot;<a href="https://github.com/test_user/test_project%22">https://github.com/test_user/test_project&quot;</a>)
+  &quot;test_project&quot;</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="resolve_github_repo_url/1">
+    <span class="signature"><strong>resolve_github_repo_url(raw_url)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#resolve_github_repo_url/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>resolve_github_repo_url(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Given a A url (absolute, [user|org]/project<em>name, or [user|org]/project</em>name.git), builds a GitHub URL. Prepends OAuth
+access credentials to the URL (if configured for the application.)</p>
+
+<h2>Examples</h2>
+
+<p>iex&gt; OpenAperture.Builder.GitHub.Repo.resolve<em>github</em>repo<em>url(&quot;test</em>user/test<em>project&quot;)
+  &quot;<a href="https://github.com/test">https://github.com/test</a></em>user/test<em>project.git&quot;
+  iex&gt; OpenAperture.Builder.GitHub.Repo.resolve</em>github<em>repo</em>url(&quot;<a href="http://github.com/test_user/test_project%22">http://github.com/test_user/test_project&quot;</a>)
+  &quot;<a href="https://github.com/test_user/test_project.git">https://github.com/test_user/test_project.git</a>&quot;
+  iex&gt; OpenAperture.Builder.GitHub.Repo.resolve<em>github</em>repo<em>url(&quot;<a href="http://github.com/test">http://github.com/test</a></em>user/test<em>project.git&quot;)
+  &quot;<a href="https://github.com/test">https://github.com/test</a></em>user/test<em>project.git&quot;<br>
+  iex&gt; OpenAperture.Builder.GitHub.Repo.resolve</em>github<em>repo</em>url(&quot;<a href="https://github.com/test_user/test_project%22">https://github.com/test_user/test_project&quot;</a>)
+  &quot;<a href="https://github.com/test_user/test_project.git">https://github.com/test_user/test_project.git</a>&quot;
+  iex&gt; OpenAperture.Builder.GitHub.Repo.resolve<em>github</em>repo<em>url(&quot;<a href="https://github.com/test">https://github.com/test</a></em>user/test<em>project.git&quot;)
+  &quot;<a href="https://github.com/test">https://github.com/test</a></em>user/test<em>project.git&quot;<br>
+  iex&gt; OpenAperture.Builder.GitHub.Repo.resolve</em>github<em>repo</em>url(&quot;<a href="mailto:git@github.com">git@github.com</a>:test<em>user/test</em>project.git&quot;)
+  &quot;<a href="mailto:git@github.com">git@github.com</a>:test<em>user/test</em>project.git&quot;        </p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

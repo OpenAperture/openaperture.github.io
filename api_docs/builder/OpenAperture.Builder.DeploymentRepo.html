@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Builder.DeploymentRepo</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_builder v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Builder.html">Builder</a> &rarr; <a href="OpenAperture.Builder.DeploymentRepo.html">DeploymentRepo</a></div>
+      <h1>
+        OpenAperture.Builder.DeploymentRepo
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module provides a data struct to represent an openaperture <project>_docker repository. Initializing the struct
+will download the contents of the repo and populate the struct with all available information</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#checkin_pending_changes/2">checkin_pending_changes(repo, message)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to run the templating engine against any service files in the repo. Returns true if any changes are made</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#cleanup/1">cleanup(repo)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to cleanup any local artifacts associated with the repository</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#create_docker_image/2">create_docker_image(repo, tags)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to create a docker image from the Deployment repository and store it in a
+remote docker repository</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#download!/2">download!(repo, workflow)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to download the repository locally</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_units/1">get_units(repo)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve all of the currently associated Units</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#init_from_request/1">init_from_request(request)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to create a populated DeploymentRepo from a Request</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#populate_docker_repo!/1">populate_docker_repo!(repo)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the associated Docker repository name</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#populate_docker_repo_name!/1">populate_docker_repo_name!(repo)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the associated Docker repository name</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#populate_etcd_token!/1">populate_etcd_token!(repo)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to resolve the etcd token</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#populate_source_repo!/2">populate_source_repo!(repo, workflow)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to download a DeploymentRepo locally</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#resolve_dockerfile_template/2">resolve_dockerfile_template(repo, template_options)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to run the templating engine against the templated Dockerfile. Returns true if any changes are made</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#resolve_service_file_templates/2">resolve_service_file_templates(repo, template_options)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to run the templating engine against any service files in the repo. Returns true if any changes are made</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <section id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: %OpenAperture.Builder.DeploymentRepo{docker_build_etcd_token: term, docker_repo: term, docker_repo_name: term, etcd_token: term, force_build: term, github_deployment_repo: term, output_dir: term, source_repo: term}
+  </p>
+  
+</div>
+
+        </section>
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="checkin_pending_changes/2">
+    <span class="signature"><strong>checkin_pending_changes(repo, message)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#checkin_pending_changes/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>checkin_pending_changes(DeploymentRepo, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to run the templating engine against any service files in the repo. Returns true if any changes are made.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="cleanup/1">
+    <span class="signature"><strong>cleanup(repo)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#cleanup/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>cleanup(DeploymentRepo) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to cleanup any local artifacts associated with the repository</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="create_docker_image/2">
+    <span class="signature"><strong>create_docker_image(repo, tags)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create_docker_image/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>create_docker_image(DeploymentRepo, List) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to create a docker image from the Deployment repository and store it in a
+remote docker repository</p>
+
+<h2>Options</h2>
+
+<p>The <code>repo</code> option defines the repository</p>
+
+<h2>Return values</h2>
+
+<p>:ok or {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="download!/2">
+    <span class="signature"><strong>download!(repo, workflow)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#download!/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>download!(DeploymentRepo, OpenAperture.WorkflowOrchestratorApi.Workflow.t) :: <a href="OpenAperture.Builder.GitHub.Repo.html#t:t/0">OpenAperture.Builder.GitHub.Repo.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to download the repository locally</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_units/1">
+    <span class="signature"><strong>get_units(repo)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_units/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_units(DeploymentRepo) :: List</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve all of the currently associated Units</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="init_from_request/1">
+    <span class="signature"><strong>init_from_request(request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#init_from_request/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>init_from_request(OpenAperture.WorkflowOrchestratorApi.Request.t) :: {:ok, DeploymentRepo} | {:error, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to create a populated DeploymentRepo from a Request</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="populate_docker_repo!/1">
+    <span class="signature"><strong>populate_docker_repo!(repo)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#populate_docker_repo!/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>populate_docker_repo!(DeploymentRepo) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the associated Docker repository name</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="populate_docker_repo_name!/1">
+    <span class="signature"><strong>populate_docker_repo_name!(repo)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#populate_docker_repo_name!/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>populate_docker_repo_name!(DeploymentRepo) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the associated Docker repository name</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="populate_etcd_token!/1">
+    <span class="signature"><strong>populate_etcd_token!(repo)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#populate_etcd_token!/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>populate_etcd_token!(DeploymentRepo) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to resolve the etcd token</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="populate_source_repo!/2">
+    <span class="signature"><strong>populate_source_repo!(repo, workflow)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#populate_source_repo!/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>populate_source_repo!(DeploymentRepo, OpenAperture.WorkflowOrchestratorApi.Workflow.t) :: OpenAperture.Builder.SourceRepo</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to download a DeploymentRepo locally</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="resolve_dockerfile_template/2">
+    <span class="signature"><strong>resolve_dockerfile_template(repo, template_options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#resolve_dockerfile_template/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>resolve_dockerfile_template(DeploymentRepo, List) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to run the templating engine against the templated Dockerfile. Returns true if any changes are made.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="resolve_service_file_templates/2">
+    <span class="signature"><strong>resolve_service_file_templates(repo, template_options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#resolve_service_file_templates/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>resolve_service_file_templates(DeploymentRepo, List) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to run the templating engine against any service files in the repo. Returns true if any changes are made.</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

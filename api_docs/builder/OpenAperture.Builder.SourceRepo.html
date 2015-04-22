@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Builder.SourceRepo</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_builder v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Builder.html">Builder</a> &rarr; <a href="OpenAperture.Builder.SourceRepo.html">SourceRepo</a></div>
+      <h1>
+        OpenAperture.Builder.SourceRepo
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module provides a data struct to represent a source repository. Initializing the struct
+will download the contents of the repo and populate the struct with all available information</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#cleanup/1">cleanup(repo)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to cleanup any artifacts associated with the deploy repo PID</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#create!/3">create!(workflow_id, source_repo_url, source_repo_git_ref)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to create a populated SourceRepo</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#download!/3">download!(repo, source_repo_url, source_repo_git_ref)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to download the repository locally</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_openaperture_info/1">get_openaperture_info(repo)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve an OpenAperture repo info from the output directory</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <section id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: %OpenAperture.Builder.SourceRepo{github_source_repo: term, output_dir: term}
+  </p>
+  
+</div>
+
+        </section>
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="cleanup/1">
+    <span class="signature"><strong>cleanup(repo)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#cleanup/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>cleanup(pid) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to cleanup any artifacts associated with the deploy repo PID</p>
+
+<h2>Options</h2>
+
+<p>The <code>repo</code> option defines the repo PID</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="create!/3">
+    <span class="signature"><strong>create!(workflow_id, source_repo_url, source_repo_git_ref)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create!/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>create!(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {:ok, SourceRepo} | {:error, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to create a populated SourceRepo</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="download!/3">
+    <span class="signature"><strong>download!(repo, source_repo_url, source_repo_git_ref)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#download!/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>download!(SourceRepo, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: SourceRepo</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to download the repository locally</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_openaperture_info/1">
+    <span class="signature"><strong>get_openaperture_info(repo)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_openaperture_info/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_openaperture_info(pid) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve an OpenAperture repo info from the output directory</p>
+
+<h2>Options</h2>
+
+<p>The &#39;repo&#39; option defines the repo PID</p>
+
+<h2>Return values</h2>
+
+<p>Map</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
