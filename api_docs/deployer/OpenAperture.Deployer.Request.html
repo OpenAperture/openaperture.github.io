@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Deployer.Request</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_deployer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Deployer.html">Deployer</a> &rarr; <a href="OpenAperture.Deployer.Request.html">Request</a></div>
+      <h1>
+        OpenAperture.Deployer.Request
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>Methods and Request struct for Deployer requests</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#from_payload/2">from_payload(payload, async_info)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to convert a map into a Request struct</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#publish_success_notification/2">publish_success_notification(deploy_request, message)</a></td>
+  
+    <td class="summary_synopsis"><p>Convenience wrapper to publish a &quot;success&quot; notification to the associated Workflow</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#step_completed/1">step_completed(deploy_request)</a></td>
+  
+    <td class="summary_synopsis"><p>Convenience wrapper to notify the WorkflowOrchestrator that a workflow step has completed</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#step_failed/3">step_failed(deploy_request, message, reason)</a></td>
+  
+    <td class="summary_synopsis"><p>Convenience wrapper to notify the WorkflowOrchestrator that a workflow step has failed</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <section id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: %OpenAperture.Deployer.Request{delivery_tag: term, deployable_units: term, deployed_units: term, etcd_token: term, orchestrator_request: term, subscription_handler: term, workflow: term}
+  </p>
+  
+</div>
+
+        </section>
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="from_payload/2">
+    <span class="signature"><strong>from_payload(payload, async_info)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#from_payload/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>from_payload(Map, Map) :: <a href="OpenAperture.Deployer.Request.html#t:t/0">OpenAperture.Deployer.Request.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to convert a map into a Request struct</p>
+
+<h2>Options</h2>
+
+<p>The <code>payload</code> option defines the Map containing the request</p>
+
+<h2>Return Values</h2>
+
+<p>OpenAperture.WorkflowOrchestratorApi.Request.t</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="publish_success_notification/2">
+    <span class="signature"><strong>publish_success_notification(deploy_request, message)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#publish_success_notification/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>publish_success_notification(<a href="OpenAperture.Deployer.Request.html#t:t/0">OpenAperture.Deployer.Request.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="OpenAperture.Deployer.Request.html#t:t/0">OpenAperture.Deployer.Request.t</a></li>
+      
+        <li>publish_success_notification(<a href="OpenAperture.Deployer.Request.html#t:t/0">OpenAperture.Deployer.Request.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="OpenAperture.Deployer.Request.html#t:t/0">OpenAperture.Deployer.Request.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Convenience wrapper to publish a &quot;success&quot; notification to the associated Workflow</p>
+
+<h2>Options</h2>
+
+<p>The <code>deploy_request</code> option defines the Request</p>
+
+<p>The <code>message</code> option defines the message to publish</p>
+
+<h2>Return values</h2>
+
+<p>Request</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="step_completed/1">
+    <span class="signature"><strong>step_completed(deploy_request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#step_completed/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>step_completed(<a href="OpenAperture.Deployer.Request.html#t:t/0">OpenAperture.Deployer.Request.t</a>) :: <a href="OpenAperture.Deployer.Request.html#t:t/0">OpenAperture.Deployer.Request.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Convenience wrapper to notify the WorkflowOrchestrator that a workflow step has completed</p>
+
+<h2>Options</h2>
+
+<p>The <code>request</code> option defines the Request</p>
+
+<h2>Return Values</h2>
+
+<p>Request</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="step_failed/3">
+    <span class="signature"><strong>step_failed(deploy_request, message, reason)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#step_failed/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Convenience wrapper to notify the WorkflowOrchestrator that a workflow step has failed</p>
+
+<h2>Options</h2>
+
+<p>The <code>deploy_request</code> option defines the Request</p>
+
+<p>The <code>message</code> option defines the message to publish</p>
+
+<p>The <code>reason</code> option defines an optional String description</p>
+
+<h2>Return values</h2>
+
+<p>Request</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
