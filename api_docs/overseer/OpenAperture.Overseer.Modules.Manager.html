@@ -56,13 +56,6 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#find_deleted_modules/2">find_deleted_modules(state, modules)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to identify any modules which are no longer alive</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#handle_cast/2">handle_cast(msg, state)</a></td>
   
     <td class="summary_synopsis"><p>GenServer callback for handling the :set_modules event.  This method
@@ -71,7 +64,7 @@ will update the module list and stop/start listeners are needed</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#inactivate_listeners/1">inactivate_listeners(state)</a></td>
+  <td class="summary_signature"><a href="#inactivate_listeners/1">inactivate_listeners(modules)</a></td>
   
     <td class="summary_synopsis"><p>Method to identify and update or delete any &quot;inactive&quot; listeners.  A listener is defined as &quot;inactive&quot; if:
     * The last updated<em>at time is &gt; 10 minutes - set status to :inactive
@@ -93,20 +86,6 @@ will update the module list and stop/start listeners are needed</p>
 </td>
   
 </tr>
-<tr>
-  <td class="summary_signature"><a href="#start_listeners/2">start_listeners(state, list2)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to &quot;start&quot; (subscribe to queue) a list of Modules</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#stop_listeners/2">stop_listeners(state, arg2)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to &quot;stop&quot; (unsubscribe from queue) a list of Modules</p>
-</td>
-  
-</tr>
 
         </table>
       
@@ -117,35 +96,6 @@ will update the module list and stop/start listeners are needed</p>
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
-  <div class="detail_header" id="find_deleted_modules/2">
-    <span class="signature"><strong>find_deleted_modules(state, modules)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#find_deleted_modules/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>find_deleted_modules(Map, List) :: Map</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to identify any modules which are no longer alive</p>
-
-<h2>Options</h2>
-
-<p>The <code>state</code> option is the state of the GenServer</p>
-
-<p>The second option is the list of modules to start</p>
-
-  </section>
-  
-</section>
-<section class="detail">
   <div class="detail_header" id="handle_cast/2">
     <span class="signature"><strong>handle_cast(msg, state)</strong></span>
     <div class="detail_header_links">
@@ -173,7 +123,7 @@ will update the module list and stop/start listeners are needed</p>
 </section>
 <section class="detail">
   <div class="detail_header" id="inactivate_listeners/1">
-    <span class="signature"><strong>inactivate_listeners(state)</strong></span>
+    <span class="signature"><strong>inactivate_listeners(modules)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#inactivate_listeners/1" class="detail_link" title="Link to this function">#</a>
@@ -195,7 +145,7 @@ will update the module list and stop/start listeners are needed</p>
 
 <h2>Options</h2>
 
-<p>The <code>state</code> option is the state of the GenServer</p>
+<p>The <code>modules</code> option is the list of modules</p>
 
   </section>
   
@@ -254,70 +204,6 @@ will update the module list and stop/start listeners are needed</p>
 <h2>Return Values</h2>
 
 <p>{:ok, pid} | {:error, reason}</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="start_listeners/2">
-    <span class="signature"><strong>start_listeners(state, list2)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#start_listeners/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>start_listeners(Map, List) :: Map</li>
-      
-        <li>start_listeners(Map, []) :: Map</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to &quot;start&quot; (subscribe to queue) a list of Modules</p>
-
-<h2>Options</h2>
-
-<p>The <code>state</code> option is the state of the GenServer</p>
-
-<p>The second option is the list of modules to start</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="stop_listeners/2">
-    <span class="signature"><strong>stop_listeners(state, arg2)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#stop_listeners/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>stop_listeners(Map, List) :: Map</li>
-      
-        <li>stop_listeners(Map, []) :: Map</li>
-      
-        <li>stop_listeners(Map, nil) :: Map</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to &quot;stop&quot; (unsubscribe from queue) a list of Modules</p>
-
-<h2>Options</h2>
-
-<p>The <code>state</code> option is the state of the GenServer</p>
-
-<p>The second option is the list of modules to stop</p>
 
   </section>
   

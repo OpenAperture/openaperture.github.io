@@ -63,30 +63,15 @@
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#get_module/1">get_module(listener)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to retrieve the module definition within the pid</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#handle_call/3">handle_call(msg, from, state)</a></td>
-  
-    <td class="summary_synopsis"><p>GenServer callback for handling the :set_module event.  This method
-will store the module into the server&#39;s state</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#handle_cast/2">handle_cast(msg, state)</a></td>
   
-    <td class="summary_synopsis"><p>GenServer callback for handling the :retrieve<em>module</em>list event.  This method
-will retrieve MessagingExchangeModules for the configured messaging exchange</p>
+    <td class="summary_synopsis"><p>GenServer callback for handling the :start_listening event.  This method
+starts listener (i.e. subscribes) to events coming from the MessagingExchangeModule</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#process_event/3">process_event(payload, delivery_tag, module)</a></td>
+  <td class="summary_signature"><a href="#process_event/2">process_event(payload, delivery_tag)</a></td>
   
     <td class="summary_synopsis"><p>Method to process an incoming request</p>
 </td>
@@ -100,30 +85,9 @@ will retrieve MessagingExchangeModules for the configured messaging exchange</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#set_module/2">set_module(listener, module)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to update the module definition within the pid</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#start_link/1">start_link(module)</a></td>
+  <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
   
     <td class="summary_synopsis"><p>Specific start_link implementation (required by the supervisor)</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#start_listening/1">start_listening(module)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to subscribe from the module queue</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#stop_listening/1">stop_listening(listener)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to unsubscribe from the module queue</p>
 </td>
   
 </tr>
@@ -182,63 +146,6 @@ will retrieve MessagingExchangeModules for the configured messaging exchange</p>
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="get_module/1">
-    <span class="signature"><strong>get_module(listener)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#get_module/1" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>get_module(pid) :: Map</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to retrieve the module definition within the pid</p>
-
-<h2>Options</h2>
-
-<p>The <code>listener</code> option defines the listener PID</p>
-
-<p>Current module definition</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="handle_call/3">
-    <span class="signature"><strong>handle_call(msg, from, state)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#handle_call/3" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>handle_call({:set_module, Map}, term, Map) :: {:reply, Map, Map}</li>
-      
-        <li>handle_call({:get_module}, term, Map) :: {:reply, Map, Map}</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>GenServer callback for handling the :set_module event.  This method
-will store the module into the server&#39;s state.</p>
-
-<p>{:noreply, state}</p>
-
-  </section>
-  
-</section>
-<section class="detail">
   <div class="detail_header" id="handle_cast/2">
     <span class="signature"><strong>handle_cast(msg, state)</strong></span>
     <div class="detail_header_links">
@@ -251,27 +158,25 @@ will store the module into the server&#39;s state.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>handle_cast({:stop_listening}, Map) :: {:noreply, List}</li>
-      
         <li>handle_cast({:start_listening}, Map) :: {:noreply, Map}</li>
       
     </ul>
   
   <section class="docstring">
-    <p>GenServer callback for handling the :retrieve<em>module</em>list event.  This method
-will retrieve MessagingExchangeModules for the configured messaging exchange.</p>
+    <p>GenServer callback for handling the :start_listening event.  This method
+starts listener (i.e. subscribes) to events coming from the MessagingExchangeModule</p>
 
-<p>{:noreply, new modules list}</p>
+<p>{:noreply, state}</p>
 
   </section>
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="process_event/3">
-    <span class="signature"><strong>process_event(payload, delivery_tag, module)</strong></span>
+  <div class="detail_header" id="process_event/2">
+    <span class="signature"><strong>process_event(payload, delivery_tag)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#process_event/3" class="detail_link" title="Link to this function">#</a>
+      <a href="#process_event/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -279,9 +184,9 @@ will retrieve MessagingExchangeModules for the configured messaging exchange.</p
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>process_event(Map, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map) :: term</li>
+        <li>process_event(Map, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
       
-        <li>process_event(Map, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map) :: term</li>
+        <li>process_event(Map, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
       
     </ul>
   
@@ -333,11 +238,11 @@ will retrieve MessagingExchangeModules for the configured messaging exchange.</p
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="set_module/2">
-    <span class="signature"><strong>set_module(listener, module)</strong></span>
+  <div class="detail_header" id="start_link/0">
+    <span class="signature"><strong>start_link()</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#set_module/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#start_link/0" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -345,38 +250,7 @@ will retrieve MessagingExchangeModules for the configured messaging exchange.</p
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>set_module(pid, Map) :: Map</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to update the module definition within the pid</p>
-
-<h2>Options</h2>
-
-<p>The <code>listener</code> option defines the listener PID</p>
-
-<p>The <code>module</code> option defines the system module map</p>
-
-<p>Current module definition</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="start_link/1">
-    <span class="signature"><strong>start_link(module)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#start_link/1" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>start_link(Map) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>start_link :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   
@@ -390,64 +264,6 @@ will retrieve MessagingExchangeModules for the configured messaging exchange.</p
 <h2>Return Values</h2>
 
 <p>{:ok, pid} | {:error, reason}</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="start_listening/1">
-    <span class="signature"><strong>start_listening(module)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#start_listening/1" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>start_listening(pid) :: :ok</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to subscribe from the module queue</p>
-
-<h2>Options</h2>
-
-<p>The <code>listener</code> option defines the listener PID</p>
-
-<p>:ok</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="stop_listening/1">
-    <span class="signature"><strong>stop_listening(listener)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#stop_listening/1" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>stop_listening(pid) :: :ok</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to unsubscribe from the module queue</p>
-
-<h2>Options</h2>
-
-<p>The <code>listener</code> option defines the listener PID</p>
-
-<p>:ok</p>
 
   </section>
   
