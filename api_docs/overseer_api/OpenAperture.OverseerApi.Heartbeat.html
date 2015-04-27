@@ -56,14 +56,6 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#handle_call/3">handle_call(msg, from, state)</a></td>
-  
-    <td class="summary_synopsis"><p>GenServer callback for handling the :set_workflow event.  This method
-will store the current worklow into the server&#39;s state</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#handle_cast/2">handle_cast(msg, state)</a></td>
   
     <td class="summary_synopsis"><p>GenServer callback for handling the :publish_event event.  This method
@@ -99,32 +91,6 @@ will publish a &quot;heartbeat&quot; (StatuEvent) every 30 seconds</p>
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
-  <div class="detail_header" id="handle_call/3">
-    <span class="signature"><strong>handle_call(msg, from, state)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#handle_call/3" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>handle_call({:set_workload, List}, term, Map) :: {:reply, :ok, Map}</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>GenServer callback for handling the :set_workflow event.  This method
-will store the current worklow into the server&#39;s state.</p>
-
-<p>{:noreply, state}</p>
-
-  </section>
-  
-</section>
-<section class="detail">
   <div class="detail_header" id="handle_cast/2">
     <span class="signature"><strong>handle_cast(msg, state)</strong></span>
     <div class="detail_header_links">
