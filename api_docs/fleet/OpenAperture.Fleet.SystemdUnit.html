@@ -60,7 +60,7 @@
 <tr>
   <td class="summary_signature"><a href="#create/1">create(options)</a></td>
   
-    <td class="summary_synopsis"><p>Creates a <code>GenServer</code> representing a systemd Unit</p>
+    <td class="summary_synopsis"><p>Creates a <code class="inline">GenServer</code> representing a systemd Unit</p>
 </td>
   
 </tr>
@@ -168,24 +168,19 @@
     </ul>
   
   <section class="docstring">
-    <p>Creates a <code>GenServer</code> representing a systemd Unit.</p>
-
+    <p>Creates a <code class="inline">GenServer</code> representing a systemd Unit.</p>
 <h2>Options</h2>
-
-<p>The <code>options</code> option defines the Map of configuration options that should be 
+<p>The <code class="inline">options</code> option defines the Map of configuration options that should be 
 passed to systemd.</p>
-
 <h2>Return values</h2>
-
 <p>If the server is successfully created and initialized, the function returns
-<code>{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
+<code class="inline">{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
 process with the specified server name, the function returns
-<code>{:error, {:already_started, pid}}</code> with the pid of that process.</p>
-
-<p>If the <code>init/1</code> callback fails with <code>reason</code>, the function returns
-<code>{:error, reason}</code>. Otherwise, if it returns <code>{:stop, reason}</code>
-or <code>:ignore</code>, the process is terminated and the function returns
-<code>{:error, reason}</code> or <code>:ignore</code>, respectively.</p>
+<code class="inline">{:error, {:already_started, pid}}</code> with the pid of that process.</p>
+<p>If the <code class="inline">init/1</code> callback fails with <code class="inline">reason</code>, the function returns
+<code class="inline">{:error, reason}</code>. Otherwise, if it returns <code class="inline">{:stop, reason}</code>
+or <code class="inline">:ignore</code>, the process is terminated and the function returns
+<code class="inline">{:error, reason}</code> or <code class="inline">:ignore</code>, respectively.</p>
 
   </section>
   
@@ -209,14 +204,10 @@ or <code>:ignore</code>, the process is terminated and the function returns
   
   <section class="docstring">
     <p>Method to generate a new EtcdCluster agent</p>
-
 <h2>Options</h2>
-
-<p>The <code>options</code> option defines the Map of configuration options that should be 
+<p>The <code class="inline">options</code> option defines the Map of configuration options that should be 
 passed to systemd.</p>
-
 <h2>Return Values</h2>
-
 <p>pid</p>
 
   </section>
@@ -241,13 +232,9 @@ passed to systemd.</p>
   
   <section class="docstring">
     <p>Method to retrieve the assigned port</p>
-
 <h2>Options</h2>
-
-<p>The <code>unit</code> option define the Systemd PID</p>
-
+<p>The <code class="inline">unit</code> option define the Systemd PID</p>
 <h2>Return Value</h2>
-
 <p>The assigned integer port</p>
 
   </section>
@@ -272,15 +259,10 @@ passed to systemd.</p>
   
   <section class="docstring">
     <p>Method to retrieve the journal logs associated with a Unit</p>
-
 <h2>Options</h2>
-
-<p>The <code>unit</code> option define the Systemd PID</p>
-
-<p>The <code>etcd_token</code> provides the etcd token to connect to fleet</p>
-
+<p>The <code class="inline">unit</code> option define the Systemd PID</p>
+<p>The <code class="inline">etcd_token</code> provides the etcd token to connect to fleet</p>
 <h2>Return Values</h2>
-
 <p>tuple {:ok, stdout, stderr} | {:error, stdout, stderr}</p>
 
   </section>
@@ -305,13 +287,9 @@ passed to systemd.</p>
   
   <section class="docstring">
     <p>Method to retrieve the unit name</p>
-
 <h2>Options</h2>
-
-<p>The <code>unit</code> option define the Systemd PID</p>
-
+<p>The <code class="inline">unit</code> option define the Systemd PID</p>
 <h2>Return Values</h2>
-
 <p>String</p>
 
   </section>
@@ -336,13 +314,9 @@ passed to systemd.</p>
   
   <section class="docstring">
     <p>Method to retrieve the unit name</p>
-
 <h2>Options</h2>
-
-<p>The <code>unit</code> option define the Systemd PID</p>
-
+<p>The <code class="inline">unit</code> option define the Systemd PID</p>
 <h2>Return Values</h2>
-
 <p>String</p>
 
   </section>
@@ -367,17 +341,12 @@ passed to systemd.</p>
   
   <section class="docstring">
     <p>Method to determine if the unit is in active (according to systemd)</p>
-
 <h2>Options</h2>
-
-<p>The <code>unit</code> option define the Systemd PID</p>
-
+<p>The <code class="inline">unit</code> option define the Systemd PID</p>
 <h2>Return Values</h2>
-
-<p>true or {false, active<em>state, load</em>state, sub_state}</p>
-
-<p>active<em>state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.html">http://www.freedesktop.org/software/systemd/man/systemd.html</a>
-load</em>state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.unit.html">http://www.freedesktop.org/software/systemd/man/systemd.unit.html</a>
+<p>true or {false, active_state, load_state, sub_state}</p>
+<p>active_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.html">http://www.freedesktop.org/software/systemd/man/systemd.html</a>
+load_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.unit.html">http://www.freedesktop.org/software/systemd/man/systemd.unit.html</a>
 sub_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.html">http://www.freedesktop.org/software/systemd/man/systemd.html</a>  </p>
 
   </section>
@@ -402,13 +371,9 @@ sub_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.htm
   
   <section class="docstring">
     <p>Method to determine if the unit is in a launched state (according to Fleet)</p>
-
 <h2>Options</h2>
-
-<p>The <code>unit</code> option define the Systemd PID</p>
-
+<p>The <code class="inline">unit</code> option define the Systemd PID</p>
 <h2>Return Values</h2>
-
 <p>true or {false, state}</p>
 
   </section>
@@ -433,12 +398,9 @@ sub_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.htm
   
   <section class="docstring">
     <p>Method to refresh the state of the Unit from the cluster</p>
-
 <h2>Options</h2>
-
-<p>The <code>unit</code> option define the Systemd PID</p>
-
-<p>The <code>etcd_token</code> provides the etcd token to connect to fleet</p>
+<p>The <code class="inline">unit</code> option define the Systemd PID</p>
+<p>The <code class="inline">etcd_token</code> provides the etcd token to connect to fleet</p>
 
   </section>
   
@@ -462,12 +424,9 @@ sub_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.htm
   
   <section class="docstring">
     <p>Method to store the assigned port</p>
-
 <h2>Options</h2>
-
-<p>The <code>unit</code> option define the Systemd PID</p>
-
-<p>The <code>port</code> provides the assigned integer port</p>
+<p>The <code class="inline">unit</code> option define the Systemd PID</p>
+<p>The <code class="inline">port</code> provides the assigned integer port</p>
 
   </section>
   
@@ -491,12 +450,9 @@ sub_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.htm
   
   <section class="docstring">
     <p>Method to store the associated etcd_token</p>
-
 <h2>Options</h2>
-
-<p>The <code>unit</code> option define the Systemd PID</p>
-
-<p>The <code>etcd_token</code> provides the etcd token to connect to fleet</p>
+<p>The <code class="inline">unit</code> option define the Systemd PID</p>
+<p>The <code class="inline">etcd_token</code> provides the etcd token to connect to fleet</p>
 
   </section>
   
@@ -520,15 +476,10 @@ sub_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.htm
   
   <section class="docstring">
     <p>Method to spin up a new unit within a fleet cluster</p>
-
 <h2>Options</h2>
-
-<p>The <code>unit</code> option define the Systemd PID</p>
-
-<p>The <code>etcd_token</code> provides the etcd token to connect to fleet</p>
-
+<p>The <code class="inline">unit</code> option define the Systemd PID</p>
+<p>The <code class="inline">etcd_token</code> provides the etcd token to connect to fleet</p>
 <h2>Return Values</h2>
-
 <p>boolean; true if unit was launched</p>
 
   </section>
@@ -553,15 +504,10 @@ sub_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.htm
   
   <section class="docstring">
     <p>Method to tear down an existing unit within a fleet cluster</p>
-
 <h2>Options</h2>
-
-<p>The <code>unit</code> option define the Systemd PID</p>
-
-<p>The <code>etcd_token</code> provides the etcd token to connect to fleet</p>
-
+<p>The <code class="inline">unit</code> option define the Systemd PID</p>
+<p>The <code class="inline">etcd_token</code> provides the etcd token to connect to fleet</p>
 <h2>Return Values</h2>
-
 <p>boolean; true if unit was destroyed</p>
 
   </section>
