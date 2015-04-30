@@ -62,7 +62,7 @@
 <tr>
   <td class="summary_signature"><a href="#call/2">call(conn, action)</a></td>
   
-    <td class="summary_synopsis"><p>Callback implementation for <code>c:Plug.call/2</code></p>
+    <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Plug.call/2</code></p>
 </td>
   
 </tr>
@@ -90,18 +90,26 @@
 <tr>
   <td class="summary_signature"><a href="#index/2">index(conn, params)</a></td>
   
-    <td class="summary_synopsis"><p>GET /workflows - Retrieve all Workflows for a lookback period
-  * Query Parameters:<br>
-    * lookback - integer, defaults to 24 (specify 0 for all)
-    * deployment<em>repo - string containing the deployment repo
-    * source</em>repo - string containing the source repo</p>
+    <td class="summary_synopsis"><p>GET /workflows - Retrieve all Workflows for a lookback period</p>
+<ul>
+<li><p>Query Parameters:  </p>
+<ul>
+<li>lookback - integer, defaults to 24 (specify 0 for all)
+</li>
+<li>deployment_repo - string containing the deployment repo
+</li>
+<li>source_repo - string containing the source repo
+</li>
+</ul>
+</li>
+</ul>
 </td>
   
 </tr>
 <tr>
   <td class="summary_signature"><a href="#init/1">init(action)</a></td>
   
-    <td class="summary_synopsis"><p>Callback implementation for <code>c:Plug.init/1</code></p>
+    <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Plug.init/1</code></p>
 </td>
   
 </tr>
@@ -154,7 +162,7 @@
   </div>
   
   <section class="docstring">
-    <p>Callback implementation for <code>c:Plug.call/2</code>.</p>
+    <p>Callback implementation for <code class="inline">c:Plug.call/2</code>.</p>
 
   </section>
   
@@ -178,14 +186,10 @@
   
   <section class="docstring">
     <p>POST /workflows - Create a Workflow</p>
-
 <h2>Options</h2>
-
-<p>The <code>conn</code> option defines the underlying HTTP connection.
-The <code>params</code> option defines an array of arguments.</p>
-
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
 <h2>Return Values</h2>
-
 <p>Underlying HTTP connection</p>
 
   </section>
@@ -210,14 +214,10 @@ The <code>params</code> option defines an array of arguments.</p>
   
   <section class="docstring">
     <p>DELETE /workflows/:id - Delete a Workflow</p>
-
 <h2>Options</h2>
-
-<p>The <code>conn</code> option defines the underlying HTTP connection.
-The <code>params</code> option defines an array of arguments.</p>
-
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
 <h2>Return Values</h2>
-
 <p>Underlying HTTP connection</p>
 
   </section>
@@ -242,15 +242,10 @@ The <code>params</code> option defines an array of arguments.</p>
   
   <section class="docstring">
     <p>POST /workflows/:id/execute - Begins execution of a Workflow</p>
-
 <h2>Options</h2>
-
-<p>The <code>conn</code> option defines the underlying HTTP connection.</p>
-
-<p>The <code>params</code> option defines an array of arguments.</p>
-
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.</p>
+<p>The <code class="inline">params</code> option defines an array of arguments.</p>
 <h2>Return Values</h2>
-
 <p>Underlying HTTP connection</p>
 
   </section>
@@ -274,19 +269,23 @@ The <code>params</code> option defines an array of arguments.</p>
     </ul>
   
   <section class="docstring">
-    <p>GET /workflows - Retrieve all Workflows for a lookback period
-  * Query Parameters:<br>
-    * lookback - integer, defaults to 24 (specify 0 for all)
-    * deployment<em>repo - string containing the deployment repo
-    * source</em>repo - string containing the source repo</p>
-
+    <p>GET /workflows - Retrieve all Workflows for a lookback period</p>
+<ul>
+<li><p>Query Parameters:  </p>
+<ul>
+<li>lookback - integer, defaults to 24 (specify 0 for all)
+</li>
+<li>deployment_repo - string containing the deployment repo
+</li>
+<li>source_repo - string containing the source repo
+</li>
+</ul>
+</li>
+</ul>
 <h2>Options</h2>
-
-<p>The <code>conn</code> option defines the underlying HTTP connection.
-The <code>params</code> option defines an array of arguments.</p>
-
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
 <h2>Return Values</h2>
-
 <p>Underlying HTTP connection</p>
 
   </section>
@@ -303,7 +302,7 @@ The <code>params</code> option defines an array of arguments.</p>
   </div>
   
   <section class="docstring">
-    <p>Callback implementation for <code>c:Plug.init/1</code>.</p>
+    <p>Callback implementation for <code class="inline">c:Plug.init/1</code>.</p>
 
   </section>
   
@@ -327,17 +326,11 @@ The <code>params</code> option defines an array of arguments.</p>
   
   <section class="docstring">
     <p>GET /workflowss/:id</p>
-
 <p>Retrieve a specific Workflow</p>
-
 <h2>Options</h2>
-
-<p>The <code>conn</code> option defines the underlying HTTP connection.</p>
-
-<p>The <code>params</code> option defines an array of arguments.</p>
-
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.</p>
+<p>The <code class="inline">params</code> option defines an array of arguments.</p>
 <h2>Return Values</h2>
-
 <p>Underlying HTTP connection.</p>
 
   </section>
@@ -362,14 +355,10 @@ The <code>params</code> option defines an array of arguments.</p>
   
   <section class="docstring">
     <p>PUT/PATCH /workflows/:id - Update a Workflow</p>
-
 <h2>Options</h2>
-
-<p>The <code>conn</code> option defines the underlying HTTP connection.
-The <code>params</code> option defines an array of arguments.</p>
-
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
 <h2>Return Values</h2>
-
 <p>Underlying HTTP connection</p>
 
   </section>
