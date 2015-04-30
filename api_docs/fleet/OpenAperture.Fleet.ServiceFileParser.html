@@ -45,7 +45,7 @@
 
       
         <section id="moduledoc" class="docstring">
-          <p>This module contains logic to parse Fleet service files into usable Fleet UnitOptions.</p>
+          <p>This module contains logic to parse Fleet service files</p>
 
         </section>
       
@@ -58,7 +58,14 @@
           <tr>
   <td class="summary_signature"><a href="#parse/1">parse(filepath)</a></td>
   
-    <td class="summary_synopsis"><p>Method to parse a Fleet service file into usable Fleet Unit object</p>
+    <td class="summary_synopsis"><p>Method to parse a Fleet service file into a List of unit Maps</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#parse_unit/2">parse_unit(unit_name, filepath)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to parse a Fleet service file into a FleetApi.Unit</p>
 </td>
   
 </tr>
@@ -89,11 +96,39 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to parse a Fleet service file into usable Fleet Unit object.</p>
+    <p>Method to parse a Fleet service file into a List of unit Maps</p>
 <h2>Options</h2>
 <p>The <code class="inline">filepath</code> option is an absolute file location containing the service file.</p>
 <h2>Return values</h2>
-<p>List containing the UnitOptions</p>
+<p>List containing the UnitOption maps</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="parse_unit/2">
+    <span class="signature"><strong>parse_unit(unit_name, filepath)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#parse_unit/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>parse_unit(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: FleetApi.Unit.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to parse a Fleet service file into a FleetApi.Unit</p>
+<h2>Options</h2>
+<p>The <code class="inline">unit_name</code> option is the requested name of the unit</p>
+<p>The <code class="inline">filepath</code> option is an absolute file location containing the service file.</p>
+<h2>Return values</h2>
+<p>FleetApi.Unit</p>
 
   </section>
   

@@ -36,6 +36,8 @@
           <li><a href="#summary">Summary</a></li>
         
         
+          <li><a href="#types_details">Types</a></li>
+        
         
           <li><a href="#functions_details">Functions</a></li>
         
@@ -44,6 +46,11 @@
       </ul>
 
       
+        <section id="moduledoc" class="docstring">
+          <p>This module contains logic to interact with SystemdUnit modules</p>
+
+        </section>
+      
 
       
 
@@ -51,49 +58,35 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#create!/1">create!(options)</a></td>
+  <td class="summary_signature"><a href="#from_fleet_unit/2">from_fleet_unit(etcd_token, unit)</a></td>
   
-    <td class="summary_synopsis"><p>Method to generate a new EtcdCluster agent</p>
+    <td class="summary_synopsis"><p>Method to convert a FleetApi.Unit into a SystemdUnit</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#create/1">create(options)</a></td>
-  
-    <td class="summary_synopsis"><p>Creates a <code class="inline">GenServer</code> representing a systemd Unit</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#get_assigned_port/1">get_assigned_port(unit)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to retrieve the assigned port</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#get_journal/2">get_journal(unit, etcd_token \\ nil)</a></td>
+  <td class="summary_signature"><a href="#get_journal/1">get_journal(unit)</a></td>
   
     <td class="summary_synopsis"><p>Method to retrieve the journal logs associated with a Unit</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#get_machine_id/1">get_machine_id(unit)</a></td>
+  <td class="summary_signature"><a href="#get_unit/2">get_unit(unit_name, etcd_token)</a></td>
   
-    <td class="summary_synopsis"><p>Method to retrieve the unit name</p>
+    <td class="summary_synopsis"><p>Method to retrieve the current SystemdUnit for a unit on the cluster</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#get_unit_name/1">get_unit_name(unit)</a></td>
+  <td class="summary_signature"><a href="#get_units/1">get_units(etcd_token)</a></td>
   
-    <td class="summary_synopsis"><p>Method to retrieve the unit name</p>
+    <td class="summary_synopsis"><p>Method to retrieve the current SystemdUnit for a unit on the cluster</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#is_active?/2">is_active?(unit, etcd_token \\ nil)</a></td>
+  <td class="summary_signature"><a href="#is_active?/1">is_active?(unit)</a></td>
   
     <td class="summary_synopsis"><p>Method to determine if the unit is in active (according to systemd)</p>
 </td>
@@ -107,35 +100,14 @@
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#refresh/2">refresh(unit, etcd_token \\ nil)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to refresh the state of the Unit from the cluster</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#set_assigned_port/2">set_assigned_port(unit, port)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to store the assigned port</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#set_etcd_token/2">set_etcd_token(unit, etcd_token)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to store the associated etcd_token</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#spinup_unit/2">spinup_unit(unit, etcd_token \\ nil)</a></td>
+  <td class="summary_signature"><a href="#spinup_unit/1">spinup_unit(unit)</a></td>
   
     <td class="summary_synopsis"><p>Method to spin up a new unit within a fleet cluster</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#teardown_unit/2">teardown_unit(unit, etcd_token \\ nil)</a></td>
+  <td class="summary_signature"><a href="#teardown_unit/1">teardown_unit(unit)</a></td>
   
     <td class="summary_synopsis"><p>Method to tear down an existing unit within a fleet cluster</p>
 </td>
@@ -146,16 +118,27 @@
       
 
       
+        <section id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: %OpenAperture.Fleet.SystemdUnit{currentState: term, desiredState: term, dst_port: term, etcd_token: term, machineID: term, name: term, options: term, systemdActiveState: term, systemdLoadState: term, systemdSubState: term}
+  </p>
+  
+</div>
+
+        </section>
+      
 
       
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
-  <div class="detail_header" id="create/1">
-    <span class="signature"><strong>create(options)</strong></span>
+  <div class="detail_header" id="from_fleet_unit/2">
+    <span class="signature"><strong>from_fleet_unit(etcd_token, unit)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#create/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#from_fleet_unit/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -163,89 +146,27 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create(Map) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>from_fleet_unit(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, FleetApi.Unit) :: <a href="OpenAperture.Fleet.SystemdUnit.html#t:t/0">OpenAperture.Fleet.SystemdUnit.t</a></li>
       
     </ul>
   
   <section class="docstring">
-    <p>Creates a <code class="inline">GenServer</code> representing a systemd Unit.</p>
+    <p>Method to convert a FleetApi.Unit into a SystemdUnit</p>
 <h2>Options</h2>
-<p>The <code class="inline">options</code> option defines the Map of configuration options that should be 
-passed to systemd.</p>
-<h2>Return values</h2>
-<p>If the server is successfully created and initialized, the function returns
-<code class="inline">{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
-process with the specified server name, the function returns
-<code class="inline">{:error, {:already_started, pid}}</code> with the pid of that process.</p>
-<p>If the <code class="inline">init/1</code> callback fails with <code class="inline">reason</code>, the function returns
-<code class="inline">{:error, reason}</code>. Otherwise, if it returns <code class="inline">{:stop, reason}</code>
-or <code class="inline">:ignore</code>, the process is terminated and the function returns
-<code class="inline">{:error, reason}</code> or <code class="inline">:ignore</code>, respectively.</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="create!/1">
-    <span class="signature"><strong>create!(options)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#create!/1" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>create!(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: pid</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to generate a new EtcdCluster agent</p>
-<h2>Options</h2>
-<p>The <code class="inline">options</code> option defines the Map of configuration options that should be 
-passed to systemd.</p>
-<h2>Return Values</h2>
-<p>pid</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="get_assigned_port/1">
-    <span class="signature"><strong>get_assigned_port(unit)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#get_assigned_port/1" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>get_assigned_port(pid) :: term</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to retrieve the assigned port</p>
-<h2>Options</h2>
-<p>The <code class="inline">unit</code> option define the Systemd PID</p>
+<p>The <code class="inline">etcd_token</code> provides the etcd token to connect to fleet</p>
+<p>The <code class="inline">unit</code> option define the FleetApi.Unit</p>
 <h2>Return Value</h2>
-<p>The assigned integer port</p>
+<p>SystemdUnit</p>
 
   </section>
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="get_journal/2">
-    <span class="signature"><strong>get_journal(unit, etcd_token \\ nil)</strong></span>
+  <div class="detail_header" id="get_journal/1">
+    <span class="signature"><strong>get_journal(unit)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#get_journal/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#get_journal/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -253,15 +174,14 @@ passed to systemd.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_journal(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>get_journal(<a href="OpenAperture.Fleet.SystemdUnit.html#t:t/0">OpenAperture.Fleet.SystemdUnit.t</a>) :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   
   <section class="docstring">
     <p>Method to retrieve the journal logs associated with a Unit</p>
 <h2>Options</h2>
-<p>The <code class="inline">unit</code> option define the Systemd PID</p>
-<p>The <code class="inline">etcd_token</code> provides the etcd token to connect to fleet</p>
+<p>The <code class="inline">unit</code> option define the SystemdUnit.t</p>
 <h2>Return Values</h2>
 <p>tuple {:ok, stdout, stderr} | {:error, stdout, stderr}</p>
 
@@ -269,11 +189,11 @@ passed to systemd.</p>
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="get_machine_id/1">
-    <span class="signature"><strong>get_machine_id(unit)</strong></span>
+  <div class="detail_header" id="get_unit/2">
+    <span class="signature"><strong>get_unit(unit_name, etcd_token)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#get_machine_id/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#get_unit/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -281,26 +201,27 @@ passed to systemd.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_machine_id(pid) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+        <li>get_unit(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="OpenAperture.Fleet.SystemdUnit.html#t:t/0">OpenAperture.Fleet.SystemdUnit.t</a></li>
       
     </ul>
   
   <section class="docstring">
-    <p>Method to retrieve the unit name</p>
+    <p>Method to retrieve the current SystemdUnit for a unit on the cluster</p>
 <h2>Options</h2>
 <p>The <code class="inline">unit</code> option define the Systemd PID</p>
-<h2>Return Values</h2>
-<p>String</p>
+<p>The <code class="inline">etcd_token</code> provides the etcd token to connect to fleet</p>
+<h2>Return Value</h2>
+<p>SystemdUnit</p>
 
   </section>
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="get_unit_name/1">
-    <span class="signature"><strong>get_unit_name(unit)</strong></span>
+  <div class="detail_header" id="get_units/1">
+    <span class="signature"><strong>get_units(etcd_token)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#get_unit_name/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#get_units/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -308,26 +229,26 @@ passed to systemd.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_unit_name(pid) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+        <li>get_units(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: List</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Method to retrieve the unit name</p>
+    <p>Method to retrieve the current SystemdUnit for a unit on the cluster</p>
 <h2>Options</h2>
-<p>The <code class="inline">unit</code> option define the Systemd PID</p>
-<h2>Return Values</h2>
-<p>String</p>
+<p>The <code class="inline">etcd_token</code> provides the etcd token to connect to fleet</p>
+<h2>Return Value</h2>
+<p>List of SystemdUnit.t</p>
 
   </section>
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="is_active?/2">
-    <span class="signature"><strong>is_active?(unit, etcd_token \\ nil)</strong></span>
+  <div class="detail_header" id="is_active?/1">
+    <span class="signature"><strong>is_active?(unit)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#is_active?/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#is_active?/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -335,16 +256,16 @@ passed to systemd.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>is_active?(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
+        <li>is_active?(<a href="OpenAperture.Fleet.SystemdUnit.html#t:t/0">OpenAperture.Fleet.SystemdUnit.t</a>) :: true | {false, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   
   <section class="docstring">
     <p>Method to determine if the unit is in active (according to systemd)</p>
 <h2>Options</h2>
-<p>The <code class="inline">unit</code> option define the Systemd PID</p>
+<p>The <code class="inline">unit</code> option define the SystemdUnit</p>
 <h2>Return Values</h2>
-<p>true or {false, active_state, load_state, sub_state}</p>
+<p>{false, unit.systemdActiveState, unit.systemdLoadState, unit.systemdSubState}</p>
 <p>active_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.html">http://www.freedesktop.org/software/systemd/man/systemd.html</a>
 load_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.unit.html">http://www.freedesktop.org/software/systemd/man/systemd.unit.html</a>
 sub_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.html">http://www.freedesktop.org/software/systemd/man/systemd.html</a>  </p>
@@ -365,7 +286,7 @@ sub_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.htm
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>is_launched?(pid) :: term</li>
+        <li>is_launched?(<a href="OpenAperture.Fleet.SystemdUnit.html#t:t/0">OpenAperture.Fleet.SystemdUnit.t</a>) :: true | {false, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   
@@ -380,11 +301,11 @@ sub_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.htm
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="refresh/2">
-    <span class="signature"><strong>refresh(unit, etcd_token \\ nil)</strong></span>
+  <div class="detail_header" id="spinup_unit/1">
+    <span class="signature"><strong>spinup_unit(unit)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#refresh/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#spinup_unit/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -392,92 +313,14 @@ sub_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.htm
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>refresh(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to refresh the state of the Unit from the cluster</p>
-<h2>Options</h2>
-<p>The <code class="inline">unit</code> option define the Systemd PID</p>
-<p>The <code class="inline">etcd_token</code> provides the etcd token to connect to fleet</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="set_assigned_port/2">
-    <span class="signature"><strong>set_assigned_port(unit, port)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#set_assigned_port/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>set_assigned_port(pid, Integer) :: term</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to store the assigned port</p>
-<h2>Options</h2>
-<p>The <code class="inline">unit</code> option define the Systemd PID</p>
-<p>The <code class="inline">port</code> provides the assigned integer port</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="set_etcd_token/2">
-    <span class="signature"><strong>set_etcd_token(unit, etcd_token)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#set_etcd_token/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>set_etcd_token(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to store the associated etcd_token</p>
-<h2>Options</h2>
-<p>The <code class="inline">unit</code> option define the Systemd PID</p>
-<p>The <code class="inline">etcd_token</code> provides the etcd token to connect to fleet</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="spinup_unit/2">
-    <span class="signature"><strong>spinup_unit(unit, etcd_token \\ nil)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#spinup_unit/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>spinup_unit(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
+        <li>spinup_unit(<a href="OpenAperture.Fleet.SystemdUnit.html#t:t/0">OpenAperture.Fleet.SystemdUnit.t</a>) :: true | false</li>
       
     </ul>
   
   <section class="docstring">
     <p>Method to spin up a new unit within a fleet cluster</p>
 <h2>Options</h2>
-<p>The <code class="inline">unit</code> option define the Systemd PID</p>
+<p>The <code class="inline">unit</code> option define the SystemdUnit.t</p>
 <p>The <code class="inline">etcd_token</code> provides the etcd token to connect to fleet</p>
 <h2>Return Values</h2>
 <p>boolean; true if unit was launched</p>
@@ -486,11 +329,11 @@ sub_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.htm
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="teardown_unit/2">
-    <span class="signature"><strong>teardown_unit(unit, etcd_token \\ nil)</strong></span>
+  <div class="detail_header" id="teardown_unit/1">
+    <span class="signature"><strong>teardown_unit(unit)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#teardown_unit/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#teardown_unit/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -498,15 +341,14 @@ sub_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.htm
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>teardown_unit(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
+        <li>teardown_unit(<a href="OpenAperture.Fleet.SystemdUnit.html#t:t/0">OpenAperture.Fleet.SystemdUnit.t</a>) :: true | false</li>
       
     </ul>
   
   <section class="docstring">
     <p>Method to tear down an existing unit within a fleet cluster</p>
 <h2>Options</h2>
-<p>The <code class="inline">unit</code> option define the Systemd PID</p>
-<p>The <code class="inline">etcd_token</code> provides the etcd token to connect to fleet</p>
+<p>The <code class="inline">unit</code> option define the SystemdUnit.t</p>
 <h2>Return Values</h2>
 <p>boolean; true if unit was destroyed</p>
 
