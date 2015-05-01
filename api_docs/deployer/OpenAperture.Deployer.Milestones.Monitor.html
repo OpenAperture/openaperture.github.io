@@ -58,8 +58,14 @@
           <tr>
   <td class="summary_signature"><a href="#monitor/2">monitor(deploy_request, monitoring_loop_cnt)</a></td>
   
-    <td class="summary_synopsis"><p>Monitors an in-progress Fleet deployment
-Returns <code>{:ok, pid}</code> or <code>{:error, reason}</code></p>
+    <td class="summary_synopsis"><p>Monitors an in-progress Fleet deployment</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#refresh_systemd_units/2">refresh_systemd_units(etcd_token, old_systemd_units)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the latest state of SystemdUnits</p>
 </td>
   
 </tr>
@@ -105,8 +111,46 @@ Returns <code>{:ok, pid}</code> or <code>{:error, reason}</code></p>
     </ul>
   
   <section class="docstring">
-    <p>Monitors an in-progress Fleet deployment
-Returns <code>{:ok, pid}</code> or <code>{:error, reason}</code></p>
+    <p>Monitors an in-progress Fleet deployment</p>
+
+<h2>Options</h2>
+
+<p>The <code>deploy_request</code> option contains the DeployerRequest</p>
+
+<p>The <code>monitoring_loop_cnt</code> option defines the current number of execution cycles</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="refresh_systemd_units/2">
+    <span class="signature"><strong>refresh_systemd_units(etcd_token, old_systemd_units)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#refresh_systemd_units/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>refresh_systemd_units(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, List) :: List</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the latest state of SystemdUnits</p>
+
+<h2>Options</h2>
+
+<p>The <code>etcd_token</code> option defines the etcd cluster token</p>
+
+<p>The <code>old_systemd_units</code> option defines a List of units to retrieve</p>
+
+<h2>Return Values</h2>
+
+<p>List</p>
 
   </section>
   
