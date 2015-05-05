@@ -2,7 +2,7 @@
 
 In this post I’ll show you how can you use OpenAperture and AWS to create a multi-regions deployment environment.
 
-To understand some basic EC2 and VPC concepts, VPC stands for virtual private cloud and is the equivalent of having a virtual data center in the cloud. You can assign a network CIDR, ACLs and utilize many other features that you would see in a traditional data center. If you’ve never used a VPC before I would suggest that you read over the official AWS documentation.
+To understand some basic EC2 and VPC concepts, VPC stands for virtual private cloud and is the equivalent of having a virtual data center in the cloud. You can assign a network CIDR, ACLs and utilize many other features that you would see in a traditional data center. If you’ve never used a VPC before I would suggest that you read over the official [AWS documentation](http://aws.amazon.com/documentation/vpc/?nc2=h_ls).
 
 ## What was the status quo?
 
