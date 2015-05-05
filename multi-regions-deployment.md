@@ -24,16 +24,16 @@ The OpenAperture build server is located in Virginia, which means that Virginia 
 
 This is a quick overview of our VPC setup:
 
-|                       | VPC#1 Virginia| VPC#2 Sydney  | VPC#3 EU  |
-| ----------------------|:-------------:| -------------:|
-| CIDR                  | 10.11.0.0/16  | 12.11.0.0/16  | 13.11.0.0/16
-| VPN server subnet     | 10.11.4.0/24  | 12.11.4.0/24  | 13.11.4.0/24
-| VPN server static IP  | 10.11.4.5     | 12.11.4.5     | 13.11.4.5
-| VPN server public IP  | EIP1          | EIP2          | EIP3
-| fns subnet (zone A)   |               | 12.11.6.0/24  | 13.11.6.0/24
-| fns subnet (zone B)   |               | 12.11.7.0/24  | 13.11.7.0/24
-| epss subnet (zone A)  |               | 12.11.8.0/24  | 13.11.8.0/24
-| epss subnet (zone B)  |               | 12.11.9.0/24  | 13.11.9.0/24
+|                       | VPC#1 Virginia| VPC#2 Sydney  | VPC#3 EU     |
+| :---------------------|:------------- | :------------ | :----------- |
+| CIDR                  | 10.11.0.0/16  | 12.11.0.0/16  | 13.11.0.0/16 |
+| VPN server subnet     | 10.11.4.0/24  | 12.11.4.0/24  | 13.11.4.0/24 |
+| VPN server static IP  | 10.11.4.5     | 12.11.4.5     | 13.11.4.5    |
+| VPN server public IP  | EIP1          | EIP2          | EIP3         |
+| fns subnet (zone A)   |               | 12.11.6.0/24  | 13.11.6.0/24 |
+| fns subnet (zone B)   |               | 12.11.7.0/24  | 13.11.7.0/24 |
+| epss subnet (zone A)  |               | 12.11.8.0/24  | 13.11.8.0/24 |
+| epss subnet (zone B)  |               | 12.11.9.0/24  | 13.11.9.0/24 |
 
 ## Configuration
 
