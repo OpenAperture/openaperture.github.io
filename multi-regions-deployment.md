@@ -14,7 +14,7 @@ Following long and extensive discussions, we decided for a global private networ
 
 So, we are starting with a look at how the network is built:
 
-<NETWORK GRAPHIC>
+(NETWORK GRAPHIC)
 
 As software VPN solution we are using OpenSwan. We’ve got 3 different regions (US East, EU and Asia Pacific) with 3 different VPN gateways.
 
@@ -51,15 +51,15 @@ Now we’ll launch 3 Amazon Linux AMIs (in each region 1 VPN server) with this p
 
 Next up, we configure the routing tables so that the VPN server in Virginia can communicate with the VPN servers in Sydney and EU. In Virginia, we route the traffic to the IPs 12.11.0.0/16 (Sydney) and 13.11.0.0/16 (FFM) through the VPN server instance (i-caa0741c).
 
-<GRAPHIC main route table in Virginia>
+(GRAPHIC main route table in Virginia)
 
 In Sydney we route the traffic with the destination 10.11.0.0/16 (Virginia) through the VPN server instance (i-4277ce9e)
 
-<GRAPHIC main route table in Sydney (rtb-a9a970cc)>
+(GRAPHIC main route table in Sydney)
 
 and also in the EU VPC we route the traffic with the destination 10.11.0.0/16 (Virginia) through the VPN server instance (i-0da8f0c3).
 
-<GRAPHIC main route table in EU (rtb-3505ce5c)>
+(GRAPHIC main route table in EU)
 
 When done you can install the VPN software OpenSwan on each VPN server instance with the command `sudo yum install openswan`.
 
