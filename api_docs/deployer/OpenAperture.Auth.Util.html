@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OpenAperture.Deployer.Milestones.DeploySupervisor</title>
+    <title>OpenAperture.Auth.Util</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
@@ -25,9 +25,9 @@
     </script>
 
     <section id="content">
-      <div class="breadcrumbs">openaperture_deployer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Deployer.html">Deployer</a> &rarr; Milestones &rarr; <a href="OpenAperture.Deployer.Milestones.DeploySupervisor.html">DeploySupervisor</a></div>
+      <div class="breadcrumbs">openaperture_auth v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Auth.html">Auth</a> &rarr; <a href="OpenAperture.Auth.Util.html">Util</a></div>
       <h1>
-        OpenAperture.Deployer.Milestones.DeploySupervisor
+        OpenAperture.Auth.Util
         
       </h1>
 
@@ -51,18 +51,11 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#deploy/1">deploy(deploy_request)</a></td>
+  <td class="summary_signature"><a href="#timestamp_add_seconds/2">timestamp_add_seconds(timestamp, seconds)</a></td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#init/1">init(atom1)</a></td>
-  
-    <td class="summary_synopsis"><p>Callback implementation for <code>c::supervisor.init/1</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#start_link/1">start_link(opts \\ [])</a></td>
+  <td class="summary_signature"><a href="#valid_token?/1">valid_token?(token)</a></td>
   
 </tr>
 
@@ -75,11 +68,11 @@
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
-  <div class="detail_header" id="deploy/1">
-    <span class="signature"><strong>deploy(deploy_request)</strong></span>
+  <div class="detail_header" id="timestamp_add_seconds/2">
+    <span class="signature"><strong>timestamp_add_seconds(timestamp, seconds)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#deploy/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#timestamp_add_seconds/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -90,27 +83,11 @@
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="init/1">
-    <span class="signature"><strong>init(atom1)</strong></span>
+  <div class="detail_header" id="valid_token?/1">
+    <span class="signature"><strong>valid_token?(token)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#init/1" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    <p>Callback implementation for <code>c::supervisor.init/1</code>.</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="start_link/1">
-    <span class="signature"><strong>start_link(opts \\ [])</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#start_link/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#valid_token?/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>

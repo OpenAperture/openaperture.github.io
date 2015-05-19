@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OpenAperture.Deployer.Configuration</title>
+    <title>OpenAperture.Auth.Client.Store</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
@@ -25,9 +25,9 @@
     </script>
 
     <section id="content">
-      <div class="breadcrumbs">openaperture_deployer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Deployer.html">Deployer</a> &rarr; <a href="OpenAperture.Deployer.Configuration.html">Configuration</a></div>
+      <div class="breadcrumbs">openaperture_auth v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Auth.html">Auth</a> &rarr; <a href="OpenAperture.Auth.Client.html">Client</a> &rarr; <a href="OpenAperture.Auth.Client.Store.html">Store</a></div>
       <h1>
-        OpenAperture.Deployer.Configuration
+        OpenAperture.Auth.Client.Store
         
       </h1>
 
@@ -44,11 +44,6 @@
       </ul>
 
       
-        <section id="moduledoc" class="docstring">
-          <p>Retrieves configuration from either ENV variables or config.exs.</p>
-
-        </section>
-      
 
       
 
@@ -56,17 +51,19 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#get_current_broker_id/0">get_current_broker_id()</a></td>
-  
-    <td class="summary_synopsis"><p>Method to retrieve the currently assigned exchange id</p>
-</td>
+  <td class="summary_signature"><a href="#get/2">get(key1, key2)</a></td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#get_current_exchange_id/0">get_current_exchange_id()</a></td>
+  <td class="summary_signature"><a href="#put/3">put(key1, key2, token)</a></td>
   
-    <td class="summary_synopsis"><p>Method to retrieve the currently assigned exchange id</p>
-</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#remove/2">remove(key1, key2)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
   
 </tr>
 
@@ -79,60 +76,62 @@
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
-  <div class="detail_header" id="get_current_broker_id/0">
-    <span class="signature"><strong>get_current_broker_id()</strong></span>
+  <div class="detail_header" id="get/2">
+    <span class="signature"><strong>get(key1, key2)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#get_current_broker_id/0" class="detail_link" title="Link to this function">#</a>
+      <a href="#get/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>get_current_broker_id :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
-      
-    </ul>
-  
   <section class="docstring">
-    <p>Method to retrieve the currently assigned exchange id</p>
-
-<h2>Options</h2>
-
-<h2>Return values</h2>
-
-<p>The exchange identifier</p>
-
+    
   </section>
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="get_current_exchange_id/0">
-    <span class="signature"><strong>get_current_exchange_id()</strong></span>
+  <div class="detail_header" id="put/3">
+    <span class="signature"><strong>put(key1, key2, token)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#get_current_exchange_id/0" class="detail_link" title="Link to this function">#</a>
+      <a href="#put/3" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>get_current_exchange_id :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
-      
-    </ul>
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="remove/2">
+    <span class="signature"><strong>remove(key1, key2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#remove/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
   
   <section class="docstring">
-    <p>Method to retrieve the currently assigned exchange id</p>
-
-<h2>Options</h2>
-
-<h2>Return values</h2>
-
-<p>The exchange identifier</p>
-
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/0">
+    <span class="signature"><strong>start_link()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
   </section>
   
 </section>

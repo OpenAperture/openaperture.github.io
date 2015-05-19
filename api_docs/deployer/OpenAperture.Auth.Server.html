@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OpenAperture.Deployer.Supervisor</title>
+    <title>OpenAperture.Auth.Server</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
@@ -25,9 +25,9 @@
     </script>
 
     <section id="content">
-      <div class="breadcrumbs">openaperture_deployer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Deployer.html">Deployer</a> &rarr; <a href="OpenAperture.Deployer.Supervisor.html">Supervisor</a></div>
+      <div class="breadcrumbs">openaperture_auth v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Auth.html">Auth</a> &rarr; <a href="OpenAperture.Auth.Server.html">Server</a></div>
       <h1>
-        OpenAperture.Deployer.Supervisor
+        OpenAperture.Auth.Server
         
       </h1>
 
@@ -44,11 +44,6 @@
       </ul>
 
       
-        <section id="moduledoc" class="docstring">
-          <p>Defines the supervison tree of the application.</p>
-
-        </section>
-      
 
       
 
@@ -56,14 +51,14 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#init/1">init(atom1)</a></td>
+  <td class="summary_signature"><a href="#validate_token?/2">validate_token?(validate_url, token)</a></td>
   
-    <td class="summary_synopsis"><p>Callback implementation for <code>c::supervisor.init/1</code></p>
+    <td class="summary_synopsis"><p>Method to validate an OAuth token</p>
+<h2>Options</h2>
+<p>The <code class="inline">auth_header</code> option defines the auth header</p>
+<h2>Return values</h2>
+<p>Boolean</p>
 </td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
   
 </tr>
 
@@ -76,33 +71,29 @@
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
-  <div class="detail_header" id="init/1">
-    <span class="signature"><strong>init(atom1)</strong></span>
+  <div class="detail_header" id="validate_token?/2">
+    <span class="signature"><strong>validate_token?(validate_url, token)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#init/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#validate_token?/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>validate_token?(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: true | false</li>
+      
+    </ul>
+  
   <section class="docstring">
-    <p>Callback implementation for <code>c::supervisor.init/1</code>.</p>
+    <p>Method to validate an OAuth token</p>
+<h2>Options</h2>
+<p>The <code class="inline">auth_header</code> option defines the auth header</p>
+<h2>Return values</h2>
+<p>Boolean</p>
 
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="start_link/0">
-    <span class="signature"><strong>start_link()</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#start_link/0" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    
   </section>
   
 </section>
