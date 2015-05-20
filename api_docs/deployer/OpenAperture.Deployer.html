@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OpenAperture.Auth.Util</title>
+    <title>OpenAperture.Deployer</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
@@ -25,9 +25,9 @@
     </script>
 
     <section id="content">
-      <div class="breadcrumbs">openaperture_auth v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Auth.html">Auth</a> &rarr; <a href="OpenAperture.Auth.Util.html">Util</a></div>
+      <div class="breadcrumbs">openaperture_deployer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Deployer.html">Deployer</a></div>
       <h1>
-        OpenAperture.Auth.Util
+        OpenAperture.Deployer
         
       </h1>
 
@@ -44,6 +44,11 @@
       </ul>
 
       
+        <section id="moduledoc" class="docstring">
+          <p>Defines the Deployer application.</p>
+
+        </section>
+      
 
       
 
@@ -51,11 +56,10 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#timestamp_add_seconds/2">timestamp_add_seconds(timestamp, seconds)</a></td>
+  <td class="summary_signature"><a href="#start/2">start(type, args)</a></td>
   
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#valid_token?/1">valid_token?(token)</a></td>
+    <td class="summary_synopsis"><p>Starts the application</p>
+</td>
   
 </tr>
 
@@ -68,32 +72,27 @@
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
-  <div class="detail_header" id="timestamp_add_seconds/2">
-    <span class="signature"><strong>timestamp_add_seconds(timestamp, seconds)</strong></span>
+  <div class="detail_header" id="start/2">
+    <span class="signature"><strong>start(type, args)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#timestamp_add_seconds/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#start/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
   
-  <section class="docstring">
-    
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="valid_token?/1">
-    <span class="signature"><strong>valid_token?(token)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#valid_token?/1" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start(:atom, [any]) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
   
   <section class="docstring">
-    
+    <p>Starts the application.</p>
+
+<p>Returns <code>:ok</code> or <code>{:error, explanation}</code> otherwise.</p>
+
   </section>
   
 </section>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OpenAperture.Auth.Client</title>
+    <title>OpenAperture.Deployer.Milestones.Deploy</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
@@ -25,9 +25,9 @@
     </script>
 
     <section id="content">
-      <div class="breadcrumbs">openaperture_auth v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Auth.html">Auth</a> &rarr; <a href="OpenAperture.Auth.Client.html">Client</a></div>
+      <div class="breadcrumbs">openaperture_deployer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Deployer.html">Deployer</a> &rarr; Milestones &rarr; <a href="OpenAperture.Deployer.Milestones.Deploy.html">Deploy</a></div>
       <h1>
-        OpenAperture.Auth.Client
+        OpenAperture.Deployer.Milestones.Deploy
         
       </h1>
 
@@ -44,6 +44,11 @@
       </ul>
 
       
+        <section id="moduledoc" class="docstring">
+          <p>Defines a single deployment task.</p>
+
+        </section>
+      
 
       
 
@@ -51,20 +56,17 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#get_token/4">get_token(url, client_id, client_secret, force_refresh \\ false)</a></td>
+  <td class="summary_signature"><a href="#deploy/1">deploy(deploy_request)</a></td>
   
-    <td class="summary_synopsis"><p>Method to retrieve the an authentication token from cache, if available</p>
-<h2>Options</h2>
-<p>The <code class="inline">force_refresh</code> option will force a retrieval of the auth token</p>
-<h2>Return values</h2>
-<p>String</p>
+    <td class="summary_synopsis"><p>Deploys the Dockerized app to a CoreOS cluster</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#get_token_raw/3">get_token_raw(url, client_id, client_secret)</a></td>
+  <td class="summary_signature"><a href="#start_link/1">start_link(deploy_request)</a></td>
   
-    <td class="summary_synopsis"><p>Method to retrieve the an authentication token, directly from the provider</p>
+    <td class="summary_synopsis"><p>Starts a new Deployment Task.
+Returns <code>{:ok, pid}</code> or <code>{:error, reason}</code></p>
 </td>
   
 </tr>
@@ -78,31 +80,11 @@
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
-  <div class="detail_header" id="get_token/4">
-    <span class="signature"><strong>get_token(url, client_id, client_secret, force_refresh \\ false)</strong></span>
+  <div class="detail_header" id="deploy/1">
+    <span class="signature"><strong>deploy(deploy_request)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#get_token/4" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    <p>Method to retrieve the an authentication token from cache, if available</p>
-<h2>Options</h2>
-<p>The <code class="inline">force_refresh</code> option will force a retrieval of the auth token</p>
-<h2>Return values</h2>
-<p>String</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="get_token_raw/3">
-    <span class="signature"><strong>get_token_raw(url, client_id, client_secret)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#get_token_raw/3" class="detail_link" title="Link to this function">#</a>
+      <a href="#deploy/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -110,12 +92,36 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_token_raw(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {:ok, OpenAperture.Auth.Token} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>deploy(OpenAperture.Deployer.Request) :: OpenAperture.Deployer.Request</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Method to retrieve the an authentication token, directly from the provider</p>
+    <p>Deploys the Dockerized app to a CoreOS cluster.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/1">
+    <span class="signature"><strong>start_link(deploy_request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link(Map) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Starts a new Deployment Task.
+Returns <code>{:ok, pid}</code> or <code>{:error, reason}</code></p>
 
   </section>
   
