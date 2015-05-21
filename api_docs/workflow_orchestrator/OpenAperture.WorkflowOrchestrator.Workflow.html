@@ -63,6 +63,20 @@
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#add_failure_notification/2">add_failure_notification(workflow, message)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to append a &quot;failure&quot; notification to the Workflow&#39;s log</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#add_success_notification/2">add_success_notification(workflow, message)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to append a &quot;success&quot; notification to the Workflow&#39;s log</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#complete?/1">complete?(workflow)</a></td>
   
     <td class="summary_synopsis"><p>Method to determine if a Workflow is completed</p>
@@ -73,6 +87,13 @@
   <td class="summary_signature"><a href="#create_from_payload/1">create_from_payload(payload)</a></td>
   
     <td class="summary_synopsis"><p>Method to create a Workflow</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#failed?/1">failed?(workflow)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to determine if a Workflow has completed in error</p>
 </td>
   
 </tr>
@@ -184,6 +205,72 @@
   
 </section>
 <section class="detail">
+  <div class="detail_header" id="add_failure_notification/2">
+    <span class="signature"><strong>add_failure_notification(workflow, message)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#add_failure_notification/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>add_failure_notification(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to append a &quot;failure&quot; notification to the Workflow&#39;s log</p>
+
+<h2>Options</h2>
+
+<p>The <code>workflow_info</code> option defines the Workflow info Map</p>
+
+<p>The <code>message</code> option defines the message to publish</p>
+
+<h2>Return values</h2>
+
+<p>:ok</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="add_success_notification/2">
+    <span class="signature"><strong>add_success_notification(workflow, message)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#add_success_notification/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>add_success_notification(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to append a &quot;success&quot; notification to the Workflow&#39;s log</p>
+
+<h2>Options</h2>
+
+<p>The <code>workflow_info</code> option defines the Workflow info Map</p>
+
+<p>The <code>message</code> option defines the message to publish</p>
+
+<h2>Return values</h2>
+
+<p>:ok</p>
+
+  </section>
+  
+</section>
+<section class="detail">
   <div class="detail_header" id="complete?/1">
     <span class="signature"><strong>complete?(workflow)</strong></span>
     <div class="detail_header_links">
@@ -241,6 +328,37 @@
 <h2>Return values</h2>
 
 <p>pid (Workflow) | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="failed?/1">
+    <span class="signature"><strong>failed?(workflow)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#failed?/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>failed?(pid) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to determine if a Workflow has completed in error</p>
+
+<h2>Options</h2>
+
+<p>The <code>workflow</code> option defines the Workflow referenced</p>
+
+<h2>Return values</h2>
+
+<p>boolean</p>
 
   </section>
   
