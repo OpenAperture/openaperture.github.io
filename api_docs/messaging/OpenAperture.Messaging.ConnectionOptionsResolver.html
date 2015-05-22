@@ -70,6 +70,13 @@
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#get_broker/3">get_broker(state, broker_id, api)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve a broker from cache or from the Manager</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#get_connection_option_for_broker/3">get_connection_option_for_broker(state, api, broker_id)</a></td>
   
     <td class="summary_synopsis"><p>Method to select a connection option from a list of available options</p>
@@ -199,6 +206,41 @@
 <h2>Return Values</h2>
 
 <p>Boolean</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_broker/3">
+    <span class="signature"><strong>get_broker(state, broker_id, api)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_broker/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_broker(Map, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, pid) :: {Map, Map}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve a broker from cache or from the Manager</p>
+
+<h2>Options</h2>
+
+<p>The <code>state</code> option represents the current server state</p>
+
+<p>The <code>broker_id</code> option represents an MessagingBroker identifier</p>
+
+<p>The <code>api</code> option represents a OpenAperture.ManagerApi</p>
+
+<h2>Return Values</h2>
+
+<p>Map of the MessagingBroker</p>
 
   </section>
   

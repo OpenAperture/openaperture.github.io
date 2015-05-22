@@ -36,6 +36,8 @@
           <li><a href="#summary">Summary</a></li>
         
         
+          <li><a href="#types_details">Types</a></li>
+        
         
           <li><a href="#functions_details">Functions</a></li>
         
@@ -56,7 +58,17 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
+  <td class="summary_signature"><a href="#from_manager_exchange/1">from_manager_exchange(manager_exchange)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to create a new AMQPExchange from the response of a Manager request</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#get_failover/1">get_failover(exchange)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to create a new AMQPExchange that represents the failover configuration</p>
+</td>
   
 </tr>
 
@@ -64,11 +76,53 @@
       
 
       
+        <section id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: %OpenAperture.Messaging.AMQP.Exchange{auto_declare: term, failover_name: term, failover_root_exchange_name: term, failover_routing_key: term, name: term, options: term, root_exchange_name: term, routing_key: term, type: term}
+  </p>
+  
+</div>
+
+        </section>
+      
 
       
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
+  <div class="detail_header" id="from_manager_exchange/1">
+    <span class="signature"><strong>from_manager_exchange(manager_exchange)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#from_manager_exchange/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>from_manager_exchange(Map) :: <a href="OpenAperture.Messaging.AMQP.Exchange.html#t:t/0">OpenAperture.Messaging.AMQP.Exchange.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to create a new AMQPExchange from the response of a Manager request</p>
+
+<h2>Options</h2>
+
+<p>The <code>manager_exchange</code> option represents the Map of values returned by the ManagerApi</p>
+
+<h2>Return Values</h2>
+
+<p>AMQPExchange.t</p>
+
+  </section>
+  
+</section>
+<section class="detail">
   <div class="detail_header" id="get_failover/1">
     <span class="signature"><strong>get_failover(exchange)</strong></span>
     <div class="detail_header_links">
@@ -78,8 +132,24 @@
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_failover(<a href="OpenAperture.Messaging.AMQP.Exchange.html#t:t/0">OpenAperture.Messaging.AMQP.Exchange.t</a>) :: <a href="OpenAperture.Messaging.AMQP.Exchange.html#t:t/0">OpenAperture.Messaging.AMQP.Exchange.t</a></li>
+      
+    </ul>
+  
   <section class="docstring">
-    
+    <p>Method to create a new AMQPExchange that represents the failover configuration</p>
+
+<h2>Options</h2>
+
+<p>The <code>exchange</code> option represents the primary AMQPExchange configuration</p>
+
+<h2>Return Values</h2>
+
+<p>AMQPExchange.t</p>
+
   </section>
   
 </section>
