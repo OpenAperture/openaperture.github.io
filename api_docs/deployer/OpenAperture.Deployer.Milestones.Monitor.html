@@ -80,7 +80,7 @@
   <td class="summary_signature"><a href="#start_link/1">start_link(deploy_request)</a></td>
   
     <td class="summary_synopsis"><p>Starts a new Deployment Task.
-Returns <code>{:ok, pid}</code> or <code>{:error, reason}</code></p>
+Returns <code class="inline">{:ok, pid}</code> or <code class="inline">{:error, reason}</code></p>
 </td>
   
 </tr>
@@ -121,12 +121,9 @@ Returns <code>{:ok, pid}</code> or <code>{:error, reason}</code></p>
   
   <section class="docstring">
     <p>Monitors an in-progress Fleet deployment</p>
-
 <h2>Options</h2>
-
-<p>The <code>deploy_request</code> option contains the DeployerRequest</p>
-
-<p>The <code>monitoring_loop_cnt</code> option defines the current number of execution cycles</p>
+<p>The <code class="inline">deploy_request</code> option contains the DeployerRequest</p>
+<p>The <code class="inline">monitoring_loop_cnt</code> option defines the current number of execution cycles</p>
 
   </section>
   
@@ -143,18 +140,12 @@ Returns <code>{:ok, pid}</code> or <code>{:error, reason}</code></p>
   
   <section class="docstring">
     <p>Monitors a set of Fleet units until they start, fail to start, or timeout</p>
-
 <h2>Options</h2>
-
-<p>The <code>deploy_request</code> option contains the DeployerRequest</p>
-
-<p>The <code>monitoring_loop_cnt</code> option defines the current number of execution cycles</p>
-
-<p>The <code>units_to_monitor</code> option contains a list of units to monitor</p>
-
-<p>The <code>completed_units</code> option contains a list of units that have successfully started up  </p>
-
-<p>The <code>failed_units</code> option contains a list of units that have failed to started up</p>
+<p>The <code class="inline">deploy_request</code> option contains the DeployerRequest</p>
+<p>The <code class="inline">monitoring_loop_cnt</code> option defines the current number of execution cycles</p>
+<p>The <code class="inline">units_to_monitor</code> option contains a list of units to monitor</p>
+<p>The <code class="inline">completed_units</code> option contains a list of units that have successfully started up  </p>
+<p>The <code class="inline">failed_units</code> option contains a list of units that have failed to started up</p>
 
   </section>
   
@@ -178,15 +169,10 @@ Returns <code>{:ok, pid}</code> or <code>{:error, reason}</code></p>
   
   <section class="docstring">
     <p>Method to retrieve the latest state of SystemdUnits</p>
-
 <h2>Options</h2>
-
-<p>The <code>etcd_token</code> option defines the etcd cluster token</p>
-
-<p>The <code>old_systemd_units</code> option defines a List of units to retrieve</p>
-
+<p>The <code class="inline">etcd_token</code> option defines the etcd cluster token</p>
+<p>The <code class="inline">old_systemd_units</code> option defines a List of units to retrieve</p>
 <h2>Return Values</h2>
-
 <p>List</p>
 
   </section>
@@ -211,7 +197,7 @@ Returns <code>{:ok, pid}</code> or <code>{:error, reason}</code></p>
   
   <section class="docstring">
     <p>Starts a new Deployment Task.
-Returns <code>{:ok, pid}</code> or <code>{:error, reason}</code></p>
+Returns <code class="inline">{:ok, pid}</code> or <code class="inline">{:error, reason}</code></p>
 
   </section>
   
@@ -237,22 +223,14 @@ Returns <code>{:ok, pid}</code> or <code>{:error, reason}</code></p>
   
   <section class="docstring">
     <p>Method to verify the state of a unit</p>
-
 <h2>Options</h2>
-
-<p>The <code>current_unit | remaining_units</code> option defines the SystemdUnit</p>
-
-<p>The <code>etcd_token</code> option defines the etcd cluster token</p>
-
-<p>The <code>remaining_units_to_monitor</code> option contains a list of units to monitor</p>
-
-<p>The <code>completed_units</code> option contains a list of units that have successfully started up  </p>
-
-<p>The <code>failed_units</code> option contains a list of units that have failed to started up</p>
-
+<p>The <code class="inline">current_unit | remaining_units</code> option defines the SystemdUnit</p>
+<p>The <code class="inline">etcd_token</code> option defines the etcd cluster token</p>
+<p>The <code class="inline">remaining_units_to_monitor</code> option contains a list of units to monitor</p>
+<p>The <code class="inline">completed_units</code> option contains a list of units that have successfully started up  </p>
+<p>The <code class="inline">failed_units</code> option contains a list of units that have failed to started up</p>
 <h2>Return Values</h2>
-
-<p>{remaining<em>units</em>to<em>monitor, completed</em>units, failed_units}</p>
+<p>{remaining_units_to_monitor, completed_units, failed_units}</p>
 
   </section>
   
