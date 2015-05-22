@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OpenAperture.Manager.DB.Queries.Product</title>
+    <title>OpenAperture.Manager.Controllers.Router.Util</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
@@ -25,9 +25,9 @@
     </script>
 
     <section id="content">
-      <div class="breadcrumbs">Elixir.OpenAperture.Manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html">Manager</a> &rarr; DB &rarr; Queries &rarr; <a href="OpenAperture.Manager.DB.Queries.Product.html">Product</a></div>
+      <div class="breadcrumbs">Elixir.OpenAperture.Manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html">Manager</a> &rarr; Controllers &rarr; Router &rarr; <a href="OpenAperture.Manager.Controllers.Router.Util.html">Util</a></div>
       <h1>
-        OpenAperture.Manager.DB.Queries.Product
+        OpenAperture.Manager.Controllers.Router.Util
         
       </h1>
 
@@ -51,7 +51,11 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#get_by_name/1">get_by_name(name)</a></td>
+  <td class="summary_signature"><a href="#parse_hostspec/1">parse_hostspec(authority)</a></td>
+  
+    <td class="summary_synopsis"><p>Parses a string of the form hostname:port into its separate hostname
+and port components. Supports URL-encoded colons</p>
+</td>
   
 </tr>
 
@@ -64,17 +68,38 @@
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
-  <div class="detail_header" id="get_by_name/1">
-    <span class="signature"><strong>get_by_name(name)</strong></span>
+  <div class="detail_header" id="parse_hostspec/1">
+    <span class="signature"><strong>parse_hostspec(authority)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#get_by_name/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#parse_hostspec/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>parse_hostspec(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, integer} | :error</li>
+      
+    </ul>
+  
   <section class="docstring">
-    
+    <p>Parses a string of the form hostname:port into its separate hostname
+and port components. Supports URL-encoded colons.</p>
+<h2>Example</h2>
+<pre><code class="iex elixir">iex&gt; OpenAperture.Manager.Controllers.Router.Util.parse_hostspec(&quot;test:80&quot;)
+{:ok, &quot;test&quot;, 80}
+
+iex&gt; OpenAperture.Manager.Controllers.Router.Util.parse_hostspec(&quot;test%3A80&quot;)
+{:ok, &quot;test&quot;, 80}
+
+iex&gt; OpenAperture.Manager.Controllers.Router.Util.parse_hostspec(&quot;test%3a80&quot;)
+{:ok, &quot;test&quot;, 80}
+
+
+</code></pre>
+
   </section>
   
 </section>
