@@ -87,7 +87,7 @@ API library can be consumed either as an application (which can be supervised), 
 <tr>
   <td class="summary_signature"><a href="#start/2">start(type, args)</a></td>
   
-    <td class="summary_synopsis"><p>Starts the application as a given <code>_type</code></p>
+    <td class="summary_synopsis"><p>Starts the application as a given <code class="inline">_type</code></p>
 </td>
   
 </tr>
@@ -126,19 +126,15 @@ API library can be consumed either as an application (which can be supervised), 
   
   <section class="docstring">
     <p>Method to start the ManagerApi as a process tied to the current supervision tree</p>
-
 <h2>Return values</h2>
-
 <p>If the ManagerApi is successfully created and initialized, the function returns
-<code>{:ok, pid}</code>, where pid is the pid of the ManagerApi. If there already exists a
+<code class="inline">{:ok, pid}</code>, where pid is the pid of the ManagerApi. If there already exists a
 process with the specified ManagerApi name, the function returns
-<code>{:error, {:already_started, pid}}</code> with the pid of that process.</p>
-
-<p>If the <code>init/1</code> callback fails with <code>reason</code>, the function returns
-<code>{:error, reason}</code>. Otherwise, if it returns <code>{:stop, reason}</code></p>
-
-<p>or <code>:ignore</code>, the process is terminated and the function returns
-<code>{:error, reason}</code> or <code>:ignore</code>, respectively.</p>
+<code class="inline">{:error, {:already_started, pid}}</code> with the pid of that process.</p>
+<p>If the <code class="inline">init/1</code> callback fails with <code class="inline">reason</code>, the function returns
+<code class="inline">{:error, reason}</code>. Otherwise, if it returns <code class="inline">{:stop, reason}</code></p>
+<p>or <code class="inline">:ignore</code>, the process is terminated and the function returns
+<code class="inline">{:error, reason}</code> or <code class="inline">:ignore</code>, respectively.</p>
 
   </section>
   
@@ -162,9 +158,7 @@ process with the specified ManagerApi name, the function returns
   
   <section class="docstring">
     <p>Method to start the ManagerApi as a process tied to the current supervision tree</p>
-
 <h2>Return values</h2>
-
 <p>pid or raises error</p>
 
   </section>
@@ -189,9 +183,7 @@ process with the specified ManagerApi name, the function returns
   
   <section class="docstring">
     <p>Method to return the global ManagerApi instance, when ManagerApi is started as an application.</p>
-
 <h2>Return values</h2>
-
 <p>pid</p>
 
   </section>
@@ -216,13 +208,9 @@ process with the specified ManagerApi name, the function returns
   
   <section class="docstring">
     <p>Method to return options associated with a ManagerApi instance</p>
-
 <h2>Option Values</h2>
-
-<p>The <code>api</code> option defines the ManagerApi instance pid</p>
-
+<p>The <code class="inline">api</code> option defines the ManagerApi instance pid</p>
 <h2>Return values</h2>
-
 <p>Map</p>
 
   </section>
@@ -246,35 +234,34 @@ process with the specified ManagerApi name, the function returns
     </ul>
   
   <section class="docstring">
-    <p>Starts the application as a given <code>_type</code>.</p>
-
-<p>If the <code>_type</code> is not loaded, the application will first be loaded using <code>load/1</code>.
-Any included application, defined in the <code>:included_applications</code> key of the
-<code>.app</code> file will also be loaded, but they won&#39;t be started.</p>
-
-<p>Furthermore, all applications listed in the <code>:applications</code> key must be explicitly
-started before this application is. If not, <code>{:error, {:not_started, app}}</code> is
-returned, where <code>_type</code> is the name of the missing application.</p>
-
-<p>In case you want to automatically  load <strong>and start</strong> all of <code>_type</code>&#39;s dependencies,
-see <code>ensure_all_started/2</code>.</p>
-
-<p>The <code>type</code> argument specifies the type of the application:
-  * <code>:permanent</code> - if <code>_type</code> terminates, all other applications and the entire
-    node are also terminated.
-  * <code>:transient</code> - if <code>_type</code> terminates with <code>:normal</code> reason, it is reported
-    but no other applications are terminated. If a transient application
-    terminates abnormally, all other applications and the entire node are
-    also terminated.
-  * <code>:temporary</code> - if <code>_type</code> terminates, it is reported but no other
-    applications are terminated (the default).</p>
-
+    <p>Starts the application as a given <code class="inline">_type</code>.</p>
+<p>If the <code class="inline">_type</code> is not loaded, the application will first be loaded using <code class="inline">load/1</code>.
+Any included application, defined in the <code class="inline">:included_applications</code> key of the
+<code class="inline">.app</code> file will also be loaded, but they won’t be started.</p>
+<p>Furthermore, all applications listed in the <code class="inline">:applications</code> key must be explicitly
+started before this application is. If not, <code class="inline">{:error, {:not_started, app}}</code> is
+returned, where <code class="inline">_type</code> is the name of the missing application.</p>
+<p>In case you want to automatically  load <strong>and start</strong> all of <code class="inline">_type</code>‘s dependencies,
+see <code class="inline">ensure_all_started/2</code>.</p>
+<p>The <code class="inline">type</code> argument specifies the type of the application:</p>
+<ul>
+<li><code class="inline">:permanent</code> - if <code class="inline">_type</code> terminates, all other applications and the entire
+node are also terminated.
+</li>
+<li><code class="inline">:transient</code> - if <code class="inline">_type</code> terminates with <code class="inline">:normal</code> reason, it is reported
+but no other applications are terminated. If a transient application
+terminates abnormally, all other applications and the entire node are
+also terminated.
+</li>
+<li><code class="inline">:temporary</code> - if <code class="inline">_type</code> terminates, it is reported but no other
+applications are terminated (the default).
+</li>
+</ul>
 <p>Note that it is always possible to stop an application explicitly by calling
-<code>stop/1</code>. Regardless of the type of the application, no other applications will
+<code class="inline">stop/1</code>. Regardless of the type of the application, no other applications will
 be affected.</p>
-
-<p>Note also that the <code>:transient</code> type is of little practical use, since when a
-supervision tree terminates, the reason is set to <code>:shutdown</code>, not <code>:normal</code>.</p>
+<p>Note also that the <code class="inline">:transient</code> type is of little practical use, since when a
+supervision tree terminates, the reason is set to <code class="inline">:shutdown</code>, not <code class="inline">:normal</code>.</p>
 
   </section>
   
@@ -298,19 +285,15 @@ supervision tree terminates, the reason is set to <code>:shutdown</code>, not <c
   
   <section class="docstring">
     <p>Method to start the ManagerApi as a process tied to the current supervision tree (Required by the supervisor).</p>
-
 <h2>Return values</h2>
-
 <p>If the ManagerApi is successfully created and initialized, the function returns
-<code>{:ok, pid}</code>, where pid is the pid of the ManagerApi. If there already exists a
+<code class="inline">{:ok, pid}</code>, where pid is the pid of the ManagerApi. If there already exists a
 process with the specified ManagerApi name, the function returns
-<code>{:error, {:already_started, pid}}</code> with the pid of that process.</p>
-
-<p>If the <code>init/1</code> callback fails with <code>reason</code>, the function returns
-<code>{:error, reason}</code>. Otherwise, if it returns <code>{:stop, reason}</code></p>
-
-<p>or <code>:ignore</code>, the process is terminated and the function returns
-<code>{:error, reason}</code> or <code>:ignore</code>, respectively.</p>
+<code class="inline">{:error, {:already_started, pid}}</code> with the pid of that process.</p>
+<p>If the <code class="inline">init/1</code> callback fails with <code class="inline">reason</code>, the function returns
+<code class="inline">{:error, reason}</code>. Otherwise, if it returns <code class="inline">{:stop, reason}</code></p>
+<p>or <code class="inline">:ignore</code>, the process is terminated and the function returns
+<code class="inline">{:error, reason}</code> or <code class="inline">:ignore</code>, respectively.</p>
 
   </section>
   

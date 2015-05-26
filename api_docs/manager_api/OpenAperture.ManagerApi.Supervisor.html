@@ -104,9 +104,7 @@
   
   <section class="docstring">
     <p>Method to return the global ManagerApi instance, when ManagerApi is started as an application.</p>
-
 <h2>Return values</h2>
-
 <p>pid</p>
 
   </section>
@@ -131,9 +129,7 @@
   
   <section class="docstring">
     <p>Method to initialize the supervisor</p>
-
 <h2>Return values</h2>
-
 <p>{:ok, state} | {:error, reason}</p>
 
   </section>
@@ -158,19 +154,15 @@
   
   <section class="docstring">
     <p>Method to start the supervisor as a process tied to the current supervision tree</p>
-
 <h2>Return values</h2>
-
 <p>If the supervisor is successfully created and initialized, the function returns
-<code>{:ok, pid}</code>, where pid is the pid of the supervisor. If there already exists a
+<code class="inline">{:ok, pid}</code>, where pid is the pid of the supervisor. If there already exists a
 process with the specified supervisor name, the function returns
-<code>{:error, {:already_started, pid}}</code> with the pid of that process.</p>
-
-<p>If the <a href="#init/1"><code>init/1</code></a> callback fails with <code>reason</code>, the function returns
-<code>{:error, reason}</code>. Otherwise, if it returns <code>{:stop, reason}</code></p>
-
-<p>or <code>:ignore</code>, the process is terminated and the function returns
-<code>{:error, reason}</code> or <code>:ignore</code>, respectively.</p>
+<code class="inline">{:error, {:already_started, pid}}</code> with the pid of that process.</p>
+<p>If the <a href="#init/1"><code class="inline">init/1</code></a> callback fails with <code class="inline">reason</code>, the function returns
+<code class="inline">{:error, reason}</code>. Otherwise, if it returns <code class="inline">{:stop, reason}</code></p>
+<p>or <code class="inline">:ignore</code>, the process is terminated and the function returns
+<code class="inline">{:error, reason}</code> or <code class="inline">:ignore</code>, respectively.</p>
 
   </section>
   
