@@ -81,7 +81,7 @@
 <tr>
   <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
   
-    <td class="summary_synopsis"><p>Starts a <code>GenServer</code> process linked to the current process</p>
+    <td class="summary_synopsis"><p>Starts a <code class="inline">GenServer</code> process linked to the current process</p>
 </td>
   
 </tr>
@@ -113,13 +113,9 @@
   
   <section class="docstring">
     <p>Method to retrieve the list of currently known hosts in the auth tokens.</p>
-
 <h2>Return Values</h2>
-
-<p>The <code>new_hosts</code> option defines the workflow queue</p>
-
+<p>The <code class="inline">new_hosts</code> option defines the workflow queue</p>
 <h2>Return values</h2>
-
 <p>:ok</p>
 
   </section>
@@ -146,18 +142,15 @@
   
   <section class="docstring">
     <p>This module contains the hipchat auth token logic</p>
-
 <h2>Return values</h2>
-
 <p>If the server is successfully created and initialized, the function returns
-<code>{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
+<code class="inline">{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
 process with the specified server name, the function returns
-<code>{:error, {:already_started, pid}}</code> with the pid of that process.</p>
-
-<p>If the <code>init/1</code> callback fails with <code>reason</code>, the function returns
-<code>{:error, reason}</code>. Otherwise, if it returns <code>{:stop, reason}</code>
-or <code>:ignore</code>, the process is terminated and the function returns
-<code>{:error, reason}</code> or <code>:ignore</code>, respectively.</p>
+<code class="inline">{:error, {:already_started, pid}}</code> with the pid of that process.</p>
+<p>If the <code class="inline">init/1</code> callback fails with <code class="inline">reason</code>, the function returns
+<code class="inline">{:error, reason}</code>. Otherwise, if it returns <code class="inline">{:stop, reason}</code>
+or <code class="inline">:ignore</code>, the process is terminated and the function returns
+<code class="inline">{:error, reason}</code> or <code class="inline">:ignore</code>, respectively.</p>
 
   </section>
   
@@ -174,18 +167,15 @@ or <code>:ignore</code>, the process is terminated and the function returns
   
   <section class="docstring">
     <p>This module contains the logic for storing the OpenAperture workflow queue.</p>
-
 <h2>Return values</h2>
-
 <p>If the server is successfully created and initialized, the function returns
-<code>{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
+<code class="inline">{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
 process with the specified server name, the function returns
-<code>{:error, {:already_started, pid}}</code> with the pid of that process.</p>
-
-<p>If the <code>init/1</code> callback fails with <code>reason</code>, the function returns
-<code>{:error, reason}</code>. Otherwise, if it returns <code>{:stop, reason}</code>
-or <code>:ignore</code>, the process is terminated and the function returns
-<code>{:error, reason}</code> or <code>:ignore</code>, respectively.</p>
+<code class="inline">{:error, {:already_started, pid}}</code> with the pid of that process.</p>
+<p>If the <code class="inline">init/1</code> callback fails with <code class="inline">reason</code>, the function returns
+<code class="inline">{:error, reason}</code>. Otherwise, if it returns <code class="inline">{:stop, reason}</code>
+or <code class="inline">:ignore</code>, the process is terminated and the function returns
+<code class="inline">{:error, reason}</code> or <code class="inline">:ignore</code>, respectively.</p>
 
   </section>
   
@@ -209,9 +199,7 @@ or <code>:ignore</code>, the process is terminated and the function returns
   
   <section class="docstring">
     <p>Method to retrieve a hipchat authentication token</p>
-
 <h2>Return Values</h2>
-
 <p>String</p>
 
   </section>
@@ -235,30 +223,24 @@ or <code>:ignore</code>, the process is terminated and the function returns
     </ul>
   
   <section class="docstring">
-    <p>Starts a <code>GenServer</code> process linked to the current process.</p>
-
-<p>This is often used to start the <code>GenServer</code> as part of a supervision tree.</p>
-
-<p>Once the server is started, it calls the <code>init/1</code> function in the given <code>module</code>
-passing the given <code>args</code> to initialize it. To ensure a synchronized start-up
-procedure, this function does not return until <code>init/1</code> has returned.</p>
-
-<p>Note that a <code>GenServer</code> started with <code>start_link/3</code> is linked to the
+    <p>Starts a <code class="inline">GenServer</code> process linked to the current process.</p>
+<p>This is often used to start the <code class="inline">GenServer</code> as part of a supervision tree.</p>
+<p>Once the server is started, it calls the <code class="inline">init/1</code> function in the given <code class="inline">module</code>
+passing the given <code class="inline">args</code> to initialize it. To ensure a synchronized start-up
+procedure, this function does not return until <code class="inline">init/1</code> has returned.</p>
+<p>Note that a <code class="inline">GenServer</code> started with <code class="inline">start_link/3</code> is linked to the
 parent process and will exit in case of crashes. The GenServer will also
-exit due to the <code>:normal</code> reasons in case it is configured to trap exits
-in the <code>init/1</code> callback.</p>
-
+exit due to the <code class="inline">:normal</code> reasons in case it is configured to trap exits
+in the <code class="inline">init/1</code> callback.</p>
 <h2>Return values</h2>
-
 <p>If the server is successfully created and initialized, the function returns
-<code>{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
+<code class="inline">{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
 process with the specified server name, the function returns
-<code>{:error, {:already_started, pid}}</code> with the pid of that process.</p>
-
-<p>If the <code>init/1</code> callback fails with <code>reason</code>, the function returns
-<code>{:error, reason}</code>. Otherwise, if it returns <code>{:stop, reason}</code>
-or <code>:ignore</code>, the process is terminated and the function returns
-<code>{:error, reason}</code> or <code>:ignore</code>, respectively.</p>
+<code class="inline">{:error, {:already_started, pid}}</code> with the pid of that process.</p>
+<p>If the <code class="inline">init/1</code> callback fails with <code class="inline">reason</code>, the function returns
+<code class="inline">{:error, reason}</code>. Otherwise, if it returns <code class="inline">{:stop, reason}</code>
+or <code class="inline">:ignore</code>, the process is terminated and the function returns
+<code class="inline">{:error, reason}</code> or <code class="inline">:ignore</code>, respectively.</p>
 
   </section>
   
@@ -282,13 +264,9 @@ or <code>:ignore</code>, the process is terminated and the function returns
   
   <section class="docstring">
     <p>Updates the auth tokens</p>
-
 <h2>Options</h2>
-
-<p>The <code>new_hosts</code> option defines the workflow queue</p>
-
+<p>The <code class="inline">new_hosts</code> option defines the workflow queue</p>
 <h2>Return values</h2>
-
 <p>:ok</p>
 
   </section>
