@@ -65,7 +65,7 @@
 <tr>
   <td class="summary_signature"><a href="#close_connection/1">close_connection(connection_options \\ nil)</a></td>
   
-    <td class="summary_synopsis"><p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc...)</p>
+    <td class="summary_synopsis"><p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc…)</p>
 </td>
   
 </tr>
@@ -146,10 +146,8 @@
   
   <section class="docstring">
     <p>Method to acknowledge a message has been processed</p>
-
 <h2>Options</h2>
-
-<p>The <code>delivery_tag</code> option is the unique identifier of the message</p>
+<p>The <code class="inline">delivery_tag</code> option is the unique identifier of the message</p>
 
   </section>
   
@@ -172,14 +170,10 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc...)</p>
-
+    <p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc…)</p>
 <h2>Options</h2>
-
-<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
-
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
 <h2>Returns</h2>
-
 <p>:ok | {:error, reason}</p>
 
   </section>
@@ -204,12 +198,9 @@
   
   <section class="docstring">
     <p>Method to start Workflow Orchestrations</p>
-
 <h2>Options</h2>
-
-<p>The <code>payload</code> option is the Map of HipChat options</p>
-
-<p>The <code>delivery_tag</code> option is the unique identifier of the message</p>
+<p>The <code class="inline">payload</code> option is the Map of HipChat options</p>
+<p>The <code class="inline">delivery_tag</code> option is the unique identifier of the message</p>
 
   </section>
   
@@ -233,17 +224,11 @@
   
   <section class="docstring">
     <p>Publishes a message/payload to a specific queue within the Messaging system</p>
-
 <h2>Options</h2>
-
-<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
-
-<p>The <code>queue</code> options value provides the Queue to which to subscribe</p>
-
-<p>The <code>payload</code> option represents the message data</p>
-
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+<p>The <code class="inline">queue</code> options value provides the Queue to which to subscribe</p>
+<p>The <code class="inline">payload</code> option represents the message data</p>
 <h2>Returns</h2>
-
 <p>:ok | {:error, reason}</p>
 
   </section>
@@ -268,9 +253,7 @@
   
   <section class="docstring">
     <p>Method to register the WorkflowOrchestrator queues with the Messaging system</p>
-
 <h2>Return Value</h2>
-
 <p>:ok | {:error, reason}</p>
 
   </section>
@@ -295,12 +278,9 @@
   
   <section class="docstring">
     <p>Method to reject a message has been processed</p>
-
 <h2>Options</h2>
-
-<p>The <code>delivery_tag</code> option is the unique identifier of the message</p>
-
-<p>The <code>redeliver</code> option can be used to requeue a message</p>
+<p>The <code class="inline">delivery_tag</code> option is the unique identifier of the message</p>
+<p>The <code class="inline">redeliver</code> option can be used to requeue a message</p>
 
   </section>
   
@@ -324,11 +304,8 @@
   
   <section class="docstring">
     <p>Specific start_link implementation (required by the supervisor)</p>
-
 <h2>Options</h2>
-
 <h2>Return Values</h2>
-
 <p>{:ok, pid} | {:error, reason}</p>
 
   </section>
@@ -353,20 +330,14 @@
   
   <section class="docstring">
     <p>Subscribes to a specific queue within the Messaging system.</p>
-
 <h2>Options</h2>
-
-<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
-
-<p>The <code>queue</code> options value provides the Queue to which to subscribe</p>
-
-<p>The <code>callback_handler</code> option represents the method that should be called when a message is received.  The handler
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+<p>The <code class="inline">queue</code> options value provides the Queue to which to subscribe</p>
+<p>The <code class="inline">callback_handler</code> option represents the method that should be called when a message is received.  The handler
 should be a function with 2 arguments (sync), or 3 arguments (async).</p>
-
 <h2>Returns</h2>
-
-<p>for AMQP:
-    {:ok, subscription_handler} | {:error, reason}</p>
+<p>for AMQP:</p>
+<pre><code class="elixir">{:ok, subscription_handler} | {:error, reason}</code></pre>
 
   </section>
   
@@ -390,15 +361,10 @@ should be a function with 2 arguments (sync), or 3 arguments (async).</p>
   
   <section class="docstring">
     <p>Unsubscribes to from a SubscriptionHandler in the Messaging system.</p>
-
 <h2>Options</h2>
-
-<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
-
-<p>The <code>subscription_handler</code> option represents the PID of the SubscriptionHandler</p>
-
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+<p>The <code class="inline">subscription_handler</code> option represents the PID of the SubscriptionHandler</p>
 <h2>Returns</h2>
-
 <p>for AMQP:
   :ok | {:error, reason}</p>
 

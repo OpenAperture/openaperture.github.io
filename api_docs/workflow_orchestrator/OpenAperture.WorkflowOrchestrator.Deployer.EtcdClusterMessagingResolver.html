@@ -65,7 +65,7 @@
 <tr>
   <td class="summary_signature"><a href="#get_exchange_for_cluster/1">get_exchange_for_cluster(etcd_token)</a></td>
   
-    <td class="summary_synopsis"><p>Method to retrieve the messaging<em>exchange</em>id for an etcd_token</p>
+    <td class="summary_synopsis"><p>Method to retrieve the messaging_exchange_id for an etcd_token</p>
 </td>
   
 </tr>
@@ -111,14 +111,10 @@
   
   <section class="docstring">
     <p>Method to retrieve the identifier for the MessagingExchange associated with an EtcdCluster</p>
-
 <h2>Options</h2>
-
-<p>The <code>etcd_token</code> option defines token for the EtcdCluster</p>
-
+<p>The <code class="inline">etcd_token</code> option defines token for the EtcdCluster</p>
 <h2>Return Values</h2>
-
-<p>messaging<em>exchange</em>id</p>
+<p>messaging_exchange_id</p>
 
   </section>
   
@@ -141,15 +137,11 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to retrieve the messaging<em>exchange</em>id for an etcd_token</p>
-
+    <p>Method to retrieve the messaging_exchange_id for an etcd_token</p>
 <h2>Options</h2>
-
-<p>The <code>etcd_token</code> option defines token for the EtcdCluster</p>
-
+<p>The <code class="inline">etcd_token</code> option defines token for the EtcdCluster</p>
 <h2>Return Values</h2>
-
-<p>List of {messaging<em>exchange</em>id, cluster}</p>
+<p>List of {messaging_exchange_id, cluster}</p>
 
   </section>
   
@@ -173,18 +165,12 @@
   
   <section class="docstring">
     <p>Call handler to retrieve the identifier for the MessagingExchange associated with an EtcdCluster</p>
-
 <h2>Options</h2>
-
-<p>The <code>etcd_token</code> option defines token for the EtcdCluster</p>
-
-<p>The <code>_from</code> option defines the tuple {from, ref}</p>
-
-<p>The <code>state</code> option represents the server&#39;s current state</p>
-
+<p>The <code class="inline">etcd_token</code> option defines token for the EtcdCluster</p>
+<p>The <code class="inline">_from</code> option defines the tuple {from, ref}</p>
+<p>The <code class="inline">state</code> option represents the server’s current state</p>
 <h2>Return Values</h2>
-
-<p>{:reply, {messaging<em>exchange</em>id, machine}, resolved_state}</p>
+<p>{:reply, {messaging_exchange_id, machine}, resolved_state}</p>
 
   </section>
   
@@ -208,11 +194,8 @@
   
   <section class="docstring">
     <p>Specific start_link implementation (required by the supervisor)</p>
-
 <h2>Options</h2>
-
 <h2>Return Values</h2>
-
 <p>{:ok, pid} | {:error, reason}</p>
 
   </section>

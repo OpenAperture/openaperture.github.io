@@ -139,9 +139,7 @@
   
   <section class="docstring">
     <p>Method to determine if the cached build clusters are stale (i.e. retrieved &gt; 5 minutes prior)</p>
-
 <h2>Return Values</h2>
-
 <p>Boolean</p>
 
   </section>
@@ -166,10 +164,8 @@
   
   <section class="docstring">
     <p>Method to retrieve build clusters, from cache if possible</p>
-
 <h2>Return Values</h2>
-
-<p>{List of {messaging<em>exchange</em>id, cluster}, state}</p>
+<p>{List of {messaging_exchange_id, cluster}, state}</p>
 
   </section>
   
@@ -193,15 +189,11 @@
   
   <section class="docstring">
     <p>Method to resolve to a single cluster for use.</p>
-
 <h2>Options</h2>
-
-<p>The <code>docker_build_clusters</code> option represents a List of tuples, each tuple consisting of
-{messaging<em>exchange</em>id, etcd<em>cluster}.  messaging</em>exchange<em>id is a String, etcd</em>cluster is a Map</p>
-
+<p>The <code class="inline">docker_build_clusters</code> option represents a List of tuples, each tuple consisting of
+{messaging_exchange_id, etcd_cluster}.  messaging_exchange_id is a String, etcd_cluster is a Map</p>
 <h2>Return Values</h2>
-
-<p>{messaging<em>exchange</em>id, cluster}</p>
+<p>{messaging_exchange_id, cluster}</p>
 
   </section>
   
@@ -225,10 +217,8 @@
   
   <section class="docstring">
     <p>Method to retrieve all known build clusters</p>
-
 <h2>Return Values</h2>
-
-<p>List of {messaging<em>exchange</em>id, cluster}</p>
+<p>List of {messaging_exchange_id, cluster}</p>
 
   </section>
   
@@ -252,10 +242,8 @@
   
   <section class="docstring">
     <p>Method to retrieve build clusters in the current exchange</p>
-
 <h2>Return Values</h2>
-
-<p>List of {messaging<em>exchange</em>id, cluster}</p>
+<p>List of {messaging_exchange_id, cluster}</p>
 
   </section>
   
@@ -279,16 +267,11 @@
   
   <section class="docstring">
     <p>Call handler to set the a value stored within the workflow server</p>
-
 <h2>Options</h2>
-
-<p>The <code>_from</code> option defines the tuple {from, ref}</p>
-
-<p>The <code>state</code> option represents the server&#39;s current state</p>
-
+<p>The <code class="inline">_from</code> option defines the tuple {from, ref}</p>
+<p>The <code class="inline">state</code> option represents the server’s current state</p>
 <h2>Return Values</h2>
-
-<p>{:reply, {messaging<em>exchange</em>id, machine}, resolved_state}</p>
+<p>{:reply, {messaging_exchange_id, machine}, resolved_state}</p>
 
   </section>
   
@@ -312,10 +295,8 @@
   
   <section class="docstring">
     <p>Method to retrieve the next available cluster from an available docker build clusters</p>
-
 <h2>Return Values</h2>
-
-<p>Returns a tuple containing {messaging<em>exchange</em>id, etcd_cluster}</p>
+<p>Returns a tuple containing {messaging_exchange_id, etcd_cluster}</p>
 
   </section>
   
@@ -339,11 +320,8 @@
   
   <section class="docstring">
     <p>Specific start_link implementation (required by the supervisor)</p>
-
 <h2>Options</h2>
-
 <h2>Return Values</h2>
-
 <p>{:ok, pid} | {:error, reason}</p>
 
   </section>

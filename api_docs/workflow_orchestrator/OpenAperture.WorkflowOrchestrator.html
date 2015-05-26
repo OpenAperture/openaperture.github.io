@@ -58,7 +58,7 @@
           <tr>
   <td class="summary_signature"><a href="#start/2">start(type, args)</a></td>
   
-    <td class="summary_synopsis"><p>Starts the given <code>_type</code></p>
+    <td class="summary_synopsis"><p>Starts the given <code class="inline">_type</code></p>
 </td>
   
 </tr>
@@ -89,38 +89,34 @@
     </ul>
   
   <section class="docstring">
-    <p>Starts the given <code>_type</code>.</p>
-
-<p>If the <code>_type</code> is not loaded, the application will first be loaded using <code>load/1</code>.
-Any included application, defined in the <code>:included_applications</code> key of the
-<code>.app</code> file will also be loaded, but they won&#39;t be started.</p>
-
-<p>Furthermore, all applications listed in the <code>:applications</code> key must be explicitly
-started before this application is. If not, <code>{:error, {:not_started, app}}</code> is
-returned, where <code>_type</code> is the name of the missing application.</p>
-
-<p>In case you want to automatically  load <strong>and start</strong> all of <code>_type</code>&#39;s dependencies,
-see <code>ensure_all_started/2</code>.</p>
-
-<p>The <code>type</code> argument specifies the type of the application:</p>
-
+    <p>Starts the given <code class="inline">_type</code>.</p>
+<p>If the <code class="inline">_type</code> is not loaded, the application will first be loaded using <code class="inline">load/1</code>.
+Any included application, defined in the <code class="inline">:included_applications</code> key of the
+<code class="inline">.app</code> file will also be loaded, but they won’t be started.</p>
+<p>Furthermore, all applications listed in the <code class="inline">:applications</code> key must be explicitly
+started before this application is. If not, <code class="inline">{:error, {:not_started, app}}</code> is
+returned, where <code class="inline">_type</code> is the name of the missing application.</p>
+<p>In case you want to automatically  load <strong>and start</strong> all of <code class="inline">_type</code>‘s dependencies,
+see <code class="inline">ensure_all_started/2</code>.</p>
+<p>The <code class="inline">type</code> argument specifies the type of the application:</p>
 <ul>
-<li><p><code>:permanent</code> - if <code>_type</code> terminates, all other applications and the entire
-node are also terminated.</p></li>
-<li><p><code>:transient</code> - if <code>_type</code> terminates with <code>:normal</code> reason, it is reported
+<li><p><code class="inline">:permanent</code> - if <code class="inline">_type</code> terminates, all other applications and the entire
+node are also terminated.</p>
+</li>
+<li><p><code class="inline">:transient</code> - if <code class="inline">_type</code> terminates with <code class="inline">:normal</code> reason, it is reported
 but no other applications are terminated. If a transient application
 terminates abnormally, all other applications and the entire node are
-also terminated.</p></li>
-<li><p><code>:temporary</code> - if <code>_type</code> terminates, it is reported but no other
-applications are terminated (the default).</p></li>
+also terminated.</p>
+</li>
+<li><code class="inline">:temporary</code> - if <code class="inline">_type</code> terminates, it is reported but no other
+applications are terminated (the default).
+</li>
 </ul>
-
 <p>Note that it is always possible to stop an application explicitly by calling
-<code>stop/1</code>. Regardless of the type of the application, no other applications will
+<code class="inline">stop/1</code>. Regardless of the type of the application, no other applications will
 be affected.</p>
-
-<p>Note also that the <code>:transient</code> type is of little practical use, since when a
-supervision tree terminates, the reason is set to <code>:shutdown</code>, not <code>:normal</code>.</p>
+<p>Note also that the <code class="inline">:transient</code> type is of little practical use, since when a
+supervision tree terminates, the reason is set to <code class="inline">:shutdown</code>, not <code class="inline">:normal</code>.</p>
 
   </section>
   

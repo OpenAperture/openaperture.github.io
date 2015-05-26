@@ -58,7 +58,7 @@
           <tr>
   <td class="summary_signature"><a href="#close_connection/1">close_connection(connection_options \\ nil)</a></td>
   
-    <td class="summary_synopsis"><p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc...)</p>
+    <td class="summary_synopsis"><p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc…)</p>
 </td>
   
 </tr>
@@ -72,7 +72,7 @@
 <tr>
   <td class="summary_signature"><a href="#handle_cast/2">handle_cast(msg, state)</a></td>
   
-    <td class="summary_synopsis"><p>Publishes a message to the Deployer system module, via an asynchronous request to the <code>server</code></p>
+    <td class="summary_synopsis"><p>Publishes a message to the Deployer system module, via an asynchronous request to the <code class="inline">server</code></p>
 </td>
   
 </tr>
@@ -131,14 +131,10 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc...)</p>
-
+    <p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc…)</p>
 <h2>Options</h2>
-
-<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
-
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
 <h2>Returns</h2>
-
 <p>:ok | {:error, reason}</p>
 
   </section>
@@ -163,13 +159,9 @@
   
   <section class="docstring">
     <p>Method to publish the Deployer system module</p>
-
 <h2>Options</h2>
-
-<p>The <code>payload</code> option is the Map of options that needs to be passed to the deploy module</p>
-
+<p>The <code class="inline">payload</code> option is the Map of options that needs to be passed to the deploy module</p>
 <h2>Return Values</h2>
-
 <p>:ok | {:error, reason}   </p>
 
   </section>
@@ -193,17 +185,15 @@
     </ul>
   
   <section class="docstring">
-    <p>Publishes a message to the Deployer system module, via an asynchronous request to the <code>server</code>.</p>
-
-<p>This function returns <code>:ok</code> immediately, regardless of
+    <p>Publishes a message to the Deployer system module, via an asynchronous request to the <code class="inline">server</code>.</p>
+<p>This function returns <code class="inline">:ok</code> immediately, regardless of
 whether the destination node or server does exists, unless
 the server is specified as an atom.</p>
-
-<p><a href="#handle_cast/2"><code>handle_cast/2</code></a> will be called on the server to handle
+<p><a href="#handle_cast/2"><code class="inline">handle_cast/2</code></a> will be called on the server to handle
 the request. In case the server is a node which is not
 yet connected to the caller one, the call is going to
 block until a connection happens. This is different than
-the behaviour in OTP&#39;s <code>:gen_server</code> where the message
+the behaviour in OTP’s <code class="inline">:gen_server</code> where the message
 would be sent by another process, which could cause
 messages to arrive out of order.</p>
 
@@ -229,17 +219,11 @@ messages to arrive out of order.</p>
   
   <section class="docstring">
     <p>Publishes a message/payload to a specific queue within the Messaging system</p>
-
 <h2>Options</h2>
-
-<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
-
-<p>The <code>queue</code> options value provides the Queue to which to subscribe</p>
-
-<p>The <code>payload</code> option represents the message data</p>
-
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+<p>The <code class="inline">queue</code> options value provides the Queue to which to subscribe</p>
+<p>The <code class="inline">payload</code> option represents the message data</p>
 <h2>Returns</h2>
-
 <p>:ok | {:error, reason}</p>
 
   </section>
@@ -264,11 +248,8 @@ messages to arrive out of order.</p>
   
   <section class="docstring">
     <p>Specific start_link implementation (required by the supervisor)</p>
-
 <h2>Options</h2>
-
 <h2>Return Values</h2>
-
 <p>{:ok, pid} | {:error, reason}</p>
 
   </section>
@@ -293,20 +274,14 @@ messages to arrive out of order.</p>
   
   <section class="docstring">
     <p>Subscribes to a specific queue within the Messaging system.</p>
-
 <h2>Options</h2>
-
-<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
-
-<p>The <code>queue</code> options value provides the Queue to which to subscribe</p>
-
-<p>The <code>callback_handler</code> option represents the method that should be called when a message is received.  The handler
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+<p>The <code class="inline">queue</code> options value provides the Queue to which to subscribe</p>
+<p>The <code class="inline">callback_handler</code> option represents the method that should be called when a message is received.  The handler
 should be a function with 2 arguments (sync), or 3 arguments (async).</p>
-
 <h2>Returns</h2>
-
-<p>for AMQP:
-    {:ok, subscription_handler} | {:error, reason}</p>
+<p>for AMQP:</p>
+<pre><code class="elixir">{:ok, subscription_handler} | {:error, reason}</code></pre>
 
   </section>
   
@@ -330,15 +305,10 @@ should be a function with 2 arguments (sync), or 3 arguments (async).</p>
   
   <section class="docstring">
     <p>Unsubscribes to from a SubscriptionHandler in the Messaging system.</p>
-
 <h2>Options</h2>
-
-<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
-
-<p>The <code>subscription_handler</code> option represents the PID of the SubscriptionHandler</p>
-
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+<p>The <code class="inline">subscription_handler</code> option represents the PID of the SubscriptionHandler</p>
 <h2>Returns</h2>
-
 <p>for AMQP:
   :ok | {:error, reason}</p>
 

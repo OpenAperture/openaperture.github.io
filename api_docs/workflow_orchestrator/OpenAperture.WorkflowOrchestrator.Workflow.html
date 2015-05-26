@@ -58,21 +58,21 @@
           <tr>
   <td class="summary_signature"><a href="#add_event_to_log/3">add_event_to_log(workflow_info, event, prefix \\ nil)</a></td>
   
-    <td class="summary_synopsis"><p>Method to add an event to the workflow&#39;s event log</p>
+    <td class="summary_synopsis"><p>Method to add an event to the workflow’s event log</p>
 </td>
   
 </tr>
 <tr>
   <td class="summary_signature"><a href="#add_failure_notification/2">add_failure_notification(workflow, message)</a></td>
   
-    <td class="summary_synopsis"><p>Method to append a &quot;failure&quot; notification to the Workflow&#39;s log</p>
+    <td class="summary_synopsis"><p>Method to append a “failure” notification to the Workflow’s log</p>
 </td>
   
 </tr>
 <tr>
   <td class="summary_signature"><a href="#add_success_notification/2">add_success_notification(workflow, message)</a></td>
   
-    <td class="summary_synopsis"><p>Method to append a &quot;success&quot; notification to the Workflow&#39;s log</p>
+    <td class="summary_synopsis"><p>Method to append a “success” notification to the Workflow’s log</p>
 </td>
   
 </tr>
@@ -135,7 +135,7 @@
 <tr>
   <td class="summary_signature"><a href="#send_failure_notification/2">send_failure_notification(workflow_info, message)</a></td>
   
-    <td class="summary_synopsis"><p>Method to publish a &quot;failure&quot; notification</p>
+    <td class="summary_synopsis"><p>Method to publish a “failure” notification</p>
 </td>
   
 </tr>
@@ -149,7 +149,7 @@
 <tr>
   <td class="summary_signature"><a href="#send_success_notification/2">send_success_notification(workflow_info, message)</a></td>
   
-    <td class="summary_synopsis"><p>Method to publish a &quot;success&quot; notification</p>
+    <td class="summary_synopsis"><p>Method to publish a “success” notification</p>
 </td>
   
 </tr>
@@ -187,18 +187,12 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to add an event to the workflow&#39;s event log</p>
-
+    <p>Method to add an event to the workflow’s event log</p>
 <h2>Options</h2>
-
-<p>The <code>workflow_info</code> option defines the Workflow info Map</p>
-
-<p>The <code>event</code> option defines a String containing the event to track</p>
-
-<p>The <code>prefix</code> option defines an optional String prefix for the event</p>
-
+<p>The <code class="inline">workflow_info</code> option defines the Workflow info Map</p>
+<p>The <code class="inline">event</code> option defines a String containing the event to track</p>
+<p>The <code class="inline">prefix</code> option defines an optional String prefix for the event</p>
 <h2>Return Values</h2>
-
 <p>The updated Workflow info</p>
 
   </section>
@@ -222,16 +216,11 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to append a &quot;failure&quot; notification to the Workflow&#39;s log</p>
-
+    <p>Method to append a “failure” notification to the Workflow’s log</p>
 <h2>Options</h2>
-
-<p>The <code>workflow_info</code> option defines the Workflow info Map</p>
-
-<p>The <code>message</code> option defines the message to publish</p>
-
+<p>The <code class="inline">workflow_info</code> option defines the Workflow info Map</p>
+<p>The <code class="inline">message</code> option defines the message to publish</p>
 <h2>Return values</h2>
-
 <p>:ok</p>
 
   </section>
@@ -255,16 +244,11 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to append a &quot;success&quot; notification to the Workflow&#39;s log</p>
-
+    <p>Method to append a “success” notification to the Workflow’s log</p>
 <h2>Options</h2>
-
-<p>The <code>workflow_info</code> option defines the Workflow info Map</p>
-
-<p>The <code>message</code> option defines the message to publish</p>
-
+<p>The <code class="inline">workflow_info</code> option defines the Workflow info Map</p>
+<p>The <code class="inline">message</code> option defines the message to publish</p>
 <h2>Return values</h2>
-
 <p>:ok</p>
 
   </section>
@@ -289,13 +273,9 @@
   
   <section class="docstring">
     <p>Method to determine if a Workflow is completed</p>
-
 <h2>Options</h2>
-
-<p>The <code>workflow</code> option defines the Workflow referenced</p>
-
+<p>The <code class="inline">workflow</code> option defines the Workflow referenced</p>
 <h2>Return values</h2>
-
 <p>boolean</p>
 
   </section>
@@ -320,13 +300,9 @@
   
   <section class="docstring">
     <p>Method to create a Workflow</p>
-
 <h2>Options</h2>
-
-<p>The <code>payload</code> option defines the Workflow info that should be stored and referenced</p>
-
+<p>The <code class="inline">payload</code> option defines the Workflow info that should be stored and referenced</p>
 <h2>Return values</h2>
-
 <p>pid (Workflow) | {:error, reason}</p>
 
   </section>
@@ -351,13 +327,9 @@
   
   <section class="docstring">
     <p>Method to determine if a Workflow has completed in error</p>
-
 <h2>Options</h2>
-
-<p>The <code>workflow</code> option defines the Workflow referenced</p>
-
+<p>The <code class="inline">workflow</code> option defines the Workflow referenced</p>
 <h2>Return values</h2>
-
 <p>boolean</p>
 
   </section>
@@ -382,13 +354,9 @@
   
   <section class="docstring">
     <p>Method to retrieve the id from a workflow</p>
-
 <h2>Options</h2>
-
-<p>The <code>workflow</code> option defines the Workflow referenced</p>
-
+<p>The <code class="inline">workflow</code> option defines the Workflow referenced</p>
 <h2>Return values</h2>
-
 <p>identifier</p>
 
   </section>
@@ -413,13 +381,9 @@
   
   <section class="docstring">
     <p>Method to retrieve the info associated with a workflow</p>
-
 <h2>Options</h2>
-
-<p>The <code>workflow</code> option defines the Workflow referenced</p>
-
+<p>The <code class="inline">workflow</code> option defines the Workflow referenced</p>
 <h2>Return values</h2>
-
 <p>Map</p>
 
   </section>
@@ -444,13 +408,9 @@
   
   <section class="docstring">
     <p>Method to resolve the next Workflow step</p>
-
 <h2>Options</h2>
-
-<p>The <code>workflow</code> option defines the Workflow referenced</p>
-
+<p>The <code class="inline">workflow</code> option defines the Workflow referenced</p>
 <h2>Return values</h2>
-
 <p>atom with next step</p>
 
   </section>
@@ -475,13 +435,9 @@
   
   <section class="docstring">
     <p>Method to determine the next workflow step, based on the current state of the workflow</p>
-
 <h2>Options</h2>
-
-<p>The <code>workflow_info</code> option defines the Workflow info Map</p>
-
+<p>The <code class="inline">workflow_info</code> option defines the Workflow info Map</p>
 <h2>Return Values</h2>
-
 <p>The atom containing the next available state or nil</p>
 
   </section>
@@ -506,13 +462,9 @@
   
   <section class="docstring">
     <p>Method to save Workflow info to the database</p>
-
 <h2>Options</h2>
-
-<p>The <code>workflow</code> option defines the Workflow referenced</p>
-
+<p>The <code class="inline">workflow</code> option defines the Workflow referenced</p>
 <h2>Return Value</h2>
-
 <p>:ok | {:error, reason}</p>
 
   </section>
@@ -536,16 +488,11 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to publish a &quot;failure&quot; notification</p>
-
+    <p>Method to publish a “failure” notification</p>
 <h2>Options</h2>
-
-<p>The <code>workflow_info</code> option defines the Workflow info Map</p>
-
-<p>The <code>message</code> option defines the message to publish</p>
-
+<p>The <code class="inline">workflow_info</code> option defines the Workflow info Map</p>
+<p>The <code class="inline">message</code> option defines the message to publish</p>
 <h2>Return values</h2>
-
 <p>Map, containing the updated workflow_info</p>
 
   </section>
@@ -570,17 +517,11 @@
   
   <section class="docstring">
     <p>Method to publish a notification</p>
-
 <h2>Options</h2>
-
-<p>The <code>workflow_info</code> option defines the Workflow info Map</p>
-
-<p>The <code>is_success</code> option defines failure/success of the message</p>
-
-<p>The <code>message</code> option defines the message to publish</p>
-
+<p>The <code class="inline">workflow_info</code> option defines the Workflow info Map</p>
+<p>The <code class="inline">is_success</code> option defines failure/success of the message</p>
+<p>The <code class="inline">message</code> option defines the message to publish</p>
 <h2>Return values</h2>
-
 <p>Map, containing the updated workflow_info</p>
 
   </section>
@@ -604,16 +545,11 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to publish a &quot;success&quot; notification</p>
-
+    <p>Method to publish a “success” notification</p>
 <h2>Options</h2>
-
-<p>The <code>workflow_info</code> option defines the Workflow info Map</p>
-
-<p>The <code>message</code> option defines the message to publish</p>
-
+<p>The <code class="inline">workflow_info</code> option defines the Workflow info Map</p>
+<p>The <code class="inline">message</code> option defines the message to publish</p>
 <h2>Return values</h2>
-
 <p>Map, containing the updated workflow_info</p>
 
   </section>
@@ -638,15 +574,10 @@
   
   <section class="docstring">
     <p>Method to complete a Workflow in failure</p>
-
 <h2>Options</h2>
-
-<p>The <code>workflow</code> option defines the Workflow referenced</p>
-
-<p>The <code>reason</code> option defines the String reason for the failure</p>
-
+<p>The <code class="inline">workflow</code> option defines the Workflow referenced</p>
+<p>The <code class="inline">reason</code> option defines the String reason for the failure</p>
 <h2>Return Values</h2>
-
 <p>:ok | {:error, reason}</p>
 
   </section>
