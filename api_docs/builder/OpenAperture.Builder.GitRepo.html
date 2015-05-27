@@ -48,7 +48,7 @@
       
         <section id="moduledoc" class="docstring">
           <p>This module represents a Git repository, and is used to track the local
-repository&#39;s path, the remote repository&#39;s URL, and the current
+repository’s path, the remote repository’s URL, and the current
 branch/tag/commit.</p>
 
         </section>
@@ -71,7 +71,7 @@ access credentials to the URL (if configured for the application.)</p>
   <td class="summary_signature"><a href="#get_github_url/0">get_github_url()</a></td>
   
     <td class="summary_synopsis"><p>Retrieves the base GitHub URL, including an OAuth credential if one is set
-in the application&#39;s configuration</p>
+in the application’s configuration</p>
 </td>
   
 </tr>
@@ -85,7 +85,7 @@ in the application&#39;s configuration</p>
 <tr>
   <td class="summary_signature"><a href="#resolve_github_repo_url/1">resolve_github_repo_url(raw_url)</a></td>
   
-    <td class="summary_synopsis"><p>Given a A url (absolute, [user|org]/project<em>name, or [user|org]/project</em>name.git), builds a GitHub URL. Prepends OAuth
+    <td class="summary_synopsis"><p>Given a A url (absolute, [user|org]/project_name, or [user|org]/project_name.git), builds a GitHub URL. Prepends OAuth
 access credentials to the URL (if configured for the application.)</p>
 </td>
   
@@ -130,11 +130,9 @@ access credentials to the URL (if configured for the application.)</p>
   <section class="docstring">
     <p>Given a [user|org]/project_name string, builds a GitHub URL. Prepends OAuth
 access credentials to the URL (if configured for the application.)</p>
-
 <h2>Examples</h2>
-
-<p>iex&gt; OpenAperture.Builder.GitRepo.get<em>github</em>repo<em>url(&quot;test</em>user/test<em>project&quot;)
-  &quot;<a href="https://github.com/test">https://github.com/test</a></em>user/test_project.git&quot;</p>
+<p>  iex&gt; OpenAperture.Builder.GitRepo.get_github_repo_url(“test_user/test_project”)
+  “<a href="https://github.com/test_user/test_project.git">https://github.com/test_user/test_project.git</a>“</p>
 
   </section>
   
@@ -158,7 +156,7 @@ access credentials to the URL (if configured for the application.)</p>
   
   <section class="docstring">
     <p>Retrieves the base GitHub URL, including an OAuth credential if one is set
-in the application&#39;s configuration.</p>
+in the application’s configuration.</p>
 
   </section>
   
@@ -184,11 +182,9 @@ in the application&#39;s configuration.</p>
   
   <section class="docstring">
     <p>Extracts the project name from a GitHub repo URL.</p>
-
 <h2>Examples</h2>
-
-<p>iex&gt; OpenAperture.Builder.GitRepo.get<em>project</em>name(&quot;<a href="https://github.com/test_user/test_project%22">https://github.com/test_user/test_project&quot;</a>)
-  &quot;test_project&quot;</p>
+<p>  iex&gt; OpenAperture.Builder.GitRepo.get_project_name(“<a href="https://github.com/test_user/test_project">https://github.com/test_user/test_project</a>“)
+  “test_project”</p>
 
   </section>
   
@@ -211,23 +207,21 @@ in the application&#39;s configuration.</p>
     </ul>
   
   <section class="docstring">
-    <p>Given a A url (absolute, [user|org]/project<em>name, or [user|org]/project</em>name.git), builds a GitHub URL. Prepends OAuth
+    <p>Given a A url (absolute, [user|org]/project_name, or [user|org]/project_name.git), builds a GitHub URL. Prepends OAuth
 access credentials to the URL (if configured for the application.)</p>
-
 <h2>Examples</h2>
-
-<p>iex&gt; OpenAperture.Builder.GitRepo.resolve<em>github</em>repo<em>url(&quot;test</em>user/test<em>project&quot;)
-  &quot;<a href="https://github.com/test">https://github.com/test</a></em>user/test<em>project.git&quot;
-  iex&gt; OpenAperture.Builder.GitRepo.resolve</em>github<em>repo</em>url(&quot;<a href="http://github.com/test_user/test_project%22">http://github.com/test_user/test_project&quot;</a>)
-  &quot;<a href="https://github.com/test_user/test_project.git">https://github.com/test_user/test_project.git</a>&quot;
-  iex&gt; OpenAperture.Builder.GitRepo.resolve<em>github</em>repo<em>url(&quot;<a href="http://github.com/test">http://github.com/test</a></em>user/test<em>project.git&quot;)
-  &quot;<a href="https://github.com/test">https://github.com/test</a></em>user/test<em>project.git&quot;<br>
-  iex&gt; OpenAperture.Builder.GitRepo.resolve</em>github<em>repo</em>url(&quot;<a href="https://github.com/test_user/test_project%22">https://github.com/test_user/test_project&quot;</a>)
-  &quot;<a href="https://github.com/test_user/test_project.git">https://github.com/test_user/test_project.git</a>&quot;
-  iex&gt; OpenAperture.Builder.GitRepo.resolve<em>github</em>repo<em>url(&quot;<a href="https://github.com/test">https://github.com/test</a></em>user/test<em>project.git&quot;)
-  &quot;<a href="https://github.com/test">https://github.com/test</a></em>user/test<em>project.git&quot;<br>
-  iex&gt; OpenAperture.Builder.GitRepo.resolve</em>github<em>repo</em>url(&quot;<a href="mailto:git@github.com">git@github.com</a>:test<em>user/test</em>project.git&quot;)
-  &quot;<a href="mailto:git@github.com">git@github.com</a>:test<em>user/test</em>project.git&quot;        </p>
+<p>  iex&gt; OpenAperture.Builder.GitRepo.resolve_github_repo_url(“test_user/test_project”)
+  “<a href="https://github.com/test_user/test_project.git">https://github.com/test_user/test_project.git</a>“
+  iex&gt; OpenAperture.Builder.GitRepo.resolve_github_repo_url(“<a href="http://github.com/test_user/test_project">http://github.com/test_user/test_project</a>“)
+  “<a href="https://github.com/test_user/test_project.git">https://github.com/test_user/test_project.git</a>“
+  iex&gt; OpenAperture.Builder.GitRepo.resolve_github_repo_url(“<a href="http://github.com/test_user/test_project.git">http://github.com/test_user/test_project.git</a>“)
+  “<a href="https://github.com/test_user/test_project.git">https://github.com/test_user/test_project.git</a>“    
+  iex&gt; OpenAperture.Builder.GitRepo.resolve_github_repo_url(“<a href="https://github.com/test_user/test_project">https://github.com/test_user/test_project</a>“)
+  “<a href="https://github.com/test_user/test_project.git">https://github.com/test_user/test_project.git</a>“
+  iex&gt; OpenAperture.Builder.GitRepo.resolve_github_repo_url(“<a href="https://github.com/test_user/test_project.git">https://github.com/test_user/test_project.git</a>“)
+  “<a href="https://github.com/test_user/test_project.git">https://github.com/test_user/test_project.git</a>“    
+  iex&gt; OpenAperture.Builder.GitRepo.resolve_github_repo_url(“git@github.com:test_user/test_project.git”)
+  “git@github.com:test_user/test_project.git”        </p>
 
   </section>
   

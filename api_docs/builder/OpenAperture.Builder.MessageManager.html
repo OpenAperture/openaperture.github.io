@@ -65,7 +65,7 @@
 <tr>
   <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
   
-    <td class="summary_synopsis"><p>Creates a <code>GenServer</code> representing Docker host cluster</p>
+    <td class="summary_synopsis"><p>Creates a <code class="inline">GenServer</code> representing Docker host cluster</p>
 </td>
   
 </tr>
@@ -104,14 +104,10 @@
   
   <section class="docstring">
     <p>Method to stop tracking a delivered message</p>
-
 <h2>Options</h2>
-
-<p>The <code>delivery_tag</code> option is the unique identifier of the message</p>
-
+<p>The <code class="inline">delivery_tag</code> option is the unique identifier of the message</p>
 <h2>Return Value</h2>
-
-<p>Map containing the subscription<em>handler and delivery</em>tag</p>
+<p>Map containing the subscription_handler and delivery_tag</p>
 
   </section>
   
@@ -134,10 +130,8 @@
     </ul>
   
   <section class="docstring">
-    <p>Creates a <code>GenServer</code> representing Docker host cluster.</p>
-
+    <p>Creates a <code class="inline">GenServer</code> representing Docker host cluster.</p>
 <h2>Return values</h2>
-
 <p>{:ok, pid} | {:error, String.t()}</p>
 
   </section>
@@ -162,12 +156,14 @@
   
   <section class="docstring">
     <p>Method to start tracking a delivered message.</p>
-
 <h2>Options</h2>
-
-<p>The <code>_async_info</code> is a Map containing the following entries:
-  * :subscription<em>handler
-  * :delivery</em>tag</p>
+<p>The <code class="inline">_async_info</code> is a Map containing the following entries:</p>
+<ul>
+<li>:subscription_handler
+</li>
+<li>:delivery_tag
+</li>
+</ul>
 
   </section>
   
