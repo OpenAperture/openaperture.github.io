@@ -60,7 +60,7 @@
           <tr>
   <td class="summary_signature"><a href="#add_event_to_log/3">add_event_to_log(request, event, prefix \\ nil)</a></td>
   
-    <td class="summary_synopsis"><p>Method to add an event to the workflow&#39;s event log</p>
+    <td class="summary_synopsis"><p>Method to add an event to the workflow’s event log</p>
 </td>
   
 </tr>
@@ -74,14 +74,14 @@
 <tr>
   <td class="summary_signature"><a href="#publish_failure_notification/2">publish_failure_notification(request, message)</a></td>
   
-    <td class="summary_synopsis"><p>Method to publish a &quot;failure&quot; notification</p>
+    <td class="summary_synopsis"><p>Method to publish a “failure” notification</p>
 </td>
   
 </tr>
 <tr>
   <td class="summary_signature"><a href="#publish_success_notification/2">publish_success_notification(request, message)</a></td>
   
-    <td class="summary_synopsis"><p>Method to publish a &quot;success&quot; notification</p>
+    <td class="summary_synopsis"><p>Method to publish a “success” notification</p>
 </td>
   
 </tr>
@@ -122,7 +122,7 @@
           <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
           <div class="type_detail">
   <p class="typespec" id="t:t/0">
-    <a href="#t:t/0">t</a> :: %OpenAperture.WorkflowOrchestratorApi.Workflow{current_step: term, deployment_repo: term, deployment_repo_git_ref: term, elapsed_step_time: term, elapsed_workflow_time: term, event_log: term, id: term, milestones: term, source_commit_hash: term, source_repo: term, source_repo_git_ref: term, workflow_completed: term, workflow_duration: term, workflow_error: term, workflow_id: term, workflow_step_durations: term}
+    <a href="#t:t/0">t</a> :: %OpenAperture.WorkflowOrchestratorApi.Workflow{current_step: term, deployment_repo: term, deployment_repo_git_ref: term, elapsed_step_time: term, elapsed_workflow_time: term, event_log: term, id: term, milestones: term, source_commit_hash: term, source_repo: term, source_repo_git_ref: term, step_time: term, workflow_completed: term, workflow_duration: term, workflow_error: term, workflow_id: term, workflow_start_time: term, workflow_step_durations: term}
   </p>
   
 </div>
@@ -151,18 +151,12 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to add an event to the workflow&#39;s event log</p>
-
+    <p>Method to add an event to the workflow’s event log</p>
 <h2>Options</h2>
-
-<p>The <code>request</code> option defines the Request</p>
-
-<p>The <code>event</code> option defines a String containing the event to track</p>
-
-<p>The <code>prefix</code> option defines an optional String prefix for the event</p>
-
+<p>The <code class="inline">request</code> option defines the Request</p>
+<p>The <code class="inline">event</code> option defines a String containing the event to track</p>
+<p>The <code class="inline">prefix</code> option defines an optional String prefix for the event</p>
 <h2>Return Values</h2>
-
 <p>Request</p>
 
   </section>
@@ -187,13 +181,9 @@
   
   <section class="docstring">
     <p>Method to convert a map into a Workflow struct</p>
-
 <h2>Options</h2>
-
-<p>The <code>payload</code> option defines the Map containing the Workflow</p>
-
+<p>The <code class="inline">payload</code> option defines the Map containing the Workflow</p>
 <h2>Return Values</h2>
-
 <p>OpenAperture.WorkflowOrchestratorApi.Workflow</p>
 
   </section>
@@ -217,16 +207,11 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to publish a &quot;failure&quot; notification</p>
-
+    <p>Method to publish a “failure” notification</p>
 <h2>Options</h2>
-
-<p>The <code>request</code> option defines the Request</p>
-
-<p>The <code>message</code> option defines the message to publish</p>
-
+<p>The <code class="inline">request</code> option defines the Request</p>
+<p>The <code class="inline">message</code> option defines the message to publish</p>
 <h2>Return values</h2>
-
 <p>Request</p>
 
   </section>
@@ -250,16 +235,11 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to publish a &quot;success&quot; notification</p>
-
+    <p>Method to publish a “success” notification</p>
 <h2>Options</h2>
-
-<p>The <code>request</code> option defines the Request</p>
-
-<p>The <code>message</code> option defines the message to publish</p>
-
+<p>The <code class="inline">request</code> option defines the Request</p>
+<p>The <code class="inline">message</code> option defines the message to publish</p>
 <h2>Return values</h2>
-
 <p>Request</p>
 
   </section>
@@ -284,17 +264,11 @@
   
   <section class="docstring">
     <p>Method to publish a notification</p>
-
 <h2>Options</h2>
-
-<p>The <code>request</code> option defines the Request</p>
-
-<p>The <code>is_success</code> option defines failure/success of the message</p>
-
-<p>The <code>message</code> option defines the message to publish</p>
-
+<p>The <code class="inline">request</code> option defines the Request</p>
+<p>The <code class="inline">is_success</code> option defines failure/success of the message</p>
+<p>The <code class="inline">message</code> option defines the message to publish</p>
 <h2>Return values</h2>
-
 <p>Request</p>
 
   </section>
@@ -319,13 +293,9 @@
   
   <section class="docstring">
     <p>Method to notify the WorkflowOrchestrator that a workflow step has completed</p>
-
 <h2>Options</h2>
-
-<p>The <code>request</code> option defines the Request</p>
-
+<p>The <code class="inline">request</code> option defines the Request</p>
 <h2>Return Values</h2>
-
 <p>Request</p>
 
   </section>
@@ -350,17 +320,11 @@
   
   <section class="docstring">
     <p>Method to notify the WorkflowOrchestrator that a workflow step has failed</p>
-
 <h2>Options</h2>
-
-<p>The <code>request</code> option defines the Request</p>
-
-<p>The <code>event</code> option defines a String containing the event to track</p>
-
-<p>The <code>reason</code> option defines an optional String description</p>
-
+<p>The <code class="inline">request</code> option defines the Request</p>
+<p>The <code class="inline">event</code> option defines a String containing the event to track</p>
+<p>The <code class="inline">reason</code> option defines an optional String description</p>
 <h2>Return Values</h2>
-
 <p>Request</p>
 
   </section>
@@ -385,13 +349,9 @@
   
   <section class="docstring">
     <p>Method to convert a Workflow struct into a map</p>
-
 <h2>Options</h2>
-
-<p>The <code>workflow</code> option defines the OpenAperture.WorkflowOrchestratorApi.Workflow</p>
-
+<p>The <code class="inline">workflow</code> option defines the OpenAperture.WorkflowOrchestratorApi.Workflow</p>
 <h2>Return Values</h2>
-
 <p>Map</p>
 
   </section>

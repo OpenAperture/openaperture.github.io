@@ -80,7 +80,7 @@
           <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
           <div class="type_detail">
   <p class="typespec" id="t:t/0">
-    <a href="#t:t/0">t</a> :: %OpenAperture.WorkflowOrchestratorApi.Request{deployable_units: term, docker_build_etcd_token: term, etcd_token: term, force_build: term, notifications_broker_id: term, notifications_config: term, notifications_exchange_id: term, orchestration_queue_name: term, workflow: term, workflow_orchestration_broker_id: term, workflow_orchestration_exchange_id: term}
+    <a href="#t:t/0">t</a> :: %OpenAperture.WorkflowOrchestratorApi.Request{build_messaging_exchange_id: term, deploy_messaging_exchange_id: term, deployable_units: term, docker_build_etcd_token: term, etcd_token: term, force_build: term, notifications_broker_id: term, notifications_config: term, notifications_exchange_id: term, orchestration_queue_name: term, workflow: term, workflow_orchestration_broker_id: term, workflow_orchestration_exchange_id: term}
   </p>
   
 </div>
@@ -110,13 +110,9 @@
   
   <section class="docstring">
     <p>Method to convert a map into a Request struct</p>
-
 <h2>Options</h2>
-
-<p>The <code>payload</code> option defines the Map containing the request</p>
-
+<p>The <code class="inline">payload</code> option defines the Map containing the request</p>
 <h2>Return Values</h2>
-
 <p>OpenAperture.WorkflowOrchestratorApi.Request.t</p>
 
   </section>
@@ -141,13 +137,9 @@
   
   <section class="docstring">
     <p>Method to convert a Request struct into a map</p>
-
 <h2>Options</h2>
-
-<p>The <code>request</code> option defines the OpenAperture.WorkflowOrchestratorApi.Request.t</p>
-
+<p>The <code class="inline">request</code> option defines the OpenAperture.WorkflowOrchestratorApi.Request.t</p>
 <h2>Return Values</h2>
-
 <p>Map</p>
 
   </section>
