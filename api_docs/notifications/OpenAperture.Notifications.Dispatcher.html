@@ -3,29 +3,12 @@
   <head>
     <title>OpenAperture.Notifications.Dispatcher</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
-    <script type="text/javascript" charset="utf-8">
-      relpath = '';
-      if (relpath != '') relpath += '/';
-    </script>
-
-    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
-    <script type="text/javascript" charset="utf-8">
-      hljs.initHighlightingOnLoad();
-      hljs.configure({languages: []}); //disable autodetect
-    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/elixir.css">
   </head>
-
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-
     <section id="content">
-      <div class="breadcrumbs">openaperture_notifications v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Notifications.html">Notifications</a> &rarr; <a href="OpenAperture.Notifications.Dispatcher.html">Dispatcher</a></div>
+      <div class="breadcrumbs">openaperture_notifications v0.0.2 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Notifications.html">Notifications</a> &rarr; <a href="OpenAperture.Notifications.Dispatcher.html">Dispatcher</a></div>
       <h1>
         OpenAperture.Notifications.Dispatcher
         
@@ -45,7 +28,7 @@
 
       
         <section id="moduledoc" class="docstring">
-          <p>This module contains the logic to dispatch notification messsages to the appropriate GenServer(s) </p>
+          <p>Provides dispatching notifications to the appropriate services.</p>
 
         </section>
       
@@ -58,14 +41,7 @@
           <tr>
   <td class="summary_signature"><a href="#close_connection/1">close_connection(connection_options \\ nil)</a></td>
   
-    <td class="summary_synopsis"><p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc…)</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#dispatch_hipchat_notification/2">dispatch_hipchat_notification(payload, async_info)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to dispatch HipChat notifications to the HipChat publisher</p>
+    <td class="summary_synopsis"><p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc...)</p>
 </td>
   
 </tr>
@@ -79,14 +55,31 @@
 <tr>
   <td class="summary_signature"><a href="#register_queues/0">register_queues()</a></td>
   
-    <td class="summary_synopsis"><p>Method to register the notification queues with the Messaging system</p>
+    <td class="summary_synopsis"><p>Registers the notification queues with the Messaging system.
+Returns <code>:ok</code> or <code>{:error, reason}</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#send_emails/1">send_emails(payload)</a></td>
+  
+    <td class="summary_synopsis"><p>Sends email notififcations.
+Returns <code>{:ok, msg}</code> or <code>{:error, reason}</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#send_hipchat_notifications/1">send_hipchat_notifications(payload)</a></td>
+  
+    <td class="summary_synopsis"><p>Delivers payload to the HipChat publisher.
+Returns <code>:ok</code> or <code>{:error, reason}</code></p>
 </td>
   
 </tr>
 <tr>
   <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
   
-    <td class="summary_synopsis"><p>Specific start_link implementation (required by the supervisor)</p>
+    <td class="summary_synopsis"><p>Starts GenServer. Returns <code>{:ok, pid}</code> or {:error, reason}``</p>
 </td>
   
 </tr>
@@ -94,6 +87,13 @@
   <td class="summary_signature"><a href="#subscribe/3">subscribe(connection_options \\ nil, queue, callback_handler)</a></td>
   
     <td class="summary_synopsis"><p>Subscribes to a specific queue within the Messaging system</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#trigger_notifications/2">trigger_notifications(payload, async_info)</a></td>
+  
+    <td class="summary_synopsis"><p>Triggers notifications of all types. Returns <code>:ok</code> or <code>{:error, reason}</code></p>
 </td>
   
 </tr>
@@ -131,38 +131,14 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc…)</p>
-<h2>Options</h2>
-<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
-<h2>Returns</h2>
-<p>:ok | {:error, reason}</p>
+    <p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc...)</p>
 
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="dispatch_hipchat_notification/2">
-    <span class="signature"><strong>dispatch_hipchat_notification(payload, async_info)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#dispatch_hipchat_notification/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>dispatch_hipchat_notification(Map, Map) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to dispatch HipChat notifications to the HipChat publisher.</p>
 <h2>Options</h2>
-<p>The <code class="inline">payload</code> option is the Map of HipChat options</p>
-<p>The <code class="inline">_async_info</code> option defines the Messaging module’s asynchronous messaging info</p>
-<h2>Return Value</h2>
+
+<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+
+<h2>Returns</h2>
+
 <p>:ok | {:error, reason}</p>
 
   </section>
@@ -187,11 +163,17 @@
   
   <section class="docstring">
     <p>Publishes a message/payload to a specific queue within the Messaging system</p>
+
 <h2>Options</h2>
-<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
-<p>The <code class="inline">queue</code> options value provides the Queue to which to subscribe</p>
-<p>The <code class="inline">payload</code> option represents the message data</p>
+
+<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+
+<p>The <code>queue</code> options value provides the Queue to which to subscribe</p>
+
+<p>The <code>payload</code> option represents the message data</p>
+
 <h2>Returns</h2>
+
 <p>:ok | {:error, reason}</p>
 
   </section>
@@ -215,9 +197,56 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to register the notification queues with the Messaging system</p>
-<h2>Return Value</h2>
-<p>:ok | {:error, reason}</p>
+    <p>Registers the notification queues with the Messaging system.
+Returns <code>:ok</code> or <code>{:error, reason}</code></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="send_emails/1">
+    <span class="signature"><strong>send_emails(payload)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#send_emails/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>send_emails(Map) :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Sends email notififcations.
+Returns <code>{:ok, msg}</code> or <code>{:error, reason}</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="send_hipchat_notifications/1">
+    <span class="signature"><strong>send_hipchat_notifications(payload)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#send_hipchat_notifications/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>send_hipchat_notifications(Map) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Delivers payload to the HipChat publisher.
+Returns <code>:ok</code> or <code>{:error, reason}</code>.</p>
 
   </section>
   
@@ -240,10 +269,7 @@
     </ul>
   
   <section class="docstring">
-    <p>Specific start_link implementation (required by the supervisor)</p>
-<h2>Options</h2>
-<h2>Return Values</h2>
-<p>{:ok, pid} | {:error, reason}</p>
+    <p>Starts GenServer. Returns <code>{:ok, pid}</code> or {:error, reason}``</p>
 
   </section>
   
@@ -267,14 +293,43 @@
   
   <section class="docstring">
     <p>Subscribes to a specific queue within the Messaging system.</p>
+
 <h2>Options</h2>
-<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
-<p>The <code class="inline">queue</code> options value provides the Queue to which to subscribe</p>
-<p>The <code class="inline">callback_handler</code> option represents the method that should be called when a message is received.  The handler
+
+<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+
+<p>The <code>queue</code> options value provides the Queue to which to subscribe</p>
+
+<p>The <code>callback_handler</code> option represents the method that should be called when a message is received.  The handler
 should be a function with 2 arguments (sync), or 3 arguments (async).</p>
+
 <h2>Returns</h2>
-<p>for AMQP:</p>
-<pre><code class="elixir">{:ok, subscription_handler} | {:error, reason}</code></pre>
+
+<p>for AMQP:
+    {:ok, subscription_handler} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="trigger_notifications/2">
+    <span class="signature"><strong>trigger_notifications(payload, async_info)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#trigger_notifications/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>trigger_notifications(Map, Map) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Triggers notifications of all types. Returns <code>:ok</code> or <code>{:error, reason}</code>.</p>
 
   </section>
   
@@ -298,10 +353,15 @@ should be a function with 2 arguments (sync), or 3 arguments (async).</p>
   
   <section class="docstring">
     <p>Unsubscribes to from a SubscriptionHandler in the Messaging system.</p>
+
 <h2>Options</h2>
-<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
-<p>The <code class="inline">subscription_handler</code> option represents the PID of the SubscriptionHandler</p>
+
+<p>The <code>connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+
+<p>The <code>subscription_handler</code> option represents the PID of the SubscriptionHandler</p>
+
 <h2>Returns</h2>
+
 <p>for AMQP:
   :ok | {:error, reason}</p>
 
@@ -316,5 +376,21 @@ should be a function with 2 arguments (sync), or 3 arguments (async).</p>
 
       
     </section>
+
+    <!-- Scripts -->
+    <script>
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>
+    <script src="js/app.js"></script>
+    <script src="js/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+      if (window.top.frames.main) { document.body.className = 'frames'; }
+    </script>
   </body>
 </html>

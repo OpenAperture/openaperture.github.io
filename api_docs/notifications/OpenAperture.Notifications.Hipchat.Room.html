@@ -3,29 +3,12 @@
   <head>
     <title>OpenAperture.Notifications.Hipchat.Room</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
-    <script type="text/javascript" charset="utf-8">
-      relpath = '';
-      if (relpath != '') relpath += '/';
-    </script>
-
-    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
-    <script type="text/javascript" charset="utf-8">
-      hljs.initHighlightingOnLoad();
-      hljs.configure({languages: []}); //disable autodetect
-    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/elixir.css">
   </head>
-
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-
     <section id="content">
-      <div class="breadcrumbs">openaperture_notifications v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Notifications.html">Notifications</a> &rarr; Hipchat &rarr; <a href="OpenAperture.Notifications.Hipchat.Room.html">Room</a></div>
+      <div class="breadcrumbs">openaperture_notifications v0.0.2 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Notifications.html">Notifications</a> &rarr; Hipchat &rarr; <a href="OpenAperture.Notifications.Hipchat.Room.html">Room</a></div>
       <h1>
         OpenAperture.Notifications.Hipchat.Room
         
@@ -60,7 +43,7 @@
 <tr>
   <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
   
-    <td class="summary_synopsis"><p>Starts a <code class="inline">GenServer</code> process linked to the current process</p>
+    <td class="summary_synopsis"><p>Starts a <code>GenServer</code> process linked to the current process</p>
 </td>
   
 </tr>
@@ -92,9 +75,13 @@
   
   <section class="docstring">
     <p>Method to resolve room IDS, based on room names.</p>
+
 <h2>Option Values</h2>
-<p>The <code class="inline">room_names</code> option defines the room name list to be resolved</p>
+
+<p>The <code>room_names</code> option defines the room name list to be resolved</p>
+
 <h2>Return Values</h2>
+
 <p>A list of room IDs</p>
 
   </section>
@@ -118,24 +105,30 @@
     </ul>
   
   <section class="docstring">
-    <p>Starts a <code class="inline">GenServer</code> process linked to the current process.</p>
-<p>This is often used to start the <code class="inline">GenServer</code> as part of a supervision tree.</p>
-<p>Once the server is started, it calls the <code class="inline">init/1</code> function in the given <code class="inline">module</code>
-passing the given <code class="inline">args</code> to initialize it. To ensure a synchronized start-up
-procedure, this function does not return until <code class="inline">init/1</code> has returned.</p>
-<p>Note that a <code class="inline">GenServer</code> started with <code class="inline">start_link/3</code> is linked to the
+    <p>Starts a <code>GenServer</code> process linked to the current process.</p>
+
+<p>This is often used to start the <code>GenServer</code> as part of a supervision tree.</p>
+
+<p>Once the server is started, it calls the <code>init/1</code> function in the given <code>module</code>
+passing the given <code>args</code> to initialize it. To ensure a synchronized start-up
+procedure, this function does not return until <code>init/1</code> has returned.</p>
+
+<p>Note that a <code>GenServer</code> started with <code>start_link/3</code> is linked to the
 parent process and will exit in case of crashes. The GenServer will also
-exit due to the <code class="inline">:normal</code> reasons in case it is configured to trap exits
-in the <code class="inline">init/1</code> callback.</p>
+exit due to the <code>:normal</code> reasons in case it is configured to trap exits
+in the <code>init/1</code> callback.</p>
+
 <h2>Return values</h2>
+
 <p>If the server is successfully created and initialized, the function returns
-<code class="inline">{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
+<code>{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
 process with the specified server name, the function returns
-<code class="inline">{:error, {:already_started, pid}}</code> with the pid of that process.</p>
-<p>If the <code class="inline">init/1</code> callback fails with <code class="inline">reason</code>, the function returns
-<code class="inline">{:error, reason}</code>. Otherwise, if it returns <code class="inline">{:stop, reason}</code>
-or <code class="inline">:ignore</code>, the process is terminated and the function returns
-<code class="inline">{:error, reason}</code> or <code class="inline">:ignore</code>, respectively.</p>
+<code>{:error, {:already_started, pid}}</code> with the pid of that process.</p>
+
+<p>If the <code>init/1</code> callback fails with <code>reason</code>, the function returns
+<code>{:error, reason}</code>. Otherwise, if it returns <code>{:stop, reason}</code>
+or <code>:ignore</code>, the process is terminated and the function returns
+<code>{:error, reason}</code> or <code>:ignore</code>, respectively.</p>
 
   </section>
   
@@ -148,5 +141,21 @@ or <code class="inline">:ignore</code>, the process is terminated and the functi
 
       
     </section>
+
+    <!-- Scripts -->
+    <script>
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>
+    <script src="js/app.js"></script>
+    <script src="js/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+      if (window.top.frames.main) { document.body.className = 'frames'; }
+    </script>
   </body>
 </html>

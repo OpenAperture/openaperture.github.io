@@ -3,29 +3,12 @@
   <head>
     <title>OpenAperture.Notifications.Supervisor</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
-    <script type="text/javascript" charset="utf-8">
-      relpath = '';
-      if (relpath != '') relpath += '/';
-    </script>
-
-    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
-    <script type="text/javascript" charset="utf-8">
-      hljs.initHighlightingOnLoad();
-      hljs.configure({languages: []}); //disable autodetect
-    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/elixir.css">
   </head>
-
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-
     <section id="content">
-      <div class="breadcrumbs">openaperture_notifications v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Notifications.html">Notifications</a> &rarr; <a href="OpenAperture.Notifications.Supervisor.html">Supervisor</a></div>
+      <div class="breadcrumbs">openaperture_notifications v0.0.2 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Notifications.html">Notifications</a> &rarr; <a href="OpenAperture.Notifications.Supervisor.html">Supervisor</a></div>
       <h1>
         OpenAperture.Notifications.Supervisor
         
@@ -97,9 +80,13 @@
   
   <section class="docstring">
     <p>GenServer callback - invoked when the server is started.</p>
+
 <h2>Options</h2>
-<p>The <code class="inline">args</code> option represents the args to the GenServer.</p>
+
+<p>The <code>args</code> option represents the args to the GenServer.</p>
+
 <h2>Return Values</h2>
+
 <p>{:ok, state} | {:ok, state, timeout} | :ignore | {:stop, reason}</p>
 
   </section>
@@ -123,9 +110,12 @@
     </ul>
   
   <section class="docstring">
-    <p>Specific start_link implementation </p>
+    <p>Specific start_link implementation</p>
+
 <h2>Options</h2>
+
 <h2>Return Values</h2>
+
 <p>{:ok, pid} | {:error, reason}</p>
 
   </section>
@@ -139,5 +129,21 @@
 
       
     </section>
+
+    <!-- Scripts -->
+    <script>
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>
+    <script src="js/app.js"></script>
+    <script src="js/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+      if (window.top.frames.main) { document.body.className = 'frames'; }
+    </script>
   </body>
 </html>

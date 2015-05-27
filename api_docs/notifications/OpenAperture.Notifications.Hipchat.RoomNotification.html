@@ -3,29 +3,12 @@
   <head>
     <title>OpenAperture.Notifications.Hipchat.RoomNotification</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
-    <script type="text/javascript" charset="utf-8">
-      relpath = '';
-      if (relpath != '') relpath += '/';
-    </script>
-
-    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
-    <script type="text/javascript" charset="utf-8">
-      hljs.initHighlightingOnLoad();
-      hljs.configure({languages: []}); //disable autodetect
-    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/elixir.css">
   </head>
-
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-
     <section id="content">
-      <div class="breadcrumbs">openaperture_notifications v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Notifications.html">Notifications</a> &rarr; Hipchat &rarr; <a href="OpenAperture.Notifications.Hipchat.RoomNotification.html">RoomNotification</a></div>
+      <div class="breadcrumbs">openaperture_notifications v0.0.2 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Notifications.html">Notifications</a> &rarr; Hipchat &rarr; <a href="OpenAperture.Notifications.Hipchat.RoomNotification.html">RoomNotification</a></div>
       <h1>
         OpenAperture.Notifications.Hipchat.RoomNotification
         
@@ -53,7 +36,7 @@
           <tr>
   <td class="summary_signature"><a href="#create!/1">create!(options)</a></td>
   
-    <td class="summary_synopsis"><p>Creates a <code class="inline">GenServer</code> representing hipchat room notification (<a href="https://www.hipchat.com/docs/apiv2/method/send_room_notification">https://www.hipchat.com/docs/apiv2/method/send_room_notification</a>),
+    <td class="summary_synopsis"><p>Creates a <code>GenServer</code> representing hipchat room notification (<a href="https://www.hipchat.com/docs/apiv2/method/send_room_notification">https://www.hipchat.com/docs/apiv2/method/send_room_notification</a>),
 and returns PID.  Throws an error if create fails</p>
 </td>
   
@@ -61,7 +44,7 @@ and returns PID.  Throws an error if create fails</p>
 <tr>
   <td class="summary_signature"><a href="#create/1">create(options)</a></td>
   
-    <td class="summary_synopsis"><p>Creates a <code class="inline">GenServer</code> representing hipchat room notification (<a href="https://www.hipchat.com/docs/apiv2/method/send_room_notification">https://www.hipchat.com/docs/apiv2/method/send_room_notification</a>)</p>
+    <td class="summary_synopsis"><p>Creates a <code>GenServer</code> representing hipchat room notification (<a href="https://www.hipchat.com/docs/apiv2/method/send_room_notification">https://www.hipchat.com/docs/apiv2/method/send_room_notification</a>)</p>
 </td>
   
 </tr>
@@ -99,28 +82,27 @@ and returns PID.  Throws an error if create fails</p>
     </ul>
   
   <section class="docstring">
-    <p>Creates a <code class="inline">GenServer</code> representing hipchat room notification (<a href="https://www.hipchat.com/docs/apiv2/method/send_room_notification">https://www.hipchat.com/docs/apiv2/method/send_room_notification</a>).</p>
+    <p>Creates a <code>GenServer</code> representing hipchat room notification (<a href="https://www.hipchat.com/docs/apiv2/method/send_room_notification">https://www.hipchat.com/docs/apiv2/method/send_room_notification</a>).</p>
+
 <h2>Option Values</h2>
-<p>The following options may be passed into the <code class="inline">options</code> value:</p>
-<ul>
-<li>color (optional):  yellow, green, red, purple, gray, random
-</li>
-<li>message (required):  message body
-</li>
-<li>notify (optional):  boolean
-</li>
-<li>message_format (required):  html, text
-</li>
-</ul>
+
+<p>The following options may be passed into the <code>options</code> value:
+* color (optional):  yellow, green, red, purple, gray, random
+* message (required):  message body
+* notify (optional):  boolean
+* message_format (required):  html, text</p>
+
 <h2>Return values</h2>
+
 <p>If the server is successfully created and initialized, the function returns
-<code class="inline">{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
+<code>{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
 process with the specified server name, the function returns
-<code class="inline">{:error, {:already_started, pid}}</code> with the pid of that process.</p>
-<p>If the <code class="inline">init/1</code> callback fails with <code class="inline">reason</code>, the function returns
-<code class="inline">{:error, reason}</code>. Otherwise, if it returns <code class="inline">{:stop, reason}</code>
-or <code class="inline">:ignore</code>, the process is terminated and the function returns
-<code class="inline">{:error, reason}</code> or <code class="inline">:ignore</code>, respectively.</p>
+<code>{:error, {:already_started, pid}}</code> with the pid of that process.</p>
+
+<p>If the <code>init/1</code> callback fails with <code>reason</code>, the function returns
+<code>{:error, reason}</code>. Otherwise, if it returns <code>{:stop, reason}</code>
+or <code>:ignore</code>, the process is terminated and the function returns
+<code>{:error, reason}</code> or <code>:ignore</code>, respectively.</p>
 
   </section>
   
@@ -143,20 +125,16 @@ or <code class="inline">:ignore</code>, the process is terminated and the functi
     </ul>
   
   <section class="docstring">
-    <p>Creates a <code class="inline">GenServer</code> representing hipchat room notification (<a href="https://www.hipchat.com/docs/apiv2/method/send_room_notification">https://www.hipchat.com/docs/apiv2/method/send_room_notification</a>),
+    <p>Creates a <code>GenServer</code> representing hipchat room notification (<a href="https://www.hipchat.com/docs/apiv2/method/send_room_notification">https://www.hipchat.com/docs/apiv2/method/send_room_notification</a>),
 and returns PID.  Throws an error if create fails.</p>
+
 <h2>Option Values</h2>
-<p>The following options may be passed into the <code class="inline">options</code> value:</p>
-<ul>
-<li>color (optional):  yellow, green, red, purple, gray, random
-</li>
-<li>message (required):  message body
-</li>
-<li>notify (optional):  boolean
-</li>
-<li>message_format (required):  html, text
-</li>
-</ul>
+
+<p>The following options may be passed into the <code>options</code> value:
+* color (optional):  yellow, green, red, purple, gray, random
+* message (required):  message body
+* notify (optional):  boolean
+* message_format (required):  html, text</p>
 
   </section>
   
@@ -173,9 +151,13 @@ and returns PID.  Throws an error if create fails.</p>
   
   <section class="docstring">
     <p>Method to retrieve the list of currently known options in the room notification.</p>
+
 <h2>Return Values</h2>
-<p>The <code class="inline">new_hosts</code> option defines an array of the options that are available for the room notification.</p>
+
+<p>The <code>new_hosts</code> option defines an array of the options that are available for the room notification.</p>
+
 <h2>Return values</h2>
+
 <p>:ok</p>
 
   </section>
@@ -189,5 +171,21 @@ and returns PID.  Throws an error if create fails.</p>
 
       
     </section>
+
+    <!-- Scripts -->
+    <script>
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>
+    <script src="js/app.js"></script>
+    <script src="js/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+      if (window.top.frames.main) { document.body.className = 'frames'; }
+    </script>
   </body>
 </html>

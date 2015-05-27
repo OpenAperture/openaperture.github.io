@@ -2,23 +2,15 @@
 <html>
   <head>
     <title>List of Modules</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="css/full_list.css" type="text/css" media="screen" charset="utf-8" />
-    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/full_list.js"></script>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/full_list.css">
     <base id="base_target" target="_parent" />
   </head>
   <body class="frames">
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) {
-        document.getElementById('base_target').target = 'main';
-        document.body.className = 'frames';
-      }
-    </script>
     <section id="content">
       <h1 id="full_list_header">
         
-          openaperture_notifications v0.0.1
+          openaperture_notifications v0.0.2
         
       </h1>
 
@@ -85,6 +77,11 @@
         <span class="node_name">OpenAperture.Notifications.Configuration</span>
       </li>
     
+      <li>
+        <a href="OpenAperture.Notifications.Configuration.html#smtp/0" title="OpenAperture.Notifications.Configuration.smtp/0" class="object_link">smtp/0</a>
+        <span class="node_name">OpenAperture.Notifications.Configuration</span>
+      </li>
+    
   </ul>
 </li>
 <li class="node">
@@ -104,11 +101,6 @@
       </li>
     
       <li>
-        <a href="OpenAperture.Notifications.Dispatcher.html#dispatch_hipchat_notification/2" title="OpenAperture.Notifications.Dispatcher.dispatch_hipchat_notification/2" class="object_link">dispatch_hipchat_notification/2</a>
-        <span class="node_name">OpenAperture.Notifications.Dispatcher</span>
-      </li>
-    
-      <li>
         <a href="OpenAperture.Notifications.Dispatcher.html#publish/3" title="OpenAperture.Notifications.Dispatcher.publish/3" class="object_link">publish/3</a>
         <span class="node_name">OpenAperture.Notifications.Dispatcher</span>
       </li>
@@ -119,12 +111,27 @@
       </li>
     
       <li>
+        <a href="OpenAperture.Notifications.Dispatcher.html#send_emails/1" title="OpenAperture.Notifications.Dispatcher.send_emails/1" class="object_link">send_emails/1</a>
+        <span class="node_name">OpenAperture.Notifications.Dispatcher</span>
+      </li>
+    
+      <li>
+        <a href="OpenAperture.Notifications.Dispatcher.html#send_hipchat_notifications/1" title="OpenAperture.Notifications.Dispatcher.send_hipchat_notifications/1" class="object_link">send_hipchat_notifications/1</a>
+        <span class="node_name">OpenAperture.Notifications.Dispatcher</span>
+      </li>
+    
+      <li>
         <a href="OpenAperture.Notifications.Dispatcher.html#start_link/0" title="OpenAperture.Notifications.Dispatcher.start_link/0" class="object_link">start_link/0</a>
         <span class="node_name">OpenAperture.Notifications.Dispatcher</span>
       </li>
     
       <li>
         <a href="OpenAperture.Notifications.Dispatcher.html#subscribe/3" title="OpenAperture.Notifications.Dispatcher.subscribe/3" class="object_link">subscribe/3</a>
+        <span class="node_name">OpenAperture.Notifications.Dispatcher</span>
+      </li>
+    
+      <li>
+        <a href="OpenAperture.Notifications.Dispatcher.html#trigger_notifications/2" title="OpenAperture.Notifications.Dispatcher.trigger_notifications/2" class="object_link">trigger_notifications/2</a>
         <span class="node_name">OpenAperture.Notifications.Dispatcher</span>
       </li>
     
@@ -266,6 +273,24 @@
   
     <a class="toggle"></a>
   
+  <a href="OpenAperture.Notifications.Mailer.html" title="OpenAperture.Notifications.Mailer" class="object_link">OpenAperture.Notifications.Mailer</a>
+  <span class="node_name">OpenAperture.Notifications.Mailer</span>
+</li>
+
+<li class="docs">
+  <ul>
+    
+      <li>
+        <a href="OpenAperture.Notifications.Mailer.html#deliver/3" title="OpenAperture.Notifications.Mailer.deliver/3" class="object_link">deliver/3</a>
+        <span class="node_name">OpenAperture.Notifications.Mailer</span>
+      </li>
+    
+  </ul>
+</li>
+<li class="node">
+  
+    <a class="toggle"></a>
+  
   <a href="OpenAperture.Notifications.MessageManager.html" title="OpenAperture.Notifications.MessageManager" class="object_link">OpenAperture.Notifications.MessageManager</a>
   <span class="node_name">OpenAperture.Notifications.MessageManager</span>
 </li>
@@ -315,8 +340,19 @@
 </li>
 
       </ul>
-      
+
       <div id="no_results"></div>
     </section>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>
+    <script src="js/full_list.js"></script>
+    <script>
+      if (window.top.frames.main) {
+        document.getElementById('base_target').target = 'main';
+        document.body.className = 'frames';
+      }
+    </script>
   </body>
 </html>
