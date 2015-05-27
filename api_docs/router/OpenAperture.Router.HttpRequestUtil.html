@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Router.HttpRequestUtil</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_router v0.0.1-cecd5b34d8 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Router.html">Router</a> &rarr; <a href="OpenAperture.Router.HttpRequestUtil.html">HttpRequestUtil</a></div>
+      <h1>
+        OpenAperture.Router.HttpRequestUtil
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains purely-functional helper functions for retrieving
+data from a cowboy request tuple and formatting in a way the router can use.</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#chunked_request?/1">chunked_request?(headers)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_backend_url/4">get_backend_url(req, backend_host, backend_port, https? \\ false)</a></td>
+  
+    <td class="summary_synopsis"><p>The key feature of the router’s reverse-proxying ability is taking a request
+to <a href="http://[public">http://[public</a> hostname]:[public port]/path?querystring and forwarding it
+to <a href="http://[backend">http://[backend</a> hostname]:[backend port]/path?querystring.
+This function takes the original request URL’s host and port and replaces 
+them with the backend’s host and port, as well as specifying if the backend
+request needs to be made via https or http</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_content_length_header/1">get_content_length_header(headers)</a></td>
+  
+    <td class="summary_synopsis"><p>Finds the first “content-length” header and returns it, Returns nil if 
+there isn’t one</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_content_length_or_transfer_encoding/1">get_content_length_or_transfer_encoding(headers)</a></td>
+  
+    <td class="summary_synopsis"><p>Finds the first “content-length” or “transfer-encoding” header and returns
+it. Returns nil if neither are found</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_request_method/1">get_request_method(req)</a></td>
+  
+    <td class="summary_synopsis"><p>The :cowboy_req module’s “method” function returns the HTTP verb used on an
+incoming request as a string. We need it in the form of an atom, so this
+function handles that conversion for us. For the time being, non-standard
+HTTP verbs are returned as strings, since we cannot (safely) automatically
+convert them to atoms</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#parse_content_length_header/1">parse_content_length_header(arg1)</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieves the length, as an integer, of the content-length header</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="chunked_request?/1">
+    <span class="signature"><strong>chunked_request?(headers)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#chunked_request?/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>chunked_request?(<a href="OpenAperture.Router.Types.html#t:headers/0">OpenAperture.Router.Types.headers</a>) :: boolean</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_backend_url/4">
+    <span class="signature"><strong>get_backend_url(req, backend_host, backend_port, https? \\ false)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_backend_url/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_backend_url(<a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, integer, boolean) :: {<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="OpenAperture.Router.Types.html#t:cowboyReq/0">OpenAperture.Router.Types.cowboyReq</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>The key feature of the router’s reverse-proxying ability is taking a request
+to <a href="http://[public">http://[public</a> hostname]:[public port]/path?querystring and forwarding it
+to <a href="http://[backend">http://[backend</a> hostname]:[backend port]/path?querystring.
+This function takes the original request URL’s host and port and replaces 
+them with the backend’s host and port, as well as specifying if the backend
+request needs to be made via https or http.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_content_length_header/1">
+    <span class="signature"><strong>get_content_length_header(headers)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_content_length_header/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_content_length_header(<a href="OpenAperture.Router.Types.html#t:headers/0">OpenAperture.Router.Types.headers</a>) :: {<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | nil</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Finds the first “content-length” header and returns it, Returns nil if 
+there isn’t one.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_content_length_or_transfer_encoding/1">
+    <span class="signature"><strong>get_content_length_or_transfer_encoding(headers)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_content_length_or_transfer_encoding/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_content_length_or_transfer_encoding(<a href="OpenAperture.Router.Types.html#t:headers/0">OpenAperture.Router.Types.headers</a>) :: {<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | nil</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Finds the first “content-length” or “transfer-encoding” header and returns
+it. Returns nil if neither are found.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_request_method/1">
+    <span class="signature"><strong>get_request_method(req)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_request_method/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_request_method(<a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>) :: {atom, <a href="OpenAperture.Router.Types.html#t:cowboyReq/0">OpenAperture.Router.Types.cowboyReq</a>} | {<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="OpenAperture.Router.Types.html#t:cowboyReq/0">OpenAperture.Router.Types.cowboyReq</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>The :cowboy_req module’s “method” function returns the HTTP verb used on an
+incoming request as a string. We need it in the form of an atom, so this
+function handles that conversion for us. For the time being, non-standard
+HTTP verbs are returned as strings, since we cannot (safely) automatically
+convert them to atoms.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="parse_content_length_header/1">
+    <span class="signature"><strong>parse_content_length_header(arg1)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#parse_content_length_header/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>parse_content_length_header({<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}) :: integer | nil</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Retrieves the length, as an integer, of the content-length header.</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

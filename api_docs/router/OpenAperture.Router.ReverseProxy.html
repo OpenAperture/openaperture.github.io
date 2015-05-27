@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Router.ReverseProxy</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_router v0.0.1-cecd5b34d8 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Router.html">Router</a> &rarr; <a href="OpenAperture.Router.ReverseProxy.html">ReverseProxy</a></div>
+      <h1>
+        OpenAperture.Router.ReverseProxy
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#proxy_request/3">proxy_request(req, path, protocol)</a></td>
+  
+    <td class="summary_synopsis"><p><code class="inline">proxy_request</code> handles reading request data from the incoming client
+request, sending it on to a backend server, reading response data from the
+backend server, and sending it back to the client</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#proxy_request/6">proxy_request(method, req, host, port, is_https, headers)</a></td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="proxy_request/3">
+    <span class="signature"><strong>proxy_request(req, path, protocol)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#proxy_request/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>proxy_request(<a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, atom) :: {:ok | :error, <a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, integer}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p><code class="inline">proxy_request</code> handles reading request data from the incoming client
+request, sending it on to a backend server, reading response data from the
+backend server, and sending it back to the client.</p>
+<p>Returns a tuple containing an atom (like :ok or :error), the <code class="inline">cowboy_req</code>
+object, and an integer indicating the duration of the backend request
+(in microseconds).</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="proxy_request/6">
+    <span class="signature"><strong>proxy_request(method, req, host, port, is_https, headers)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#proxy_request/6" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>proxy_request(atom, <a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, integer, boolean, <a href="OpenAperture.Router.Types.html#t:headers/0">OpenAperture.Router.Types.headers</a>) :: {:ok, <a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, <a href="OpenAperture.Router.Types.html#t:microseconds/0">OpenAperture.Router.Types.microseconds</a>} | {:error, any, <a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, <a href="OpenAperture.Router.Types.html#t:microseconds/0">OpenAperture.Router.Types.microseconds</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Overview</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_router v0.0.1-cecd5b34d8 &rarr; <a href="overview.html">Overview</a></div>
+
+      <h1>openaperture_router v0.0.1-cecd5b34d8</h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#modules_summary">Modules</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <h2 id="modules_summary">Modules summary <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.html">OpenAperture.Router</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.BackendRequestServer.html">OpenAperture.Router.BackendRequestServer</a></td>
+  
+    <td class="summary_synopsis"><p>The BackendRequest GenServer handles issuing the proxied request to the
+backend server, streaming the request body from the client to the backend
+server, and streaming the response from the server back to the client</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.HttpHandler.html">OpenAperture.Router.HttpHandler</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.HttpRequestUtil.html">OpenAperture.Router.HttpRequestUtil</a></td>
+  
+    <td class="summary_synopsis"><p>This module contains purely-functional helper functions for retrieving
+data from a cowboy request tuple and formatting in a way the router can use</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.ResponseHandler.html">OpenAperture.Router.ResponseHandler</a></td>
+  
+    <td class="summary_synopsis"><p>The Response Handler module should be run as a separate process, as it is
+responsible for processing asynchronous response messages from the hackney
+http client, and in turn, passes that message data back to the calling
+process</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.ReverseProxy.html">OpenAperture.Router.ReverseProxy</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.ReverseProxy.Backend.html">OpenAperture.Router.ReverseProxy.Backend</a></td>
+  
+    <td class="summary_synopsis"><p>This module contains functions for handling
+BackendRequestServer &lt;-&gt; ReverseProxy functionality</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.ReverseProxy.BufferedResponseBodyHandler.html">OpenAperture.Router.ReverseProxy.BufferedResponseBodyHandler</a></td>
+  
+    <td class="summary_synopsis"><p>This module contains the handler for processing buffered response bodies</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.ReverseProxy.ChunkedResponseBodyHandler.html">OpenAperture.Router.ReverseProxy.ChunkedResponseBodyHandler</a></td>
+  
+    <td class="summary_synopsis"><p>This module contains the handler for processing chunked response bodies</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.ReverseProxy.Client.html">OpenAperture.Router.ReverseProxy.Client</a></td>
+  
+    <td class="summary_synopsis"><p>This module contains functions for handling Client &lt;-&gt; ReverseProxy
+functionality</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.ReverseProxy.StreamingResponseBodyHandler.html">OpenAperture.Router.ReverseProxy.StreamingResponseBodyHandler</a></td>
+  
+    <td class="summary_synopsis"><p>This module contains the handler for processing streaming response bodies</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.RouteCache.html">OpenAperture.Router.RouteCache</a></td>
+  
+    <td class="summary_synopsis"><p>This module contains functions for adding, removing, and retrieving routes
+in the route cache</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.RouteServer.html">OpenAperture.Router.RouteServer</a></td>
+  
+    <td class="summary_synopsis"><p>The RouteServer handles initializing and updated the ETS cache which
+contains the list of routes, as well as running an agent which maintains
+a timestamp indicating the last time the route list was updated</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.Types.html">OpenAperture.Router.Types</a></td>
+  
+    <td class="summary_synopsis"><p>This module just contains type definitions for types which are shared
+between multiple modules in the router</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="OpenAperture.Router.Util.html">OpenAperture.Router.Util</a></td>
+  
+    <td class="summary_synopsis"><p>This module contains purely-functional utility functions that may be used
+throughout the router</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Router.Util</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_router v0.0.1-cecd5b34d8 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Router.html">Router</a> &rarr; <a href="OpenAperture.Router.Util.html">Util</a></div>
+      <h1>
+        OpenAperture.Router.Util
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains purely-functional utility functions that may be used
+throughout the router</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#erlang_timestamp_to_microseconds/1">erlang_timestamp_to_microseconds(arg1)</a></td>
+  
+    <td class="summary_synopsis"><p>Converts an erlang timestamp into an integer representing the total number of
+microseconds contained in the timestamp</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#erlang_timestamp_to_unix_timestamp/1">erlang_timestamp_to_unix_timestamp(erlang_timestamp)</a></td>
+  
+    <td class="summary_synopsis"><p>Converts an erlang timestamp to a unix timestamp. Erlang timestamps are of
+the form {MegaSecs, Secs, MicroSecs}, of the elapsed time since the start of
+the Unix epoch. See <a href="http://erlang.org/doc/man/erlang.html#now-0">http://erlang.org/doc/man/erlang.html#now-0</a> for more
+details on Erlang timestamps. Unix timestamps are an integer representing the
+number of seconds since the start of the Unix epoch</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_authority_from_url/1">get_authority_from_url(url)</a></td>
+  
+    <td class="summary_synopsis"><p>Extracts the authority (hostname and port, if specified) from a URL</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_hackney_options/1">get_hackney_options(url)</a></td>
+  
+    <td class="summary_synopsis"><p>Checks if any hackney options (almost certainly a proxy config) has been set
+in the environment configuration, and checks that the url about to be called
+isn’t one that shouldn’t use the proxy (i.e. a local url)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#microseconds_to_erlang_timestamp/1">microseconds_to_erlang_timestamp(integer)</a></td>
+  
+    <td class="summary_synopsis"><p>Converts an integer representing a certain number of microseconds into an
+erlang timestamp</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="erlang_timestamp_to_microseconds/1">
+    <span class="signature"><strong>erlang_timestamp_to_microseconds(arg1)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#erlang_timestamp_to_microseconds/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>erlang_timestamp_to_microseconds(<a href="OpenAperture.Router.Types.html#t:erlang_timestamp/0">OpenAperture.Router.Types.erlang_timestamp</a>) :: integer</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Converts an erlang timestamp into an integer representing the total number of
+microseconds contained in the timestamp.</p>
+<h2>Example</h2>
+<pre><code class="iex elixir">iex&gt; OpenAperture.Router.Util.erlang_timestamp_to_microseconds({1423, 865182, 571806})
+1423865182571806</code></pre>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="erlang_timestamp_to_unix_timestamp/1">
+    <span class="signature"><strong>erlang_timestamp_to_unix_timestamp(erlang_timestamp)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#erlang_timestamp_to_unix_timestamp/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>erlang_timestamp_to_unix_timestamp(<a href="OpenAperture.Router.Types.html#t:erlang_timestamp/0">OpenAperture.Router.Types.erlang_timestamp</a>) :: <a href="OpenAperture.Router.Types.html#t:unix_timestamp/0">OpenAperture.Router.Types.unix_timestamp</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Converts an erlang timestamp to a unix timestamp. Erlang timestamps are of
+the form {MegaSecs, Secs, MicroSecs}, of the elapsed time since the start of
+the Unix epoch. See <a href="http://erlang.org/doc/man/erlang.html#now-0">http://erlang.org/doc/man/erlang.html#now-0</a> for more
+details on Erlang timestamps. Unix timestamps are an integer representing the
+number of seconds since the start of the Unix epoch.</p>
+<p>This conversion is necessarily lossy, since Unix timestamps have only one
+second resolution, while Erlang timestamps have microsecond resolution.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_authority_from_url/1">
+    <span class="signature"><strong>get_authority_from_url(url)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_authority_from_url/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_authority_from_url(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a> | nil</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Extracts the authority (hostname and port, if specified) from a URL.</p>
+<h2>Examples</h2>
+<pre><code class="iex elixir">iex&gt; OpenAperture.Router.Util.get_authority_from_url &quot;https://test.myapp.com:80/some/path?query=string&quot;
+&quot;test.myapp.com:80&quot;
+
+iex&gt; OpenAperture.Router.Util.get_authority_from_url &quot;^not&amp;a*valid%url&quot;
+nil</code></pre>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_hackney_options/1">
+    <span class="signature"><strong>get_hackney_options(url)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_hackney_options/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_hackney_options(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: [] | [{<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, integer}]</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Checks if any hackney options (almost certainly a proxy config) has been set
+in the environment configuration, and checks that the url about to be called
+isn’t one that shouldn’t use the proxy (i.e. a local url).</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="microseconds_to_erlang_timestamp/1">
+    <span class="signature"><strong>microseconds_to_erlang_timestamp(integer)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#microseconds_to_erlang_timestamp/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>microseconds_to_erlang_timestamp(integer) :: <a href="OpenAperture.Router.Types.html#t:erlang_timestamp/0">OpenAperture.Router.Types.erlang_timestamp</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Converts an integer representing a certain number of microseconds into an
+erlang timestamp.</p>
+<h2>Example</h2>
+<pre><code class="iex elixir">iex&gt; OpenAperture.Router.Util.microseconds_to_erlang_timestamp(1423865182571806)
+{1423,865182,571806}</code></pre>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

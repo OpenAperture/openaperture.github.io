@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Router.ReverseProxy.BufferedResponseBodyHandler</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_router v0.0.1-cecd5b34d8 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Router.html">Router</a> &rarr; <a href="OpenAperture.Router.ReverseProxy.html">ReverseProxy</a> &rarr; <a href="OpenAperture.Router.ReverseProxy.BufferedResponseBodyHandler.html">BufferedResponseBodyHandler</a></div>
+      <h1>
+        OpenAperture.Router.ReverseProxy.BufferedResponseBodyHandler
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the handler for processing buffered response bodies.</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#handle/5">handle(req, backend_request_server_pid, status_line, response_headers, chunks \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Handles buffering the entire response body from the backend server before
+sending the reply, containing the status, headers, and response body on to
+the client</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="handle/5">
+    <span class="signature"><strong>handle(req, backend_request_server_pid, status_line, response_headers, chunks \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle/5" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle(<a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="OpenAperture.Router.Types.html#t:headers/0">OpenAperture.Router.Types.headers</a>, [<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>]) :: {:ok | :error, <a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, <a href="OpenAperture.Router.Types.html#t:microseconds/0">OpenAperture.Router.Types.microseconds</a>} | {:error, :timeout}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Handles buffering the entire response body from the backend server before
+sending the reply, containing the status, headers, and response body on to
+the client.</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

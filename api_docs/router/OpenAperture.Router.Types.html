@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Router.Types</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_router v0.0.1-cecd5b34d8 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Router.html">Router</a> &rarr; <a href="OpenAperture.Router.Types.html">Types</a></div>
+      <h1>
+        OpenAperture.Router.Types
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module just contains type definitions for types which are shared
+between multiple modules in the router.</p>
+
+        </section>
+      
+
+      
+
+      
+
+      
+        <section id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:cowboy_req/0">
+    <a href="#t:cowboy_req/0">cowboy_req</a> :: tuple
+  </p>
+  
+      <div class="typespec_doc"><p>The Cowboy Request “object” is essentially a big tuple.
+<a href="http://ninenines.eu/docs/en/cowboy/1.0/guide/req/">http://ninenines.eu/docs/en/cowboy/1.0/guide/req/</a></p>
+</div>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:headers/0">
+    <a href="#t:headers/0">headers</a> :: [{<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}]
+  </p>
+  
+      <div class="typespec_doc"><p>Headers come in the form [{"header name", "header value"}]. While header
+names are case-insensitive, Cowboy really likes them to be lower-cased. This
+actually leads to a problem with Cowboy inserting it’s own version of certain
+headers (like connection, date, server, transfer-encoding) if the headers we
+supply from the back end are upper-cased.</p>
+</div>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:microseconds/0">
+    <a href="#t:microseconds/0">microseconds</a> :: integer
+  </p>
+  
+      <div class="typespec_doc"><p>All request timing is done in microseconds.</p>
+</div>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:erlang_timestamp/0">
+    <a href="#t:erlang_timestamp/0">erlang_timestamp</a> :: {integer, integer, integer}
+  </p>
+  
+      <div class="typespec_doc"><p>An erlang timestamp is a three-element tuple of the form
+{Megas, Secs, Micros} where Megas are seconds * 1,000,000, Secs are normal
+seconds, and micros are Secs / 1,000,000.</p>
+</div>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:unix_timestamp/0">
+    <a href="#t:unix_timestamp/0">unix_timestamp</a> :: integer
+  </p>
+  
+      <div class="typespec_doc"><p>A typical unix timestamp, number of seconds since midnight, January 1, 1970.</p>
+</div>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:route/0">
+    <a href="#t:route/0">route</a> :: {<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, integer, boolean}
+  </p>
+  
+      <div class="typespec_doc"><p>A route is three-element tuple containing a hostname, port, and a flag
+indicating whether connections should be made securely (i.e. via https).</p>
+</div>
+  
+</div>
+
+        </section>
+      
+
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

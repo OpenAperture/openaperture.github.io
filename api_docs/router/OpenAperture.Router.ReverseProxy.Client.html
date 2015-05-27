@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Router.ReverseProxy.Client</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_router v0.0.1-cecd5b34d8 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Router.html">Router</a> &rarr; <a href="OpenAperture.Router.ReverseProxy.html">ReverseProxy</a> &rarr; <a href="OpenAperture.Router.ReverseProxy.Client.html">Client</a></div>
+      <h1>
+        OpenAperture.Router.ReverseProxy.Client
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains functions for handling Client &lt;-&gt; ReverseProxy
+functionality.</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#add_router_request_headers/5">add_router_request_headers(headers, host, port, req, proto)</a></td>
+  
+    <td class="summary_synopsis"><p>Adds OpenAperture Router-specific request headers, which can be used by the
+backend servers to get information regarding the original request. Because 
+the router proxies the request, many of the normal versions of these headers
+will be set with router-specific information, which might not be especially
+useful for the backend server. The added headers are:</p>
+<ul>
+<li>X-OpenAperture-Request-ID - A unique identifier for the request.
+</li>
+<li>X-Forwarded-For - The address of the remote client (ip:port, usually).
+</li>
+<li>X-Forwarded-Host - The original hostname used for the request.
+</li>
+<li>X-Forwarded-Port - The original port used for the request.
+</li>
+<li><p>X-Forwarded-Proto - The original protocol (http or https) used for the</p>
+<pre><code class="elixir">request</code></pre>
+</li>
+</ul>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#send_reply/3">send_reply(req, status, headers)</a></td>
+  
+    <td class="summary_synopsis"><p>Sends a response without a response body. This is usually used when the
+response body should be streamed</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#send_reply/4">send_reply(req, status, headers, body)</a></td>
+  
+    <td class="summary_synopsis"><p>Sends a complete response, including the response body. This should be used
+when the response body is small. For large (but non-chunked) response bodies,
+use <code class="inline">start_streaming_reply/3</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#send_request_body/3">send_request_body(req, backend_request_server_pid, time \\ 0)</a></td>
+  
+    <td class="summary_synopsis"><p>Sends the request body from the client to the backend server</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#send_response_body_chunk/2">send_response_body_chunk(req, chunk)</a></td>
+  
+    <td class="summary_synopsis"><p>Sends a response body chunk from the backend down to the client</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_chunked_reply/3">start_chunked_reply(req, status_line, headers)</a></td>
+  
+    <td class="summary_synopsis"><p>Initiates a chunked reply. This will send the status line and response
+headers to the client, but the does not indicate the request is “completed”,
+as the response body chunks will be sent afterwards</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="add_router_request_headers/5">
+    <span class="signature"><strong>add_router_request_headers(headers, host, port, req, proto)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#add_router_request_headers/5" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>add_router_request_headers(<a href="OpenAperture.Router.Types.html#t:headers/0">OpenAperture.Router.Types.headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, integer, <a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, :http | :https) :: {<a href="OpenAperture.Router.Types.html#t:headers/0">OpenAperture.Router.Types.headers</a>, <a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Adds OpenAperture Router-specific request headers, which can be used by the
+backend servers to get information regarding the original request. Because 
+the router proxies the request, many of the normal versions of these headers
+will be set with router-specific information, which might not be especially
+useful for the backend server. The added headers are:</p>
+<ul>
+<li>X-OpenAperture-Request-ID - A unique identifier for the request.
+</li>
+<li>X-Forwarded-For - The address of the remote client (ip:port, usually).
+</li>
+<li>X-Forwarded-Host - The original hostname used for the request.
+</li>
+<li>X-Forwarded-Port - The original port used for the request.
+</li>
+<li><p>X-Forwarded-Proto - The original protocol (http or https) used for the</p>
+<pre><code class="elixir">request.</code></pre>
+</li>
+</ul>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="send_reply/3">
+    <span class="signature"><strong>send_reply(req, status, headers)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#send_reply/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>send_reply(<a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="OpenAperture.Router.Types.html#t:headers/0">OpenAperture.Router.Types.headers</a>) :: {<a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, <a href="OpenAperture.Router.Types.html#t:microseconds/0">OpenAperture.Router.Types.microseconds</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Sends a response without a response body. This is usually used when the
+response body should be streamed.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="send_reply/4">
+    <span class="signature"><strong>send_reply(req, status, headers, body)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#send_reply/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>send_reply(<a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="OpenAperture.Router.Types.html#t:headers/0">OpenAperture.Router.Types.headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {<a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, <a href="OpenAperture.Router.Types.html#t:microseconds/0">OpenAperture.Router.Types.microseconds</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Sends a complete response, including the response body. This should be used
+when the response body is small. For large (but non-chunked) response bodies,
+use <code class="inline">start_streaming_reply/3</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="send_request_body/3">
+    <span class="signature"><strong>send_request_body(req, backend_request_server_pid, time \\ 0)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#send_request_body/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>send_request_body(<a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, pid, integer) :: {:ok, <a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, integer} | {:error, any, <a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, integer}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Sends the request body from the client to the backend server.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="send_response_body_chunk/2">
+    <span class="signature"><strong>send_response_body_chunk(req, chunk)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#send_response_body_chunk/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>send_response_body_chunk(<a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {:ok, integer} | {:error, integer}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Sends a response body chunk from the backend down to the client.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_chunked_reply/3">
+    <span class="signature"><strong>start_chunked_reply(req, status_line, headers)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_chunked_reply/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_chunked_reply(<a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="OpenAperture.Router.Types.html#t:headers/0">OpenAperture.Router.Types.headers</a>) :: {<a href="OpenAperture.Router.Types.html#t:cowboy_req/0">OpenAperture.Router.Types.cowboy_req</a>, <a href="OpenAperture.Router.Types.html#t:microseconds/0">OpenAperture.Router.Types.microseconds</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Initiates a chunked reply. This will send the status line and response
+headers to the client, but the does not indicate the request is “completed”,
+as the response body chunks will be sent afterwards.</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
