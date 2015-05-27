@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Notifications.Hipchat.Publisher</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_notifications v0.0.2 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Notifications.html">Notifications</a> &rarr; Hipchat &rarr; <a href="OpenAperture.Notifications.Hipchat.Publisher.html">Publisher</a></div>
+      <h1>
+        OpenAperture.Notifications.Hipchat.Publisher
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the server for managing/handling HipChat notifications</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#create!/0">create!()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_cast/2">handle_cast(msg, state)</a></td>
+  
+    <td class="summary_synopsis"><p>Sends an asynchronous request to the <code class="inline">server</code>, which will
+send out a Room Notification (<a href="https://www.hipchat.com/docs/apiv2/method/send_room_notification">https://www.hipchat.com/docs/apiv2/method/send_room_notification</a>)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#send_notification/2">send_notification(publisher, options)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to generate a new server and execute redeployment requests</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
+  
+    <td class="summary_synopsis"><p>Starts a <code class="inline">GenServer</code> process linked to the current process</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="create!/0">
+    <span class="signature"><strong>create!()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create!/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_cast/2">
+    <span class="signature"><strong>handle_cast(msg, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_cast/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Sends an asynchronous request to the <code class="inline">server</code>, which will
+send out a Room Notification (<a href="https://www.hipchat.com/docs/apiv2/method/send_room_notification">https://www.hipchat.com/docs/apiv2/method/send_room_notification</a>)</p>
+<p>This function returns <code class="inline">:ok</code> immediately, regardless of
+whether the destination node or server does exists, unless
+the server is specified as an atom.</p>
+<p><a href="#handle_cast/2"><code class="inline">handle_cast/2</code></a> will be called on the server to handle
+the request. In case the server is a node which is not
+yet connected to the caller one, the call is going to
+block until a connection happens. This is different than
+the behaviour in OTP’s <code class="inline">:gen_server</code> where the message
+would be sent by another process, which could cause
+messages to arrive out of order.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="send_notification/2">
+    <span class="signature"><strong>send_notification(publisher, options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#send_notification/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>send_notification(pid, Map) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to generate a new server and execute redeployment requests</p>
+<h2>Options</h2>
+<p>The <code class="inline">publisher</code> option is the PID of the GenServer</p>
+<p>The <code class="inline">options</code> option provides the details of the notification; currently the only supported notification is type :room_notification</p>
+<h2>Returns</h2>
+<p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/0">
+    <span class="signature"><strong>start_link()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Starts a <code class="inline">GenServer</code> process linked to the current process.</p>
+<h2>Return values</h2>
+<p>If the server is successfully created and initialized, the function returns
+<code class="inline">{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
+process with the specified server name, the function returns
+<code class="inline">{:error, {:already_started, pid}}</code> with the pid of that process.</p>
+<p>If the <code class="inline">init/1</code> callback fails with <code class="inline">reason</code>, the function returns
+<code class="inline">{:error, reason}</code>. Otherwise, if it returns <code class="inline">{:stop, reason}</code>
+or <code class="inline">:ignore</code>, the process is terminated and the function returns
+<code class="inline">{:error, reason}</code> or <code class="inline">:ignore</code>, respectively.</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

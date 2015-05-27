@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Notifications</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_notifications v0.0.2 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Notifications.html">Notifications</a></div>
+      <h1>
+        OpenAperture.Notifications
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains definition the OpenAperture Notifications implementation</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#start/2">start(type, args)</a></td>
+  
+    <td class="summary_synopsis"><p>Starts the given <code class="inline">_type</code></p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="start/2">
+    <span class="signature"><strong>start(type, args)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start(atom, [any]) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Starts the given <code class="inline">_type</code>.</p>
+<p>If the <code class="inline">_type</code> is not loaded, the application will first be loaded using <code class="inline">load/1</code>.
+Any included application, defined in the <code class="inline">:included_applications</code> key of the
+<code class="inline">.app</code> file will also be loaded, but they won’t be started.</p>
+<p>Furthermore, all applications listed in the <code class="inline">:applications</code> key must be explicitly
+started before this application is. If not, <code class="inline">{:error, {:not_started, app}}</code> is
+returned, where <code class="inline">_type</code> is the name of the missing application.</p>
+<p>In case you want to automatically  load <strong>and start</strong> all of <code class="inline">_type</code>‘s dependencies,
+see <code class="inline">ensure_all_started/2</code>.</p>
+<p>The <code class="inline">type</code> argument specifies the type of the application:</p>
+<ul>
+<li><p><code class="inline">:permanent</code> - if <code class="inline">_type</code> terminates, all other applications and the entire
+node are also terminated.</p>
+</li>
+<li><p><code class="inline">:transient</code> - if <code class="inline">_type</code> terminates with <code class="inline">:normal</code> reason, it is reported
+but no other applications are terminated. If a transient application
+terminates abnormally, all other applications and the entire node are
+also terminated.</p>
+</li>
+<li><code class="inline">:temporary</code> - if <code class="inline">_type</code> terminates, it is reported but no other
+applications are terminated (the default).
+</li>
+</ul>
+<p>Note that it is always possible to stop an application explicitly by calling
+<code class="inline">stop/1</code>. Regardless of the type of the application, no other applications will
+be affected.</p>
+<p>Note also that the <code class="inline">:transient</code> type is of little practical use, since when a
+supervision tree terminates, the reason is set to <code class="inline">:shutdown</code>, not <code class="inline">:normal</code>.</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
