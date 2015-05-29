@@ -108,9 +108,10 @@ Returns <code class="inline">:ok</code> or <code class="inline">{:error, reason}
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#trigger_notifications/2">trigger_notifications(payload, async_info)</a></td>
+  <td class="summary_signature"><a href="#trigger_notifications/3">trigger_notifications(name, payload, async_info)</a></td>
   
-    <td class="summary_synopsis"><p>Triggers notifications of all types. Returns <code class="inline">:ok</code> or <code class="inline">{:error, reason}</code></p>
+    <td class="summary_synopsis"><p>Triggers notifications of a specieifed type.
+Returns <code class="inline">:ok</code> or <code class="inline">{:error, reason}</code></p>
 </td>
   
 </tr>
@@ -313,11 +314,11 @@ should be a function with 2 arguments (sync), or 3 arguments (async).</p>
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="trigger_notifications/2">
-    <span class="signature"><strong>trigger_notifications(payload, async_info)</strong></span>
+  <div class="detail_header" id="trigger_notifications/3">
+    <span class="signature"><strong>trigger_notifications(name, payload, async_info)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#trigger_notifications/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#trigger_notifications/3" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -325,12 +326,13 @@ should be a function with 2 arguments (sync), or 3 arguments (async).</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>trigger_notifications(Map, Map) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>trigger_notifications(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, Map) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Triggers notifications of all types. Returns <code class="inline">:ok</code> or <code class="inline">{:error, reason}</code>.</p>
+    <p>Triggers notifications of a specieifed type.
+Returns <code class="inline">:ok</code> or <code class="inline">{:error, reason}</code>.</p>
 
   </section>
   
