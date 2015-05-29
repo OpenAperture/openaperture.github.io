@@ -65,16 +65,16 @@
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#get_current_queue_name/0">get_current_queue_name()</a></td>
+  <td class="summary_signature"><a href="#get_hipchat_config/2">get_hipchat_config(env_name, config_name)</a></td>
   
-    <td class="summary_synopsis"><p>Method to retrieve the currently assigned queue name (for “notifications_hipchat”)</p>
+    <td class="summary_synopsis"><p>Method to retrieve a configuration option from the environment or config settings, for the hipchat application</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#get_hipchat_config/2">get_hipchat_config(env_name, config_name)</a></td>
+  <td class="summary_signature"><a href="#queue_name/1">queue_name(key)</a></td>
   
-    <td class="summary_synopsis"><p>Method to retrieve a configuration option from the environment or config settings, for the hipchat application</p>
+    <td class="summary_synopsis"><p>Method to retrieve the currently assigned queue name (for “notifications_hipchat”)</p>
 </td>
   
 </tr>
@@ -147,32 +147,6 @@
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="get_current_queue_name/0">
-    <span class="signature"><strong>get_current_queue_name()</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#get_current_queue_name/0" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>get_current_queue_name :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to retrieve the currently assigned queue name (for “notifications_hipchat”)</p>
-<h2>Options</h2>
-<h2>Return values</h2>
-<p>The exchange identifier</p>
-
-  </section>
-  
-</section>
-<section class="detail">
   <div class="detail_header" id="get_hipchat_config/2">
     <span class="signature"><strong>get_hipchat_config(env_name, config_name)</strong></span>
     <div class="detail_header_links">
@@ -196,6 +170,32 @@
 <p>The <code class="inline">config_name</code> option defines the config variable name (atom)</p>
 <h2>Return values</h2>
 <p>Value</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="queue_name/1">
+    <span class="signature"><strong>queue_name(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#queue_name/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>queue_name(String) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the currently assigned queue name (for “notifications_hipchat”)</p>
+<h2>Options</h2>
+<h2>Return values</h2>
+<p>The exchange identifier</p>
 
   </section>
   
