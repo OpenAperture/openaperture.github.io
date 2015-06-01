@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OpenAperture.Manager.DB.Queries.EtcdCluster</title>
+    <title>OpenAperture.Manager.DB.Models.CloudProvider</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
@@ -25,9 +25,9 @@
     </script>
 
     <section id="content">
-      <div class="breadcrumbs">Elixir.OpenAperture.Manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html">Manager</a> &rarr; DB &rarr; Queries &rarr; <a href="OpenAperture.Manager.DB.Queries.EtcdCluster.html">EtcdCluster</a></div>
+      <div class="breadcrumbs">Elixir.OpenAperture.Manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html">Manager</a> &rarr; DB &rarr; Models &rarr; <a href="OpenAperture.Manager.DB.Models.CloudProvider.html">CloudProvider</a></div>
       <h1>
-        OpenAperture.Manager.DB.Queries.EtcdCluster
+        OpenAperture.Manager.DB.Models.CloudProvider
         
       </h1>
 
@@ -35,6 +35,8 @@
         
           <li><a href="#summary">Summary</a></li>
         
+        
+          <li><a href="#types_details">Types</a></li>
         
         
           <li><a href="#functions_details">Functions</a></li>
@@ -51,28 +53,23 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#get_by_cloud_provider/1">get_by_cloud_provider(hosting_provider_id)</a></td>
+  <td class="summary_signature"><a href="#before_insert/1">before_insert(changeset)</a></td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#get_by_etcd_token/1">get_by_etcd_token(etcd_token)</a></td>
-  
-    <td class="summary_synopsis"><p>Retrieves the database record for the provided etcd token string</p>
-</td>
+  <td class="summary_signature"><a href="#before_update/1">before_update(changeset)</a></td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#get_by_id/1">get_by_id(cluster_id)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to retrieve the DB.Models.EtcdCluster for an id</p>
-</td>
+  <td class="summary_signature"><a href="#new/1">new(params \\ %{})</a></td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#get_docker_build_clusters/0">get_docker_build_clusters()</a></td>
+  <td class="summary_signature"><a href="#update/2">update(model, params)</a></td>
   
-    <td class="summary_synopsis"><p>Method to retrieve the DB.Models.EtcdCluster that have the allow_docker_builds set to true</p>
-</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#validate_changes/2">validate_changes(model_or_changeset, params)</a></td>
   
 </tr>
 
@@ -80,16 +77,27 @@
       
 
       
+        <section id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:params/0">
+    <a href="#t:params/0">params</a> :: %{binary => any} | %{atom => any} | nil
+  </p>
+  
+</div>
+
+        </section>
+      
 
       
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
-  <div class="detail_header" id="get_by_cloud_provider/1">
-    <span class="signature"><strong>get_by_cloud_provider(hosting_provider_id)</strong></span>
+  <div class="detail_header" id="before_insert/1">
+    <span class="signature"><strong>before_insert(changeset)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#get_by_cloud_provider/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#before_insert/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -100,35 +108,26 @@
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="get_by_etcd_token/1">
-    <span class="signature"><strong>get_by_etcd_token(etcd_token)</strong></span>
+  <div class="detail_header" id="before_update/1">
+    <span class="signature"><strong>before_update(changeset)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#get_by_etcd_token/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#before_update/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>get_by_etcd_token(term) :: <a href="OpenAperture.Manager.DB.Models.EtcdCluster.html#t:t/0">OpenAperture.Manager.DB.Models.EtcdCluster.t</a> | nil</li>
-      
-    </ul>
-  
   <section class="docstring">
-    <p>Retrieves the database record for the provided etcd token string.</p>
-<p>If no record is found, returns nil.</p>
-
+    
   </section>
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="get_by_id/1">
-    <span class="signature"><strong>get_by_id(cluster_id)</strong></span>
+  <div class="detail_header" id="new/1">
+    <span class="signature"><strong>new(params \\ %{})</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#get_by_id/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#new/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -136,26 +135,21 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_by_id(term) :: term</li>
+        <li>new(<a href="#t:params/0">params</a>) :: Ecto.Changeset.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Method to retrieve the DB.Models.EtcdCluster for an id</p>
-<h2>Options</h2>
-<p>The <code class="inline">product_id</code> option is the integer identifier of the product</p>
-<h2>Return values</h2>
-<p>db query</p>
-
+    
   </section>
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="get_docker_build_clusters/0">
-    <span class="signature"><strong>get_docker_build_clusters()</strong></span>
+  <div class="detail_header" id="update/2">
+    <span class="signature"><strong>update(model, params)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#get_docker_build_clusters/0" class="detail_link" title="Link to this function">#</a>
+      <a href="#update/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -163,15 +157,27 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_docker_build_clusters :: term</li>
+        <li>update(Ecto.Model.t, <a href="#t:params/0">params</a>) :: Ecto.Changeset.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Method to retrieve the DB.Models.EtcdCluster that have the allow_docker_builds set to true</p>
-<h2>Return values</h2>
-<p>db query</p>
-
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="validate_changes/2">
+    <span class="signature"><strong>validate_changes(model_or_changeset, params)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#validate_changes/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
   </section>
   
 </section>
