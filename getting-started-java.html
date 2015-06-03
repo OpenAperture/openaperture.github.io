@@ -223,27 +223,20 @@
                 <img src="images/Image_17.jpg" style="width: 100%; border:1px solid black;" />
             </p>
 
-            <p>Let us check each command:</p>
+             <p>Let us check each command:</p>
 
-            <p>rm -rf cobs_deployer </p>
+            <p>wget -O spyglass https://s3.amazonaws.com/lexmark-devops-artifacts/binaries/spyglass-linux-amd64</p>
 
-            <p># deletes an old version of the cobs deployer </p>
+            <p># downloads the tool spyglass, which provides a command-line interface for interacting with the OpenAperture Build Server.</p>
 
-            <p>git clone https://$GITHUB_TOKEN:x-oauth-basic@github.com/OpenAperture/cobs_deployer.git</p>
+            <p>chmod +x spyglass</p>
 
-            <p># clones the cobs deployer git repo, this tool provides a command-line interface for interacting with the OpenAperture Build Server.</p>
+            <p>#makes the spyglass tool executable</p>
 
-            <p>cd cobs_deployer</p>
+            <p>./spyglass -f deploy --force -c $REVISION -e master OpenAperture/awesomeJavaApplication_docker</p>
 
-            <p># step into the cobs deployer directory</p>
+            <p># execute spyglass, which starts the OpenAperture deployment to the CoreOS cluster. You hand over the commit_hash for the deployment as first parameter, which can be used in the elixir template files (Application Name@.service.eex and Dockerfile.eex) and has to be unique. In this example we use the semaphore environment variable $REVISION, which contains the git revision (you can find a list of available environment variables <u>here</u>).The second and third parameter of the function are the name of the git repository (third) you created earlier, which includes all the necessary configuration files and the branch (second).</p>
 
-            <p>./semaphore_update.sh</p>
-
-            <p># execute the semaphore_update.sh, which performs a ‘git stash’ and ‘git pull’</p>
-
-            <p>./semaphore_deploy.sh $REVISION OpenAperture/awesomeJavaApplication_docker master</p>
-
-            <p># execute semaphore_deploy.sh, which starts the OpenAperture deployment to the CoreOS cluster. You hand over the commit_hash for the deployment as first parameter, which can be used in the elixir template files (Application Name@.service.eex and Dockerfile.eex) and has to be unique. In this example we use the semaphore environment variable $REVISION, which contains the git revision (you can find a list of available environment variables <a href="https://semaphoreci.com/docs/available-environment-variables.html" target="_blank">here</a> ).The second parameter of the function is the name of the git repository you created earlier, which includes all the necessary configuration files.</p>
 
             <p>After entering the deploy commands you can optionally enter a SSH key and name the deployment:</p>
 
