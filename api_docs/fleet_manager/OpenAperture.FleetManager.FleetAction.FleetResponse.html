@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OpenAperture.FleetManager.FleetAction.ListMachines</title>
+    <title>OpenAperture.FleetManager.FleetAction.FleetResponse</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/elixir.css">
   </head>
   <body>
     <section id="content">
-      <div class="breadcrumbs">openaperture_fleet_manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.FleetManager.html">FleetManager</a> &rarr; FleetAction &rarr; <a href="OpenAperture.FleetManager.FleetAction.ListMachines.html">ListMachines</a></div>
+      <div class="breadcrumbs">openaperture_fleet_manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.FleetManager.html">FleetManager</a> &rarr; FleetAction &rarr; <a href="OpenAperture.FleetManager.FleetAction.FleetResponse.html">FleetResponse</a></div>
       <h1>
-        OpenAperture.FleetManager.FleetAction.ListMachines
+        OpenAperture.FleetManager.FleetAction.FleetResponse
         
       </h1>
 
@@ -28,7 +28,7 @@
 
       
         <section id="moduledoc" class="docstring">
-          <p>This module executes the following FleetManager action:  :list_machines</p>
+          <p>This module parses FleetApi structs into responses that can be understood across Components</p>
 
         </section>
       
@@ -39,9 +39,9 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#execute/1">execute(fleet_request)</a></td>
+  <td class="summary_signature"><a href="#parse/1">parse(response)</a></td>
   
-    <td class="summary_synopsis"><p>Method to execute the following FleetManager action:  :list_machines</p>
+    <td class="summary_synopsis"><p>Method to convert a List of structs or single struct response into a list or single Maps response</p>
 </td>
   
 </tr>
@@ -55,11 +55,11 @@
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
-  <div class="detail_header" id="execute/1">
-    <span class="signature"><strong>execute(fleet_request)</strong></span>
+  <div class="detail_header" id="parse/1">
+    <span class="signature"><strong>parse(response)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#execute/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#parse/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -67,16 +67,16 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>execute(<a href="OpenAperture.FleetManager.Request.html#t:t/0">OpenAperture.FleetManager.Request.t</a>) :: {:ok, List} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>parse(term) :: {:ok, term} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Method to execute the following FleetManager action:  :list_machines</p>
+    <p>Method to convert a List of structs or single struct response into a list or single Maps response</p>
 <h2>Options</h2>
-<p>The <code class="inline">fleet_request</code> option defines the incoming FleetRequest</p>
+<p>The <code class="inline">response</code> option defines the list of FleetApi structs</p>
 <h2>Return Value</h2>
-<p>{:ok, List} | {:error, reason}</p>
+<p>{:ok, response} | {:error, reason}</p>
 
   </section>
   
