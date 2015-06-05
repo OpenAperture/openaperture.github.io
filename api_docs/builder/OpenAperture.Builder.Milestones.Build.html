@@ -58,7 +58,8 @@
           <tr>
   <td class="summary_signature"><a href="#execute/1">execute(request)</a></td>
   
-    <td class="summary_synopsis"><p>Method to process an incoming Builder request</p>
+    <td class="summary_synopsis"><p>Method to wrap the execute call in a check that kills the docker build if the workflow is manually killed
+Agent contains the request and then :completed when the request completes</p>
 </td>
   
 </tr>
@@ -89,9 +90,8 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to process an incoming Builder request</p>
-<h2>Options</h2>
-<p>The <code class="inline">request</code> option defines the BuilderRequest</p>
+    <p>Method to wrap the execute call in a check that kills the docker build if the workflow is manually killed
+Agent contains the request and then :completed when the request completes</p>
 
   </section>
   
