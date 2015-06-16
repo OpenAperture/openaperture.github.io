@@ -56,6 +56,34 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
+  <td class="summary_signature"><a href="#log_completed_units/2">log_completed_units(deploy_request, completed_units)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to update the DeployerRequest with the the units that have started successfully</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#log_failed_units/2">log_failed_units(deploy_request, failed_units)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to update the DeployerRequest with the failed unit journal logs</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#log_monitoring_result/4">log_monitoring_result(deploy_request, monitoring_result, completed_units, num_requested_monitoring_units)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to update the DeployerRequest with the the units that have started successfully</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#log_requested_units/2">log_requested_units(deploy_request, num_requested_monitoring_units)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to update the DeployerRequest with the requested units to monitor</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#monitor/2">monitor(deploy_request, monitoring_loop_cnt)</a></td>
   
     <td class="summary_synopsis"><p>Monitors an in-progress Fleet deployment</p>
@@ -101,6 +129,120 @@ Returns <code class="inline">{:ok, pid}</code> or <code class="inline">{:error, 
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
+  <div class="detail_header" id="log_completed_units/2">
+    <span class="signature"><strong>log_completed_units(deploy_request, completed_units)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#log_completed_units/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>log_completed_units(OpenAperture.Deployer.Request, term) :: OpenAperture.Deployer.Request</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to update the DeployerRequest with the the units that have started successfully</p>
+<h2>Options</h2>
+<p>The <code class="inline">deploy_request</code> option contains the DeployerRequest</p>
+<p>The <code class="inline">completed_units</code> option contains a list of units that have started up</p>
+<h2>Return Value</h2>
+<p>The updated DeployerRequest</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="log_failed_units/2">
+    <span class="signature"><strong>log_failed_units(deploy_request, failed_units)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#log_failed_units/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>log_failed_units(OpenAperture.Deployer.Request, term) :: OpenAperture.Deployer.Request</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to update the DeployerRequest with the failed unit journal logs</p>
+<h2>Options</h2>
+<p>The <code class="inline">deploy_request</code> option contains the DeployerRequest</p>
+<p>The <code class="inline">failed_units</code> option contains a list of units that have failed to started up</p>
+<h2>Return Value</h2>
+<p>The updated DeployerRequest</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="log_monitoring_result/4">
+    <span class="signature"><strong>log_monitoring_result(deploy_request, monitoring_result, completed_units, num_requested_monitoring_units)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#log_monitoring_result/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>log_monitoring_result(OpenAperture.Deployer.Request, term, List, term) :: OpenAperture.Deployer.Request</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to update the DeployerRequest with the the units that have started successfully</p>
+<h2>Options</h2>
+<p>The <code class="inline">deploy_request</code> option contains the DeployerRequest</p>
+<p>The <code class="inline">monitoring_result</code> option contains the atom result</p>
+<p>The <code class="inline">completed_units</code> option contains a list of units that have started up</p>
+<p>The <code class="inline">num_requested_monitoring_units</code> option contains a Integer number of requested units to monitor</p>
+<h2>Return Value</h2>
+<p>The updated DeployerRequest</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="log_requested_units/2">
+    <span class="signature"><strong>log_requested_units(deploy_request, num_requested_monitoring_units)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#log_requested_units/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>log_requested_units(OpenAperture.Deployer.Request, term) :: OpenAperture.Deployer.Request</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to update the DeployerRequest with the requested units to monitor</p>
+<h2>Options</h2>
+<p>The <code class="inline">deploy_request</code> option contains the DeployerRequest</p>
+<p>The <code class="inline">num_requested_monitoring_units</code> option contains a Integer number of requested units to monitor</p>
+<h2>Return Value</h2>
+<p>The updated DeployerRequest</p>
+
+  </section>
+  
+</section>
+<section class="detail">
   <div class="detail_header" id="monitor/2">
     <span class="signature"><strong>monitor(deploy_request, monitoring_loop_cnt)</strong></span>
     <div class="detail_header_links">
