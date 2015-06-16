@@ -51,13 +51,16 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
+  <td class="summary_signature"><a href="#token_info/2">token_info(validate_url, token)</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieves a token info body from the server</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#validate_token?/2">validate_token?(validate_url, token)</a></td>
   
-    <td class="summary_synopsis"><p>Method to validate an OAuth token</p>
-<h2>Options</h2>
-<p>The <code class="inline">auth_header</code> option defines the auth header</p>
-<h2>Return values</h2>
-<p>Boolean</p>
+    <td class="summary_synopsis"><p>Checks if a provided OAuth access token is valid</p>
 </td>
   
 </tr>
@@ -71,6 +74,29 @@
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
+  <div class="detail_header" id="token_info/2">
+    <span class="signature"><strong>token_info(validate_url, token)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#token_info/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>token_info(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a> | nil</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Retrieves a token info body from the server.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
   <div class="detail_header" id="validate_token?/2">
     <span class="signature"><strong>validate_token?(validate_url, token)</strong></span>
     <div class="detail_header_links">
@@ -88,11 +114,7 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to validate an OAuth token</p>
-<h2>Options</h2>
-<p>The <code class="inline">auth_header</code> option defines the auth header</p>
-<h2>Return values</h2>
-<p>Boolean</p>
+    <p>Checks if a provided OAuth access token is valid.</p>
 
   </section>
   
