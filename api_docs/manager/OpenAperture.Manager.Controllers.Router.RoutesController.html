@@ -55,9 +55,30 @@
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#bad_request/3">bad_request(conn, item_name, changeset_errors \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Method to return a 400 response with accompanying JSON body</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#call/2">call(conn, action)</a></td>
   
     <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Plug.call/2</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#conflict/2">conflict(conn, item_name)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to return a 409 response with accompanying JSON body</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#created/2">created(conn, location \\ &quot;&quot;)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to return a 201 response with accompanying Location header</p>
 </td>
   
 </tr>
@@ -73,6 +94,34 @@
   <td class="summary_signature"><a href="#init/1">init(action)</a></td>
   
     <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Plug.init/1</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#internal_server_error/3">internal_server_error(conn, item_name, exception \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to return a 500 response</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#no_content/2">no_content(conn, location \\ &quot;&quot;)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to return a 204 response with accompanying Location header</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#not_found/2">not_found(conn, item_name)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to return a 404 response with accompanying JSON body</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#ok/3">ok(conn, raw_body, sendable_fields)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to return a 200 response with accompanying JSON body</p>
 </td>
   
 </tr>
@@ -101,6 +150,35 @@
   
 </section>
 <section class="detail">
+  <div class="detail_header" id="bad_request/3">
+    <span class="signature"><strong>bad_request(conn, item_name, changeset_errors \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#bad_request/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>bad_request(Plug.Conn.t, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/List.html#t:t/0">List.t</a>) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to return a 400 response with accompanying JSON body</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying Plug connection</p>
+<p>The <code class="inline">item_name</code> option defines the name of the Model that had a bad response</p>
+<p>The <code class="inline">changeset_errors</code> option defines a Keyword list of errors from an Ecto changeset</p>
+<h2>Return Values</h2>
+<p>Underlying Plug connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
   <div class="detail_header" id="call/2">
     <span class="signature"><strong>call(conn, action)</strong></span>
     <div class="detail_header_links">
@@ -112,6 +190,62 @@
   
   <section class="docstring">
     <p>Callback implementation for <code class="inline">c:Plug.call/2</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="conflict/2">
+    <span class="signature"><strong>conflict(conn, item_name)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#conflict/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>conflict(Plug.Conn.t, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to return a 409 response with accompanying JSON body</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying Plug connection</p>
+<p>The <code class="inline">item_name</code> option defines the name of the Model that had a conflict</p>
+<h2>Return Values</h2>
+<p>Underlying Plug connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="created/2">
+    <span class="signature"><strong>created(conn, location \\ &quot;&quot;)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#created/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>created(Plug.Conn.t, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to return a 201 response with accompanying Location header</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying Plug connection</p>
+<p>The <code class="inline">location</code> option defines an optional Location; defaults to “”</p>
+<h2>Return Values</h2>
+<p>Underlying Plug connection</p>
 
   </section>
   
@@ -158,6 +292,120 @@
   
   <section class="docstring">
     <p>Callback implementation for <code class="inline">c:Plug.init/1</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="internal_server_error/3">
+    <span class="signature"><strong>internal_server_error(conn, item_name, exception \\ nil)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#internal_server_error/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>internal_server_error(Plug.Conn.t, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to return a 500 response</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying Plug connection</p>
+<p>The <code class="inline">item_name</code> option defines the name of the Model that had an internal server error</p>
+<p>The <code class="inline">exception</code> option may optionally provide the Exception that triggered the 500</p>
+<h2>Return Values</h2>
+<p>Underlying Plug connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="no_content/2">
+    <span class="signature"><strong>no_content(conn, location \\ &quot;&quot;)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#no_content/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>no_content(Plug.Conn.t, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to return a 204 response with accompanying Location header</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying Plug connection</p>
+<p>The <code class="inline">location</code> option defines an optional Location; defaults to “”</p>
+<h2>Return Values</h2>
+<p>Underlying Plug connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="not_found/2">
+    <span class="signature"><strong>not_found(conn, item_name)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#not_found/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>not_found(Plug.Conn.t, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to return a 404 response with accompanying JSON body</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying Plug connection</p>
+<p>The <code class="inline">item_name</code> option defines the name of the Model that could not be found</p>
+<h2>Return Values</h2>
+<p>Underlying Plug connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="ok/3">
+    <span class="signature"><strong>ok(conn, raw_body, sendable_fields)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#ok/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>ok(Plug.Conn.t, term, <a href="http://elixir-lang.org/docs/stable/elixir/List.html#t:t/0">List.t</a>) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to return a 200 response with accompanying JSON body</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying Plug connection</p>
+<p>The <code class="inline">raw_body</code> option defines the body that should be converted into JSON</p>
+<p>The <code class="inline">sendable_fields</code> option defines which fields in the raw_body should be carried over to JSON</p>
+<h2>Return Values</h2>
+<p>Underlying Plug connection</p>
 
   </section>
   

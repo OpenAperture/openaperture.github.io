@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OpenAperture.Manager.Controllers.MessagingExchanges</title>
+    <title>OpenAperture.Manager.Controllers.SystemComponentRefs</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
@@ -25,9 +25,9 @@
     </script>
 
     <section id="content">
-      <div class="breadcrumbs">Elixir.OpenAperture.Manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html">Manager</a> &rarr; Controllers &rarr; <a href="OpenAperture.Manager.Controllers.MessagingExchanges.html">MessagingExchanges</a></div>
+      <div class="breadcrumbs">Elixir.OpenAperture.Manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html">Manager</a> &rarr; Controllers &rarr; <a href="OpenAperture.Manager.Controllers.SystemComponentRefs.html">SystemComponentRefs</a></div>
       <h1>
-        OpenAperture.Manager.Controllers.MessagingExchanges
+        OpenAperture.Manager.Controllers.SystemComponentRefs
         
       </h1>
 
@@ -45,7 +45,7 @@
 
       
         <section id="moduledoc" class="docstring">
-          <p>This module contains the controllers for managing MessagingExchanges</p>
+          <p>This module contains the controller for managing SystemComponentRefs</p>
 
         </section>
       
@@ -67,10 +67,6 @@
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#build_route_hierarchy/3">build_route_hierarchy(exchange_id, routing_key, root_exchange)</a></td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#call/2">call(conn, action)</a></td>
   
     <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Plug.call/2</code></p>
@@ -87,14 +83,7 @@
 <tr>
   <td class="summary_signature"><a href="#create/2">create(conn, params)</a></td>
   
-    <td class="summary_synopsis"><p>POST /messaging/exchanges - Create a MessagingExchange</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#create_broker_restriction/2">create_broker_restriction(conn, params)</a></td>
-  
-    <td class="summary_synopsis"><p>POST /messaging/exchanges/:id/brokers - Create a MessagingExchangeBroker</p>
+    <td class="summary_synopsis"><p>POST /system_component_refs - Create a SystemComponentRef</p>
 </td>
   
 </tr>
@@ -108,28 +97,14 @@
 <tr>
   <td class="summary_signature"><a href="#destroy/2">destroy(conn, params)</a></td>
   
-    <td class="summary_synopsis"><p>DELETE /messaging/exchanges/:id - Delete a MessagingExchange</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#destroy_broker_restrictions/2">destroy_broker_restrictions(conn, params)</a></td>
-  
-    <td class="summary_synopsis"><p>DELETE /messaging/exchanges/:id/brokers - Delete MessagingExchangeBrokers</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#get_broker_restrictions/2">get_broker_restrictions(conn, params)</a></td>
-  
-    <td class="summary_synopsis"><p>GET /messaging/exchanges/:id/brokers - Retrieve MessagingExchangeBrokers</p>
+    <td class="summary_synopsis"><p>DELETE /system_component_refs/:type - Delete a SystemComponentRef</p>
 </td>
   
 </tr>
 <tr>
   <td class="summary_signature"><a href="#index/2">index(conn, params)</a></td>
   
-    <td class="summary_synopsis"><p>GET /messaging/exchanges - Retrieve all MessagingExchanges</p>
+    <td class="summary_synopsis"><p>GET /system_component_refs - Retrieve all SystemComponentRefs</p>
 </td>
   
 </tr>
@@ -169,27 +144,16 @@
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#resolve_hierachy/2">resolve_hierachy(list1, updated_exchanges)</a></td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#show/2">show(conn, arg2)</a></td>
   
-    <td class="summary_synopsis"><p>GET /messaging/exchanges/:id - Retrieve a MessagingExchange</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#show_clusters/2">show_clusters(conn, params)</a></td>
-  
-    <td class="summary_synopsis"><p>GET /messaging/exchanges/:id/clusters - Retrieve EtcdClusters which have an associated MessagingExchange</p>
+    <td class="summary_synopsis"><p>GET /system_component_refs/:type - Retrieve a SystemComponentRef</p>
 </td>
   
 </tr>
 <tr>
   <td class="summary_signature"><a href="#update/2">update(conn, params)</a></td>
   
-    <td class="summary_synopsis"><p>PUT/PATCH /messaging/exchanges/:id - Update a MessagingExchange</p>
+    <td class="summary_synopsis"><p>PUT /system_component_refs/:type - Update a SystemComponentRef</p>
 </td>
   
 </tr>
@@ -243,21 +207,6 @@
 <h2>Return Values</h2>
 <p>Underlying Plug connection</p>
 
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="build_route_hierarchy/3">
-    <span class="signature"><strong>build_route_hierarchy(exchange_id, routing_key, root_exchange)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#build_route_hierarchy/3" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    
   </section>
   
 </section>
@@ -318,40 +267,12 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create(term, [any]) :: term</li>
+        <li>create(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>POST /messaging/exchanges - Create a MessagingExchange</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="create_broker_restriction/2">
-    <span class="signature"><strong>create_broker_restriction(conn, params)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#create_broker_restriction/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>create_broker_restriction(term, [any]) :: term</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>POST /messaging/exchanges/:id/brokers - Create a MessagingExchangeBroker</p>
+    <p>POST /system_component_refs - Create a SystemComponentRef</p>
 <h2>Options</h2>
 <p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
 The <code class="inline">params</code> option defines an array of arguments.</p>
@@ -402,68 +323,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>destroy(term, [any]) :: term</li>
+        <li>destroy(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>DELETE /messaging/exchanges/:id - Delete a MessagingExchange</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="destroy_broker_restrictions/2">
-    <span class="signature"><strong>destroy_broker_restrictions(conn, params)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#destroy_broker_restrictions/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>destroy_broker_restrictions(term, [any]) :: term</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>DELETE /messaging/exchanges/:id/brokers - Delete MessagingExchangeBrokers</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="get_broker_restrictions/2">
-    <span class="signature"><strong>get_broker_restrictions(conn, params)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#get_broker_restrictions/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>get_broker_restrictions(term, [any]) :: term</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>GET /messaging/exchanges/:id/brokers - Retrieve MessagingExchangeBrokers</p>
+    <p>DELETE /system_component_refs/:type - Delete a SystemComponentRef</p>
 <h2>Options</h2>
 <p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
 The <code class="inline">params</code> option defines an array of arguments.</p>
@@ -486,12 +351,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>index(term, [any]) :: term</li>
+        <li>index(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>GET /messaging/exchanges - Retrieve all MessagingExchanges</p>
+    <p>GET /system_component_refs - Retrieve all SystemComponentRefs</p>
 <h2>Options</h2>
 <p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
 The <code class="inline">params</code> option defines an array of arguments.</p>
@@ -632,21 +497,6 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="resolve_hierachy/2">
-    <span class="signature"><strong>resolve_hierachy(list1, updated_exchanges)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#resolve_hierachy/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    
-  </section>
-  
-</section>
-<section class="detail">
   <div class="detail_header" id="show/2">
     <span class="signature"><strong>show(conn, arg2)</strong></span>
     <div class="detail_header_links">
@@ -659,40 +509,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>show(term, [any]) :: term</li>
+        <li>show(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>GET /messaging/exchanges/:id - Retrieve a MessagingExchange</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="show_clusters/2">
-    <span class="signature"><strong>show_clusters(conn, params)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#show_clusters/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>show_clusters(term, [any]) :: term</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>GET /messaging/exchanges/:id/clusters - Retrieve EtcdClusters which have an associated MessagingExchange</p>
+    <p>GET /system_component_refs/:type - Retrieve a SystemComponentRef</p>
 <h2>Options</h2>
 <p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
 The <code class="inline">params</code> option defines an array of arguments.</p>
@@ -715,12 +537,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>update(term, [any]) :: term</li>
+        <li>update(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>PUT/PATCH /messaging/exchanges/:id - Update a MessagingExchange</p>
+    <p>PUT /system_component_refs/:type - Update a SystemComponentRef</p>
 <h2>Options</h2>
 <p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
 The <code class="inline">params</code> option defines an array of arguments.</p>
