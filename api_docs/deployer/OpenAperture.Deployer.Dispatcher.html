@@ -1,28 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OpenAperture.Deployer.Dispatcher</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
-    <script type="text/javascript" charset="utf-8">
-      relpath = '';
-      if (relpath != '') relpath += '/';
-    </script>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>OpenAperture.Deployer.Dispatcher</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc">
 
-    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
-    <script type="text/javascript" charset="utf-8">
-      hljs.initHighlightingOnLoad();
-      hljs.configure({languages: []}); //disable autodetect
-    </script>
+    <link rel="stylesheet" href="css/elixir.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
-
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
+
+    <section id="sidebar">
+  <h1 id="full_list_header">
+    
+      openaperture_deployer v0.0.1
+    
+  </h1>
+
+  <h2 id="sub_list_header">
+    
+        <a href="overview.html">Overview</a>
+      
+  </h2>
+
+  <div class="nav">
+    <span class="selected"><a id="modules_list" href="#">Modules</a></span>
+    <span><a id="exceptions_list" href="#">Exceptions</a></span>
+    <span><a id="protocols_list" href="#">Protocols</a></span>
+  </div>
+
+  <div id="search"><input type="search" id="search_field" placeholder="Search" autocomplete="off" autofocus="autofocus" results="0" /></div>
+
+  <script src="sidebar_items.js" defer></script>
+
+  <ul id="full_list">
+  </ul>
+
+  <div id="no_results"></div>
+</section>
+
 
     <section id="content">
       <div class="breadcrumbs">openaperture_deployer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Deployer.html">Deployer</a> &rarr; <a href="OpenAperture.Deployer.Dispatcher.html">Dispatcher</a></div>
@@ -75,6 +95,13 @@ Returns <code class="inline">{:ok, %{}}</code> or throws an exception if subscri
   <td class="summary_signature"><a href="#publish/3">publish(connection_options \\ nil, queue, payload)</a></td>
   
     <td class="summary_synopsis"><p>Publishes a message/payload to a specific queue within the Messaging system</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#publish_rpc/4">publish_rpc(connection_options \\ nil, queue, api, request)</a></td>
+  
+    <td class="summary_synopsis"><p>Publishes a an RPC request to a specific queue within the Messaging system</p>
 </td>
   
 </tr>
@@ -187,6 +214,28 @@ Returns <code class="inline">{:ok, %{}}</code> or throws an exception if subscri
 <p>The <code class="inline">payload</code> option represents the message data</p>
 <h2>Returns</h2>
 <p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="publish_rpc/4">
+    <span class="signature"><strong>publish_rpc(connection_options \\ nil, queue, api, request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#publish_rpc/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Publishes a an RPC request to a specific queue within the Messaging system</p>
+<h2>Options</h2>
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+<p>The <code class="inline">queue</code> options value provides the Queue to which to subscribe</p>
+<p>The <code class="inline">request</code> option represents the message data</p>
+<h2>Returns</h2>
+<p>{:ok, OpenAperture.Messaging.AMQP.RpcHandler} | {:error, reason}</p>
 
   </section>
   
@@ -305,5 +354,16 @@ should be a function with 2 arguments (sync), or 3 arguments (async).</p>
 
       
     </section>
+        <!-- Scripts -->
+    <script>
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>
+    <script src="js/highlight.pack.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
+
