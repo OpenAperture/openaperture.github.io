@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OpenAperture.Builder.Milestones.Config</title>
+    <title>OpenAperture.Builder.Milestones.VerifyBuildExists</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
@@ -25,9 +25,9 @@
     </script>
 
     <section id="content">
-      <div class="breadcrumbs">openaperture_builder v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Builder.html">Builder</a> &rarr; Milestones &rarr; <a href="OpenAperture.Builder.Milestones.Config.html">Config</a></div>
+      <div class="breadcrumbs">openaperture_builder v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Builder.html">Builder</a> &rarr; Milestones &rarr; <a href="OpenAperture.Builder.Milestones.VerifyBuildExists.html">VerifyBuildExists</a></div>
       <h1>
-        OpenAperture.Builder.Milestones.Config
+        OpenAperture.Builder.Milestones.VerifyBuildExists
         
       </h1>
 
@@ -44,11 +44,6 @@
       </ul>
 
       
-        <section id="moduledoc" class="docstring">
-          <p>This module contains the logic for the “Config” Workflow milestone</p>
-
-        </section>
-      
 
       
 
@@ -56,14 +51,7 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#do_resolve_files/1">do_resolve_files(builder_request)</a></td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#execute/1">execute(builder_request)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to execute the milestone</p>
-</td>
+  <td class="summary_signature"><a href="#execute/1">execute(request)</a></td>
   
 </tr>
 
@@ -76,23 +64,8 @@
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
-  <div class="detail_header" id="do_resolve_files/1">
-    <span class="signature"><strong>do_resolve_files(builder_request)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#do_resolve_files/1" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    
-  </section>
-  
-</section>
-<section class="detail">
   <div class="detail_header" id="execute/1">
-    <span class="signature"><strong>execute(builder_request)</strong></span>
+    <span class="signature"><strong>execute(request)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#execute/1" class="detail_link" title="Link to this function">#</a>
@@ -103,17 +76,12 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>execute(OpenAperture.Builder.Request) :: {:ok, OpenAperture.Builder.Request} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, OpenAperture.Builder.Request}</li>
+        <li>execute(<a href="OpenAperture.Builder.Request.html#t:t/0">OpenAperture.Builder.Request.t</a>) :: {:ok, <a href="OpenAperture.Builder.Request.html#t:t/0">OpenAperture.Builder.Request.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="OpenAperture.Builder.Request.html#t:t/0">OpenAperture.Builder.Request.t</a>}</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Method to execute the milestone</p>
-<h2>Options</h2>
-<p>The <code class="inline">builder_request</code> option defines the Map containing the BuilderRequest</p>
-<h2>Return Values</h2>
-<p>{:ok, BuilderRequest} | {:error, String.t, BuilderRequest}</p>
-
+    
   </section>
   
 </section>
