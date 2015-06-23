@@ -187,6 +187,13 @@
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#show_components/2">show_components(conn, arg2)</a></td>
+  
+    <td class="summary_synopsis"><p>GET /messaging/exchanges/:id/system_components - Retrieve associated SystemComponents</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#update/2">update(conn, params)</a></td>
   
     <td class="summary_synopsis"><p>PUT/PATCH /messaging/exchanges/:id - Update a MessagingExchange</p>
@@ -693,6 +700,34 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
   
   <section class="docstring">
     <p>GET /messaging/exchanges/:id/clusters - Retrieve EtcdClusters which have an associated MessagingExchange</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="show_components/2">
+    <span class="signature"><strong>show_components(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#show_components/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>show_components(term, [any]) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>GET /messaging/exchanges/:id/system_components - Retrieve associated SystemComponents</p>
 <h2>Options</h2>
 <p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
 The <code class="inline">params</code> option defines an array of arguments.</p>
