@@ -70,9 +70,16 @@
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#deploy_oa/3">deploy_oa(delivery_tag, messaging_exchange_id, payload)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to publish the Deployer system module</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#handle_cast/2">handle_cast(msg, state)</a></td>
   
-    <td class="summary_synopsis"><p>Publishes a message to the Deployer system module, via an asynchronous request to the <code class="inline">server</code></p>
+    <td class="summary_synopsis"><p>Publishes a message to the Deployer system module (for OpenAperture deployments), via an asynchronous request to the <code class="inline">server</code></p>
 </td>
   
 </tr>
@@ -168,6 +175,33 @@
   
 </section>
 <section class="detail">
+  <div class="detail_header" id="deploy_oa/3">
+    <span class="signature"><strong>deploy_oa(delivery_tag, messaging_exchange_id, payload)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#deploy_oa/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>deploy_oa(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to publish the Deployer system module</p>
+<h2>Options</h2>
+<p>The <code class="inline">payload</code> option is the Map of options that needs to be passed to the deploy module</p>
+<h2>Return Values</h2>
+<p>:ok | {:error, reason}   </p>
+
+  </section>
+  
+</section>
+<section class="detail">
   <div class="detail_header" id="handle_cast/2">
     <span class="signature"><strong>handle_cast(msg, state)</strong></span>
     <div class="detail_header_links">
@@ -180,12 +214,14 @@
     <p>Specs:</p>
     <ul class="spec">
       
+        <li>handle_cast({:deploy_oa, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map}, Map) :: {:noreply, Map}</li>
+      
         <li>handle_cast({:deploy, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map}, Map) :: {:noreply, Map}</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Publishes a message to the Deployer system module, via an asynchronous request to the <code class="inline">server</code>.</p>
+    <p>Publishes a message to the Deployer system module (for OpenAperture deployments), via an asynchronous request to the <code class="inline">server</code>.</p>
 <p>This function returns <code class="inline">:ok</code> immediately, regardless of
 whether the destination node or server does exists, unless
 the server is specified as an atom.</p>
