@@ -84,6 +84,20 @@
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#execute_workflow!/6">execute_workflow!(api \\ OpenAperture.ManagerApi.get_api(), id, execute_options, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Execute a Workflow</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#execute_workflow/6">execute_workflow(api \\ OpenAperture.ManagerApi.get_api(), id, execute_options, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Execute a Workflow</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#get_workflow!/5">get_workflow!(api \\ OpenAperture.ManagerApi.get_api(), id, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Retrieves a specific Workflow</p>
@@ -254,6 +268,70 @@
 <p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
 <h2>Return Values</h2>
 <p>Boolean</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="execute_workflow/6">
+    <span class="signature"><strong>execute_workflow(api \\ OpenAperture.ManagerApi.get_api(), id, execute_options, queryparams \\ %{}, headers \\ [], options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#execute_workflow/6" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>execute_workflow(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, Map, List, List) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Execute a Workflow.</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
+<p>The <code class="inline">execute_options</code> option defines the execution options map.</p>
+<p>The <code class="inline">id</code> option defines the Workflow id.</p>
+<p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
+<p>The <code class="inline">headers</code> option defines the header values (optional).</p>
+<p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
+<h2>Return Values</h2>
+<p>Returns the OpenAperture.ManagerApi.Response struct.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="execute_workflow!/6">
+    <span class="signature"><strong>execute_workflow!(api \\ OpenAperture.ManagerApi.get_api(), id, execute_options, queryparams \\ %{}, headers \\ [], options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#execute_workflow!/6" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>execute_workflow!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, Map, List, List) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Execute a Workflow.</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
+<p>The <code class="inline">execute_options</code> option defines the execution options map.</p>
+<p>The <code class="inline">id</code> option defines the Workflow id.</p>
+<p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
+<p>The <code class="inline">headers</code> option defines the header values (optional).</p>
+<p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
+<h2>Return Values</h2>
+<p>Boolean, if execution was successful</p>
 
   </section>
   
