@@ -157,6 +157,13 @@
 </td>
   
 </tr>
+<tr>
+  <td class="summary_signature"><a href="#upgrade/2">upgrade(conn, params)</a></td>
+  
+    <td class="summary_synopsis"><p>POST /system_components/:id/upgrade - Request an upgrade of a SystemComponent</p>
+</td>
+  
+</tr>
 
         </table>
       
@@ -543,6 +550,34 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
   
   <section class="docstring">
     <p>PUT /system_components/:id - Update a SystemComponent</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="upgrade/2">
+    <span class="signature"><strong>upgrade(conn, params)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#upgrade/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>upgrade(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>POST /system_components/:id/upgrade - Request an upgrade of a SystemComponent</p>
 <h2>Options</h2>
 <p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
 The <code class="inline">params</code> option defines an array of arguments.</p>
