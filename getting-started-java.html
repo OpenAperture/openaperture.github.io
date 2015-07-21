@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OpenAperture - Cloud Application Management Platform</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1>OpenAperture</h1>
+        <!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
+        <p>Cloud Application Management Platform</p>
+    </div>
+    <div class="row">
+        <br/>
+        <ul class="lead">
+            <p>
+                <b>Getting Started with OpenAperture - Java Edition</b>
+            </p>
+
+            <p>You have an awesome Java Application and want to bring it to the Cloud? No problem with OpenAperture. OpenAperture gives you the possibility to shift the availability of your application to a whole new level and make it accessible from everywhere. There is no need for expensive hardware or high quality platform skills, you just need the following things:</p>
+
+            <ul class="small">
+                <li>AWS account (<a href="http://aws.amazon.com/">http://aws.amazon.com/</a> )</li>
+                <li>GitHub account (<a href="https://github.com">https://github.com</a>)</li>
+                <li>semaphoreci account (<a href="https://semaphoreci.com/">https://semaphoreci.com/</a>)</li>
+                <li>cool Java application, which runs in a Tomcat</li>
+                <li>this guide</li>
+            </ul>
+
+            <p>In this tiny guide, I will show you the necessary steps to deploy your Application to the cloud with OpenAperture.</p>
+
+
+            <a href="#1"> 1. Create a Core OS cluster on AWS</a><br/>
+            <a href="#2">2. Dockerize your application aka creating a git repo</a><br/>
+            <a href="#3">3. Deploy your application</a><br/>
+            <a href="#4">4. Test the result of the deployment:</a><br/>
+            <a href="#5">5. Create a Load Balancer</a><br/>
+
+            <a name="1"></a>
+            <h2>1. Create a Core OS cluster on AWS</h2>
+            <p>You have to launch a new EC2 instance:</p>
+
+            <p>
+                <img src="images/Image_0.png" style="width: 100%; border:1px solid black;" />
+            </p>
+
+
+            <p>
+                <img src="images/Image_1.png" style="width: 100%; border:1px solid black;"/>
+            </p>
+
+            <p>Choose the latest CoreOS-stable (hvm) image:</p>
+
+            <p>
+                <img src="images/Image_2.png" style="width: 100%; border:1px solid black;"/>
+            </p>
+
+            <p>Choose the instance type, which fits your application requirements and your budget: </p>
+
+            <p>
+                <img src="images/Image_3.png" style="width: 100%; border:1px solid black;"/>
+            </p>
+            <p>Configure Instance Details:</p>
+
+            <p>Number of Instance: Defines the size of your cluster (please choose an uneven number)</p>
+            <p>Network: Create a VPC for your application and select it</p>
+            <p>Subnet: Create a subnet in your VPC and select it</p>
+
+            <p>You can use the default values for the remaining settings.</p>
+
+            <p>Please copy the <a href="https://s3.amazonaws.com/uploads.hipchat.com/81181/710567/bntEzvzcrfizuzF/%23cloud-config" target="_blank">cloud config</a> into the User Data, which you can find in the Advanced Details. </p>
+
+            <p>You have to <a href="https://discovery.etcd.io/new" target="_blank"> generate an ID </a> for your cluster and copy it into the cloud config:</p>
+
+            <p>
+                <img src="images/Image_4.jpg" style="width: 100%; border:1px solid black;"/>
+            </p>
+
+            <p>You can use the default storage settings. If your application needs additional storage, you are able to increase the size of the root volume or add an additional one. Please note, that OpenAperture uses the Instance Store for the deployment of your application (Docker images and container).</p>
+
+            <p>Add the following tags:</p>
+
+            <p>
+                <img src="images/Image_5.png" style="width: 100%; border:1px solid black;"/>
+            </p>
+
+            <p>Create a new security group with the following rules:</p>
+
+            <p>
+                <img src="images/Image_6.png" style="width: 100%; border:1px solid black;"/>
+            </p>
+
+            <p>Review the settings and launch the cluster (create a key pair for it):</p>
+
+            <p>
+                <img src="images/Image_7.png" style="width: 100%; border:1px solid black;"/>
+            </p>
+
+            <a name="2"></a>
+            <h2>2. Dockerize your application aka creating a git repo</h2>
+
+            <p>OpenAperture runs your application in docker containers, therefore it builds a Docker image and deploys that image to the instances of the CoreOS cluster. Never used Docker? Don’t be scared, it isn’t that complicated. First we need a git repo which includes all the needed files for the deployment (name it ApplicationName_docker) with the following structure:</p>
+
+            <p>
+                <img src="images/Image_8.jpg" style="width: 100%; border:1px solid black;"/>
+            </p>
+
+            <a href="https://github.com/OpenAperture/awesomeJavaApplication_docker" target="_blank">on GitHub</a>
+
+            <br> <br>
+
+            <p>
+                <b>Dockerfile.eex:</b>
+            </p>
+
+            <p>This is an Elixir templated version of the Dockerfile. During the course of the deployment, this will be turned into a standard Dockerfile (<a href="https://docs.docker.com/reference/builder/" target="_blank">more info</a>). This defines the image and will be deployed on the CoreOS machines in the cluster. We already offer an pre-configured Docker image with a Tomcat and all its dependencies, which is referenced in the Dockerfile (perceptivecloud/stack-tomcat7). We recommend to store the commands for downloading/building the artifacts and copying of the configuration files in separate file (install.sh), which is executed from the Dockerfile. </p>
+
+            <p>
+                <img src="images/Image_9.jpg" style="width: 100%; border:1px solid black;"/>
+            </p>
+
+            <p>
+                <b>Application Name@.service.eex:</b>
+            </p>
+
+            <p>This is an Elixir templated version of the Fleet unit file (https://coreos.com/docs/launching-containers/launching/fleet-unit-files/). During the course of the deployment, this will be turned into a standard unit file, that is used by Fleet to spin up the containers based on the image, which was created by the Dockerfile . By default, OpenAperture will execute a term replacement for the following keywords:</p>
+
+            <p>timestamp</p>
+            <p>commit_hash</p>
+
+            <p>commands (gets executed in every instance in the cluster):</p>
+            <p>docker kill - stops running container</p>
+            <p>docker rm - removes container</p>
+            <p>docker rmi - removes old image</p>
+            <p>docker login - performs a login to docker hub (sign up with github possible)</p>
+            <p>docker pull - downloads image</p>
+            <p>docker run - starts a container from the image</p>
+
+            <p>
+                <b>etcd.json:</b>
+            </p>
+
+            <p>This file is used to identify the target CoreOS cluster of the deployment. It must contain a JSON struct with the cluster ID, which you inserted into the cloud config at the creation of the CoreOS cluster. The structure is as follows:</p>
+
+            <p>{</p>
+            <p>"token": "123abc"</p>
+            <p>}</p>
+
+            <p>
+                <b>docker.json:</b>
+            </p>
+
+            <p>This file defines the metadata of the image, which is created by the OpenAperture build server. It includes the image name, the repository and the target URL (without <u>https://registry.hub.docker.com/u/</u>). The structure is as follows:</p>
+
+            <p>{</p>
+            <p>"name": "awesomeApplication",</p>
+            <p>"repository":"Docker Hub Organization/awesomeJavaApplication",</p>
+            <p>"docker_url": "Docker Hub Organization/awesomeJavaApplication"</p>
+            <p>}</p>
+
+            <p>
+                <b>Application specific configuration files:</b>
+            </p>
+
+            <p>You are able to include additional configuration files, which are necessary for running your application, into the git repository and copy them to any directory of the docker container with a command in the install.sh</p>
+
+            <p>
+                <img src="images/Image_10.jpg" style="width: 100%; border:1px solid black;"/>
+            </p>
+
+            <a name="3"></a>
+            <h2>3. Deploy your application</h2>
+
+            <p>Now we come to the exciting part, the deployment of your application to the CoreOS Cluster. We are using semaphoreci for that job (<a href="https://semaphoreci.com">link</a>).</p>
+
+            <p>Add a project:</p>
+
+            <p>
+                <img src="images/Image_11.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>Select the git repo of your Java application (not _docker):</p>
+
+            <p>
+                <img src="images/Image_12.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>Enter build settings, which verify that your application can be build successfully :</p>
+
+            <p>
+                <img src="images/Image_13.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>Please note that these are only example commands!</p>
+
+            <p>Now you can set up a deployment:</p>
+
+            <p>
+                <img src="images/Image_14.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>Select Generic Deployment:</p>
+
+            <p>
+                <img src="images/Image_15.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>You can choose, if the deployment is executed after every build (of a specific branch) or just manually:</p>
+
+            <p>
+                <img src="images/Image_16.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>The most important setting of the deployment are of course the deploy commands:</p>
+
+            <p>
+                <img src="images/Image_17.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+             <p>Let us check each command:</p>
+
+            <p>wget -O spyglass https://s3.amazonaws.com/lexmark-devops-artifacts/binaries/spyglass-linux-amd64</p>
+
+            <p># downloads the tool spyglass, which provides a command-line interface for interacting with the OpenAperture Build Server.</p>
+
+            <p>chmod +x spyglass</p>
+
+            <p>#makes the spyglass tool executable</p>
+
+            <p>./spyglass -f deploy --force -c $REVISION -e master OpenAperture/awesomeJavaApplication_docker</p>
+
+            <p># execute spyglass, which starts the OpenAperture deployment to the CoreOS cluster. You hand over the commit_hash for the deployment as first parameter, which can be used in the elixir template files (Application Name@.service.eex and Dockerfile.eex) and has to be unique. In this example we use the semaphore environment variable $REVISION, which contains the git revision (you can find a list of available environment variables <u>here</u>).The second and third parameter of the function are the name of the git repository (third) you created earlier, which includes all the necessary configuration files and the branch (second).</p>
+
+
+            <p>After entering the deploy commands you can optionally enter a SSH key and name the deployment:</p>
+
+            <p>
+                <img src="images/Image_18.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>Congratulations, you finished the configuration! Let us deploy your application for the first time. Go to the project overview and select a branch + build, you want to deploy to the cluster:</p>
+
+            <p>
+                <img src="images/Image_19.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>
+                <img src="images/Image_20.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>Click on Deploy Manually, select the created deployment and enjoy the show:</p>
+
+            <p>
+                <img src="images/Image_21.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>
+                <img src="images/Image_22.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>Tip: You can also create deployments for the upload of your build artifacts (e.g. to AWS S3)</p>
+
+            <a name="4"></a>
+            <h2>4. Test the result of the deployment:</h2>
+
+            <p>Check the Public IP of one machine in the cluster:</p>
+
+            <p>
+                <img src="images/Image_23.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>and call your webapp in the tomcat:</p>
+
+            <p><img src="images/Image_24.png" style="width: 100%; border:1px solid black;" /></p>
+
+            <a name="5"></a>
+            <h2>5. Create a Load Balancer</h2>
+
+            <p>A cluster has no positive effect, if you pick a single instance out of it. Therefore we create an AWS load balancer now.</p>
+
+            <p>Click on Create Load Balancer (AWS EC2 -> Load Balancers):</p>
+
+            <p>
+                <img src="images/Image_25.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>As usual you have to choose a name, a vpc and and subnet for it. Additionally you have to assign a Load Balancer port to a port of the instance:</p>
+
+            <p>
+                <img src="images/Image_26.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>We assign the port 80 (HTTP) to the port 8080 and port 443 (HTTPS) to port 443. These ports were configured as Connector ports in the server.xml of the tomcat.</p>
+
+            <p>Select your security group (created with the CoreOS cluster) in the next step:</p>
+
+            <p>
+                <img src="images/Image_27.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>Choose a SSL Certificate in case of HTTPS and use the default settings for the other Security Settings):</p>
+
+            <p>
+                <img src="images/Image_28.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>The health check is a good tool for checking the availability of your instances in the cluster. Enter a ping path, which fits your application:</p>
+
+            <p>
+                <img src="images/Image_29.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>Last but not least you have to add the instances of your CoreOS cluster:</p>
+
+            <p>
+                <img src="images/Image_30.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>If we did everything right we should see 3 instances in service:</p>
+
+            <p>
+                <img src="images/Image_31.jpg" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <p>The Load Balancer provides us a DNS Name, which you can pass to a AWS Route53 entry or call directly in the browser:</p>
+
+            <p>
+                <img src="images/Image_32.png" style="width: 100%; border:1px solid black;" />
+            </p>
+
+            <a href="getting-started-java.html">back to top</a>
+        </ul>
+    </div>
+    <br/>
+</div>
+
+<div class="footer navbar-fixed-bottom">
+    <div class="container">
+        <p class="text-muted pull-right">© 2015 Lexmark International Technology S.A.  All rights reserved.</p>
+    </div>
+</div>
+</body>
+</html>
