@@ -13,7 +13,7 @@ sidebarNodes = {
 },{"id": "OpenAperture.Deployer.Milestones.Monitor",
 "docs": ["log_completed_units/2","log_failed_units/2","log_monitoring_result/4","log_requested_units/2","monitor/2","monitor_remaining_units/5","refresh_systemd_units/2","start_link/1","verify_unit_status/5"]
 },{"id": "OpenAperture.Deployer.Request",
-"docs": ["acknowledge/1","from_payload/2","publish_failure_notification/3","publish_success_notification/2","step_completed/1","step_failed/3"]
+"docs": ["acknowledge/1","from_payload/2","publish_failure_notification/3","publish_success_notification/2","save_workflow/1","step_completed/1","step_failed/3"]
 },{"id": "OpenAperture.Deployer.Supervisor",
 "docs": ["init/1","start_link/0"]
 
