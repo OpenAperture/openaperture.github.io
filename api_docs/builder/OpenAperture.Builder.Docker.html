@@ -58,7 +58,7 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#build/1">build(docker)</a></td>
+  <td class="summary_signature"><a href="#build/2">build(docker, interrupt_handler \\ nil)</a></td>
   
     <td class="summary_synopsis"><p>Method to execute a docker build</p>
 </td>
@@ -69,6 +69,10 @@
   
     <td class="summary_synopsis"><p>Method to cleanup any cache associated with an image id</p>
 </td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#execute_async/5">execute_async(docker, docker_cmd, interrupt_handler, stdout_log_uuid \\ UUID.uuid1(), stderr_log_uuid \\ UUID.uuid1())</a></td>
   
 </tr>
 <tr>
@@ -131,11 +135,11 @@
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
-  <div class="detail_header" id="build/1">
-    <span class="signature"><strong>build(docker)</strong></span>
+  <div class="detail_header" id="build/2">
+    <span class="signature"><strong>build(docker, interrupt_handler \\ nil)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#build/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#build/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -143,7 +147,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>build(OpenAperture.Builder.Docker) :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>build(OpenAperture.Builder.Docker, Fun) :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   
@@ -173,6 +177,28 @@
   <section class="docstring">
     <p>Method to cleanup any cache associated with an image id</p>
 
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="execute_async/5">
+    <span class="signature"><strong>execute_async(docker, docker_cmd, interrupt_handler, stdout_log_uuid \\ UUID.uuid1(), stderr_log_uuid \\ UUID.uuid1())</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#execute_async/5" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>execute_async(<a href="OpenAperture.Builder.Docker.html#t:t/0">OpenAperture.Builder.Docker.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Fun, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
   </section>
   
 </section>
@@ -208,6 +234,13 @@
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>log_file_from_uuid(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
   
   <section class="docstring">
     
