@@ -84,6 +84,13 @@
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#node_info!/2">node_info!(cluster_exchange_id, nodes)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve detailed information about nodes in a cluster</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#publish/3">publish(connection_options \\ nil, queue, payload)</a></td>
   
     <td class="summary_synopsis"><p>Publishes a message/payload to a specific queue within the Messaging system</p>
@@ -239,6 +246,34 @@
 <h2>Options</h2>
 <p>The <code class="inline">etcd_token</code> option represents the EtcdCluster token</p>
 <p>The <code class="inline">cluster_exchange_id</code> represents the messaging_exchange_id associated with the cluster</p>
+<h2>Return Values</h2>
+<p>RpcHandler pid</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="node_info!/2">
+    <span class="signature"><strong>node_info!(cluster_exchange_id, nodes)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#node_info!/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>node_info!(term, List) :: pid</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve detailed information about nodes in a cluster</p>
+<h2>Options</h2>
+<p>The <code class="inline">cluster_exchange_id</code> represents the messaging_exchange_id associated with the cluster</p>
+<p>The <code class="inline">nodes</code> option represents a list of IPs/hostnames for which information should be retrieved</p>
 <h2>Return Values</h2>
 <p>RpcHandler pid</p>
 

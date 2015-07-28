@@ -125,6 +125,13 @@
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#node_info/2">node_info(conn, arg2)</a></td>
+  
+    <td class="summary_synopsis"><p>GET /clusters/:etcd_token/nodes - Retrieve node information about all machines associated with the etcd_token</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#not_found/2">not_found(conn, item_name)</a></td>
   
     <td class="summary_synopsis"><p>Method to return a 404 response with accompanying JSON body</p>
@@ -427,6 +434,27 @@
 <p>The <code class="inline">location</code> option defines an optional Location; defaults to “”</p>
 <h2>Return Values</h2>
 <p>Underlying Plug connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="node_info/2">
+    <span class="signature"><strong>node_info(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#node_info/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /clusters/:etcd_token/nodes - Retrieve node information about all machines associated with the etcd_token</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.</p>
+<p>The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Plug.Conn</p>
 
   </section>
   
