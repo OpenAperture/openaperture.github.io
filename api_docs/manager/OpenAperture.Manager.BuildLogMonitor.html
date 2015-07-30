@@ -66,6 +66,10 @@
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#handle_logs/1">handle_logs(payload)</a></td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#publish/3">publish(connection_options \\ nil, queue, payload)</a></td>
   
     <td class="summary_synopsis"><p>Publishes a message/payload to a specific queue within the Messaging system</p>
@@ -143,6 +147,13 @@
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_connection_options :: OpenAperture.Messaging.AMQP.ConnectionOptions</li>
+      
+    </ul>
+  
   <section class="docstring">
     
   </section>
@@ -157,6 +168,35 @@
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_exchange_model(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: OpenAperture.Messaging.AMQP.Exchange.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_logs/1">
+    <span class="signature"><strong>handle_logs(payload)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_logs/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_logs(term) :: :ok | {:error, term}</li>
+      
+    </ul>
   
   <section class="docstring">
     
@@ -223,6 +263,13 @@
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link :: <a href="http://elixir-lang.org/docs/stable/elixir/GenServer.html#t:on_start/0">GenServer.on_start</a></li>
+      
+    </ul>
   
   <section class="docstring">
     
