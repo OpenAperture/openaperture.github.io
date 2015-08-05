@@ -60,6 +60,13 @@
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#assign/2">assign(conn, params)</a></td>
+  
+    <td class="summary_synopsis"><p>POST /system_events/:id/assign - Assign a SystemEvent</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#bad_request/3">bad_request(conn, item_name, changeset_errors \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Method to return a 400 response with accompanying JSON body</p>
@@ -91,6 +98,13 @@
   <td class="summary_signature"><a href="#created/2">created(conn, location \\ &quot;&quot;)</a></td>
   
     <td class="summary_synopsis"><p>Method to return a 201 response with accompanying Location header</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#dismiss/2">dismiss(conn, params)</a></td>
+  
+    <td class="summary_synopsis"><p>POST /system_events/:id/dismiss - Dismiss a SystemEvent</p>
 </td>
   
 </tr>
@@ -144,6 +158,13 @@
 </td>
   
 </tr>
+<tr>
+  <td class="summary_signature"><a href="#show/2">show(conn, params)</a></td>
+  
+    <td class="summary_synopsis"><p>GET /system_events/:id - Retrieve a SystemEvent</p>
+</td>
+  
+</tr>
 
         </table>
       
@@ -165,6 +186,34 @@
   
   <section class="docstring">
     
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="assign/2">
+    <span class="signature"><strong>assign(conn, params)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#assign/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>assign(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>POST /system_events/:id/assign - Assign a SystemEvent</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
   </section>
   
 </section>
@@ -293,6 +342,34 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
 <p>The <code class="inline">location</code> option defines an optional Location; defaults to “”</p>
 <h2>Return Values</h2>
 <p>Underlying Plug connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="dismiss/2">
+    <span class="signature"><strong>dismiss(conn, params)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#dismiss/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>dismiss(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>POST /system_events/:id/dismiss - Dismiss a SystemEvent</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
 
   </section>
   
@@ -459,6 +536,34 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
 <p>The <code class="inline">sendable_fields</code> option defines which fields in the raw_body should be carried over to JSON</p>
 <h2>Return Values</h2>
 <p>Underlying Plug connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="show/2">
+    <span class="signature"><strong>show(conn, params)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#show/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>show(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>GET /system_events/:id - Retrieve a SystemEvent</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
 
   </section>
   

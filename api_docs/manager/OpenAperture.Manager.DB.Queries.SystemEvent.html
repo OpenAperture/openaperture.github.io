@@ -51,6 +51,13 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
+  <td class="summary_signature"><a href="#get_assigned_events/1">get_assigned_events(user_id)</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieves the database record for SystemEvents assigned to a user</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#get_events/1">get_events(lookback_hours)</a></td>
   
     <td class="summary_synopsis"><p>Retrieves the database record for recent SystemEvents</p>
@@ -67,6 +74,33 @@
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
+  <div class="detail_header" id="get_assigned_events/1">
+    <span class="signature"><strong>get_assigned_events(user_id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_assigned_events/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_assigned_events(term) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Retrieves the database record for SystemEvents assigned to a user.</p>
+<h2>Options</h2>
+<p>The <code class="inline">user_id</code> option defines an integer representing the unique id of a User</p>
+<h2>Return Value</h2>
+<p>Query</p>
+
+  </section>
+  
+</section>
+<section class="detail">
   <div class="detail_header" id="get_events/1">
     <span class="signature"><strong>get_events(lookback_hours)</strong></span>
     <div class="detail_header_links">
