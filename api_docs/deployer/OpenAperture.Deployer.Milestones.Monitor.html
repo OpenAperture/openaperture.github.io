@@ -163,7 +163,14 @@ Returns <code class="inline">{:ok, pid}</code> or <code class="inline">{:error, 
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#verify_unit_status/5">verify_unit_status(list1, etcd_token, remaining_units_to_monitor, completed_units, failed_units)</a></td>
+  <td class="summary_signature"><a href="#verify_unit_status/5">verify_unit_status(list1, , remaining_units_to_monitor, completed_units, failed_units)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to verify the state of a unit</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#verify_unit_status/6">verify_unit_status(all_units, etcd_token, remaining_units_to_monitor, completed_units, failed_units, failure_count \\ 0)</a></td>
   
     <td class="summary_synopsis"><p>Method to verify the state of a unit</p>
 </td>
@@ -396,7 +403,7 @@ Returns <code class="inline">{:ok, pid}</code> or <code class="inline">{:error, 
 </section>
 <section class="detail">
   <div class="detail_header" id="verify_unit_status/5">
-    <span class="signature"><strong>verify_unit_status(list1, etcd_token, remaining_units_to_monitor, completed_units, failed_units)</strong></span>
+    <span class="signature"><strong>verify_unit_status(list1, , remaining_units_to_monitor, completed_units, failed_units)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#verify_unit_status/5" class="detail_link" title="Link to this function">#</a>
@@ -412,6 +419,30 @@ Returns <code class="inline">{:ok, pid}</code> or <code class="inline">{:error, 
         <li>verify_unit_status([], <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, List, List, List) :: {List, List, List}</li>
       
     </ul>
+  
+  <section class="docstring">
+    <p>Method to verify the state of a unit</p>
+<h2>Options</h2>
+<p>The <code class="inline">current_unit | remaining_units</code> option defines the SystemdUnit</p>
+<p>The <code class="inline">etcd_token</code> option defines the etcd cluster token</p>
+<p>The <code class="inline">remaining_units_to_monitor</code> option contains a list of units to monitor</p>
+<p>The <code class="inline">completed_units</code> option contains a list of units that have successfully started up  </p>
+<p>The <code class="inline">failed_units</code> option contains a list of units that have failed to started up</p>
+<h2>Return Values</h2>
+<p>{remaining_units_to_monitor, completed_units, failed_units}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="verify_unit_status/6">
+    <span class="signature"><strong>verify_unit_status(all_units, etcd_token, remaining_units_to_monitor, completed_units, failed_units, failure_count \\ 0)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#verify_unit_status/6" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
   
   <section class="docstring">
     <p>Method to verify the state of a unit</p>
