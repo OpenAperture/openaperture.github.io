@@ -16,6 +16,8 @@ sidebarNodes = {
 "docs": ["execute/1"]
 },{"id": "OpenAperture.FleetManager.FleetAction.NodeInfo",
 "docs": ["execute/1","execute_script/1","parse_script_output/1"]
+},{"id": "OpenAperture.FleetManager.FleetAction.RestartUnit",
+"docs": ["execute/1","execute_script/2"]
 },{"id": "OpenAperture.FleetManager.FleetAction.UnitLogs",
 "docs": ["execute/1"]
 },{"id": "OpenAperture.FleetManager.FleetActions",
