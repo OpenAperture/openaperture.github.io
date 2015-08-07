@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -9,12 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc">
 
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/elixir.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
 
-    <section id="sidebar">
+    
+    <div class="row row-offcanvas row-offcanvas-left">
+<section id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
+  <p class="pull-right visible-xs">
+  <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+    <span class="glyphicon glyphicon-search"></span>
+  </button>
+  </p>
+
   <h1 id="full_list_header">
     
       openaperture_fleet_manager v0.0.1
@@ -28,12 +38,31 @@
   </h2>
 
   <div class="nav">
-    <span class="selected"><a id="modules_list" href="#full_list">Modules</a></span>
-    <span><a id="exceptions_list" href="#full_list">Exceptions</a></span>
-    <span><a id="protocols_list" href="#full_list">Protocols</a></span>
+    
+      <span><a id="modules_list" href="#full_list">Modules</a></span>
+    
+    
+      <span role="presentation" class="disabled">Exceptions</span>
+    
+    
+      <span role="presentation" class="disabled">Protocols</span>
+    
   </div>
 
-  <div id="search"><input type="search" id="search_field" placeholder="Search" autocomplete="off" autofocus="autofocus" results="0" /></div>
+  <div id="search" class="row">
+    <div class="col-xs-10">
+      <div class="input-group input-group-sm">
+        <label for="search_field" class="sr-only">Search</label>
+        <input type="text" id="search_field" class="form-control" placeholder="Search" autocomplete="off" autofocus="autofocus" results="0">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-xs-10 -->
+    <div class="col-xs-2" id="spinning">
+      <span></span>
+    </div><!-- /.col-xs-2 -->
+  </div><!-- /#search .row -->
 
   <script src="sidebar_items.js" defer></script>
 
@@ -41,11 +70,17 @@
   </ul>
 
   <div id="no_results"></div>
-</section>
+</section><!--/.sidebar-offcanvas -->
+<section id="content" class="col-xs-12 col-sm-9">
 
 
-    <section id="content">
-      <div class="breadcrumbs">openaperture_fleet_manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.FleetManager.html">FleetManager</a> &rarr; <a href="OpenAperture.FleetManager.FleetActions.html">FleetActions</a></div>
+      <div class="breadcrumbs">
+        <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        openaperture_fleet_manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.FleetManager.html#content">FleetManager</a> &rarr; <a href="OpenAperture.FleetManager.FleetActions.html#content">FleetActions</a>
+      </div>
+
       <h1>
         OpenAperture.FleetManager.FleetActions
         
@@ -53,7 +88,7 @@
 
       <ul class="summary_links">
         
-          <li><a href="#summary">Summary</a></li>
+          <li><a href="#summary_details">Summary</a></li>
         
         
         
@@ -73,24 +108,24 @@
       
 
       
-        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
-        <table class="summary">
-          <tr>
+        <section id="summary_details" class="details_list">
+          <h1>Summary</h1>
+          <table class="summary">
+            <tr>
   <td class="summary_signature"><a href="#execute/1">execute(fleet_request)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to execute FleetManager actions</p>
+  <td class="summary_synopsis"><p>Method to execute FleetManager actions</p>
 </td>
-  
 </tr>
 
-        </table>
+          </table>
+        </section>
       
 
       
 
       
         <section id="functions_details" class="details_list">
-          <h2>Functions</h2>
+          <h1>Functions</h1>
           <section class="detail">
   <div class="detail_header" id="execute/1">
     <span class="signature"><strong>execute(fleet_request)</strong></span>
@@ -125,8 +160,9 @@
       
 
       
-    </section>
-        <!-- Scripts -->
+      </section> <!--/content -->
+</div><!--/row -->
+  <!-- Scripts -->
     <script>
       relpath = '';
       if (relpath != '') relpath += '/';

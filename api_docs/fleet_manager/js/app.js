@@ -15,8 +15,7 @@
         ignoreKeyCodeMax = 46,
         commandKey = 91,
         lastRowClass = '',
-        sidebarNav = $('.nav'),
-        clicked = null;
+        sidebarNav = $('.nav');
 
     function escapeText(text) {
         return text.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&");
@@ -52,13 +51,9 @@
             var link = $(this).find('a.object_link:first');
             link.text(link.text());
         });
-        if (clicked) {
-            clicked.parents('li').each(function () {
-                $(this).removeClass('collapsed').prev().removeClass('collapsed');
-            });
-        }
         $('#no_results').text('');
-        $('#search').removeClass('loading');
+        $('#spinning span').removeClass('glyphicon glyphicon-refresh spinning');
+        $('#search button span.glyphicon-remove').addClass('glyphicon-search').removeClass('glyphicon-remove');
         highlight();
     }
 
@@ -76,7 +71,7 @@
             $('#no_results').text('');
         }
 
-        $('#search').removeClass('loading');
+        $('#spinning span').removeClass('glyphicon glyphicon-refresh spinning');
         clearTimeout(inSearch);
         inSearch = null;
     }
@@ -123,6 +118,7 @@
     function fullListSearch() {
         // generate cache
         searchCache = [];
+        $('#spinning span').removeClass('glyphicon glyphicon-refresh spinning');
 
         $('#full_list li').each(function () {
             var link = $(this).find('a.object_link:first'),
@@ -149,62 +145,31 @@
             if ((e.keyCode > ignoreKeyCodeMin && e.keyCode < ignoreKeyCodeMax) || e.keyCode === commandKey) {
                 return;
             }
-
-            $('#search').addClass('loading');
-            searchString = this.value;
-            caseSensitiveMatch = searchString.match(/[A-Z]/) !== null;
-            regexSearchString = escapeText(searchString);
-
-            if (searchString === "") {
-                showAllResults();
-            } else {
-                if (inSearch) {
-                    clearTimeout(inSearch);
-                }
-                searchIndex = 0;
-                lastRowClass = '';
-                $('#sidebar').addClass('in_search');
-                $('#no_results').text('');
-                searchItem();
-            }
+            performSearch();
         });
 
         $('#search input').focus();
     }
 
-    function linkList() {
-        $('#full_list li, #full_list li a:last').click(function (e) {
-            var toggle,
-                win;
+    function performSearch() {
+        searchString = $("#search input").val();
+        caseSensitiveMatch = searchString.match(/[A-Z]/) !== null;
+        regexSearchString = escapeText(searchString);
 
-            if ($(this).hasClass('toggle')) {
-                return true;
+        if (searchString === "") {
+            showAllResults();
+        } else {
+            if (inSearch) {
+                clearTimeout(inSearch);
             }
-
-            if (this.tagName.toLowerCase() === "li") {
-                toggle = $(this).children('a.toggle');
-                if (toggle.size() > 0 && e.pageX < toggle.offset().left) {
-                    toggle.click();
-                    return false;
-                }
-            }
-
-            if (clicked) {
-                clicked.removeClass('clicked');
-            }
-
-            win = window.top.frames.main || window.parent;
-
-            if (this.tagName.toLowerCase() === "a") {
-                clicked = $(this).parent('li').addClass('clicked');
-                win.location = this.href;
-            } else {
-                clicked = $(this).addClass('clicked');
-                win.location = $(this).find('a:last').attr('href');
-            }
-
-            return false;
-        });
+            $('#spinning span').addClass('glyphicon glyphicon-refresh spinning');
+            $('#search button span.glyphicon-search').addClass('glyphicon-remove').removeClass('glyphicon-search');
+            searchIndex = 0;
+            lastRowClass = '';
+            $('#sidebar').addClass('in_search');
+            $('#no_results').text('');
+            searchItem();
+        }
     }
 
     function collapse() {
@@ -214,7 +179,7 @@
             return false;
         });
 
-        $('#full_list > li.node').each(function () {
+        $('#full_list > li.node:not(.clicked)').each(function () {
             $(this).addClass('collapsed').next('li.docs').addClass('collapsed');
         });
 
@@ -231,10 +196,31 @@
         });
     }
 
-    $(escapeShortcut);
-    $(fullListSearch);
-    $(linkList);
-    $(collapse);
+    /**
+     * Identify external links inside of an specific section
+     *
+     * This function adds an icon to identify an external link.
+     *
+     * @param {String} section - Section where we want to identify the external links.
+     */
+    function identifyExternalLinks(section) {
+        $([section, 'a'].join(' ')).filter(function () {
+            return (this.hostname !== location.hostname);
+        }).append($('<span/>').attr({
+            'class': 'glyphicon glyphicon-new-window',
+            'aria-hidden': 'true'
+        })).addClass('external');
+    }
+
+    function setupSelected(id) {
+        ["#modules_list", "#exceptions_list", "#protocols_list"].forEach(function (element) {
+            if (element === id) {
+                $(element).parent().addClass('selected');
+            } else {
+                $(element).parent().removeClass('selected');
+            }
+        });
+    }
 
     /**
      * Fill the sidebar with links to different nodes
@@ -247,7 +233,8 @@
      * @param {String} filter - Filter of nodes, by default 'modules'.
      */
     function fillSidebarWithNodes(nodes, filter) {
-        var full_list = $("#full_list");
+        var full_list = $("#full_list"),
+            module_type;
 
         function scope(items) {
             var filtered = nodes[items],
@@ -264,7 +251,9 @@
                 var docs_container,
                     id = element.id,
                     li,
-                    ul;
+                    ul,
+                    current_path,
+                    href;
 
                 /* li.node */
                 li = $('<li>', {
@@ -275,8 +264,18 @@
                     li.append($('<a/>').attr('class', 'toggle'));
                 }
 
+                // When visiting a module page, the link to this module page
+                // in the menu should not link to a new page, instead should
+                // link to the top of the page itself.
+                current_path = window.location.pathname.split('/');
+                href = id + '.html';
+                if (href === current_path[current_path.length - 1]) {
+                    li.addClass("clicked");
+                    href = href + '#content';
+                }
+
                 li.append($('<a/>', {
-                    'href': id + '.html',
+                    'href': href,
                     'title': id,
                     'html': id,
                     'class': 'object_link'
@@ -319,52 +318,43 @@
             full_list.replaceWith(fullList);
         }
 
-        filter = filter || 'modules';
-        scope(filter);
-    }
+        module_type = $('#content h1 small').text();
+        if (module_type && (module_type === 'exception' || module_type === 'protocol')) {
+            module_type = module_type + 's'; // pluralize 'exception' or 'protocol'
+        } else {
+            module_type = 'modules';
+        }
 
-    window.fillSidebarWithNodes = fillSidebarWithNodes;
+        filter = filter || module_type;
+        scope(filter);
+        setupSelected(['#', filter, '_list'].join(''));
+    }
 
     /* Sidebar events */
     function resetSidebar() {
         escapeShortcut();
         fullListSearch();
-        linkList();
         collapse();
-    }
-
-    function setupSelected(id) {
-        $('#search input').val('');
-        ["#modules_list", "#exceptions_list", "#protocols_list"].forEach(function (element) {
-            if (element === id) {
-                $(element).parent().addClass('selected');
-            } else {
-                $(element).parent().removeClass('selected');
-            }
-        });
     }
 
     sidebarNav.on('click', '#modules_list', function (e) {
         fillSidebarWithNodes(sidebarNodes, "modules");
         resetSidebar();
-        setupSelected('#modules_list');
-        showAllResults();
+        performSearch();
         e.preventDefault();
     });
 
     sidebarNav.on('click', '#exceptions_list', function (e) {
         fillSidebarWithNodes(sidebarNodes, "exceptions");
         resetSidebar();
-        setupSelected('#exceptions_list');
-        showAllResults();
+        performSearch();
         e.preventDefault();
     });
 
     sidebarNav.on('click', '#protocols_list', function (e) {
         fillSidebarWithNodes(sidebarNodes, "protocols");
         resetSidebar();
-        setupSelected('#protocols_list');
-        showAllResults();
+        performSearch();
         e.preventDefault();
     });
 
@@ -374,5 +364,22 @@
         languages: [] // disable auto-detect
     });
 
+    window.fillSidebarWithNodes = fillSidebarWithNodes;
+    $(escapeShortcut);
+    $(fullListSearch);
+    $(collapse);
     hljs.initHighlighting();
+    identifyExternalLinks('#content');
+
+    $('[data-toggle="offcanvas"]').on('click', function () {
+        $('.row-offcanvas').toggleClass('active');
+        $('#content').toggleClass('offcanvas-active');
+    });
+
+    $('#search button').on('click', function () {
+        $('#search input').val('').focus();
+        $('#search button span.glyphicon-remove').addClass('glyphicon-search').removeClass('glyphicon-remove');
+        showAllResults();
+    });
+
 }());
