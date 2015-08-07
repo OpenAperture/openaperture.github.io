@@ -160,6 +160,13 @@
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#restart_unit/2">restart_unit(conn, arg2)</a></td>
+  
+    <td class="summary_synopsis"><p>GET /clusters/:etcd_token/machines/:machine_id/units/:unit_name/restart - Retrieve associated units’ state</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#show/2">show(conn, arg2)</a></td>
   
     <td class="summary_synopsis"><p>Retrieve a specific Etcd Cluster instance, specified by its etcd token</p>
@@ -549,6 +556,27 @@
   
   <section class="docstring">
     <p>Create a new Etcd Cluster instance.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="restart_unit/2">
+    <span class="signature"><strong>restart_unit(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#restart_unit/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /clusters/:etcd_token/machines/:machine_id/units/:unit_name/restart - Retrieve associated units’ state</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.</p>
+<p>The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Plug.Conn</p>
 
   </section>
   

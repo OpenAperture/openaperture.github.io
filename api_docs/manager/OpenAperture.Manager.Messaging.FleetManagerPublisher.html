@@ -105,6 +105,13 @@
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#restart_unit!/3">restart_unit!(etcd_token, cluster_exchange_id, unit_name)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to restart a Unit</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
   
     <td class="summary_synopsis"><p>Method to start a publisher</p>
@@ -327,6 +334,35 @@
 <p>The <code class="inline">request</code> option represents the message data</p>
 <h2>Returns</h2>
 <p>{:ok, OpenAperture.Messaging.AMQP.RpcHandler} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="restart_unit!/3">
+    <span class="signature"><strong>restart_unit!(etcd_token, cluster_exchange_id, unit_name)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#restart_unit!/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>restart_unit!(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: pid</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to restart a Unit</p>
+<h2>Options</h2>
+<p>The <code class="inline">etcd_token</code> option represents the EtcdCluster token</p>
+<p>The <code class="inline">cluster_exchange_id</code> represents the messaging_exchange_id associated with the cluster</p>
+<p>The <code class="inline">unit_name</code> option represents the name of the unit for which logs should be retrieved</p>
+<h2>Return Values</h2>
+<p>RpcHandler pid</p>
 
   </section>
   
