@@ -8,6 +8,8 @@ sidebarNodes = {
 "docs": ["close_connection/1","init/1","publish/3","publish_rpc/4","spawn_deployment_task/3","start_link/1","subscribe/3","unsubscribe/2"]
 },{"id": "OpenAperture.Deployer.MessageManager",
 "docs": ["remove/1","start_link/0","track/1"]
+},{"id": "OpenAperture.Deployer.MilestoneMonitor",
+"docs": ["monitor/3"]
 },{"id": "OpenAperture.Deployer.Milestones.Deploy",
 "docs": ["deploy/1","start_link/1"]
 },{"id": "OpenAperture.Deployer.Milestones.Monitor",
