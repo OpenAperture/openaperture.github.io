@@ -58,7 +58,7 @@
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#get_events/1">get_events(lookback_hours)</a></td>
+  <td class="summary_signature"><a href="#get_events/2">get_events(lookback_hours, type \\ nil)</a></td>
   
     <td class="summary_synopsis"><p>Retrieves the database record for recent SystemEvents</p>
 </td>
@@ -101,11 +101,11 @@
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="get_events/1">
-    <span class="signature"><strong>get_events(lookback_hours)</strong></span>
+  <div class="detail_header" id="get_events/2">
+    <span class="signature"><strong>get_events(lookback_hours, type \\ nil)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#get_events/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#get_events/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -113,7 +113,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_events(term) :: term</li>
+        <li>get_events(term, term) :: term</li>
       
     </ul>
   
@@ -122,6 +122,7 @@
 <h2>Options</h2>
 <p>The <code class="inline">lookback_hours</code> option defines an integer representing the number of lookback hours.  Specifying
 a negative or 0 value will default to all SystemEvents</p>
+<p>The <code class="inline">type</code> option allows an optional query filter of “type”</p>
 <h2>Return Value</h2>
 <p>Query</p>
 
