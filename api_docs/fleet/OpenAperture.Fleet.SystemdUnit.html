@@ -65,10 +65,11 @@
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#get_journal/1">get_journal(unit)</a></td>
+  <td class="summary_signature"><a href="#get_fleet_api/1">get_fleet_api(etcd_token)</a></td>
   
-    <td class="summary_synopsis"><p>Method to retrieve the journal logs associated with a Unit</p>
-</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_journal/1">get_journal(unit)</a></td>
   
 </tr>
 <tr>
@@ -97,6 +98,10 @@
   
     <td class="summary_synopsis"><p>Method to determine if the unit is in a launched state (according to Fleet)</p>
 </td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#kill_unit/1">kill_unit(unit)</a></td>
   
 </tr>
 <tr>
@@ -162,6 +167,28 @@
   
 </section>
 <section class="detail">
+  <div class="detail_header" id="get_fleet_api/1">
+    <span class="signature"><strong>get_fleet_api(etcd_token)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_fleet_api/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_fleet_api(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: pid</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
   <div class="detail_header" id="get_journal/1">
     <span class="signature"><strong>get_journal(unit)</strong></span>
     <div class="detail_header_links">
@@ -179,12 +206,7 @@
     </ul>
   
   <section class="docstring">
-    <p>Method to retrieve the journal logs associated with a Unit</p>
-<h2>Options</h2>
-<p>The <code class="inline">unit</code> option define the SystemdUnit.t</p>
-<h2>Return Values</h2>
-<p>tuple {:ok, stdout, stderr} | {:error, stdout, stderr}</p>
-
+    
   </section>
   
 </section>
@@ -297,6 +319,28 @@ sub_state:  <a href="http://www.freedesktop.org/software/systemd/man/systemd.htm
 <h2>Return Values</h2>
 <p>true or {false, state}</p>
 
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="kill_unit/1">
+    <span class="signature"><strong>kill_unit(unit)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#kill_unit/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>kill_unit(<a href="OpenAperture.Fleet.SystemdUnit.html#t:t/0">OpenAperture.Fleet.SystemdUnit.t</a>) :: {:ok | :error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
   </section>
   
 </section>
