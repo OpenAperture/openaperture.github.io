@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.ManagerApi.Deployment</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_manager_api v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.ManagerApi.html">ManagerApi</a> &rarr; <a href="OpenAperture.ManagerApi.Deployment.html">Deployment</a></div>
+      <h1>
+        OpenAperture.ManagerApi.Deployment
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the resources for managing deployments</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#create_deployment!/6">create_deployment!(api \\ OpenAperture.ManagerApi.get_api(), product_name, deployment, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Create a deployment</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#create_deployment/6">create_deployment(api \\ OpenAperture.ManagerApi.get_api(), product_name, deployment, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Create a deployment</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete_deployment!/6">delete_deployment!(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Delete a deployment</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete_deployment/6">delete_deployment(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Delete a deployment</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#execute_deployment!/6">execute_deployment!(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Execute a deployment</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#execute_deployment/6">execute_deployment(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Execute a deployment</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_deployment!/6">get_deployment!(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieves a specific deployment</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_deployment/6">get_deployment(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieves a specific deployment</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#list!/5">list!(api \\ OpenAperture.ManagerApi.get_api(), product_name, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieves the entire list of deployments</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#list/5">list(api \\ OpenAperture.ManagerApi.get_api(), product_name, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieves the entire list of deployments</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#update_deployment!/7">update_deployment!(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, deployment, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Update a deployment</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#update_deployment/7">update_deployment(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, deployment, queryparams \\ %{}, headers \\ [], options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Update a deployment</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="create_deployment/6">
+    <span class="signature"><strong>create_deployment(api \\ OpenAperture.ManagerApi.get_api(), product_name, deployment, queryparams \\ %{}, headers \\ [], options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create_deployment/6" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Create a deployment.</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
+<p>The <code class="inline">deployment</code> option defines the deployment map.</p>
+<p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
+<p>The <code class="inline">headers</code> option defines the header values (optional).</p>
+<p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
+<h2>Return Values</h2>
+<p>Returns the OpenAperture.ManagerApi.Response struct.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="create_deployment!/6">
+    <span class="signature"><strong>create_deployment!(api \\ OpenAperture.ManagerApi.get_api(), product_name, deployment, queryparams \\ %{}, headers \\ [], options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create_deployment!/6" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Create a deployment.</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
+<p>The <code class="inline">deployment</code> option defines the deployment map.</p>
+<p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
+<p>The <code class="inline">headers</code> option defines the header values (optional).</p>
+<p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
+<h2>Return Values</h2>
+<p>Integer of new deployment, or nil</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="delete_deployment/6">
+    <span class="signature"><strong>delete_deployment(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, queryparams \\ %{}, headers \\ [], options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#delete_deployment/6" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Delete a deployment.</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
+<p>The <code class="inline">id</code> option defines the deployment id.</p>
+<p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
+<p>The <code class="inline">headers</code> option defines the header values (optional).</p>
+<p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
+<h2>Return Values</h2>
+<p>Returns the OpenAperture.ManagerApi.Response struct.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="delete_deployment!/6">
+    <span class="signature"><strong>delete_deployment!(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, queryparams \\ %{}, headers \\ [], options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#delete_deployment!/6" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Delete a deployment.</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
+<p>The <code class="inline">id</code> option defines the deployment id.</p>
+<p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
+<p>The <code class="inline">headers</code> option defines the header values (optional).</p>
+<p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
+<h2>Return Values</h2>
+<p>Boolean</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="execute_deployment/6">
+    <span class="signature"><strong>execute_deployment(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, queryparams \\ %{}, headers \\ [], options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#execute_deployment/6" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Execute a deployment.</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
+<p>The <code class="inline">execute_options</code> option defines the execution options map.</p>
+<p>The <code class="inline">id</code> option defines the deployment id.</p>
+<p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
+<p>The <code class="inline">headers</code> option defines the header values (optional).</p>
+<p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
+<h2>Return Values</h2>
+<p>Returns the OpenAperture.ManagerApi.Response struct.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="execute_deployment!/6">
+    <span class="signature"><strong>execute_deployment!(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, queryparams \\ %{}, headers \\ [], options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#execute_deployment!/6" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>execute_deployment!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, Map, List, List) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Execute a deployment.</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
+<p>The <code class="inline">execute_options</code> option defines the execution options map.</p>
+<p>The <code class="inline">id</code> option defines the deployment id.</p>
+<p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
+<p>The <code class="inline">headers</code> option defines the header values (optional).</p>
+<p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
+<h2>Return Values</h2>
+<p>Boolean, if execution was successful</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_deployment/6">
+    <span class="signature"><strong>get_deployment(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, queryparams \\ %{}, headers \\ [], options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_deployment/6" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Retrieves a specific deployment.</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
+<p>The <code class="inline">id</code> option defines the deployment id.</p>
+<p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
+<p>The <code class="inline">headers</code> option defines the header values (optional).</p>
+<p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
+<h2>Return Values</h2>
+<p>Returns the OpenAperture.ManagerApi.Response struct.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_deployment!/6">
+    <span class="signature"><strong>get_deployment!(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, queryparams \\ %{}, headers \\ [], options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_deployment!/6" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Retrieves a specific deployment.</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
+<p>The <code class="inline">id</code> option defines the deployment id.</p>
+<p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
+<p>The <code class="inline">headers</code> option defines the header values (optional).</p>
+<p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
+<h2>Return Values</h2>
+<p>Map of the deployment</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="list/5">
+    <span class="signature"><strong>list(api \\ OpenAperture.ManagerApi.get_api(), product_name, queryparams \\ %{}, headers \\ [], options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#list/5" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Retrieves the entire list of deployments. </p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
+<p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
+<p>The <code class="inline">headers</code> option defines the header values (optional).</p>
+<p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
+<h2>Return Values</h2>
+<p>Returns the OpenAperture.ManagerApi.Response struct.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="list!/5">
+    <span class="signature"><strong>list!(api \\ OpenAperture.ManagerApi.get_api(), product_name, queryparams \\ %{}, headers \\ [], options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#list!/5" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Retrieves the entire list of deployments. </p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
+<p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
+<p>The <code class="inline">headers</code> option defines the header values (optional).</p>
+<p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
+<h2>Return Values</h2>
+<p>Returns nil (if failure) or a list of Maps, each representing a deployment.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="update_deployment/7">
+    <span class="signature"><strong>update_deployment(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, deployment, queryparams \\ %{}, headers \\ [], options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#update_deployment/7" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Update a deployment.</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
+<p>The <code class="inline">deployment</code> option defines the deployment map.</p>
+<p>The <code class="inline">id</code> option defines the deployment id.</p>
+<p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
+<p>The <code class="inline">headers</code> option defines the header values (optional).</p>
+<p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
+<h2>Return Values</h2>
+<p>Returns the OpenAperture.ManagerApi.Response struct.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="update_deployment!/7">
+    <span class="signature"><strong>update_deployment!(api \\ OpenAperture.ManagerApi.get_api(), product_name, id, deployment, queryparams \\ %{}, headers \\ [], options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#update_deployment!/7" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Update a deployment.</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
+<p>The <code class="inline">deployment</code> option defines the deployment map.</p>
+<p>The <code class="inline">id</code> option defines the deployment id.</p>
+<p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
+<p>The <code class="inline">headers</code> option defines the header values (optional).</p>
+<p>The <code class="inline">options</code> option defines any extra HTTP options (optional).</p>
+<h2>Return Values</h2>
+<p>Integer of new deployment, or nil</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
