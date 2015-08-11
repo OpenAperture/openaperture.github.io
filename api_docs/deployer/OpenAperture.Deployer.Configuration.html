@@ -16,12 +16,12 @@
   </head>
   <body>
 
+    
     <div class="row row-offcanvas row-offcanvas-left">
 <section id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
-<div data-spy="affix" data-offset-top="0" data-offset-bottom="0">
   <p class="pull-right visible-xs">
   <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
-    <span class="glyphicon glyphicon-remove"></span>
+    <span class="glyphicon glyphicon-search"></span>
   </button>
   </p>
 
@@ -38,9 +38,15 @@
   </h2>
 
   <div class="nav">
-    <span class="selected"><a id="modules_list" href="#full_list">Modules</a></span>
-    <span><a id="exceptions_list" href="#full_list">Exceptions</a></span>
-    <span><a id="protocols_list" href="#full_list">Protocols</a></span>
+    
+      <span><a id="modules_list" href="#full_list">Modules</a></span>
+    
+    
+      <span role="presentation" class="disabled">Exceptions</span>
+    
+    
+      <span role="presentation" class="disabled">Protocols</span>
+    
   </div>
 
   <div id="search" class="row">
@@ -64,7 +70,6 @@
   </ul>
 
   <div id="no_results"></div>
-</div><!-- /.affix -->
 </section><!--/.sidebar-offcanvas -->
 <section id="content" class="col-xs-12 col-sm-9">
 
@@ -73,7 +78,7 @@
         <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
-        openaperture_deployer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Deployer.html">Deployer</a> &rarr; <a href="OpenAperture.Deployer.Configuration.html">Configuration</a>
+        openaperture_deployer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Deployer.html#content">Deployer</a> &rarr; <a href="OpenAperture.Deployer.Configuration.html#content">Configuration</a>
       </div>
 
       <h1>
@@ -83,7 +88,7 @@
 
       <ul class="summary_links">
         
-          <li><a href="#summary">Summary</a></li>
+          <li><a href="#summary_details">Summary</a></li>
         
         
         
@@ -103,38 +108,34 @@
       
 
       
-        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
-        <table class="summary">
-          <tr>
+        <section id="summary_details" class="details_list">
+          <h1>Summary</h1>
+          <table class="summary">
+            <tr>
   <td class="summary_signature"><a href="#get_current_broker_id/0">get_current_broker_id()</a></td>
-  
-    <td class="summary_synopsis"><p>Method to retrieve the currently assigned exchange id</p>
+  <td class="summary_synopsis"><p>Method to retrieve the currently assigned exchange id</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="#get_current_exchange_id/0">get_current_exchange_id()</a></td>
-  
-    <td class="summary_synopsis"><p>Method to retrieve the currently assigned exchange id</p>
+  <td class="summary_synopsis"><p>Method to retrieve the currently assigned exchange id</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="#get_current_queue_name/0">get_current_queue_name()</a></td>
-  
-    <td class="summary_synopsis"><p>Method to retrieve the currently assigned queue name (for “deployer”)</p>
+  <td class="summary_synopsis"><p>Method to retrieve the currently assigned queue name (for “deployer”)</p>
 </td>
-  
 </tr>
 
-        </table>
+          </table>
+        </section>
       
 
       
 
       
         <section id="functions_details" class="details_list">
-          <h2>Functions</h2>
+          <h1>Functions</h1>
           <section class="detail">
   <div class="detail_header" id="get_current_broker_id/0">
     <span class="signature"><strong>get_current_broker_id()</strong></span>
@@ -222,16 +223,10 @@
       
       </section> <!--/content -->
 </div><!--/row -->
-  <!-- Scripts -->
-    <script>
-      relpath = '';
-      if (relpath != '') relpath += '/';
-    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>
     <script src="js/highlight.pack.js"></script>
-    <script src="js/affix.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

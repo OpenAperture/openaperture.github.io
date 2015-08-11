@@ -16,12 +16,12 @@
   </head>
   <body>
 
+    
     <div class="row row-offcanvas row-offcanvas-left">
 <section id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
-<div data-spy="affix" data-offset-top="0" data-offset-bottom="0">
   <p class="pull-right visible-xs">
   <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
-    <span class="glyphicon glyphicon-remove"></span>
+    <span class="glyphicon glyphicon-search"></span>
   </button>
   </p>
 
@@ -38,9 +38,15 @@
   </h2>
 
   <div class="nav">
-    <span class="selected"><a id="modules_list" href="#full_list">Modules</a></span>
-    <span><a id="exceptions_list" href="#full_list">Exceptions</a></span>
-    <span><a id="protocols_list" href="#full_list">Protocols</a></span>
+    
+      <span><a id="modules_list" href="#full_list">Modules</a></span>
+    
+    
+      <span role="presentation" class="disabled">Exceptions</span>
+    
+    
+      <span role="presentation" class="disabled">Protocols</span>
+    
   </div>
 
   <div id="search" class="row">
@@ -64,7 +70,6 @@
   </ul>
 
   <div id="no_results"></div>
-</div><!-- /.affix -->
 </section><!--/.sidebar-offcanvas -->
 <section id="content" class="col-xs-12 col-sm-9">
 
@@ -73,7 +78,7 @@
         <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
-        openaperture_deployer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Deployer.html">Deployer</a> &rarr; <a href="OpenAperture.Deployer.Request.html">Request</a>
+        openaperture_deployer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Deployer.html#content">Deployer</a> &rarr; <a href="OpenAperture.Deployer.Request.html#content">Request</a>
       </div>
 
       <h1>
@@ -83,7 +88,7 @@
 
       <ul class="summary_links">
         
-          <li><a href="#summary">Summary</a></li>
+          <li><a href="#summary_details">Summary</a></li>
         
         
           <li><a href="#types_details">Types</a></li>
@@ -105,65 +110,53 @@
       
 
       
-        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
-        <table class="summary">
-          <tr>
+        <section id="summary_details" class="details_list">
+          <h1>Summary</h1>
+          <table class="summary">
+            <tr>
   <td class="summary_signature"><a href="#acknowledge/1">acknowledge(deploy_request)</a></td>
-  
-    <td class="summary_synopsis"><p>Convenience wrapper to acknowledge messages</p>
+  <td class="summary_synopsis"><p>Convenience wrapper to acknowledge messages</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="#from_payload/2">from_payload(payload, async_info)</a></td>
-  
-    <td class="summary_synopsis"><p>Method to convert a map into a Request struct</p>
+  <td class="summary_synopsis"><p>Method to convert a map into a Request struct</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="#publish_failure_notification/3">publish_failure_notification(deploy_request, message, reason)</a></td>
-  
-    <td class="summary_synopsis"><p>Convenience wrapper to publish a “failure” notification to the associated Workflow</p>
+  <td class="summary_synopsis"><p>Convenience wrapper to publish a “failure” notification to the associated Workflow</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="#publish_success_notification/2">publish_success_notification(deploy_request, message)</a></td>
-  
-    <td class="summary_synopsis"><p>Convenience wrapper to publish a “success” notification to the associated Workflow</p>
+  <td class="summary_synopsis"><p>Convenience wrapper to publish a “success” notification to the associated Workflow</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="#save_workflow/1">save_workflow(deploy_request)</a></td>
-  
-    <td class="summary_synopsis"><p>Convenience wrapper to save the updated Workflow</p>
+  <td class="summary_synopsis"><p>Convenience wrapper to save the updated Workflow</p>
 <h2>Options</h2>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="#step_completed/1">step_completed(deploy_request)</a></td>
-  
-    <td class="summary_synopsis"><p>Convenience wrapper to notify the WorkflowOrchestrator that a workflow step has completed</p>
+  <td class="summary_synopsis"><p>Convenience wrapper to notify the WorkflowOrchestrator that a workflow step has completed</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="#step_failed/3">step_failed(deploy_request, message, reason)</a></td>
-  
-    <td class="summary_synopsis"><p>Convenience wrapper to notify the WorkflowOrchestrator that a workflow step has failed</p>
+  <td class="summary_synopsis"><p>Convenience wrapper to notify the WorkflowOrchestrator that a workflow step has failed</p>
 </td>
-  
 </tr>
 
-        </table>
+          </table>
+        </section>
       
 
       
         <section id="types_details" class="details_list">
-          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <h1>Types</h1>
           <div class="type_detail">
   <p class="typespec" id="t:t/0">
     <a href="#t:t/0">t</a> :: %OpenAperture.Deployer.Request{delivery_tag: term, deployable_units: term, deployed_units: term, etcd_token: term, last_total_duration_warning: term, orchestrator_request: term, subscription_handler: term, workflow: term}
@@ -176,7 +169,7 @@
 
       
         <section id="functions_details" class="details_list">
-          <h2>Functions</h2>
+          <h1>Functions</h1>
           <section class="detail">
   <div class="detail_header" id="acknowledge/1">
     <span class="signature"><strong>acknowledge(deploy_request)</strong></span>
@@ -378,16 +371,10 @@ The <code class="inline">message</code> option defines the message to publish</p
       
       </section> <!--/content -->
 </div><!--/row -->
-  <!-- Scripts -->
-    <script>
-      relpath = '';
-      if (relpath != '') relpath += '/';
-    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>
     <script src="js/highlight.pack.js"></script>
-    <script src="js/affix.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

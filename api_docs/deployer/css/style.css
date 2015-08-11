@@ -17,7 +17,7 @@ body
         ...
     div.no_results
 
-  section#content
+  section
     div.breadcrumbs
     h1
       small
@@ -27,20 +27,22 @@ body
     section.docstring#moduledoc
     a.view_source
 
-    h2#summary > span.detail_header_links > a.to_top_link
-    table.summary
-      tr
-        td.summary_signature > a
-        td.summary_synopsis > p
-      ...
+    section.details_list#summary_details
+      h1
+      table.summary
+        tr
+          td.summary_signature > a
+          td.summary_synopsis > p
+        ...
+
     section.details_list#types_details
-      h2 > a.to_top_link
+      h1
       div.type_detail
         p.typespec > a
       ...
 
     section.details_list#functions_details
-      h2
+      h1
       section.detail
         div.detail_header
           span.signature > strong
@@ -65,13 +67,11 @@ body {
 
 body {
   font: 13px "Lucida Sans", "Lucida Grande", Verdana, Arial, sans-serif;
-  padding: 0;
-  margin: 0;
   line-height: 1.618;
 }
 
-div.row {
-    padding: 0 5px 0 0;
+#content {
+  padding: 0 28px 20px 18px;
 }
 
 #sidebar a:link,
@@ -108,7 +108,8 @@ div.row {
 
 #sidebar h2 {
   font-size: 0.9em;
-  margin: 0 10px 12px;
+  margin: 0 10px 10px;
+  border: 0;
 }
 
 /* NAVIGATION BAR */
@@ -158,6 +159,11 @@ div.row {
 #search .col-xs-2 {
   font-size: 1.6em;
   padding-right: 3px;
+}
+
+#search button {
+  outline: 0;
+  z-index: 0;
 }
 
 #search .glyphicon.spinning {
@@ -342,7 +348,7 @@ a:hover {
   color: #27c;
 }
 
-h1:not(#full_list_header) {
+h1 {
   font-size: 25px;
   border-top: 0;
   margin-top: 0;
@@ -354,17 +360,24 @@ h1 small {
   font-size: 18px;
 }
 
-h2:not(#sub_list_header) {
+h2 {
   padding: 0 0 3px 0;
   border-bottom: 1px #aaa solid;
   font-size: 1.4em;
   margin: 1.8em 0 0.5em;
 }
 
+section.details_list h1 {
+  border-bottom: 1px dotted #aaa;
+  padding-top: 35px;
+  padding-bottom: 10px;
+}
+
 table {
   border: 1px solid #aaa;
   border-collapse: collapse;
-  margin-top: 1em;
+  margin: 1em 0;
+  empty-cells: show;
 }
 
 table th {
@@ -396,9 +409,9 @@ li.r2 {
 }
 
 div.breadcrumbs {
-  padding: 3px 6px;
+  padding: 3px 15px 3px 16px;
   background-color: #EEE;
-  margin: 0 -6px 10px;
+  margin: 0 0 10px -18px;
   line-height: 28px;
   display: block;
 }
@@ -418,6 +431,11 @@ ul.summary_links li {
   background: #f0f0f0;
 }
 
+/* EXTERNAL LINKS */
+#content a.external span {
+  padding-left: 3px;
+}
+
 /* DOCSTRING */
 
 section.docstring,
@@ -425,26 +443,13 @@ p.docstring {
   margin-right: 0;
 }
 
-.docstring h1,
-.docstring h2,
-.docstring h3,
-.docstring h4 {
-  padding: 0;
+.docstring h2, .docstring h3, .docstring h4 {
   border: 0;
+  margin: 1.8em 0 0.5em;
 }
 
-.docstring h1 {
-  font-size: 1.3em;
-}
-
-.docstring h2 {
+.docstring h3, .docstring h4 {
   font-size: 1.2em;
-}
-
-.docstring h3,
-.docstring h4 {
-  font-size: 1em;
-  padding-top: 10px;
 }
 
 .docstring ul {
@@ -470,6 +475,7 @@ a.to_top_link {
 table.summary {
   border: 0;
   border-collapse: separate;
+  width: 100%;
 }
 
 table.summary tr:nth-child(odd) {
@@ -492,6 +498,7 @@ td.summary_signature {
 
 td.summary_synopsis {
   padding-left: 0.5em;
+  width: 90%;
 }
 
 td.summary_synopsis p {
@@ -533,7 +540,7 @@ div.detail_header {
   background: #e5e8ff;
   border: 1px solid #d8d8e5;
   border-radius: 3px;
-  margin-top: 18px;
+  margin: 18px 0 13px;
   padding: 6px 10px;
 }
 
@@ -572,6 +579,35 @@ pre {
  * Off Canvas
  * --------------------------------------------------
  */
+@media screen and (min-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+  }
+
+  .row-offcanvas-left {
+    left: 25%; /* 3 columns */
+    margin-left: 0;
+  }
+
+  .sidebar-offcanvas {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+    border-right: 1px solid #ccc;
+  }
+
+  .sidebar-offcanvas.col-sm-3 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .breadcrumbs button {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .row-offcanvas {
     position: relative;
@@ -596,58 +632,36 @@ pre {
   .sidebar-offcanvas {
     position: absolute;
     top: 0;
-    width: 50%; /* 6 columns */
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+    border-right: 1px solid #ccc;
+  }
+
+  .sidebar-offcanvas.col-xs-6 {
+    padding-left: 30px;
+    padding-right: 0;
   }
 
   .pull-right button {
     margin: 3px 6px 0 0;
   }
 
-  #content {
-    padding-left: 20px;
-  }
-}
-/*
- * Affix
- * --------------------------------------------------
- */
-@media screen and (min-width: 767px) {
-  .affix-top,
-  .affix,
-  .affix-bottom {
-    position: fixed;
-    width: 25%;
-    border-right: 1px solid #ccc;
-  }
-  .affix {
-    top: 0;
-  }
-  div.breadcrumbs button {
-    display: none;
-  }
-}
-@media screen and (max-width: 767px) {
-  .row-offcanvas-left .affix,
-  .row-offcanvas-left .affix-top,
-  .row-offcanvas-left .affix-bottom {
-    position: relative;
-    left: -50%;
+  #content.col-xs-12 {
+    padding-left: 30px;
   }
 
-  .row-offcanvas-left.active .affix,
-  .row-offcanvas-left.active .affix-top,
-  .row-offcanvas-left.active .affix-bottom {
-    position: fixed;
-    left: 0 ;
-    max-width: 50%;
-    overflow: hidden;
-    border-right: 1px solid #ccc;
-    -webkit-transition: all .25s ease-out;
-         -o-transition: all .25s ease-out;
-            transition: all .25s ease-out;
+  #content.col-xs-12.offcanvas-active {
+    padding-left: 15px;
   }
 
-  div.breadcrumbs button {
-    display: block;
+  .breadcrumbs {
+    margin: 0 -6px 10px;
   }
+
+  .breadcrumbs button {
+    display: inline;
+    margin-top: -2px;
+  }
+
 }

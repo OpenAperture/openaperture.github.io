@@ -18,10 +18,9 @@
 
     <div class="row row-offcanvas row-offcanvas-left">
 <section id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
-<div data-spy="affix" data-offset-top="0" data-offset-bottom="0">
   <p class="pull-right visible-xs">
   <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
-    <span class="glyphicon glyphicon-remove"></span>
+    <span class="glyphicon glyphicon-search"></span>
   </button>
   </p>
 
@@ -38,9 +37,15 @@
   </h2>
 
   <div class="nav">
-    <span class="selected"><a id="modules_list" href="#full_list">Modules</a></span>
-    <span><a id="exceptions_list" href="#full_list">Exceptions</a></span>
-    <span><a id="protocols_list" href="#full_list">Protocols</a></span>
+    
+      <span><a id="modules_list" href="#full_list">Modules</a></span>
+    
+    
+      <span role="presentation" class="disabled">Exceptions</span>
+    
+    
+      <span role="presentation" class="disabled">Protocols</span>
+    
   </div>
 
   <div id="search" class="row">
@@ -64,7 +69,6 @@
   </ul>
 
   <div id="no_results"></div>
-</div><!-- /.affix -->
 </section><!--/.sidebar-offcanvas -->
 <section id="content" class="col-xs-12 col-sm-9">
 
@@ -74,7 +78,7 @@
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
         
-          openaperture_deployer v0.0.1 &rarr; <a href="overview.html">Overview</a>
+          openaperture_deployer v0.0.1 &rarr; <a href="overview.html#content">Overview</a>
         
       </div>
 
@@ -89,71 +93,57 @@
       </ul>
 
       
-        <h2 id="modules_summary">Modules summary <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
-        <table class="summary">
-          <tr>
+        <section id="modules_summary" class="details_list">
+          <h1>Modules summary</h1>
+          <table class="summary">
+            <tr>
   <td class="summary_signature"><a href="OpenAperture.Deployer.html">OpenAperture.Deployer</a></td>
-  
-    <td class="summary_synopsis"><p>Defines the Deployer application</p>
+  <td class="summary_synopsis"><p>Defines the Deployer application</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Deployer.Configuration.html">OpenAperture.Deployer.Configuration</a></td>
-  
-    <td class="summary_synopsis"><p>Retrieves configuration from either ENV variables or config.exs</p>
+  <td class="summary_synopsis"><p>Retrieves configuration from either ENV variables or config.exs</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Deployer.Dispatcher.html">OpenAperture.Deployer.Dispatcher</a></td>
-  
-    <td class="summary_synopsis"><p>Receives AMQP messages and spawns individual deployment tasks, adding them
+  <td class="summary_synopsis"><p>Receives AMQP messages and spawns individual deployment tasks, adding them
 under a supervisor dynamically</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Deployer.MessageManager.html">OpenAperture.Deployer.MessageManager</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the logic for associating message references with their subscription handlers</p>
+  <td class="summary_synopsis"><p>This module contains the logic for associating message references with their subscription handlers</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Deployer.MilestoneMonitor.html">OpenAperture.Deployer.MilestoneMonitor</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Deployer.Milestones.Deploy.html">OpenAperture.Deployer.Milestones.Deploy</a></td>
-  
-    <td class="summary_synopsis"><p>Defines a single deployment task</p>
+  <td class="summary_synopsis"><p>Defines a single deployment task</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Deployer.Milestones.Monitor.html">OpenAperture.Deployer.Milestones.Monitor</a></td>
-  
-    <td class="summary_synopsis"><p>Defines a single deployment task</p>
+  <td class="summary_synopsis"><p>Defines a single deployment task</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Deployer.Request.html">OpenAperture.Deployer.Request</a></td>
-  
-    <td class="summary_synopsis"><p>Methods and Request struct for Deployer requests</p>
+  <td class="summary_synopsis"><p>Methods and Request struct for Deployer requests</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Deployer.Supervisor.html">OpenAperture.Deployer.Supervisor</a></td>
-  
-    <td class="summary_synopsis"><p>Defines the supervison tree of the application</p>
+  <td class="summary_synopsis"><p>Defines the supervison tree of the application</p>
 </td>
-  
 </tr>
 
-        </table>
+          </table>
+        </section>
       
 
       
@@ -161,16 +151,10 @@ under a supervisor dynamically</p>
       
       </section> <!--/content -->
 </div><!--/row -->
-  <!-- Scripts -->
-    <script>
-      relpath = '';
-      if (relpath != '') relpath += '/';
-    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>
     <script src="js/highlight.pack.js"></script>
-    <script src="js/affix.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
