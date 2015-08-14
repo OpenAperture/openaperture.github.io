@@ -5,7 +5,7 @@ sidebarNodes = {
 },{"id": "OpenAperture.FleetManager.Configuration",
 "docs": ["get_current_broker_id/0","get_current_exchange_id/0","get_current_queue_name/0"]
 },{"id": "OpenAperture.FleetManager.Dispatcher",
-"docs": ["acknowledge/2","close_connection/1","process_request/2","publish/3","publish_rpc/4","register_queues/0","reject/3","start_link/0","subscribe/3","unsubscribe/2"]
+"docs": ["acknowledge/2","close_connection/1","process_request/2","process_request_internal/2","publish/3","publish_rpc/4","register_queues/0","reject/3","start_link/0","subscribe/3","unsubscribe/2"]
 },{"id": "OpenAperture.FleetManager.FleetAction.FleetResponse",
 "docs": ["parse/1"]
 },{"id": "OpenAperture.FleetManager.FleetAction.ListMachines",
