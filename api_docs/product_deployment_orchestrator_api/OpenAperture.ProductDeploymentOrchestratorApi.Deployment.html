@@ -96,7 +96,7 @@
           <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
           <div class="type_detail">
   <p class="typespec" id="t:t/0">
-    <a href="#t:t/0">t</a> :: %OpenAperture.ProductDeploymentOrchestratorApi.Deployment{completed: term, deployment_id: term, output: term, plan_tree: term, product_name: term}
+    <a href="#t:t/0">t</a> :: %OpenAperture.ProductDeploymentOrchestratorApi.Deployment{product_name: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, plan_tree: <a href="OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.html#t:t/0">OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.t</a>, completed: term, deployment_id: term, output: term}
   </p>
   
 </div>
@@ -117,6 +117,13 @@
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>determine_current_step(<a href="OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.html#t:t/0">OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.t</a>) :: <a href="OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.html#t:t/0">OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.t</a> | nil</li>
+      
+    </ul>
+  
   <section class="docstring">
     
   </section>
@@ -135,7 +142,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>from_payload(Map) :: OpenAperture.WorkflowOrchestratorApi.Workflow</li>
+        <li>from_payload(%{}) :: <a href="#t:t/0">t</a></li>
       
     </ul>
   
@@ -177,7 +184,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>to_payload(OpenAperture.WorkflowOrchestratorApi.Workflow.t) :: Map</li>
+        <li>to_payload(<a href="#t:t/0">t</a>) :: %{}</li>
       
     </ul>
   
@@ -201,6 +208,13 @@
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>update_current_step_status(<a href="OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.html#t:t/0">OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.t</a>, term) :: <a href="OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.html#t:t/0">OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.t</a> | nil</li>
+      
+    </ul>
+  
   <section class="docstring">
     
   </section>
@@ -215,6 +229,13 @@
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>update_current_step_status(<a href="OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.html#t:t/0">OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.t</a> | nil, <a href="OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.html#t:t/0">OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.t</a>, term) :: <a href="OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.html#t:t/0">OpenAperture.ProductDeploymentOrchestratorApi.PlanTreeNode.t</a> | nil</li>
+      
+    </ul>
   
   <section class="docstring">
     
