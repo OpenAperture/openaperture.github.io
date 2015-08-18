@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OpenAperture Documentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	  <div class="jumbotron">
+	  	<h1>OpenAperture</h1>
+	  	<!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
+	    <p>Cloud Application Management Platform</p> 
+	  </div>
+	  <div class="row">
+	  	<p class="col-md-12 lead">
+	  		OpenAperture is a free, open-source hybrid cloud management platform that delivers software quickly and consistently regardless of location or workload. This future-ready platform from Lexmark Enterprise Software provides a comprehensive management system to handle the six pillars of cloud management – provisioning, deployment, monitoring, maintenance, security and metering.
+			</p>
+		</div>
+		<br/>
+		<div class="row">
+			<h3>Communication / Messaging</h3>
+			<br/>
+			<p>OpenAperture is designed to work in a centralized Cloud as well as on-premesis, as one fluid system.  As such, a communication protocol was needed that could communicate with Etcd Clusters that lived publically privately.  With the exception of the REST interface defined in Manager, all components communicate with each other via the AMQP protocol.  The current implementation is built on top of federated RabbitMQ clusters, but that's not required.</p>
+			<br/>
+			<h4>Terminology</h4>
+			<p>Messaging provides the following abstractions:</p>
+			<br/>
+			<ul>
+				<li>Messaging Broker</li>
+				<ul>
+					<li>A named AMQP server or cluster (i.e. RabbitMQ cluster)</li>
+					<li>Allows a failover Broker to be specified.</li>
+				</ul> 
+				<li>Messaging Broker Connection</li>
+				<ul>
+					<li>A set of connection options for a Broker.  These include hostname, port, username, password</li>
+				</ul> 				
+				<li>Messaging Exchange</li>
+				<ul>
+					<li>An AMQP exchange</li>
+					<li>Allows a failover Exchange to be specified</li>
+					<li>Exchanges are hierarchical, to better reflect AMQP server configuration</li>
+				</ul>
+				<li>Messaging Exchange Broker</li>
+				<ul>
+					<li>Also known as an “exchange broker restriction”, this indicates that a particular Exchange is only accessible through a particular Broker</li>
+				</ul>				
+				<li>Messaging Exchange Module</li>
+				<ul>
+					<li>A list of all System Components currently running in an Exchange</li>
+				</ul>						
+			</ul>
+		</div>
+		<br/>
+		<div class="row">
+			<p>In the event of a loss of connection to a Broker, Messaging will attempt several reconnects before attempting to connect to the failover Broker/Exchange.  If you have specifying a failover Broker, be sure that the broker has the designated failover Exchange present.</p>
+			<p>In OpenAperture terms, Brokers are the gateway to Exchanges.  Exchanges can be considered “geographies”.  If using RabbitMQ, the brokers may be federated, but that’s not a requirement of the overall system.  By default, Messaging assumes that every Exchange is accessible by any other Exchange directly.  However, that’s clearly not going to work for everyone; if you are running a separate Broker (i.e. a Broker on a customer site, in a separate data center, etc…), you simply need to specify a Messaging Exchange Broker relationship so that Messaging knows how to resolve to the correct connection options.</p>
+		</div>
+		<div class="row">
+			<h4>RabbitMQ Configuration</h4>
+			<p>Currently configuration must be setup in AMQP first, and then mirrored into OpenAperture before OA attempts to connect (i.e. exchanges and queues are not automatically declared).  Exchanges may be defined to meet the needs of your system, but the following structure is recommended.  Each System Component has at least one queue that must be defined in AMQP.  The following AMQP queues are utilized by OpenAperture:</p>
+			<ul>
+				<li>workflow_orchestration</li>
+				<ul>
+					<li>Owning System Component:&nbsp;&nbsp;WorkflowOrchestrator</li>
+					<li>Used to start or continue execution of a Workflow</li>
+				</ul>
+				<li>builder</li>
+				<ul>
+					<li>Owning System Component:&nbsp;&nbsp;Builder</li>
+					<li>Used to start the “build” or "config" milestone of a Workflow</li>
+				</ul>
+				<li>deployer</li>
+				<ul>
+					<li>Owning System Component:&nbsp;&nbsp;Deployer</li>
+					<li>Used to start the “deploy” milestone of a Workflow</li>
+				</ul>
+				<li>deploy_oa</li>
+				<ul>
+					<li>Owning System Component:&nbsp;&nbsp;Deployer (OA instance(s))</li>
+					<li>Used to start the “deploy” milestone of a Workflow, specifically for OpenAperture System Component upgrades</li>
+				</ul>							
+				<li>fleet_manager</li>
+				<ul>
+					<li>Owning System Component:&nbsp;&nbsp;FleetManager</li>
+					<li>Used to request (RPC-style) Fleet information</li>
+				</ul>			
+				<li>notifications_hipchat</li>					
+				<ul>
+					<li>Owning System Component:&nbsp;&nbsp;Notifications</li>
+					<li>Used to publish a Hipchat notification</li>
+				</ul>					
+				<li>notifications_email</li>					
+				<ul>
+					<li>Owning System Component:&nbsp;&nbsp;Notifications</li>
+					<li>Used to publish an Email notification</li>
+				</ul>				
+				<li>overseer</li>					
+				<ul>
+					<li>Owning System Component:&nbsp;&nbsp;Overseer</li>
+					<li>Used to request upgrades to System Components within the exchange assigned to the Overseer</li>
+				</ul>					
+				<li>system_modules</li>					
+				<ul>
+					<li>Owning System Component:&nbsp;&nbsp;Overseer</li>
+					<li>Used to publish heartbeat updates from System Components to the Overseer</li>
+				</ul>				
+				<li>system_modules</li>					
+				<ul>
+					<li>Owning System Component:&nbsp;&nbsp;Overseer</li>
+					<li>Used to publish heartbeat updates from System Components to the Overseer</li>
+				</ul>				
+				<li>manager.build_logs.*</li>					
+				<ul>
+					<li>Owning System Component:&nbsp;&nbsp;Manager</li>
+					<li>Dynmically-generated queues that can receive in-progress docker build logs</li>
+				</ul>				
+			</ul>
+
+			<br/>
+			<p>Here’s an example configuration that could be created for AWS:</p>
+			<ul>
+				<li><u>RabbitMQ Configuration</u></li>
+				<ul>
+					<li>Topic Exchange:  AWS (durable)</li>
+					<li>Queue:  aws:us-east-1.builder (durable)</li>
+					<li>Queue:  aws:us-east-1.deployer (durable)</li>
+					<li>Queue:  aws:us-east-1.deploy_oa (durable)</li>
+					<li>Queue:  aws:us-east-1.fleet_manager (durable)</li>
+					<li>Queue:  aws:us-east-1.overseer (durable)</li>
+					<li>Queue:  aws:us-east-1.system_modules (durable)</li>
+					<li>Queue:  aws:us-east-1.notifications_hipchat (durable)</li>
+					<li>Queue:  aws:us-east-1.workflow_orchestration (durable)</li>
+					<li>Topic Exchange:  US-EAST-1 (durable)</li>
+					<ul>
+						<li>Bind AWS exchange to route messages from aws.us-east-1.* to this exchange</li>
+						<li>aws.us-east-1.builder</li>
+						<li>aws.us-east-1.deployer</li>
+						<li>aws.us-east-1.deploy_oa</li>
+						<li>aws.us-east-1.fleet_manager</li>
+						<li>aws.us-east-1.overseer</li>
+						<li>aws.us-east-1.system_modules</li>
+						<li>aws.us-east-1.notifications_hipchat</li>
+						<li>aws.us-east-1.workflow_orchestration</li>
+					</ul>
+					<li>Queue:  aws:us-west-1.builder (durable)</li>
+					<li>Queue:  aws:us-west-1.deployer (durable)</li>
+					<li>Queue:  aws:us-west-1.fleet_manager (durable)</li>
+					<li>Queue:  aws:us-west-1.overseer (durable)</li>
+					<li>Queue:  aws:us-west-1.system_modules (durable)</li>
+					<li>Queue:  aws:us-west-1.notifications_hipchat (durable)</li>
+					<li>Queue:  aws:us-west-1.workflow_orchestration (durable)</li>
+					<li>Topic Exchange:  US-WEST-1 (durable)</li>
+					<ul>
+						<li>Bind AWS exchange to route messages from aws.us-west-1.* to this exchange</li>
+						<li>aws.us-west-1.builder</li>
+						<li>aws.us-west-1.deployer</li>
+						<li>aws.us-west-1.deploy_oa</li>
+						<li>aws.us-west-1.fleet_manager</li>
+						<li>aws.us-west-1.overseer</li>
+						<li>aws.us-west-1.system_modules</li>
+						<li>aws.us-west-1.notifications_hipchat</li>
+						<li>aws.us-west-1.workflow_orchestration</li>
+					</ul>
+				</ul>
+				<li><u>OpenAperture Configuration</u></li>		
+				<ul>
+					<li>AWS</li>
+					<ul>
+						<li>Exchange</li>
+						<li>routing key fragment:  aws</li>
+					</ul>
+					<li>US-EAST-1</li>
+					<ul>
+						<li>Exchange</li>
+						<li>routing key fragment: us-east-1</li>
+						<li>parent_messaging_exchange:  AWS</li>
+					</ul>
+					<li>US-WEST-1</li>
+					<ul>
+						<li>Exchange</li>
+						<li>routing key fragment: us-west-1</li>
+						<li>parent_messaging_exchange:  AWS</li>
+					</ul>
+				</ul>
+			</ul>
+		<br/>
+		<p>System Components on startup are configured to register themselves with a Broker and Exchange (specified in the environment config).</p>
+		<p>When a message is published, it’s published to a specific broker and exchange combination.  Modules resolve their connection options dynamically by looking up their current Broker (source Broker) and Exchange (source Exchange) and comparing to the new Exchange (target Exchange).  When publishing to an exchange, the “root exchange” is used.  For example, if you specify a hierarchy looking like:</p>
+		<br/>
+		<ul>
+			<li>AWS</li>
+			<ul>
+				<li>routing key fragment:  aws</li>
+			</ul>
+			<li>US-EAST-1</li>
+			<ul>
+				<li>routing key fragment: us-east-1</li>
+				<li>parent_messaging_exchange:  AWS</li>
+			</ul>
+		</ul>
+		<br/>
+		<p>The message will be published to exchange AWS, with a routing key:</p>
+		<ul>
+			<li>aws.us-east-1.*component*</li>
+		</ul>
+		<p>When subscribing to messages, the components will use the queue name specified in the environment config to receive messages.</p>
+	</div>
+	<br/>
+	<br/>
+	<div class="footer navbar-fixed-bottom">
+		<div class="container">
+		<p class="text-muted pull-right">© 2015 Lexmark International Technology S.A.  All rights reserved.</p>
+		</div>
+	</div>	
+</body>
+</html>
