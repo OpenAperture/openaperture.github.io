@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OpenAperture Documentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	  <div class="jumbotron">
+	  	<h1>OpenAperture</h1>
+	  	<!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
+	    <p>Cloud Application Management Platform</p> 
+	  </div>
+	  <div class="row">
+	  	<p class="col-md-12 lead">
+	  		OpenAperture is a free, open-source hybrid cloud management platform that delivers software quickly and consistently regardless of location or workload. This future-ready platform from Lexmark Enterprise Software provides a comprehensive management system to handle the six pillars of cloud management – provisioning, deployment, monitoring, maintenance, security and metering.
+			</p>
+		</div>
+		<br/>
+		<div class="row">
+			<h3>Deployable System Component Overview</h3>
+			<br/>
+	      <table class="table table-striped table-bordered">
+	      	<thead>
+        		<tr>
+        			<th style="width:10%">Name</th>
+        			<th>Description</th>
+        		</tr>
+        	</thead>
+	      	<tbody>
+	      		<tr>
+	      			<td>Manager</td>
+	      			<td>Responsible for the REST HTTP endpoints (Phoenix framework) and database connection.  This component requires an exposed port for the HTTP server (Cowboy)</td>
+	      		</tr>
+	      		<tr>
+	      			<td>Overseer</td>
+	      			<td>
+		      			Responsible for providing system health updates about the Etcd Clusters and various System Components.  The Overseer continually monitors the system health of the cluster, specifically looking for the following information:
+		      			<ul>
+		      				<li>Heartbeat messages from all components in the assigned Exchange</li>
+		      				<li>Instances of the Fleet units that are in a failed state</li>
+		      				<li>Fleet units that have no active instances</li>
+		      				<li>Hosts that have a /var/lib/docker directory at >80% utilization</li>
+		      			</ul>
+	      			</td>
+	      		</tr>	   
+	      		<tr>
+	      			<td>Notifications</td>
+	      			<td>Responsible for posting HipChat, and email notifications for all System Components</td>
+	      		</tr>
+	      		<tr>
+	      			<td>WorkflowOrchestrator</td>
+	      			<td>Responsible for coordinating Workflow activities (docker builds, Fleet deployments, etc...) across all system components, and exchanges</td>
+	      		</tr>
+	      		<tr>
+	      			<td>Builder</td>
+	      			<td>Responsible for updating deployment repositories and executing docker builds.  This component must have direct access to a second Etcd Cluster that will be used for executing remote docker builds</td>
+	      		</tr>	
+	      		<tr>
+	      			<td>Deployer</td>
+	      			<td>Responsible for executing Fleet deployments on application-specific Etcd clusters.  This component must have direct (Fleet HTTP) access to the Etcd Cluster that will be hosting the application</td>
+	      		</tr>
+	      		<tr>
+	      			<td>Deployer OA</td>
+	      			<td>This is the same component as Deployer, except it listens on a separate channel, designated specifically for upgrading OpenAperture System Components</td>
+	      		</tr>	      		
+	      		<tr>
+	      			<td>Fleet Manager</td>
+	      			<td>Responsible for executing Fleet commands in remote Etcd Clusters.  This component must have direct (Fleet HTTP & SSH) access to the Etcd Cluster that is being queried</td>
+	      		</tr>	      		
+	      	</tbody>
+	      </table>			
+		</div>
+	</div>
+
+	<div class="footer navbar-fixed-bottom">
+		<div class="container">
+		<p class="text-muted pull-right">© 2015 Lexmark International Technology S.A.  All rights reserved.</p>
+		</div>
+	</div>	
+</body>
+</html>
