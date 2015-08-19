@@ -133,7 +133,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>cache_stale?(Map) :: term</li>
+        <li>cache_stale?(%{}) :: term</li>
       
     </ul>
   
@@ -158,14 +158,14 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_build_clusters(Map) :: {List, Map}</li>
+        <li>get_build_clusters(%{}) :: {list, %{}}</li>
       
     </ul>
   
   <section class="docstring">
     <p>Method to retrieve build clusters, from cache if possible</p>
 <h2>Return Values</h2>
-<p>{List of {messaging_exchange_id, cluster}, state}</p>
+<p>{list of {messaging_exchange_id, cluster}, state}</p>
 
   </section>
   
@@ -183,14 +183,14 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_exchange_cluster(List) :: {<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map}</li>
+        <li>get_exchange_cluster(list) :: {<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}}</li>
       
     </ul>
   
   <section class="docstring">
     <p>Method to resolve to a single cluster for use.</p>
 <h2>Options</h2>
-<p>The <code class="inline">docker_build_clusters</code> option represents a List of tuples, each tuple consisting of
+<p>The <code class="inline">docker_build_clusters</code> option represents a list of tuples, each tuple consisting of
 {messaging_exchange_id, etcd_cluster}.  messaging_exchange_id is a String, etcd_cluster is a Map</p>
 <h2>Return Values</h2>
 <p>{messaging_exchange_id, cluster}</p>
@@ -211,14 +211,14 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_global_build_clusters :: List</li>
+        <li>get_global_build_clusters :: list</li>
       
     </ul>
   
   <section class="docstring">
     <p>Method to retrieve all known build clusters</p>
 <h2>Return Values</h2>
-<p>List of {messaging_exchange_id, cluster}</p>
+<p>;ist of {messaging_exchange_id, cluster}</p>
 
   </section>
   
@@ -236,14 +236,14 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_local_build_clusters :: List</li>
+        <li>get_local_build_clusters :: list</li>
       
     </ul>
   
   <section class="docstring">
     <p>Method to retrieve build clusters in the current exchange</p>
 <h2>Return Values</h2>
-<p>List of {messaging_exchange_id, cluster}</p>
+<p>list of {messaging_exchange_id, cluster}</p>
 
   </section>
   
@@ -261,7 +261,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>handle_call({:next_available}, term, Map) :: {:reply, {<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map}, Map}</li>
+        <li>handle_call({:next_available}, term, %{}) :: {:reply, {<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}}, %{}}</li>
       
     </ul>
   
@@ -289,7 +289,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>next_available :: {<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map}</li>
+        <li>next_available :: {<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}}</li>
       
     </ul>
   
