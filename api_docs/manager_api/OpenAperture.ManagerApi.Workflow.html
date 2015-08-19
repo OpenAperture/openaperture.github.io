@@ -161,7 +161,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create_workflow(pid, Map, Map, List, List) :: term</li>
+        <li>create_workflow(pid, %{}, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -192,7 +192,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create_workflow!(pid, Map, Map, List, List) :: term | nil</li>
+        <li>create_workflow!(pid, %{}, %{}, list, list) :: term | nil</li>
       
     </ul>
   
@@ -223,7 +223,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>delete_workflow(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, List, List) :: term</li>
+        <li>delete_workflow(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -254,7 +254,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>delete_workflow!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, List, List) :: term</li>
+        <li>delete_workflow!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -285,7 +285,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>execute_workflow(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, Map, List, List) :: term</li>
+        <li>execute_workflow(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -317,7 +317,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>execute_workflow!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, Map, List, List) :: term</li>
+        <li>execute_workflow!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -349,7 +349,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_workflow(pid, term, Map, List, List) :: term</li>
+        <li>get_workflow(pid, term, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -380,7 +380,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_workflow!(pid, term, Map, List, List) :: Map | nil</li>
+        <li>get_workflow!(pid, term, %{}, list, list) :: %{} | nil</li>
       
     </ul>
   
@@ -411,12 +411,12 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>list(pid, Map, List, List) :: term</li>
+        <li>list(pid, %{}, list, list) :: term</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Retrieves the entire list of Workflows. </p>
+    <p>Retrieves the entire list of Workflows.</p>
 <h2>Options</h2>
 <p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
 <p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
@@ -441,12 +441,12 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>list!(pid, Map, List, List) :: <a href="http://elixir-lang.org/docs/stable/elixir/Access.html#t:get/2">List[Map]</a> | nil</li>
+        <li>list!(pid, %{}, list, list) :: <a href="http://elixir-lang.org/docs/stable/elixir/Access.html#t:get/2">list[%{}]</a> | nil</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Retrieves the entire list of Workflows. </p>
+    <p>Retrieves the entire list of Workflows.</p>
 <h2>Options</h2>
 <p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
 <p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
@@ -471,7 +471,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>update_workflow(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, Map, List, List) :: term</li>
+        <li>update_workflow(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -503,7 +503,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>update_workflow!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, Map, List, List) :: term | nil</li>
+        <li>update_workflow!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, %{}, list, list) :: term | nil</li>
       
     </ul>
   
