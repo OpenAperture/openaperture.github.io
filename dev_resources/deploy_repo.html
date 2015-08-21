@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OpenAperture Documentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	  <div class="jumbotron">
+	  	<h1>OpenAperture</h1>
+	  	<!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
+	    <p>Cloud Application Management Platform</p> 
+	  </div>
+	  <div class="row">
+	  	<p class="col-md-12 lead">
+	  		OpenAperture is a free, open-source hybrid cloud management platform that delivers software quickly and consistently regardless of location or workload. This future-ready platform from Lexmark Enterprise Software provides a comprehensive management system to handle the six pillars of cloud management – provisioning, deployment, monitoring, maintenance, security and metering.
+			</p>
+		</div>
+		<br/>
+		<div class="row">
+			<h2>Deployment Repository</h2>
+			<p>The deployment repository is a Github repository containing the docker build files as well as the deployment run-time configuration files.  Managing multiple environments for an application can be managed by using branches of the deployment repository.</p>
+
+			<p>Note that the Builder system component will need to access this repository in order to execute the docker build and retrieve the Fleet service file(s).  If your repositories are private, your Builder deployment must have an SSH key or similar mechanism setup for git in order to clone the repository.</p>
+
+			<h3>Required Files</h3>		
+			<ul>
+				<li>Dockerfile.eex</li>
+				<ul>
+					<li>This is an Elixir templated version of the <a href="https://docs.docker.com/reference/builder/">Dockerfile</a>. During the course of the build, this will be turned into a standard Dockerfile that is used to generate a docker image.  By default, OpenAperture will execute a term replacement for the following keywords:</li>
+					<ul>
+						<li>timestamp</li>
+						<li>commit_hash</li>
+					</ul>
+				</ul>
+
+				<li>*app-name*@.service.eex</li>
+				<ul>
+					<li>This is an Elixir templated version of the <a href="https://coreos.com/fleet/docs/latest/unit-files-and-scheduling.html">Fleet service file</a>. During the course of the deployment, this will be turned into a standard service file that is used by Fleet to spin up the image created by the Dockerfile.eex. By default, OpenAperture will execute a term replacement for the following keywords:
+					</li>
+					<li>
+					The service file executes the "docker run" command, and is thereby responsible for managing the environment variables that are passed into the docker file. Environment variables include things like docker image tag, ports, etc…
+					</li>
+					<ul>
+						<li>timestamp</li>
+						<li>commit_hash</li>
+					</ul>
+				</ul>				
+
+				<li>etcd.json</li>
+				<ul>
+					<li>This file must contain a JSON struct with the <a href="https://coreos.com/os/docs/latest/cluster-discovery.html">etcd token</a>, defining the deployment cluster. The structure is as follows:</li>
+				</ul>
+				<pre>
+{
+  "token": "123abc"
+}			
+				</pre>
+
+				<li>docker.json</li>
+				<ul>
+					<li>OpenAperture pushes it’s built images to a docker registry. The structure is as follows:</li>
+				</ul>
+				<pre>
+{
+  "name": "app",
+  "repository":"*registry*/app",
+  "docker_url": "*registry*/app"
+}		
+				</pre>				
+			</ul>
+
+				<li>source.json</li>
+				<ul>
+					<li>Contains information about the source repository associated with the deployment repository:</li>
+				</ul>
+				<pre>
+{
+    "source_repo" : "OpenAperture/app"
+}				
+				</pre>				
+			</ul>
+
+			<h3>Optional Files</h3>
+				You may add whatever files are necessary to build your docker image in this repository (i.e. bash files, PEMs, etc...).  During the "build" milestone, OpenAperture will clone this repository locally and execute a docker build.  During the "deploy" milestone, OpenAperture will use the previously cloned repository's Fleet Unit(s) to execute the deployment.
+		</div>
+	</div>
+	<br/>
+	<br/>
+	<div class="footer navbar-fixed-bottom">
+		<div class="container">
+		<p class="text-muted pull-right">© 2015 Lexmark International Technology S.A.  All rights reserved.</p>
+		</div>
+	</div>	
+</body>
+</html>		

@@ -76,6 +76,54 @@
 	      	</tbody>
 	      </table>			
 		</div>
+
+		<div class="row">
+			<h3>System Component Assemblies</h3>
+			<br/>
+			<p>
+			In order for the components to communicate correctly, groups of System Components (called Assemblies) must be running in the same Exchange.  Multiple assemblies may run in the same Exchange.
+			</p>
+			<p>
+			In order to deploy an assembly into a distributed environment, the primary Deploy assembly must have Fleet access to the deployment cluster.  After the initial deployment, you can run a backup Deployment assembly in the distributed environment for self-upgrades.			
+			</p>
+			<p>
+			A RabbitMQ server should be created for each distributed assembly and (ideally) be added to the master Federated RabbitMQ mesh.			
+			</p>
+			<br/>
+			<h4>Management Assembly</h4>
+			<p>
+			The Management Assembly hosts the System Components responsible for running the RESTful interface (only external interface into the system), and coordinating messages between exchanges.
+			</p>
+			<ul>
+				<li>Manager</li>
+				<li>WorkflowOrchestrator</li>
+				<li>Notifications</li>
+				<li>Overseer</li>
+				<li>FleetManager</li>
+			</ul>
+			<p>There should be only 1 primary Management Assembly.  A failover assembly should point to the same db (or failover db instance).</p>
+			<p>This cluster is critical as it does docker host cluster Exchange resolution (for pending builds), and deployment cluster Exchange resolution (for deploys).</p>
+			<br/>
+			<h4>Build Assembly</h4>
+			<p>The Build Assembly hosts the System Components responsible for updating Deployment configuration (i.e. Github pulls/pushes) and executing docker builds.</p>
+			<ul>
+				<li>Overseer</li>
+				<li>FleetManager</li>				
+				<li>Builder</li>
+				<li>FleetManager</li>
+				<li>Docker Build Slaves</li>
+			</ul>						
+			<p>Note that the Builder assumes the docker build slave cluster is directly accessible (i.e. for DOCKER_HOST).</p>
+			<br/>
+			<h4>Deployment Assembly</h4>			
+			<ul>
+				<li>Overseer</li>
+				<li>FleetManager</li>				
+				<li>Deployer</li>
+				<li>Application Fleet clusters</li>
+			</ul>				
+			<p>Note that the Deployer assumes the deployment cluster is directly accessible (i.e. Fleet commands).</p>
+		</div>		
 	</div>
 
 	<div class="footer navbar-fixed-bottom">
