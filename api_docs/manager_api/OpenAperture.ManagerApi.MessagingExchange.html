@@ -224,7 +224,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create_exchange(pid, Map, Map, List, List) :: term</li>
+        <li>create_exchange(pid, %{}, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -255,7 +255,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create_exchange!(pid, Map, Map, List, List) :: term | nil</li>
+        <li>create_exchange!(pid, %{}, %{}, list, list) :: term | nil</li>
       
     </ul>
   
@@ -286,7 +286,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create_exchange_brokers(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, Map, List, List) :: term</li>
+        <li>create_exchange_brokers(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -318,7 +318,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create_exchange_brokers!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, Map, List, List) :: term</li>
+        <li>create_exchange_brokers!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -350,7 +350,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>delete_exchange(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, List, List) :: term</li>
+        <li>delete_exchange(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -381,7 +381,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>delete_exchange!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, List, List) :: term</li>
+        <li>delete_exchange!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -412,7 +412,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>delete_exchange_brokers(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, List, List) :: term</li>
+        <li>delete_exchange_brokers(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -443,7 +443,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>delete_exchange_brokers!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, List, List) :: term</li>
+        <li>delete_exchange_brokers!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -498,7 +498,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>exchange_brokers!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, List, List) :: List | nil</li>
+        <li>exchange_brokers!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, list, list) :: List | nil</li>
       
     </ul>
   
@@ -553,7 +553,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>exchange_clusters!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, List, List) :: List | nil</li>
+        <li>exchange_clusters!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, list, list) :: List | nil</li>
       
     </ul>
   
@@ -608,7 +608,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>exchange_components!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, List, List) :: List | nil</li>
+        <li>exchange_components!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, list, list) :: List | nil</li>
       
     </ul>
   
@@ -670,7 +670,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_exchange(pid, term, Map, List, List) :: term</li>
+        <li>get_exchange(pid, term, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -701,7 +701,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_exchange!(pid, term, Map, List, List) :: Map | nil</li>
+        <li>get_exchange!(pid, term, %{}, list, list) :: %{} | nil</li>
       
     </ul>
   
@@ -732,12 +732,12 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>list(pid, Map, List, List) :: term</li>
+        <li>list(pid, %{}, list, list) :: term</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Retrieves the entire list of MessagingExchanges. </p>
+    <p>Retrieves the entire list of MessagingExchanges.</p>
 <h2>Options</h2>
 <p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
 <p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
@@ -762,12 +762,12 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>list!(pid, Map, List, List) :: <a href="http://elixir-lang.org/docs/stable/elixir/Access.html#t:get/2">List[Map]</a> | nil</li>
+        <li>list!(pid, %{}, list, list) :: <a href="http://elixir-lang.org/docs/stable/elixir/Access.html#t:get/2">list[%{}]</a> | nil</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Retrieves the entire list of MessagingExchanges. </p>
+    <p>Retrieves the entire list of MessagingExchanges.</p>
 <h2>Options</h2>
 <p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
 <p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
@@ -792,7 +792,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>update_exchange(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, Map, List, List) :: term</li>
+        <li>update_exchange(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -824,7 +824,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>update_exchange!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map, Map, List, List) :: term | nil</li>
+        <li>update_exchange!(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}, %{}, list, list) :: term | nil</li>
       
     </ul>
   

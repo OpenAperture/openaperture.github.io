@@ -45,8 +45,8 @@
 
       
         <section id="moduledoc" class="docstring">
-          <p>This module contains the the application definition as well as the create options for OpenAperture.ManagerApi.  This 
-API library can be consumed either as an application (which can be supervised), or on a per-instance basis. </p>
+          <p>This module contains the the application definition as well as the create options for OpenAperture.ManagerApi.  This
+API library can be consumed either as an application (which can be supervised), or on a per-instance basis.</p>
 
         </section>
       
@@ -120,7 +120,7 @@ API library can be consumed either as an application (which can be supervised), 
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create(Map) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>create(%{}) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   
@@ -152,7 +152,7 @@ process with the specified ManagerApi name, the function returns
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create!(Map) :: pid</li>
+        <li>create!(%{}) :: pid</li>
       
     </ul>
   
@@ -202,7 +202,7 @@ process with the specified ManagerApi name, the function returns
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_options(pid) :: Map</li>
+        <li>get_options(pid) :: %{}</li>
       
     </ul>
   
@@ -279,7 +279,7 @@ supervision tree terminates, the reason is set to <code class="inline">:shutdown
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>start_link(Map) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>start_link(%{}) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   

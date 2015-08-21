@@ -45,7 +45,7 @@
 
       
         <section id="moduledoc" class="docstring">
-          <p>This module contains the logic to dispatch WorkflowOrchestrator messsages to the appropriate GenServer(s) </p>
+          <p>This module contains the logic to dispatch WorkflowOrchestrator messsages to the appropriate GenServer(s)</p>
 
         </section>
       
@@ -80,6 +80,13 @@
   <td class="summary_signature"><a href="#publish/3">publish(connection_options \\ nil, queue, payload)</a></td>
   
     <td class="summary_synopsis"><p>Publishes a message/payload to a specific queue within the Messaging system</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#publish_rpc/4">publish_rpc(connection_options \\ nil, queue, api, request)</a></td>
+  
+    <td class="summary_synopsis"><p>Publishes a an RPC request to a specific queue within the Messaging system</p>
 </td>
   
 </tr>
@@ -192,7 +199,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>execute_orchestration(Map, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
+        <li>execute_orchestration(%{}, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
       
     </ul>
   
@@ -230,6 +237,28 @@
 <p>The <code class="inline">payload</code> option represents the message data</p>
 <h2>Returns</h2>
 <p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="publish_rpc/4">
+    <span class="signature"><strong>publish_rpc(connection_options \\ nil, queue, api, request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#publish_rpc/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Publishes a an RPC request to a specific queue within the Messaging system</p>
+<h2>Options</h2>
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+<p>The <code class="inline">queue</code> options value provides the Queue to which to subscribe</p>
+<p>The <code class="inline">request</code> option represents the message data</p>
+<h2>Returns</h2>
+<p>{:ok, OpenAperture.Messaging.AMQP.RpcHandler} | {:error, reason}</p>
 
   </section>
   

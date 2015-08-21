@@ -91,6 +91,13 @@
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#publish_rpc/4">publish_rpc(connection_options \\ nil, queue, api, request)</a></td>
+  
+    <td class="summary_synopsis"><p>Publishes a an RPC request to a specific queue within the Messaging system</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
   
     <td class="summary_synopsis"><p>Specific start_link implementation (required by the supervisor)</p>
@@ -169,7 +176,7 @@
 <h2>Options</h2>
 <p>The <code class="inline">payload</code> option is the Map of options that needs to be passed to the deploy module</p>
 <h2>Return Values</h2>
-<p>:ok | {:error, reason}   </p>
+<p>:ok | {:error, reason}</p>
 
   </section>
   
@@ -196,7 +203,7 @@
 <h2>Options</h2>
 <p>The <code class="inline">payload</code> option is the Map of options that needs to be passed to the deploy module</p>
 <h2>Return Values</h2>
-<p>:ok | {:error, reason}   </p>
+<p>:ok | {:error, reason}</p>
 
   </section>
   
@@ -214,9 +221,9 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>handle_cast({:deploy_oa, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map}, Map) :: {:noreply, Map}</li>
+        <li>handle_cast({:deploy_oa, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}}, %{}) :: {:noreply, %{}}</li>
       
-        <li>handle_cast({:deploy, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, Map}, Map) :: {:noreply, Map}</li>
+        <li>handle_cast({:deploy, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}}, %{}) :: {:noreply, %{}}</li>
       
     </ul>
   
@@ -261,6 +268,28 @@ messages to arrive out of order.</p>
 <p>The <code class="inline">payload</code> option represents the message data</p>
 <h2>Returns</h2>
 <p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="publish_rpc/4">
+    <span class="signature"><strong>publish_rpc(connection_options \\ nil, queue, api, request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#publish_rpc/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Publishes a an RPC request to a specific queue within the Messaging system</p>
+<h2>Options</h2>
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+<p>The <code class="inline">queue</code> options value provides the Queue to which to subscribe</p>
+<p>The <code class="inline">request</code> option represents the message data</p>
+<h2>Returns</h2>
+<p>{:ok, OpenAperture.Messaging.AMQP.RpcHandler} | {:error, reason}</p>
 
   </section>
   

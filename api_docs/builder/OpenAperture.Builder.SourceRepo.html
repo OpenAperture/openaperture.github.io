@@ -152,7 +152,7 @@ will download the contents of the repo and populate the struct with all availabl
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create!(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {:ok, OpenAperture.Builder.SourceRepo} | {:error, term}</li>
+        <li>create!(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: OpenAperture.Builder.SourceRepo | {:error, term}</li>
       
     </ul>
   
@@ -175,7 +175,7 @@ will download the contents of the repo and populate the struct with all availabl
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>download!(OpenAperture.Builder.SourceRepo, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: OpenAperture.Builder.SourceRepo</li>
+        <li>download!(<a href="#t:t/0">t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="#t:t/0">t</a></li>
       
     </ul>
   
@@ -198,7 +198,7 @@ will download the contents of the repo and populate the struct with all availabl
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_current_commit_hash(OpenAperture.Builder.SourceRepo) :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>get_current_commit_hash(<a href="#t:t/0">t</a>) :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   
@@ -220,7 +220,7 @@ will download the contents of the repo and populate the struct with all availabl
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_current_commit_hash!(OpenAperture.Builder.SourceRepo) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+        <li>get_current_commit_hash!(<a href="#t:t/0">t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
       
     </ul>
   

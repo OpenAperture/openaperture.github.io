@@ -105,7 +105,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create_system_event(pid, Map, Map, List, List) :: term</li>
+        <li>create_system_event(pid, %{}, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -136,7 +136,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create_system_event!(pid, Map, Map, List, List) :: term</li>
+        <li>create_system_event!(pid, %{}, %{}, list, list) :: term</li>
       
     </ul>
   
@@ -167,12 +167,12 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>list(pid, Map, List, List) :: term</li>
+        <li>list(pid, %{}, list, list) :: term</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Retrieves the entire list of SystemEvents. </p>
+    <p>Retrieves the entire list of SystemEvents.</p>
 <h2>Options</h2>
 <p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
 <p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>
@@ -197,12 +197,12 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>list!(pid, Map, List, List) :: <a href="http://elixir-lang.org/docs/stable/elixir/Access.html#t:get/2">List[Map]</a> | nil</li>
+        <li>list!(pid, %{}, list, list) :: <a href="http://elixir-lang.org/docs/stable/elixir/Access.html#t:get/2">list[%{}]</a> | nil</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Retrieves the entire list of SystemEvents. </p>
+    <p>Retrieves the entire list of SystemEvents.</p>
 <h2>Options</h2>
 <p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi used for connection.</p>
 <p>The <code class="inline">queryparams</code> option defines the query parameters (optional).</p>

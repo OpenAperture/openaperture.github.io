@@ -253,7 +253,7 @@ Returns <code class="inline">:ok</code> or <code class="inline">{:error, reason}
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>send_emails(Map) :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>send_emails(%{}) :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   
@@ -277,7 +277,7 @@ Returns <code class="inline">{:ok, msg}</code> or <code class="inline">{:error, 
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>send_hipchat_notifications(Map) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>send_hipchat_notifications(%{}) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   
@@ -355,11 +355,11 @@ should be a function with 2 arguments (sync), or 3 arguments (async).</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>trigger_notifications(term, Map, Map) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>trigger_notifications(term, %{}, %{}) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
-        <li>trigger_notifications(:email, Map, Map) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>trigger_notifications(:email, %{}, %{}) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
-        <li>trigger_notifications(:hipchat, Map, Map) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>trigger_notifications(:hipchat, %{}, %{}) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   
