@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OpenAperture Documentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	  <div class="jumbotron">
+	  	<h1>OpenAperture</h1>
+	  	<!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
+	    <p>Cloud Application Management Platform</p> 
+	  </div>
+	  <div class="row">
+	  	<p class="col-md-12 lead">
+	  		OpenAperture is a free, open-source hybrid cloud management platform that delivers software quickly and consistently regardless of location or workload. This future-ready platform from Lexmark Enterprise Software provides a comprehensive management system to handle the six pillars of cloud management – provisioning, deployment, monitoring, maintenance, security and metering.
+			</p>
+			
+			<p>Note that the docker build step will need to access this repository in order to deploy your source code.  If your repositories are private, your Builder deployment must have an SSH key or similar mechanism setup for git in order to clone the repository.</p>
+		</div>
+		<br/>
+		<div class="row">
+			<h2>What is a Workflow?</h2>
+			<p>Workflows are the basic building blocks for managing executions through OpenAperture.  Workflows are made up of "milestones", which specify the desired behavior:</p>
+			<ul>
+				<li>scheduled</li>
+				<ul>
+					<li>The scheduled milestone may be used to schedule a Workflow to execute at a future time.  This must be paired with setting the scheduled_start_time property on the created Workflow.</li>
+				</ul>
+				<li>config</li>
+				<ul>
+					<li>The config milestone may be used to configure the deployment repository.  This step is automatically done by the "build" milestone, and only must be explicitly specified if the "build" milestone is not present.</li>
+				</ul>
+				<li>build</li>
+				<ul>
+					<li>The build milestone requires a docker registry be configured to push the docker images once they are built.  OpenAperture will automatically tag images using the following convention:  "docker_repo_name:source_repo_git_ref"</li>
+					<li>The build milestone is used to build a docker image and push it to a configured docker registry.  By default, the Builder system component will check if the docker image exists before the build begins; you may specify the force_build flag if you want to always build the docker image.</li>
+				</ul>
+				<li>deploy</li>
+				<ul>
+					<li>The deploy milestone may be used to execute a deployment of an application.  The "build" or "config" milestone must have been run first, in order to be successful.</li>
+				</ul>				
+			</ul>
+			<br/>
+
+		</div>
+	</div>
+
+	<div class="footer navbar-fixed-bottom">
+		<div class="container">
+		<p class="text-muted pull-right">© 2015 Lexmark International Technology S.A.  All rights reserved.</p>
+		</div>
+	</div>	
+</body>
+</html>		
