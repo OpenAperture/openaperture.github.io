@@ -310,6 +310,60 @@
       	</tbody>
       </table>
 		</div>		
+		<div class="row">
+			<h2>Starting the System Component Docker Containers</h2>
+			<p>OpenAperture is designed to manage itself, that is build itself, deploy itself.  Due to this back, the first time you spin up an OpenAperture instance, there is a small, manual step that is required.  In order to successfully spin up a Manager, the EtcdCluster must be registered in the database (before the RESTful services will come online).  To get around this behavior, a manual database insert is required (the example below uses 123abc as the etcd token and assumes that the psql command line tools have been installed):</p>		
+			<pre>
+INSERT INTO messaging_exchanges (
+  name,
+  inserted_at,
+  updated_at
+)
+VALUES (
+  'Name of Primary Exchange',
+  now(),
+  now()
+);
+
+INSERT INTO etcd_clusters (
+  etcd_token,
+  allow_docker_builds,
+  messaging_exchange_id,
+  name,
+  inserted_at,
+  updated_at
+)
+VALUES (
+  '123abc',
+  false,
+  *id from previous insert*,
+  'OA Primary Cluster',
+  now(),
+  now()
+);
+			</pre>
+			<p>Once the Manager is running successfully, you can define your remaining Exchanges, Brokers, BrokerConnections, etc...  The following set of commands will allow you to spin up a Fleet service on a CoreOS cluster (for the first time):</p>
+			<ul>
+				<li>Clone Deployment Repo:&nbsp;&nbsp;git clone https://github.com/MyOrg/overseer_deploy.git</li>
+				<li>Change into the directory:&nbsp;&nbsp;cd overseer_deploy</li>
+				<li>Update the overseer@.service.eex with the required run-time configuration</li>
+				<li>Build the docker container</li>
+				<ul>
+					<li>Login:&nbsp;&nbsp;docker login -e="email@address.com" -u="user" -p="pass"</li>
+					<li>Build:&nbsp;&nbsp;docker build --force-rm=true --no-cache=true --rm=true -t company/oa_overseer .</li>
+					<li>Tag:&nbsp;&nbsp;docker tag --force=true *image_id* company/oa_overseer:*source commit hash*</li>
+					<li>Push:&nbsp;&nbsp;docker push company/oa_overseer</li>
+				</ul>
+				<li>Submit the Fleet file:&nbsp;&nbsp;fleetctl submit overseer.service</li>
+				<li>Start the service:&nbsp;&nbsp;fleetctl start overseer@{0..2}.service</li>
+				<li>Ensure the service is running:&nbsp;&nbsp;fleetctl list-units (service should be in a "launched", "running" state.</li>
+				<li>View the docker logs to ensure that no exceptions occurred during startup</li>
+				<ul>
+					<li>Find the container id:&nbsp;&nbsp;docker ps</li>
+					<li>View the logs:&nbsp;&nbsp;docker logs -f *container-id*</li>
+				</ul>
+			</ul>
+		</div>
 	</div>
 	<br/>
 	<br/>
