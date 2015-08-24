@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OpenAperture Documentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	  <div class="jumbotron">
+	  	<h1>OpenAperture</h1>
+	  	<!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
+	    <p>Cloud Application Management Platform</p> 
+	  </div>
+	  <div class="row">
+	  	<p class="col-md-12 lead">
+	  		OpenAperture is a free, open-source hybrid cloud management platform that delivers software quickly and consistently regardless of location or workload. This future-ready platform from Lexmark Enterprise Software provides a comprehensive management system to handle the six pillars of cloud management – provisioning, deployment, monitoring, maintenance, security and metering.
+			</p>
+			
+			<p>Note that the docker build step will need to access this repository in order to deploy your source code.  If your repositories are private, your Builder deployment must have an SSH key or similar mechanism setup for git in order to clone the repository.</p>
+		</div>
+		<br/>
+		<div class="row">
+			<h2>What is a Workflow?</h2>
+			<p>Workflows are the basic building blocks for managing executions through OpenAperture.  Workflows are made up of "milestones", which specify the desired behavior:</p>
+			<ul>
+				<li>scheduled</li>
+				<ul>
+					<li>The scheduled milestone may be used to schedule a Workflow to execute at a future time.  This must be paired with setting the scheduled_start_time property on the created Workflow.</li>
+				</ul>
+				<li>config</li>
+				<ul>
+					<li>The config milestone may be used to configure the deployment repository.  This step is automatically done by the "build" milestone, and only must be explicitly specified if the "build" milestone is not present.</li>
+				</ul>
+				<li>build</li>
+				<ul>
+					<li>The build milestone requires a docker registry be configured to push the docker images once they are built.  OpenAperture will automatically tag images using the following convention:  "docker_repo_name:source_repo_git_ref"</li>
+					<li>The build milestone is used to build a docker image and push it to a configured docker registry.  By default, the Builder system component will check if the docker image exists before the build begins; you may specify the force_build flag if you want to always build the docker image.</li>
+				</ul>
+				<li>deploy</li>
+				<ul>
+					<li>The deploy milestone may be used to execute a deployment of an application.  The "build" or "config" milestone must have been run first, in order to be successful.</li>
+				</ul>				
+			</ul>
+			<br/>
+		</div>
+		<div class="row">
+			<h2>How to Create & Execute a Workflow</h2>			
+			<p>The <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/workflow.ex">Workflow resouce</a> defines all of the available fields, although only the following are required upon creation:</p>
+			<ul>
+				<li><b>deployment_repo:</b>&nbsp;&nbsp;String containing the relative or fully-qualified <a href="./deploy_repo.html">deployment repo</a> github repo.</li>
+				<li><b>deployment_repo_git_ref:</b>&nbsp;&nbsp;The git commit has (or branch/tag name) of the <a href="./deploy_repo.html">deployment repo</a> that you want to act on</li>
+				<li><b>source_repo_git_ref:</b>&nbsp;&nbsp;The git commit has (or branch/tag name) of the <a href="./source_repo.html">source repo</a> that you want to act on</li>
+				<li><b>milestones:</b>&nbsp;&nbsp;An array of the milestones defined above.</li>
+			</ul>
+			<p>You may optionally specify scheduled_start_time if your milestone list includes 'scheduled'.</p>
+			<p>To send a Workflow through OpenAperture, you need to create and then execute the workflow.  To create, execute a POST to /workflows with the desired parameters.  The response location header contains the relative path to the workflow (i.e. /workflows/*uuid*)</p>
+			<br/>
+			<p>Once the Workflow has been created, execute a POST to /workflows/*uuid*/execute is required to start the execution (i.e. build and deploys).  Execute supports the following optional parameters:</p>
+			<ul>
+				<li><b>force_build:</b>&nbsp;&nbsp;Boolean that will force a docker build, regardless if the docker image already exists.</li>
+				<li><b>build_messaging_exchange_id:</b>&nbsp;&nbsp;A MessagingExchangeId of the build cluster you want to direct a build regquest to (generally only used for building OpenAperture components)</li>				
+				<li><b>deploy_messaging_exchange_id:</b>&nbsp;&nbsp;A MessagingExchangeId of the deploy cluster you want to direct a build regquest to (generally only used for deploying OpenAperture components)</li>					
+			</ul>
+			<p>Once the Workflow has started, there are 2 methods of tracking the status:</p>
+			<ul>
+				<li>Execute a GET to /workflows/*uuid*</li>
+				<li>During the 'build' milestone, the docker build logs are streamed via web sockets at /ws, channel build_log:*uuid*</li>
+			</ul>
+			<br/>
+			<br/>
+		</div>
+	</div>
+
+	<div class="footer navbar-fixed-bottom">
+		<div class="container">
+		<p class="text-muted pull-right">© 2015 Lexmark International Technology S.A.  All rights reserved.</p>
+		</div>
+	</div>	
+</body>
+</html>		

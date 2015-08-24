@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OpenAperture Documentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	  <div class="jumbotron">
+	  	<h1>OpenAperture</h1>
+	  	<!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
+	    <p>Cloud Application Management Platform</p> 
+	  </div>
+	  <div class="row">
+	  	<p class="col-md-12 lead">
+	  		OpenAperture is a free, open-source hybrid cloud management platform that delivers software quickly and consistently regardless of location or workload. This future-ready platform from Lexmark Enterprise Software provides a comprehensive management system to handle the six pillars of cloud management – provisioning, deployment, monitoring, maintenance, security and metering.
+			</p>
+			
+			<p>Note that the docker build step will need to access this repository in order to deploy your source code.  If your repositories are private, your Builder deployment must have an SSH key or similar mechanism setup for git in order to clone the repository.</p>
+		</div>
+		<br/>
+		<div class="row">
+			<h2>Source Repository</h2>
+			<p>The source repository is a Github repository containing the application's source code.</p>
+			<br/>
+			<h3>Required Files</h3>
+			<p>There are no OpenAperture specific files which are required to be present.</p>
+			<br/>
+			<h3>Optional Files</h3>
+			<p>You may optionally define a the file, openaperture.json, which contains the user (or team) configurable options for OpenAperture.  The following structure may be defined:</p>
+			<ul>
+				<li>HipChat Integration</li>
+				<ul>
+					<li>JSON Path:&nbsp;&nbsp;deployments/notifications/hipchat</li>
+					<li>Each application may specify a list of HipChat rooms (room_names) to which OA notifications should be published</li>
+				</ul>
+				<li>SMTP Integration</li>
+				<ul>
+					<li>JSON Path:&nbsp;&nbsp;deployments/notifications/email</li>
+					<li>Each application may specify a single or group of emails to which OA should sent notifications, at certain events.</li>
+					<li>Supported events:&nbsp;&nbsp;on_workflow_completed</li>
+					<li>The groups are simply named lists of email addresses</li>
+				</ul>				
+			</ul>
+			<pre>
+{
+  "deployments": {
+	  "notifications": {
+      "hipchat": {
+        "room_names": [
+            "OpenAperture-Workflow Events"
+        ]
+      },
+      "email": {
+        "groups": {
+          "build-notifications": [
+              "a.b@company.com"
+          ]
+        },
+        "events": {
+          "on_workflow_completed": [
+              "build-notifications"
+          ]
+        }
+      }
+    }
+  }
+}			
+			</pre>
+			<br/>
+		</div>
+	</div>
+
+	<div class="footer navbar-fixed-bottom">
+		<div class="container">
+		<p class="text-muted pull-right">© 2015 Lexmark International Technology S.A.  All rights reserved.</p>
+		</div>
+	</div>	
+</body>
+</html>		

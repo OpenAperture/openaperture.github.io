@@ -11,26 +11,91 @@
 </head>
 <body>
 	<div class="container">
-		<div class="jumbotron">
-	  		<h1>OpenAperture</h1>
-	  		<!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
-	    		<p>Cloud Application Management Platform</p> 
-	  	</div>
-		<div class="row">
-			<p class="col-md-12 lead">
-				Products that are being developed for deployment into the Cloud should follow the guidance provided by <a href="http://12factor.net/" target="_blank">The 12 Factor App</a>. As a result of how OpenAperture deploys products, there are several design constraints that should be considered:
+	  <div class="jumbotron">
+	  	<h1>OpenAperture</h1>
+	  	<!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
+	    <p>Cloud Application Management Platform</p> 
+	    <p><a href="https://github.com/OpenAperture">View on GitHub</a></p>
+	  </div>
+	  <div class="row">
+	  	<p class="col-md-12 lead">
+	  		OpenAperture is a free, open-source hybrid cloud management platform that delivers software quickly and consistently regardless of location or workload. This future-ready platform from Lexmark Enterprise Software provides a comprehensive management system to handle the six pillars of cloud management – provisioning, deployment, monitoring, maintenance, security and metering.
 			</p>
 		</div>
+		<br/>
 		<div class="row">
-			<ul class="lead">
-				<li>Products must be able to scale horizontally.</li>
-				<li>Products must be able to accept configuration via environment variables (i.e. database URLs, etc...).</li>
-				<li>Products must be dockerizable. Currently, this requires products to run in a Linux environment.</li>
-			</ul>							
-		</div>
-		<br>
-	</div>
+			<div class="col-md-6">
+				<div class="row">
+					<h2>System Goals</h2>
+					<br/>
+					<p>To provide an OSS hybrid Cloud Application Management Platform which...</p>
+					<ul>
+						<li>Runs in a centralized cloud</li>
+						<li>Runs on-prem</li>
+						<li>or...both</li>
+					</ul>
+					<p>OpenAperture should build, deploy, and manage 12-factor compliant applications</p>
+				</div>
+				<div class="row">
+					<h3>Build</h3>
+					<p>The OpenAperture build platform should:</p>
+					<ul>
+						<li>Build stateless application Docker containers</li>
+						<li>Inject all configuration at runtime</li>
+						<li>Support sending notifications via HipChat or Email as needed</li>
+					</ul>
+				</div>
+				<div class="row">
+					<h3>Deployments</h3>
+					<p>The OpenAperture deploy platform should:</p>
+					<ul>
+						<li>Deploy stateless containers via Fleet, while injecting environment-specific configuration</li>
+						<li>Ensure application scalability and redundancy</li>
+						<li>Support sending notifications via HipChat or Email as needed</li>
+					</ul>
+				</div>			
+				<div class="row">
+					<h3>Application Management</h3>
+					<p>The OpenAperture deploy platform should:</p>
+					<ul>
+						<li>Provide host monitoring</li>
+						<li>Provide OpenAperture system monitoring</li>
+						<li>Provide developer access to logs</li>
+					</ul>
+				</div>				
+			</div>
 
+			<div class="col-md-6">
+				<div class="row">
+					<h2>Key Technologies</h2>
+				</div>
+				<div class="row">
+					<h3>Docker</h3>
+					<p>Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications.</p>
+					<p>Docker helps developers build and ship higher-quality applications, faster.</p>
+					<p>Docker helps sysadmins deploy and run any app on any infrastructure, quickly and reliably.</p>
+					<a href="https://www.docker.com/">https://www.docker.com/</a>
+				</div>					
+				<br/>
+				<div class="row">
+					<h3>CoreOS / Fleet</h3>
+					<p>CoreOS uses Linux containers to manage your services at a higher level of abstraction.</p>
+					<p>With fleet, you can treat your CoreOS cluster as if it shared a single init system. It encourages users to write applications as small, ephemeral units that can easily migrate around a cluster of self-updating CoreOS machines.</p>
+					<a href="https://coreos.com/using-coreos/clustering/">https://coreos.com/using-coreos/clustering/</a>
+				</div>					
+				<br/>
+				<div class="row">
+					<h3>CoreOS / Etcd</h3>
+					<p>Cetcd is a distributed key value store that provides a reliable way to store data across a cluster of machines.</p>
+					<a href="https://coreos.com/etcd/">hhttps://coreos.com/etcd/</a>
+				</div>				
+			</div>
+		</div>
+	</div>
+	<hr/>
+
+	<br/>
+	<br/>
 	<div class="footer navbar-fixed-bottom">
 		<div class="container">
 		<p class="text-muted pull-right">© 2015 Lexmark International Technology S.A.  All rights reserved.</p>
