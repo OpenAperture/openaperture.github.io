@@ -73,7 +73,6 @@
   "docker_url": "*registry*/app"
 }		
 				</pre>				
-			</ul>
 
 				<li>source.json</li>
 				<ul>
@@ -85,9 +84,20 @@
 }				
 				</pre>				
 			</ul>
-
 			<h3>Optional Files</h3>
-				You may add whatever files are necessary to build your docker image in this repository (i.e. bash files, PEMs, etc...).  During the "build" milestone, OpenAperture will clone this repository locally and execute a docker build.  During the "deploy" milestone, OpenAperture will use the previously cloned repository's Fleet Unit(s) to execute the deployment.
+				<ul>
+					<li>You may add whatever files are necessary to build your docker image in this repository (i.e. bash files, PEMs, etc...).  During the "build" milestone, OpenAperture will clone this repository locally and execute a docker build.  During the "deploy" milestone, OpenAperture will use the previously cloned repository's Fleet Unit(s) to execute the deployment.</li>
+				<li>fleet.json</li>
+				<ul>
+					<li>Contains configuration that can override the default Fleet deployment behavior:</li>
+					<li><b>instance_cnt:&nbsp;&nbsp;The number of instances of the service to deploy; default is the number of nodes in the cluster</b></li>
+				</ul>
+				<pre>
+{
+    "instance_cnt": 5
+}			
+				</ul>
+
 		</div>
 	</div>
 	<br/>

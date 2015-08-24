@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OpenAperture Documentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	  <div class="jumbotron">
+	  	<h1>OpenAperture</h1>
+	  	<!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
+	    <p>Cloud Application Management Platform</p> 
+	  </div>
+	  <div class="row">
+	  	<p class="col-md-12 lead">
+	  		OpenAperture is a free, open-source hybrid cloud management platform that delivers software quickly and consistently regardless of location or workload. This future-ready platform from Lexmark Enterprise Software provides a comprehensive management system to handle the six pillars of cloud management – provisioning, deployment, monitoring, maintenance, security and metering.
+			</p>
+		</div>
+		<br/>
+		<div class="row">
+			<h2>Creating an CoreOS Cluster</h2>
+			<br/>
+			<p>OpenAperture designed to run on top of a set of <a href="https://coreos.com/using-coreos/clustering/">CoreOS clusters</a> via the Fleet daemon (HTTP and fleetctl tools).  If you're spinning up clusters in Amazon, There are <a href="https://coreos.com/os/docs/latest/booting-on-ec2.html">up-to-date AMIs</a> available in each region (make sure to review the <a href="https://coreos.com/os/docs/latest/quickstart.html">cloud-init settings</a> before hand).  OpenAperture can run in other Cloud providers or in private data centers, as long as the CoreOS clusters are available.</p>
+			<p>OpenAperture components are recommended to on a 3-node cluster at a minimum.  Depending on your usage, you may want to tweak the sizes and configurations of the node.  For example, all of the OpenAperture System Components are written in Elixir and have a much higher startup cost than, say, Ruby on Rails apps.</p>
+			<p>It's important to realize that the CoreOS clusters, based on the release channel selected, will <a href="https://coreos.com/releases/">automatically upgrade</a> themselves to the latest version of CoreOS.  The OpenAperture components must be keep up-to-date with CoreOS to ensure compatibility.</p>
+			<h2>Networking Between Clusters</h2>
+			<p>The following considerations should be made when configuring CoreOS clusters for use with OpenAperture:</p>
+			<ul>
+				<li>Clusters running a <a href="./components.html">Management Assembly</a> will need to:
+					<ul>
+						<li>expose a port for HTTP traffic (HTTPS will need to be terminated at a Load Balancer)</li>
+						<li>expose port 5432 to a Postgres instance</li>
+						<li>expose ports for incoming and outgoing AMQP messages (this port is configurable in the MessagingBrokerConnectionOptions); by default these ports are 5672 and 15672</li>
+					</ul>
+				<li>Clusters running a <a href="./components.html">Build Assembly</a> will need to:
+					<ul>
+						<li>expose port 2375 between the Builder Assembly cluster and the docker build cluster</li>
+					</ul>
+				<li>Clusters running a <a href="./components.html">Deployment Assembly</a> will need to:
+					<ul>
+						<li>expose ports 4001 and 7002 between the Deployment Assembly cluster and any application clusters</li>
+						<li>expose port 22 between the Deployment Assembly cluster and any application clusters</li>
+					</ul>						
+			</ul>
+		</div>
+	</div>
+
+	<div class="footer navbar-fixed-bottom">
+		<div class="container">
+		<p class="text-muted pull-right">© 2015 Lexmark International Technology S.A.  All rights reserved.</p>
+		</div>
+	</div>	
+</body>
+</html>

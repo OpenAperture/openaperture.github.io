@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OpenAperture Documentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	  <div class="jumbotron">
+	  	<h1>OpenAperture</h1>
+	  	<!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
+	    <p>Cloud Application Management Platform</p> 
+	  </div>
+	  <div class="row">
+	  	<p class="col-md-12 lead">
+	  		OpenAperture is a free, open-source hybrid cloud management platform that delivers software quickly and consistently regardless of location or workload. This future-ready platform from Lexmark Enterprise Software provides a comprehensive management system to handle the six pillars of cloud management – provisioning, deployment, monitoring, maintenance, security and metering.
+			</p>
+		</div>
+		<br/>
+		<div class="row">
+			<h2>Building & Deploying System Components</h2>
+			<p>OpenAperture is designed to "eat it's own dog food", i.e. deploy itself.  Each System Component, therefore, can be built and deployed using a docker container.  The following table describes the required installations for each System Component (build-time requirements), as well as the Fleet configuration (run-time configuration) needed to deploy the containers.  Each components should have it's own corresponding <a href="../dev_resources/deploy_repo.html">deployment repository</a>, with the following configuration:</p>
+			<br/>
+      <table class="table table-condensed" style="border-collapse:collapse;">
+      	<thead>
+      		<th><h3>Build-Time Requirements</h3></th>
+      		<th><h3>Run-Time Configuration</h3></th>
+      	</thead>      
+      	<tbody>
+      		<tr data-toggle="collapse" data-target="#manager" class="accordion-toggle">
+      			<td>
+      				<h4>Manager</h4>
+      			</td>
+      		</tr>
+      		<tr class="accordian-body collapse" id="manager">
+    				<td class="col-md-6" class="hiddenRow">
+    					The Manager has the following build-time requirements:
+            	<ul>
+	          		<li>The following package(s) are required to be installed:</li>
+	          		<ul>
+	          			<li>erlang-solutions_1.0_all (from erlang-solutions.com).  This will install Erlang and Elixir</li>	
+	          			<li>postgresql-client</li>
+	          		</ul>
+	          		<li>A PEM file is required for encrypting sensitive values at rest in the database.  Both the public and private key files are required.</li>
+	          	</ul>
+	          </td>
+      			<td class="col-md-6" class="hiddenRow">
+      				The Manager has the following build-time environment configuration:
+            	<ul>
+	          		<li><b>BROKER_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_broker.ex">MessagingBroker</a>, which should be used to connect to the AMQP broker</li>
+	          		<li><b>EXCHANGE_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a>, which should be associated with the component</li>	
+	          		<li><b>MANAGER_DATABASE_HOST:</b>&nbsp;&nbsp;String hostname of the database connection</li>
+	          		<li><b>MANAGER_DATABASE_NAME:</b>&nbsp;&nbsp;String name of the database</li>
+	          		<li><b>MANAGER_PASSWORD:</b>&nbsp;&nbsp;String containing the database password</li>	          		
+	          		<li><b>MANAGER_USER_NAME:</b>&nbsp;&nbsp;String containing the database user</li>		          		
+	          		<li><b>MANAGER_MESSAGING_KEYNAME:</b>&nbsp;&nbsp;String name of the PEM file that should be used for encrypting private information</li>
+	          		<li><b>MANAGER_MESSAGING_PRIVATE_KEY:</b>&nbsp;&nbsp;String containing the absolute path to the private key of the PEM file that should be used for encrypting private information</li>	           		
+	          		<li><b>MANAGER_MESSAGING_PUBLIC_KEY:</b>&nbsp;&nbsp;String containing the absolute path to the public key of the PEM file that should be used for encrypting private information</li>        		
+	          		<li><b>MIX_ENV:</b>&nbsp;&nbsp;String containing the mix environment (i.e. prod)</li>	 
+	          		<li><b>PORT:</b>&nbsp;&nbsp;Integer representing the port for Phoenix (default is not set for prod)</li>	 
+	          		<li><b>OAUTH_CLIENT_ID:</b>&nbsp;&nbsp;String containing the OAuth Client ID</li>	 	  
+	          		<li><b>OAUTH_CLIENT_SECRET:</b>&nbsp;&nbsp;String containing the OAuth Client Secret</li>	
+	          		<li><b>MANAGER_OAUTH_VALIDATE_URL:</b>&nbsp;&nbsp;String pointing to the OAuth validationg URL for the OAuth Provider</li>
+	          		<li><b>OAUTH_LOGIN_URL:</b>&nbsp;&nbsp;String pointing to the OAuth login URL for the Manager</li>	 	
+	          		<li><b>UI_URL:</b>&nbsp;&nbsp;String pointing to a UI URL</li>
+	          	</ul>
+	          </td>
+      		</tr>
+
+      		<tr data-toggle="collapse" data-target="#overseer" class="accordion-toggle">
+      			<td>
+      				<h4>Overseer</h4>
+      			</td>
+      		</tr>
+      		<tr class="accordian-body collapse" id="overseer">
+    				<td class="col-md-6" class="hiddenRow">
+    					The Overseer has the following build-time requirements:
+            	<ul>
+	          		<li>The following package(s) are required to be installed:</li>
+	          		<ul>
+	          			<li>erlang-solutions_1.0_all (from erlang-solutions.com).  This will install Erlang and Elixir</li>	
+	          		</ul>
+	          	</ul>
+	          </td>
+      			<td class="col-md-6" class="hiddenRow">
+      				The Overseer has the following build-time environment configuration:
+            	<ul>
+	          		<li><b>BROKER_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_broker.ex">MessagingBroker</a>, which should be used to connect to the AMQP broker</li>
+	          		<li><b>EXCHANGE_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a>, which should be associated with the component</li>	       		
+	          		<li><b>MIX_ENV:</b>&nbsp;&nbsp;String containing the mix environment (i.e. prod)</li>	 
+	          		<li><b>MANAGER_URL:</b>&nbsp;&nbsp;String pointing to the OpenAperture Manager</li>	
+	          		<li><b>OAUTH_CLIENT_ID:</b>&nbsp;&nbsp;String containing the OAuth Client ID</li>	 	  
+	          		<li><b>OAUTH_CLIENT_SECRET:</b>&nbsp;&nbsp;String containing the OAuth Client Secret</li>   		
+	          		<li><b>OAUTH_LOGIN_URL:</b>&nbsp;&nbsp;String pointing to the OAuth login URL for the OAuth Provider</li>	 	
+	          		<li><b>QUEUE_NAME:</b>&nbsp;&nbsp;String with the AMQP queue name for "overseer" messages; specific to the associated <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a></li>
+	          		<li><b>SYSTEM_MODULES_QUEUE_NAME:</b>&nbsp;&nbsp;String with the AMQP queue name for "system_modules" messages; specific to the associated <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a></li>          		
+	          	</ul>
+	          </td>
+      		</tr>
+
+      		<tr data-toggle="collapse" data-target="#notifications" class="accordion-toggle">
+      			<td>
+      				<h4>Notifications</h4>
+      			</td>
+      		</tr>
+      		<tr class="accordian-body collapse" id="notifications">
+    				<td class="col-md-6" class="hiddenRow">
+    					The Notifications has the following build-time requirements:
+            	<ul>
+	          		<li>The following package(s) are required to be installed:</li>
+	          		<ul>
+	          			<li>erlang-solutions_1.0_all (from erlang-solutions.com).  This will install Erlang and Elixir</li>	
+	          		</ul>
+	          	</ul>
+	          </td>
+      			<td class="col-md-6" class="hiddenRow">
+      				The Notifications has the following build-time environment configuration:
+            	<ul>
+	          		<li><b>BROKER_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_broker.ex">MessagingBroker</a>, which should be used to connect to the AMQP broker</li>
+	          		<li><b>EXCHANGE_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a>, which should be associated with the component</li>	       		
+	          		<li><b>MIX_ENV:</b>&nbsp;&nbsp;String containing the mix environment (i.e. prod)</li>	 
+	          		<li><b>MANAGER_URL:</b>&nbsp;&nbsp;String pointing to the OpenAperture Manager</li>	
+	          		<li><b>OAUTH_CLIENT_ID:</b>&nbsp;&nbsp;String containing the OAuth Client ID</li>	 	  
+	          		<li><b>OAUTH_CLIENT_SECRET:</b>&nbsp;&nbsp;String containing the OAuth Client Secret</li>   		
+	          		<li><b>OAUTH_LOGIN_URL:</b>&nbsp;&nbsp;String pointing to the OAuth login URL for the OAuth Provider</li>	 	
+	          		<li><b>EMAIL_QUEUE_NAME:</b>&nbsp;&nbsp;String with the AMQP queue name for "notifications_email" messages; specific to the associated <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a></li>
+	          		<li><b>HIPCHAT_QUEUE_NAME:</b>&nbsp;&nbsp;String with the AMQP queue name for "notifications_hipchat" messages; specific to the associated <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a></li>          		
+	          		<li><b>HIPCHAT_AUTH_TOKENS:</b>&nbsp;&nbsp;String containing a comma-delimited list of HipChat API authentication tokens (<a href="https://www.hipchat.com/docs/apiv2/auth">v2</a>).</li>		          		
+	          		<li><b>HIPCHAT_DEFAULT_ROOM_NAME:</b>&nbsp;&nbsp;String defining the default HipChat <a href="https://www.hipchat.com/docs/apiv2/method/send_room_notification">room id or name</a> in which to publish all messages</li> 	          		
+	          		<li><b>SMTP_FROM:</b>&nbsp;&nbsp;String containing the email address used to send emails from an SMTP server</li>
+	          		<li><b>SMTP_PASSWORD:</b>&nbsp;&nbsp;String containing the password associated with the email address used to send emails from an SMTP server</li>
+	          		<li><b>SMTP_PORT:</b>&nbsp;&nbsp;Integer representing the port for the SMTP server</li>
+	          		<li><b>SMTP_URI:</b>&nbsp;&nbsp;String containing the URL of the SMTP server</li>	          		
+	          	</ul>
+	          </td>
+      		</tr>
+
+      		<tr data-toggle="collapse" data-target="#workflow-orchestrator" class="accordion-toggle">
+      			<td>
+      				<h4>WorkflowOrchestrator</h4>
+      			</td>
+      		</tr>
+      		<tr class="accordian-body collapse" id="workflow-orchestrator">
+    				<td class="col-md-6" class="hiddenRow">
+    					The WorkflowOrchestrator has the following build-time requirements:
+            	<ul>
+	          		<li>The following package(s) are required to be installed:</li>
+	          		<ul>
+	          			<li>erlang-solutions_1.0_all (from erlang-solutions.com).  This will install Erlang and Elixir</li>	
+	          		</ul>
+	          	</ul>
+	          </td>
+      			<td class="col-md-6" class="hiddenRow">
+      				The WorkflowOrchestrator has the following build-time environment configuration:
+            	<ul>
+	          		<li><b>BROKER_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_broker.ex">MessagingBroker</a>, which should be used to connect to the AMQP broker</li>
+	          		<li><b>EXCHANGE_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a>, which should be associated with the component</li>	       		
+	          		<li><b>MIX_ENV:</b>&nbsp;&nbsp;String containing the mix environment (i.e. prod)</li>	 
+	          		<li><b>MANAGER_URL:</b>&nbsp;&nbsp;String pointing to the OpenAperture Manager</li>	
+	          		<li><b>OAUTH_CLIENT_ID:</b>&nbsp;&nbsp;String containing the OAuth Client ID</li>	 	  
+	          		<li><b>OAUTH_CLIENT_SECRET:</b>&nbsp;&nbsp;String containing the OAuth Client Secret</li>   		
+	          		<li><b>OAUTH_LOGIN_URL:</b>&nbsp;&nbsp;String pointing to the OAuth login URL for the OAuth Provider</li>	 	
+								<li><b>UI_URL:</b>&nbsp;&nbsp;String pointing to a UI URL</li>         		
+								<li><b>QUEUE_NAME:</b>&nbsp;&nbsp;String with the AMQP queue name for "workflow_orchestration" messages; specific to the associated <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a></li> 										
+	          	</ul>
+	          </td>
+      		</tr>
+
+      		<tr data-toggle="collapse" data-target="#builder" class="accordion-toggle">
+      			<td>
+      				<h4>Builder</h4>
+      			</td>
+      		</tr>
+      		<tr class="accordian-body collapse" id="builder">
+    				<td class="col-md-6" class="hiddenRow">
+    					The Builder has the following build-time requirements:
+            	<ul>
+	          		<li>The following package(s) are required to be installed:</li>
+	          		<ul>
+	          			<li>erlang-solutions_1.0_all (from erlang-solutions.com).  This will install Erlang and Elixir</li>	
+	          			<li>makedev</li>
+	          			<li>apt-transport-https</li>
+	          			<li>lxc-docker-x.x.x (the version will vary based on the current CoreOS version of docker)</li>
+	          		</ul>
+	          		<li>The git executable must be in the PATH</li>
+	          		<li>The <a href="https://github.com/alco/goon">goon</a> executable must be in the PATH
+	          	</ul>
+	          </td>
+      			<td class="col-md-6" class="hiddenRow">
+      				The Builder has the following build-time environment configuration:
+            	<ul>
+	          		<li><b>BROKER_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_broker.ex">MessagingBroker</a>, which should be used to connect to the AMQP broker</li>
+	          		<li><b>EXCHANGE_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a>, which should be associated with the component</li>	       		
+	          		<li><b>MIX_ENV:</b>&nbsp;&nbsp;String containing the mix environment (i.e. prod)</li>	 
+	          		<li><b>MANAGER_URL:</b>&nbsp;&nbsp;String pointing to the OpenAperture Manager</li>	
+	          		<li><b>OAUTH_CLIENT_ID:</b>&nbsp;&nbsp;String containing the OAuth Client ID</li>	 	  
+	          		<li><b>OAUTH_CLIENT_SECRET:</b>&nbsp;&nbsp;String containing the OAuth Client Secret</li>   		
+	          		<li><b>OAUTH_LOGIN_URL:</b>&nbsp;&nbsp;String pointing to the OAuth login URL for the OAuth Provider</li>	 	
+								<li><b>DOCKER_REGISTRY_EMAIL:</b>&nbsp;&nbsp;String containing the email associated with a Docker registry</li>
+								<li><b>DOCKER_REGISTRY_PASSWORD:</b>&nbsp;&nbsp;String containing the password for a user associated with a Docker registry</li>
+								<li><b>DOCKER_REGISTRY_URL:</b>&nbsp;&nbsp;String containing the URL for a Docker registry</li>
+								<li><b>DOCKER_REGISTRY_USERNAME:</b>&nbsp;&nbsp;String containing the username for a user associated with a Docker registry</li>								
+								<li><b>GITHUB_OAUTH_TOKEN:</b>&nbsp;&nbsp;String containing an <a href="https://github.com/blog/1270-easier-builds-and-deployments-using-git-over-https-and-oauth">x-oauth-basic</a> token for Github; this token is required to have access to all source and deployment repositories.  The value should be in the format of x-oauth-basic:*token*</li>
+								<li><b>QUEUE_NAME:</b>&nbsp;&nbsp;String with the AMQP queue name for "builder" messages; specific to the associated <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a></li> 										
+	          	</ul>
+	          </td>
+      		</tr>
+
+      		<tr data-toggle="collapse" data-target="#deployer" class="accordion-toggle">
+      			<td>
+      				<h4>Deployer</h4>
+      			</td>
+      		</tr>
+      		<tr class="accordian-body collapse" id="deployer">
+    				<td class="col-md-6" class="hiddenRow">
+    					The Deployer has the following build-time requirements:
+            	<ul>
+	          		<li>The following package(s) are required to be installed:</li>
+	          		<ul>
+	          			<li>erlang-solutions_1.0_all (from erlang-solutions.com).  This will install Erlang and Elixir</li>	
+	          		</ul>
+	          		<li>The fleetctl executable must be in the PATH (the <a href="https://github.com/coreos/fleet/releases/">release</a> will vary based on the current CoreOS version of docker)</li>
+	          		<li>In order for fleetctl to be successful, SSH access to the application clusters is required.  The deployer's scripts will check for the SSH file in /root/.ssh/id_rsa</li>
+	          	</ul>
+	          </td>
+      			<td class="col-md-6" class="hiddenRow">
+      				The Deployer has the following build-time environment configuration:
+            	<ul>
+	          		<li><b>BROKER_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_broker.ex">MessagingBroker</a>, which should be used to connect to the AMQP broker</li>
+	          		<li><b>EXCHANGE_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a>, which should be associated with the component</li>	       		
+	          		<li><b>MIX_ENV:</b>&nbsp;&nbsp;String containing the mix environment (i.e. prod)</li>	 
+	          		<li><b>MANAGER_URL:</b>&nbsp;&nbsp;String pointing to the OpenAperture Manager</li>	
+	          		<li><b>OAUTH_CLIENT_ID:</b>&nbsp;&nbsp;String containing the OAuth Client ID</li>	 	  
+	          		<li><b>OAUTH_CLIENT_SECRET:</b>&nbsp;&nbsp;String containing the OAuth Client Secret</li>   		
+	          		<li><b>OAUTH_LOGIN_URL:</b>&nbsp;&nbsp;String pointing to the OAuth login URL for the OAuth Provider</li>	 	
+								<li><b>QUEUE_NAME:</b>&nbsp;&nbsp;String with the AMQP queue name for "deployer" messages; specific to the associated <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a></li> 		
+	          	</ul>
+	          </td>
+      		</tr>
+
+      		<tr data-toggle="collapse" data-target="#deployer-oa" class="accordion-toggle">
+      			<td>
+      				<h4>Deployer OA</h4>
+      			</td>
+      		</tr>
+      		<tr class="accordian-body collapse" id="deployer-oa">
+    				<td class="col-md-6" class="hiddenRow">
+    					The Deployer OA has the following build-time requirements (note that the source code is the same as Deployer, simply a different deployment config):
+            	<ul>
+	          		<li>The following package(s) are required to be installed:</li>
+	          		<ul>
+	          			<li>erlang-solutions_1.0_all (from erlang-solutions.com).  This will install Erlang and Elixir</li>	
+	          		</ul>
+	          		<li>The fleetctl executable must be in the PATH (the <a href="https://github.com/coreos/fleet/releases/">release</a> will vary based on the current CoreOS version of docker)</li>
+	          		<li>In order for fleetctl to be successful, SSH access to the application clusters is required.  The deployer's scripts will check for the SSH file in /root/.ssh/id_rsa</li>
+	          	</ul>
+	          </td>
+      			<td class="col-md-6" class="hiddenRow">
+      				The Deployer OA has the following build-time environment configuration:
+            	<ul>
+	          		<li><b>BROKER_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_broker.ex">MessagingBroker</a>, which should be used to connect to the AMQP broker</li>
+	          		<li><b>EXCHANGE_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a>, which should be associated with the component</li>	       		
+	          		<li><b>MIX_ENV:</b>&nbsp;&nbsp;String containing the mix environment (i.e. prod)</li>	 
+	          		<li><b>MANAGER_URL:</b>&nbsp;&nbsp;String pointing to the OpenAperture Manager</li>	
+	          		<li><b>OAUTH_CLIENT_ID:</b>&nbsp;&nbsp;String containing the OAuth Client ID</li>	 	  
+	          		<li><b>OAUTH_CLIENT_SECRET:</b>&nbsp;&nbsp;String containing the OAuth Client Secret</li>   		
+	          		<li><b>OAUTH_LOGIN_URL:</b>&nbsp;&nbsp;String pointing to the OAuth login URL for the OAuth Provider</li>	 	 
+								<li><b>QUEUE_NAME:</b>&nbsp;&nbsp;String with the AMQP queue name for "deploy_oa" messages; specific to the associated <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a></li> 		
+	          	</ul>
+	          </td>
+      		</tr>
+
+      		<tr data-toggle="collapse" data-target="#fleet-manager" class="accordion-toggle">
+      			<td>
+      				<h4>FleetManager</h4>
+      			</td>
+      		</tr>
+      		<tr class="accordian-body collapse" id="fleet-manager">
+    				<td class="col-md-6" class="hiddenRow">
+    					The FleetManager has the following build-time requirements (note that the source code is the same as Deployer, simply a different deployment config):
+            	<ul>
+	          		<li>The following package(s) are required to be installed:</li>
+	          		<ul>
+	          			<li>erlang-solutions_1.0_all (from erlang-solutions.com).  This will install Erlang and Elixir</li>	
+	          		</ul>
+	          		<li>The fleetctl executable must be in the PATH (the <a href="https://github.com/coreos/fleet/releases/">release</a> will vary based on the current CoreOS version of docker)</li>
+	          		<li>In order for fleetctl to be successful, SSH access to the application clusters is required.  The deployer's scripts will check for the SSH file in /root/.ssh/id_rsa</li>
+	          	</ul>
+	          </td>
+      			<td class="col-md-6" class="hiddenRow">
+      				The FleetManager has the following build-time environment configuration:
+            	<ul>
+	          		<li><b>BROKER_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_broker.ex">MessagingBroker</a>, which should be used to connect to the AMQP broker</li>
+	          		<li><b>EXCHANGE_ID:</b>&nbsp;&nbsp;Integer representing the <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a>, which should be associated with the component</li>	       		
+	          		<li><b>MIX_ENV:</b>&nbsp;&nbsp;String containing the mix environment (i.e. prod)</li>	 
+	          		<li><b>MANAGER_URL:</b>&nbsp;&nbsp;String pointing to the OpenAperture Manager</li>	
+	          		<li><b>OAUTH_CLIENT_ID:</b>&nbsp;&nbsp;String containing the OAuth Client ID</li>	 	  
+	          		<li><b>OAUTH_CLIENT_SECRET:</b>&nbsp;&nbsp;String containing the OAuth Client Secret</li>   		
+	          		<li><b>OAUTH_LOGIN_URL:</b>&nbsp;&nbsp;String pointing to the OAuth login URL for the OAuth Provider</li>	 	
+								<li><b>QUEUE_NAME:</b>&nbsp;&nbsp;String with the AMQP queue name for "fleet_manager" messages; specific to the associated <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a></li> 		
+	          	</ul>
+	          </td>
+      		</tr>      	
+
+      	</tbody>
+      </table>
+		</div>		
+	</div>
+	<br/>
+	<br/>
+
+	<div class="footer navbar-fixed-bottom">
+		<div class="container">
+		<p class="text-muted pull-right">© 2015 Lexmark International Technology S.A.  All rights reserved.</p>
+		</div>
+	</div>	
+</body>
+</html>
