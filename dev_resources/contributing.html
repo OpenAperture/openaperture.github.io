@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OpenAperture - Contributing</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="css/os.css"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>OpenAperture</h1>
+      <!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
+      <p>Contributing guide</p>
+    </div>
+    <div class="row">
+      <h2>Contributing to OpenAperture</h2>
+      <p class="col-md-12">
+        This guide is intended to make the process of contributing to OpenAperture easy and efficient. As with OpenAperture, if you have suggestions/updates for this guide, please submit them <a href="https://github.com/OpenAperture/openaperture.github.io">here</a>.
+      </p>
+      <h3>Checklist</h3>
+      <p>Before submitting a pull request to OpenAperture, please complete the following:</p>
+      <ul>
+        <li><a href="#tests-exist">Tests exist for all new code</a></li>
+        <li><a href="#docs">Documentation exists for all new code</li>
+        <li><a href="#warnings">No compiler warnings exist</li>
+        <li><a href="#tests-complete">All tests complete</li>
+        <li><a href="#typespecs">Typespecs added/updated for all new/updated code</a></li>
+        <li><a href="#dialyzer">Dialyzer warnings have been reviewed</li>
+      </ul>
+      <a name="tests-exist"></a>
+      <h3>Tests</h3>
+      <p>All new code should have unit tests added that cover the new code. Tests that cover updated code should be checked to verify that the assumptions in the tests are still valid, and that the tests all still pass.</p>
+      <a name="docs"></a>
+      <h3>Documentation</h3>
+      <p>All code should be documented using @moduledoc and @doc. <a href="http://elixir-lang.org/getting-started/module-attributes.html#as-annotations">Click here</a> for more information on these annotations</p>
+      <a name="warnings"></a>
+      <h3>Compiler Warnings</h3>
+      <p>All warnings should be removed from the code. OpenAperture CI uses the mix compile <i>--warnings-as-errors</i> flag on automated builds, so code submitted with warnings will fail.</p>
+      <a name="tests-complete"></a>
+      <h3>All tests complete</h3>
+      <p>OpenAperture CI runs <i>mix test</i>, so make sure all tests are passing before submitting PR's.</p>
+      <a name="typespecs"></a>
+      <h3>Typespecs</h3>
+      <p>Typespecs are used in OpenAperture in conjunction with Dialyzer to validate code. Click <a href="http://elixir-lang.org/getting-started/typespecs-and-behaviours.html#types-and-specs">here</a> for an introduction to typespecs in Elixir. Some notes:</p>
+      <ul>
+        <li><i>map</i>, <i>list</i>, <i>atom</i>, and <i>integer</i> should be lowercase and should not end with .t</li>
+        <li>Strings should be spec'd as <i>String.t</i></li>
+        <li>For OpenAperture, parens should not be used on types (e.g. <i>String.t</i>, not <i>String.t()</i>).
+        <li>Individual fields of Structs should be typespec'd like this:<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;defmodule Person do<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defstruct name: nil, age: nil, gender: nil<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@type t :: %__MODULE__{name: String.t, age: integer, gender: :male | :female}</li>
+        <li>If you are in a module that has a .t type defined, you should simply use the letter t as the type. e.g.:<br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@spec change_name(t, String.t) :: t</li>
+        <li>When multiple functions have the same compled parameter or return type, consider creating a custom type like this:<br/>&nbsp;&nbsp;&nbsp;<i>@type my_type :: {:ok, integer} | {:error, String.t}</i>
+      </ul>
+      <a name="dialyzer"></a>
+      <h3>Dialyzer</h3>
+      <p>Dialyzer is a static analyzis program, part of Erlang, which validates code using typespecs. Dialyzer is periodically run manually against OpenAperture code to verify that code is valid and root out potential issues. We use the <a href="https://github.com/fishcakez/dialyze">dialyze</a> project, which makes running Dialyzer as simple as running <i>mix dialyze</i> in the project root. It is not a requirement that code submitted to OpenAperture is free of Dialyzer warnings, however it is highly encouraged to review the warnings to ensure that there are no issues with the code that is being submitted.</p>
+
+      <h4>Understanding Dialyzer</h4>
+      <p>The first time you run dialyze with a given erlang-elixir version pair, it will take a while longer to run. This is because it is generating plt files for the erlang/elixir code, which it will then use on all subsequent executions. The output from dialyzer is quite cryptic, and it may take a while to learn what each one of the warnings mean. Remember that this is an erlang program, so the references will be to the erlang-generated versions of the module/function names (e.g. 'Elixir.OpenAperture.ErrorView':log_error()).</p>
+
+      <p>First off, dialyze will complain about any unknown types. Pay attention to these, you should be able to eliminate all of these warnings. For example, if it complains about "unknown type: 'Elixir.Map' ::t. this means you have a Map.t somewhere in your code that you should search for and convert to map. Complaining about an unknown type for a module in your code could mean that the @type t :: %{} line is missing from that module.</p>
+
+      <p>Second, any time in the code where you access a struct's fields, there will be a warning similar to this ("of type atom() | tuple() not #{}"):</p>
+
+      <p><i>lib/messaging/rpc_request.ex:118: The call _@8:'body'() requires that _@8 is of type atom() | tuple() not #{}</i></p>
+
+      <p>This is because of how elixir implements structs in erlang, and unfortunately there is no way to get around this warning. Nothing is being done incorrectly, so you can ignore these lines.</p>
+
+      <p>Next, whenever you see this warning ("has no local return"):</p>
+
+      <p><i>lib/messaging/amqp/connection_supervisor.ex:42: Function init/1 has no local return</i></p>
+
+      <p>it is a symptom of another warning that should be right before or after that warning. Once you fix the other warning, this will go away.</p>
+
+      <p>Any warnings that don't fall into the above categories are ones you actually will need to fix the typespec to eliminate.</p>
+
+      <p>The following warning indicates that you need to check the behavior you are implementing for a the correct return type, the one you specified doesn't match (check elixir/erlang docs for the right value):</p>
+
+      <p><i>lib/messaging.ex:49: The return type 'ignore' in the specification of start/2 is not a subtype of {'error',_} | {'ok',pid()} | {'ok',pid(),_}, which is the expected return type for the callback of application behaviour</i></p>
+
+      <p>The following warning ("the call XXX will never return") indicates that the calculated typespec of the paramters being passed into the function don't match the typespec of the function being called:</p>
+
+      <p><i>web/controllers/products/product_environmental_variables.ex:178: The call 'Elixir.OpenAperture.Manager.DB.Models.ProductEnvironmentalVariable':update(env_var@1::[any()],params@1::#{}) will never return since the success typing is (#{},#{}) -> #{} and the contract is ('Elixir.Ecto.Model':t(),params()) -> 'Elixir.Ecto.Changeset':t()</i></p>
+
+      <p>This warning ("breaks the contract") also means that the typespecs of the paramters don't match the typespecs of the function being called:</p>
+
+      <p><i>web/controllers/products/product_deployment_plans.ex:1: The call 'Elixir.Phoenix.Controller':put_new_layout(_@3::#{},{'Elixir.OpenAperture.LayoutView','application'}) breaks the contract ('Elixir.Plug.Conn':t(),{atom(),binary()} | 'false') -> 'Elixir.Plug.Conn':t()</i></p>
+
+      <p>This warning ("can never match the type") indicates that the case will never happen because the type of the case subject doesn't match the type of the case option (here, the case returns something that isnt a tuple, but the case option is a tuple):</p>
+
+      <p><i>web/controllers/products/product_deployment_plan_steps.ex:207: The pattern {_, _plan@1} can never match the type 'nil' | [any()]</i></p>
+
+      <p>This warning ("invalid type specification") means that the return type specified in the @spec differs from what it is actually returning:</p>
+
+      <p><i>web/controllers/products/product_deployment_plan_steps.ex:307: Invalid type specification for function 'Elixir.OpenAperture.Manager.Controllers.ProductDeploymentPlanSteps':get_product_and_plan_by_name/2. The success typing is (binary(),binary()) -> 'nil' | [any()]</i></p>
+
+      <p>There are other warnings you will run across, but hopefully this will be enough to get you up and running and thinking about typespecs and dialyzing.</p>
+    </div>
+    <br/>
+  </div>
+
+  <div class="footer navbar-fixed-bottom">
+    <div class="container">
+    <p class="text-muted pull-right">© 2015 Lexmark International Technology S.A.  All rights reserved.</p>
+    </div>
+  </div>  
+</body>
+</html>
