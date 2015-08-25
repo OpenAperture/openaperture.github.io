@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OpenAperture Documentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	  <div class="jumbotron">
+	  	<h1>OpenAperture</h1>
+	  	<!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
+	    <p>Cloud Application Management Platform</p> 
+	  </div>
+	  <div class="row">
+	  	<p class="col-md-12 lead">
+	  		OpenAperture is a free, open-source hybrid cloud management platform that delivers software quickly and consistently regardless of location or workload. This future-ready platform from Lexmark Enterprise Software provides a comprehensive management system to handle the six pillars of cloud management – provisioning, deployment, monitoring, maintenance, security and metering.
+			</p>
+		</div>
+		<br/>
+		<div class="row">
+			<h2>OpenAperture Authentication</h2>
+			<p>OpenAperture requires that authentication be configured in order to properly operate.  All requests submitted to the Manager must contain an authorization header in the form:</p>
+			<pre>
+Authorization: OAuth Bearer *access token*
+			</pre>
+			<p>Once a user has been authenticated, a <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/user.ex">User record</a> is created, and an <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/auth_source.ex">AuthSource</a> defined (<a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/plugs/authentication_plug.ex#L112-L133">if one does not exist</a>).</p>
+
+			<h2>Configuring OAuth</h2>
+			<p>OpenAperture requires an external OAuth 2 provider in order to function; OpenAperture uses both the <a href="http://tools.ietf.org/html/rfc6749#section-2.3">Client Authentication</a> flow to request authentication tokens, as well as the <a href="http://tools.ietf.org/html/rfc6749#section-3.2">token endpoint</a> to validate incoming tokens.  The Manager SystemComponent will need to both authenticate tokens and request tokens.  All of the remaining SystemComponents will need the ability to request tokens (to send to the Manager.  The following OAuth information is required to be configured in the SystemComponent run-time environments:</p>
+			<ul>
+				<li><b>OAUTH_CLIENT_ID:</b>&nbsp;&nbsp;represents the OAuth 2 <a href="http://tools.ietf.org/html/rfc6749#section-2.3.1">client_id</a>
+				<li><b>OAUTH_CLIENT_SECRET:</b>&nbsp;&nbsp;represents the OAuth 2 <a href="http://tools.ietf.org/html/rfc6749#section-2.3.1">client_secret</a>				
+				<li><b>OAUTH_LOGIN_URL:</b>&nbsp;&nbsp;represents the OAuth 2 <a href="http://tools.ietf.org/html/rfc6749#section-2.3">client authentication endpoint</a>
+				<ul>
+					<li>An example login endpoint would be the login endpoint for <a href="https://developers.google.com/identity/protocols/OAuth2ServiceAccount">Google's OAuth 2 Service Accounts</a> endpoint</li>
+				</ul>
+				<li><b>MANAGER_OAUTH_VALIDATE_URL:</b>&nbsp;&nbsp;represents the OAuth 2 <a href="http://tools.ietf.org/html/rfc6749#section-3.2">token endpoint</a> (used for token validation)
+				<ul>
+					<li>An example validation endpoint would be Google's tokeninfo endpoint:&nbsp;&nbsp;<a href="https://www.googleapis.com/oauth2/v1/tokeninfo">https://www.googleapis.com/oauth2/v1/tokeninfo</a></li>
+				</ul>
+			</ul>
+
+			<p>The authentication flow generally looks something like:</p>
+			<ul>
+				<li>SystemComponent <a href="https://github.com/OpenAperture/auth/blob/master/lib/auth/client.ex#L38-L44">requests</a> an auth token from the OAUTH_LOGIN_URL, using the OAUTH_CLIENT_ID and OAUTH_CLIENT_SECRET</li>
+				<li>An access token is <a href="https://github.com/OpenAperture/auth/blob/master/lib/auth/client.ex#L47">parsed</a> from the response body</li>
+				<li>The access token is set to the Authorization header of a Manager request</li>
+				<li>The Manager parses out the access token from the request's Authorization header and <a href="https://github.com/OpenAperture/auth/blob/master/lib/auth/server.ex#L46">submits</a> it to MANAGER_OAUTH_VALIDATE_URL.</li>
+				<li>If rejected, the Manager returns a 401.  Otherwise, a User and AuthSource are verified or created</li>
+				<li>The request is processed</li>
+			</ul>
+
+			<br/>
+		</div>
+	</div>
+	<br/>
+	<br/>
+
+	<div class="footer navbar-fixed-bottom">
+		<div class="container">
+		<p class="text-muted pull-right">© 2015 Lexmark International Technology S.A.  All rights reserved.</p>
+		</div>
+	</div>	
+</body>
+</html>			
