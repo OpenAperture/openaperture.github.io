@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OpenAperture Documentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	  <div class="jumbotron">
+	  	<h1>OpenAperture</h1>
+	  	<!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
+	    <p>Cloud Application Management Platform</p> 
+	  </div>
+	  <div class="row">
+	  	<p class="col-md-12 lead">
+	  		OpenAperture is a free, open-source hybrid cloud management platform that delivers software quickly and consistently regardless of location or workload. This future-ready platform from Lexmark Enterprise Software provides a comprehensive management system to handle the six pillars of cloud management – provisioning, deployment, monitoring, maintenance, security and metering.
+			</p>
+		</div>
+		<br/>
+		<div class="row">
+			<h2>Managing OpenAperture Infrastructure Upgrades</h2>
+			<p>As mentioned in other documents, OpenAperture is designed to be self-sufficient, and is capable of deploying and upgrading itself.  This is accomplished by defining SystemComponents that are *supposed* to be running, and OpenAperture verifying that against what is *actually* running.</p>
+
+			<h3>Managing the Gold Standard Reference</h3>
+			<p><a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/system_component_ref.ex#L8-L11">SystemComponentRefs</a> define what source code version of any SystemComponent *should* be used when running in any assembly across the distributed OpenAperture system.  The following definitions should be present for any OpenAperture system (POST to /system_component_refs):</p>
+			<ul>
+				<li>Manager</li>
+				<ul>
+					<li><b>type:</b>&nbsp;&nbsp;manager</li>
+					<li><b>source_repo:</b>&nbsp;&nbsp;https://github.com/OpenAperture/manager</li>
+					<li><b>source_repo_git_ref:</b>&nbsp;&nbsp;*commit has that you want to deploy*</li>
+					<li><b>auto_upgrade_enabled:</b>&nbsp;&nbsp;Set to true if you want SystemComponents to automatically upgrade</li>
+				</ul>
+				<li>Overseer</li>
+				<ul>
+					<li><b>type:</b>&nbsp;&nbsp;overseer</li>
+					<li><b>source_repo:</b>&nbsp;&nbsp;https://github.com/OpenAperture/overseer</li>
+					<li><b>source_repo_git_ref:</b>&nbsp;&nbsp;*commit has that you want to deploy*</li>
+					<li><b>auto_upgrade_enabled:</b>&nbsp;&nbsp;Set to true if you want SystemComponents to automatically upgrade</li>
+				</ul>				
+				<li>Notifications</li>
+				<ul>
+					<li><b>type:</b>&nbsp;&nbsp;notifications</li>
+					<li><b>source_repo:</b>&nbsp;&nbsp;https://github.com/OpenAperture/notifications</li>
+					<li><b>source_repo_git_ref:</b>&nbsp;&nbsp;*commit has that you want to deploy*</li>
+					<li><b>auto_upgrade_enabled:</b>&nbsp;&nbsp;Set to true if you want SystemComponents to automatically upgrade</li>
+				</ul>						
+				<li>WorkflowOrchestrator</li>
+				<ul>
+					<li><b>type:</b>&nbsp;&nbsp;workflow_orchestrator</li>
+					<li><b>source_repo:</b>&nbsp;&nbsp;https://github.com/OpenAperture/workflow_orchestrator</li>
+					<li><b>source_repo_git_ref:</b>&nbsp;&nbsp;*commit has that you want to deploy*</li>
+					<li><b>auto_upgrade_enabled:</b>&nbsp;&nbsp;Set to true if you want SystemComponents to automatically upgrade</li>
+				</ul>					
+				<li>Builder</li>
+				<ul>
+					<li><b>type:</b>&nbsp;&nbsp;builder</li>
+					<li><b>source_repo:</b>&nbsp;&nbsp;https://github.com/OpenAperture/builder</li>
+					<li><b>source_repo_git_ref:</b>&nbsp;&nbsp;*commit has that you want to deploy*</li>
+					<li><b>auto_upgrade_enabled:</b>&nbsp;&nbsp;Set to true if you want SystemComponents to automatically upgrade</li>
+				</ul>	
+				<li>Deployer</li>				
+				<ul>
+					<li><b>type:</b>&nbsp;&nbsp;deployer</li>
+					<li><b>source_repo:</b>&nbsp;&nbsp;https://github.com/OpenAperture/deployer</li>
+					<li><b>source_repo_git_ref:</b>&nbsp;&nbsp;*commit has that you want to deploy*</li>
+					<li><b>auto_upgrade_enabled:</b>&nbsp;&nbsp;Set to true if you want SystemComponents to automatically upgrade</li>
+					<li>**Note that you don't need to separately define an entry for DeployerOA</li>
+				</ul>					
+				<li>FleetManager</li>				
+				<ul>
+					<li><b>type:</b>&nbsp;&nbsp;fleet_manager</li>
+					<li><b>source_repo:</b>&nbsp;&nbsp;https://github.com/OpenAperture/fleet_manager</li>
+					<li><b>source_repo_git_ref:</b>&nbsp;&nbsp;*commit has that you want to deploy*</li>
+					<li><b>auto_upgrade_enabled:</b>&nbsp;&nbsp;Set to true if you want SystemComponents to automatically upgrade</li>
+				</ul>				
+			</ul>
+
+			<h3>Managing Exchange Upgrades</h3>
+			<p><a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/system_component.ex#L10-L18">SystemComponents</a> define what SystemComponents *should* be running in a specific <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a>.  The Overseer, Deployer, and DeployerOA SystemComponents will work together to upgrade all Fleet service files in-place using <a>Workflows</a>, assuming SystemComponentRef's auto_upgrade_enabled is true, and SystemComponent's upgrade_strategy is set to something other than manual.  Depending on what Assemblies are running in an Exchange, you'll need to define the correct SystemComponents for the Exchange.  For each SystemComponent, not all fields of SystemComponents should be filled out, just the following:</p>
+			<ul>
+				<li><b>type:</b>&nbsp;&nbsp;should correspond to the SystemComponentRef above</li>
+				<li><b>deployment_repo:</b>&nbsp;&nbsp;should correspond to the <a href="../dev_resources/deploy_repo.html">deployment repository</a> defined for the component</li>
+				<li><b>deployment_repo_git_ref:</b>&nbsp;&nbsp;should correspond commit has, branch, or tag for the deploy_repo</li>	
+				<li><b>upgrade_strategy:</b>&nbsp;&nbsp;supported values are "manual" and "hourly"</li>	
+			</ul>
+			<p>If the upgrade strategy is set to hourly, once an hour the Overseer will check all of the SystemComponents for the Exchange and compare them to the SystemComponentRef for the system.  If an upgrade is required, it will begin an in-place upgrade.  An upgrade of a SystemComponent may be requested at any time by executing a POST to /system_components/:id/upgrade.  This will only request an upgrade though, the Overseer will determine if the SystemComponent is eligible for an upgrade.</p>
+			
+			<h3>What SystemComponents Are Actually Running?</h3>
+			<p><a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange_module.ex#L10-L17">MessagingExchangeModules</a> represent instances of running SystemComponents, in a specific <a href="https://github.com/OpenAperture/manager/blob/master/lib/manager/db/models/messaging/messaging_exchange.ex">MessagingExchange</a>.  The type field corresponds to the SystemComponent and SystemComponentRef value and the hostname field represents the current docker container id.  The current modules can be retrieved using a GET to /messaging/exchanges/:id/modules.</p>
+			<p>The Overseer will review the SystemComponentRefs, SystemComponents, and MessagingExchangeModules to determine if the Exchange is healthy, and what SystemComponents need to be deployed/stopped.  The Overseer will also inactive or delete MessagingExchangeModules if they have stopped reporting a status (inactivate after 10 minutes, delete after 20 minutes); the theory here is if a MessagingExchangeModule has not reported a status in 10 minutes, the docker containers have probably been cycled and the hostname is no longer valid; but eventual consistency will determine that.</p>
+			<br/>
+		</div>
+	</div>
+	<br/>
+	<br/>
+
+	<div class="footer navbar-fixed-bottom">
+		<div class="container">
+		<p class="text-muted pull-right">© 2015 Lexmark International Technology S.A.  All rights reserved.</p>
+		</div>
+	</div>	
+</body>
+</html>
