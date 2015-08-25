@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OpenAperture Documentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	  <div class="jumbotron">
+	  	<h1>OpenAperture</h1>
+	  	<!--<img src="images/oagraphic.png" style="max-height: 150px; max-width: 150px;" class="pull-right"><h1>OpenAperture</h1></img>-->
+	    <p>Cloud Application Management Platform</p> 
+	  </div>
+	  <div class="row">
+	  	<p class="col-md-12 lead">
+	  		OpenAperture is a free, open-source hybrid cloud management platform that delivers software quickly and consistently regardless of location or workload. This future-ready platform from Lexmark Enterprise Software provides a comprehensive management system to handle the six pillars of cloud management – provisioning, deployment, monitoring, maintenance, security and metering.
+			</p>
+		</div>
+		<br/>
+		<div class="row">
+			<h2>Wiring DNS for Application EtcdClusters</h2>
+			<p>Once your applications have been deployed to deployment clusters, you have several options for setting up routing, based on where your cluster is located (i.e. public cloud, on-prem, etc...), and how complex your landscape is shaping up to be.</p>
+
+			<h2>Option 1 - Static Docker Ports</h2>
+			<p>As part of your Fleet service file definition, you can specify your applications to run on a specific port.  Then, using your load balancer, simply add the EtcdCluster nodes and that port and route traffic directly.  This may be the fatest way to get up and running, but for obvious reasons, doesn't scale well.  It also requires that each application run on it's own cluster; every instance that spins up in docker is going to require the same port, so you can have a maximum of node-count+1 instances.</p>
+
+			<h2>Option 2 - Static Docker Ports + OpenAperture Router</h2>
+			<p>This is similar to Option 1, except that OpenAperture also provides a <a href="https://github.com/OpenAperture/router">Router</a> that may be used in place of a 3rd-party router.</p>
+
+			<h2>Option 3 - Dynamic Docker Ports via Consul</h2>
+			<p><a href="https://github.com/hashicorp/consul">Consul</a>, Registrator, and the Http-Router provide a mechanism for managing dynamic Docker contains and HTTP requests.  A discussion around how to configure such a setup can be found <a href="http://blog.xebia.com/2015/03/24/a-high-available-docker-container-platform-using-coreos-and-consul/">here</a>.</p>
+		</div>
+	</div>
+	<br/>
+	<br/>
+
+	<div class="footer navbar-fixed-bottom">
+		<div class="container">
+		<p class="text-muted pull-right">© 2015 Lexmark International Technology S.A.  All rights reserved.</p>
+		</div>
+	</div>	
+</body>
+</html>			
