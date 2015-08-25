@@ -57,6 +57,14 @@ format incoming and outgoing data.</p>
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
+  <td class="summary_signature"><a href="#decrypt_value/1">decrypt_value(encrypted_value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#encrypt_value/1">encrypt_value(value)</a></td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#keywords_to_map/1">keywords_to_map(kw)</a></td>
   
     <td class="summary_synopsis"><p>keywords_to_map converts a keyword list to a map, which is more easily
@@ -69,7 +77,7 @@ Ex:
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#to_sendable/2">to_sendable(item, allowed_fields \\ [])</a></td>
+  <td class="summary_signature"><a href="#to_sendable/3">to_sendable(item, allowed_fields \\ [], encrypted_fields \\ [])</a></td>
   
     <td class="summary_synopsis"><p>to_sendable prepares a List of structs or maps for transmission by converting structs
 to plain old maps (if a struct is passed in), and stripping out any fields
@@ -85,6 +93,14 @@ sent</p>
 </td>
   
 </tr>
+<tr>
+  <td class="summary_signature"><a href="#unencrypt_field/3">unencrypt_field(item, key, val)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unencrypt_fields/2">unencrypt_fields(item, list2)</a></td>
+  
+</tr>
 
         </table>
       
@@ -95,6 +111,50 @@ sent</p>
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
+  <div class="detail_header" id="decrypt_value/1">
+    <span class="signature"><strong>decrypt_value(encrypted_value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#decrypt_value/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>decrypt_value(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="encrypt_value/1">
+    <span class="signature"><strong>encrypt_value(value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#encrypt_value/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>encrypt_value(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
   <div class="detail_header" id="keywords_to_map/1">
     <span class="signature"><strong>keywords_to_map(kw)</strong></span>
     <div class="detail_header_links">
@@ -123,11 +183,11 @@ Ex:
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="to_sendable/2">
-    <span class="signature"><strong>to_sendable(item, allowed_fields \\ [])</strong></span>
+  <div class="detail_header" id="to_sendable/3">
+    <span class="signature"><strong>to_sendable(item, allowed_fields \\ [], encrypted_fields \\ [])</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#to_sendable/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#to_sendable/3" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -135,9 +195,7 @@ Ex:
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>to_sendable(<a href="http://elixir-lang.org/docs/stable/elixir/List.html#t:t/0">List.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/List.html#t:t/0">List.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/List.html#t:t/0">List.t</a></li>
-      
-        <li>to_sendable(<a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/List.html#t:t/0">List.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a></li>
+        <li>to_sendable(<a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/List.html#t:t/0">List.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/List.html#t:t/0">List.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a></li>
       
     </ul>
   
@@ -160,9 +218,60 @@ sent.</p>
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>to_string_timestamps(<a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a></li>
+      
+    </ul>
+  
   <section class="docstring">
     <p>Method to convert the :inserted_at and :updated_at entries into RFC 1123-compliant Strings</p>
 
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="unencrypt_field/3">
+    <span class="signature"><strong>unencrypt_field(item, key, val)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unencrypt_field/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>unencrypt_field(%{}, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: %{}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="unencrypt_fields/2">
+    <span class="signature"><strong>unencrypt_fields(item, list2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unencrypt_fields/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>unencrypt_fields(%{}, list) :: %{}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
   </section>
   
 </section>
