@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-        <title>OpenAperture.WorkflowOrchestrator.Deployer.Publisher – openaperture_workflow_orchestrator v0.0.1</title>
+        <title>OpenAperture.WorkflowOrchestrator.Notifications.Publisher – openaperture_workflow_orchestrator v0.0.1</title>
       
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc">
@@ -74,11 +74,11 @@
         <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
-        openaperture_workflow_orchestrator v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.WorkflowOrchestrator.html#content">WorkflowOrchestrator</a> &rarr; Deployer &rarr; <a href="OpenAperture.WorkflowOrchestrator.Deployer.Publisher.html#content">Publisher</a>
+        openaperture_workflow_orchestrator v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.WorkflowOrchestrator.html#content">WorkflowOrchestrator</a> &rarr; Notifications &rarr; <a href="OpenAperture.WorkflowOrchestrator.Notifications.Publisher.html#content">Publisher</a>
       </div>
 
       <h1>
-        OpenAperture.WorkflowOrchestrator.Deployer.Publisher
+        OpenAperture.WorkflowOrchestrator.Notifications.Publisher
         
       </h1>
 
@@ -96,7 +96,7 @@
 
       
         <section id="moduledoc" class="docstring">
-          <p>This module contains the logic to publish messages to the Deployer system module</p>
+          <p>This module contains the logic to publish messages to the Notifications system module</p>
 
         </section>
       
@@ -113,18 +113,18 @@
 </td>
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#deploy/3">deploy(delivery_tag, messaging_exchange_id, payload)</a></td>
-  <td class="summary_synopsis"><p>Method to publish the Deployer system module</p>
-</td>
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#deploy_oa/3">deploy_oa(delivery_tag, messaging_exchange_id, payload)</a></td>
-  <td class="summary_synopsis"><p>Method to publish the Deployer system module</p>
+  <td class="summary_signature"><a href="#email_notification/3">email_notification(subject, message, recipients)</a></td>
+  <td class="summary_synopsis"><p>Method to publish a email notification</p>
 </td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#handle_cast/2">handle_cast(msg, state)</a></td>
-  <td class="summary_synopsis"><p>Publishes a message to the Deployer system module (for OpenAperture deployments), via an asynchronous request to the <code class="inline">server</code></p>
+  <td class="summary_synopsis"><p>Publishes a notification, via an asynchronous request to the <code class="inline">server</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hipchat_notification/4">hipchat_notification(is_success, prefix, message, room_names \\ nil)</a></td>
+  <td class="summary_synopsis"><p>Method to publish a hipchat notification</p>
 </td>
 </tr>
 <tr>
@@ -190,11 +190,11 @@
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="deploy/3">
-    <span class="signature"><strong>deploy(delivery_tag, messaging_exchange_id, payload)</strong></span>
+  <div class="detail_header" id="email_notification/3">
+    <span class="signature"><strong>email_notification(subject, message, recipients)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#deploy/3" class="detail_link" title="Link to this function">#</a>
+      <a href="#email_notification/3" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -202,41 +202,18 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>deploy(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>email_notification(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, list) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Method to publish the Deployer system module</p>
+    <p>Method to publish a email notification</p>
 <h2>Options</h2>
-<p>The <code class="inline">payload</code> option is the Map of options that needs to be passed to the deploy module</p>
-<h2>Return Values</h2>
-<p>:ok | {:error, reason}</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="deploy_oa/3">
-    <span class="signature"><strong>deploy_oa(delivery_tag, messaging_exchange_id, payload)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#deploy_oa/3" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>deploy_oa(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
-      
-    </ul>
-  
-  <section class="docstring">
-    <p>Method to publish the Deployer system module</p>
-<h2>Options</h2>
-<p>The <code class="inline">payload</code> option is the Map of options that needs to be passed to the deploy module</p>
+<p>The <code class="inline">exchange_id</code> option defines the exchange in which Notification messages should be sent</p>
+<p>The <code class="inline">broker_id</code> option defines the broker to which the Notification messages should be sent</p>
+<p>The <code class="inline">subject</code> option defines the email subject</p>
+<p>The <code class="inline">message</code> option defines the body of the email</p>
+<p>The <code class="inline">recipients</code> option defines an array of email addresses of recipients</p>
 <h2>Return Values</h2>
 <p>:ok | {:error, reason}</p>
 
@@ -256,24 +233,48 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>handle_cast({:deploy_oa, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}}, %{}) :: {:noreply, %{}}</li>
-      
-        <li>handle_cast({:deploy, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, %{}}, %{}) :: {:noreply, %{}}</li>
+        <li>handle_cast({term, %{}}, %{}) :: {:noreply, %{}}</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Publishes a message to the Deployer system module (for OpenAperture deployments), via an asynchronous request to the <code class="inline">server</code>.</p>
-<p>This function returns <code class="inline">:ok</code> immediately, regardless of
-whether the destination node or server does exists, unless
-the server is specified as an atom.</p>
-<p><a href="#handle_cast/2"><code class="inline">handle_cast/2</code></a> will be called on the server to handle
-the request. In case the server is a node which is not
-yet connected to the caller one, the call is going to
-block until a connection happens. This is different than
-the behaviour in OTP’s <code class="inline">:gen_server</code> where the message
-would be sent by another process, which could cause
-messages to arrive out of order.</p>
+    <p>Publishes a notification, via an asynchronous request to the <code class="inline">server</code>.</p>
+<h2>Options</h2>
+<p>The <code class="inline">notification_type</code> option defines an atom representing what type of notification should be sent (i.e. :hipchat, :email)</p>
+<p>The <code class="inline">payload</code> option defines the Hipchat Notification payload that should be sent</p>
+<p>The <code class="inline">state</code> option represents the server’s current state</p>
+<h2>Return Values</h2>
+<pre><code class="elixir">{:noreply, state}</code></pre>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="hipchat_notification/4">
+    <span class="signature"><strong>hipchat_notification(is_success, prefix, message, room_names \\ nil)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hipchat_notification/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>hipchat_notification(term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, list) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to publish a hipchat notification</p>
+<h2>Options</h2>
+<p>The <code class="inline">is_success</code> option is a boolean that determines success</p>
+<p>The <code class="inline">prefix</code> option is the message prefix String</p>
+<p>The <code class="inline">message</code> option is the message content</p>
+<p>The <code class="inline">room_names</code> option is (optionally) HipChat room names to publish to</p>
+<h2>Return Values</h2>
+<p>:ok | {:error, reason}</p>
 
   </section>
   
