@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.WorkflowOrchestratorApi.Workflow</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_workflow_orchestrator_api v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.WorkflowOrchestratorApi.html">WorkflowOrchestratorApi</a> &rarr; <a href="OpenAperture.WorkflowOrchestratorApi.Workflow.html">Workflow</a></div>
+      <h1>
+        OpenAperture.WorkflowOrchestratorApi.Workflow
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>Methods and Workflow struct that will be received from (and should be sent to) the WorkflowOrchestrator</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#add_event_to_log/3">add_event_to_log(request, event, prefix \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to add an event to the workflow’s event log</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#from_payload/1">from_payload(payload)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to convert a map into a Workflow struct</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#publish_failure_notification/2">publish_failure_notification(request, message)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to publish a “failure” notification</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#publish_success_notification/2">publish_success_notification(request, message)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to publish a “success” notification</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#save/1">save(request)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to save Workflow info to the database</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#send_notification/3">send_notification(request, is_success, message)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to publish a notification</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#step_completed/1">step_completed(request)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to notify the WorkflowOrchestrator that a workflow step has completed</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#step_failed/3">step_failed(request, message, reason)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to notify the WorkflowOrchestrator that a workflow step has failed</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_payload/1">to_payload(workflow)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to convert a Workflow struct into a map</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <section id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: %OpenAperture.WorkflowOrchestratorApi.Workflow{current_step: term, deployment_repo: term, deployment_repo_git_ref: term, elapsed_step_time: term, elapsed_workflow_time: term, event_log: term, execute_options: term, id: term, milestones: term, scheduled_start_time: term, source_commit_hash: term, source_repo: term, source_repo_git_ref: term, step_time: term, workflow_completed: term, workflow_duration: term, workflow_error: term, workflow_id: term, workflow_start_time: term, workflow_step_durations: term}
+  </p>
+  
+</div>
+
+        </section>
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="add_event_to_log/3">
+    <span class="signature"><strong>add_event_to_log(request, event, prefix \\ nil)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#add_event_to_log/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>add_event_to_log(<a href="OpenAperture.WorkflowOrchestratorApi.Request.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Request.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="OpenAperture.WorkflowOrchestratorApi.Request.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Request.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to add an event to the workflow’s event log</p>
+<h2>Options</h2>
+<p>The <code class="inline">request</code> option defines the Request</p>
+<p>The <code class="inline">event</code> option defines a String containing the event to track</p>
+<p>The <code class="inline">prefix</code> option defines an optional String prefix for the event</p>
+<h2>Return Values</h2>
+<p>Request</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="from_payload/1">
+    <span class="signature"><strong>from_payload(payload)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#from_payload/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>from_payload(%{}) :: OpenAperture.WorkflowOrchestratorApi.Workflow</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to convert a map into a Workflow struct</p>
+<h2>Options</h2>
+<p>The <code class="inline">payload</code> option defines the Map containing the Workflow</p>
+<h2>Return Values</h2>
+<p>OpenAperture.WorkflowOrchestratorApi.Workflow</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="publish_failure_notification/2">
+    <span class="signature"><strong>publish_failure_notification(request, message)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#publish_failure_notification/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>publish_failure_notification(<a href="OpenAperture.WorkflowOrchestratorApi.Request.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Request.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="OpenAperture.WorkflowOrchestratorApi.Request.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Request.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to publish a “failure” notification</p>
+<h2>Options</h2>
+<p>The <code class="inline">request</code> option defines the Request</p>
+<p>The <code class="inline">message</code> option defines the message to publish</p>
+<h2>Return values</h2>
+<p>Request</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="publish_success_notification/2">
+    <span class="signature"><strong>publish_success_notification(request, message)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#publish_success_notification/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>publish_success_notification(<a href="OpenAperture.WorkflowOrchestratorApi.Request.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Request.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="OpenAperture.WorkflowOrchestratorApi.Request.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Request.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to publish a “success” notification</p>
+<h2>Options</h2>
+<p>The <code class="inline">request</code> option defines the Request</p>
+<p>The <code class="inline">message</code> option defines the message to publish</p>
+<h2>Return values</h2>
+<p>Request</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="save/1">
+    <span class="signature"><strong>save(request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#save/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>save(<a href="OpenAperture.WorkflowOrchestratorApi.Request.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Request.t</a>) :: <a href="OpenAperture.WorkflowOrchestratorApi.Request.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Request.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to save Workflow info to the database</p>
+<h2>Options</h2>
+<p>The <code class="inline">request</code> option defines the Request</p>
+<h2>Return Value</h2>
+<p>Request</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="send_notification/3">
+    <span class="signature"><strong>send_notification(request, is_success, message)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#send_notification/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>send_notification(<a href="OpenAperture.WorkflowOrchestratorApi.Request.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Request.t</a>, term, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="OpenAperture.WorkflowOrchestratorApi.Request.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Request.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to publish a notification</p>
+<h2>Options</h2>
+<p>The <code class="inline">request</code> option defines the Request</p>
+<p>The <code class="inline">is_success</code> option defines failure/success of the message</p>
+<p>The <code class="inline">message</code> option defines the message to publish</p>
+<h2>Return values</h2>
+<p>Request</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="step_completed/1">
+    <span class="signature"><strong>step_completed(request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#step_completed/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>step_completed(<a href="OpenAperture.WorkflowOrchestratorApi.Request.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Request.t</a>) :: <a href="OpenAperture.WorkflowOrchestratorApi.Request.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Request.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to notify the WorkflowOrchestrator that a workflow step has completed</p>
+<h2>Options</h2>
+<p>The <code class="inline">request</code> option defines the Request</p>
+<h2>Return Values</h2>
+<p>Request</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="step_failed/3">
+    <span class="signature"><strong>step_failed(request, message, reason)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#step_failed/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>step_failed(<a href="OpenAperture.WorkflowOrchestratorApi.Request.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Request.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="OpenAperture.WorkflowOrchestratorApi.Request.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Request.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to notify the WorkflowOrchestrator that a workflow step has failed</p>
+<h2>Options</h2>
+<p>The <code class="inline">request</code> option defines the Request</p>
+<p>The <code class="inline">event</code> option defines a String containing the event to track</p>
+<p>The <code class="inline">reason</code> option defines an optional String description</p>
+<h2>Return Values</h2>
+<p>Request</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="to_payload/1">
+    <span class="signature"><strong>to_payload(workflow)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#to_payload/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>to_payload(<a href="OpenAperture.WorkflowOrchestratorApi.Workflow.html#t:t/0">OpenAperture.WorkflowOrchestratorApi.Workflow.t</a>) :: %{}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to convert a Workflow struct into a map</p>
+<h2>Options</h2>
+<p>The <code class="inline">workflow</code> option defines the OpenAperture.WorkflowOrchestratorApi.Workflow</p>
+<h2>Return Values</h2>
+<p>Map</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
