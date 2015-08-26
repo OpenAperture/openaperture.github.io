@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.ProductDeploymentOrchestrator.ProductDeploymentFSM</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">product_deployment_orchestrator v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.ProductDeploymentOrchestrator.html">ProductDeploymentOrchestrator</a> &rarr; <a href="OpenAperture.ProductDeploymentOrchestrator.ProductDeploymentFSM.html">ProductDeploymentFSM</a></div>
+      <h1>
+        OpenAperture.ProductDeploymentOrchestrator.ProductDeploymentFSM
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the gen_fsm for ProductDeployment Orchestration</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#append_output_log/3">append_output_log(state_data, model, log)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#build_deploy/3">build_deploy(current_state, from, state_data)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#build_deploy_in_progress/3">build_deploy_in_progress(reason, current_state, state_data)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#code_change/4">code_change(old_vsn, current_state, state_data, opts)</a></td>
+  
+    <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c::gen_fsm.code_change/4</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#create_deployment_step/2">create_deployment_step(state_data, current_step)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#deployment_completed/3">deployment_completed(reason, current_state, state_data)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#deployment_step_completed/3">deployment_step_completed(reason, current_state, state_data)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#determine_next_step/3">determine_next_step(event, from, state_data)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#execute/1">execute(fsm)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_event/3">handle_event(event, current_state, state_data)</a></td>
+  
+    <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c::gen_fsm.handle_event/3</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_info/3">handle_info(info, current_state, state_data)</a></td>
+  
+    <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c::gen_fsm.handle_info/3</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_sync_event/4">handle_sync_event(event, from, current_state, state_data)</a></td>
+  
+    <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c::gen_fsm.handle_sync_event/4</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#init/1">init(state_data)</a></td>
+  
+    <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c::gen_fsm.init/1</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/2">start_link(payload, delivery_tag)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to start a ProductDeployment Orchestration</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link_with_args/1">start_link_with_args(args)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#terminate/3">terminate(reason, current_state, state_data)</a></td>
+  
+    <td class="summary_synopsis"><p>:gen_fsm callback - <a href="http://www.erlang.org/doc/man/gen_fsm.html#Module:terminate-3">http://www.erlang.org/doc/man/gen_fsm.html#Module:terminate-3</a></p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="append_output_log/3">
+    <span class="signature"><strong>append_output_log(state_data, model, log)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#append_output_log/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="build_deploy/3">
+    <span class="signature"><strong>build_deploy(current_state, from, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#build_deploy/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>build_deploy(term, term, term) :: {:reply, :in_progress, :build_deploy | :build_deploy_in_progress | :deployment_step_completed, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="build_deploy_in_progress/3">
+    <span class="signature"><strong>build_deploy_in_progress(reason, current_state, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#build_deploy_in_progress/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>build_deploy_in_progress(term, term, term) :: {:stop, :normal, {:awaiting_build_deploy, term}, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="code_change/4">
+    <span class="signature"><strong>code_change(old_vsn, current_state, state_data, opts)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#code_change/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>code_change(term, atom, term, term) :: {:ok, atom, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c::gen_fsm.code_change/4</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="create_deployment_step/2">
+    <span class="signature"><strong>create_deployment_step(state_data, current_step)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create_deployment_step/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="deployment_completed/3">
+    <span class="signature"><strong>deployment_completed(reason, current_state, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#deployment_completed/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>deployment_completed(term, term, term) :: {:stop, :normal, {:completed, term}, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="deployment_step_completed/3">
+    <span class="signature"><strong>deployment_step_completed(reason, current_state, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#deployment_step_completed/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>deployment_step_completed(term, term, term) :: {:stop, :normal, {:completed, term}, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="determine_next_step/3">
+    <span class="signature"><strong>determine_next_step(event, from, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#determine_next_step/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>determine_next_step(term, term, term) :: {:reply, :in_progress, :build_deploy | :deployment_completed, term} | {:stop, :normal, {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="execute/1">
+    <span class="signature"><strong>execute(fsm)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#execute/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>execute(pid) :: {:completed, nil | OpenAperture.ProductDeploymentOrchestratorApi.Deployment.t}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_event/3">
+    <span class="signature"><strong>handle_event(event, current_state, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_event/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_event(term, atom, term) :: {:next_state, atom, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c::gen_fsm.handle_event/3</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_info/3">
+    <span class="signature"><strong>handle_info(info, current_state, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_info/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_info(term, atom, term) :: {:next_state, atom, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c::gen_fsm.handle_info/3</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_sync_event/4">
+    <span class="signature"><strong>handle_sync_event(event, from, current_state, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_sync_event/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_sync_event(term, term, atom, term) :: {:next_state, atom, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c::gen_fsm.handle_sync_event/4</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="init/1">
+    <span class="signature"><strong>init(state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#init/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>init(term) :: {:ok, :determine_next_step, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c::gen_fsm.init/1</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/2">
+    <span class="signature"><strong>start_link(payload, delivery_tag)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link(%{}, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to start a ProductDeployment Orchestration</p>
+<h2>Options</h2>
+<p>The <code class="inline">payload</code> options defines the payload of the Workflow</p>
+<p>The <code class="inline">delivery_tag</code> options defines the identifier of the request message to which this FSM is associated</p>
+<h2>Return Values</h2>
+<p>{:ok, ProductDeploymentFSM} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link_with_args/1">
+    <span class="signature"><strong>start_link_with_args(args)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link_with_args/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link_with_args(%{}) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="terminate/3">
+    <span class="signature"><strong>terminate(reason, current_state, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#terminate/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>terminate(term, term, term) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>:gen_fsm callback - <a href="http://www.erlang.org/doc/man/gen_fsm.html#Module:terminate-3">http://www.erlang.org/doc/man/gen_fsm.html#Module:terminate-3</a></p>
+<h2>Options</h2>
+<p>The <code class="inline">reason</code> option defines the termination reason (:shutdown, :normal)</p>
+<p>The <code class="inline">current_state</code> option contains the last state of the :gen_fsm server</p>
+<p>The <code class="inline">state_data</code> option contains the default state data of the :gen_fsm server</p>
+<h2>Return Values</h2>
+<p>:ok</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
