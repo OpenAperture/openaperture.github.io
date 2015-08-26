@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-        <title>OpenAperture.OverseerApi – openaperture_overseer_api v0.0.1</title>
+        <title>OpenAperture.OverseerApi.Request – openaperture_overseer_api v0.0.1</title>
       
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc">
@@ -74,11 +74,11 @@
         <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
-        openaperture_overseer_api v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.OverseerApi.html#content">OverseerApi</a>
+        openaperture_overseer_api v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.OverseerApi.html#content">OverseerApi</a> &rarr; <a href="OpenAperture.OverseerApi.Request.html#content">Request</a>
       </div>
 
       <h1>
-        OpenAperture.OverseerApi
+        OpenAperture.OverseerApi.Request
         
       </h1>
 
@@ -86,6 +86,8 @@
         
           <li><a href="#summary_details">Summary</a></li>
         
+        
+          <li><a href="#types_details">Types</a></li>
         
         
           <li><a href="#functions_details">Functions</a></li>
@@ -96,7 +98,7 @@
 
       
         <section id="moduledoc" class="docstring">
-          <p>This module contains the application for the Overseer Api</p>
+          <p>Methods and Request struct for OverseerApi requests</p>
 
         </section>
       
@@ -108,9 +110,13 @@
           <h1>Summary</h1>
           <table class="summary">
             <tr>
-  <td class="summary_signature"><a href="#start/2">start(type, args)</a></td>
-  <td class="summary_synopsis"><p>Starts the given <code class="inline">_type</code></p>
+  <td class="summary_signature"><a href="#from_payload/1">from_payload(payload)</a></td>
+  <td class="summary_synopsis"><p>Method to convert a map into a Request struct</p>
 </td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_payload/1">to_payload(request)</a></td>
+  <td class="summary_synopsis"></td>
 </tr>
 
           </table>
@@ -118,16 +124,27 @@
       
 
       
+        <section id="types_details" class="details_list">
+          <h1>Types</h1>
+          <div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: %OpenAperture.OverseerApi.Request{action: term, options: term}
+  </p>
+  
+</div>
+
+        </section>
+      
 
       
         <section id="functions_details" class="details_list">
           <h1>Functions</h1>
           <section class="detail">
-  <div class="detail_header" id="start/2">
-    <span class="signature"><strong>start(type, args)</strong></span>
+  <div class="detail_header" id="from_payload/1">
+    <span class="signature"><strong>from_payload(payload)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#start/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#from_payload/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -135,40 +152,39 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>start(atom, [any]) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>from_payload(%{}) :: <a href="OpenAperture.OverseerApi.Request.html#t:t/0">OpenAperture.OverseerApi.Request.t</a></li>
       
     </ul>
   
   <section class="docstring">
-    <p>Starts the given <code class="inline">_type</code>.</p>
-<p>If the <code class="inline">_type</code> is not loaded, the application will first be loaded using <code class="inline">load/1</code>.
-Any included application, defined in the <code class="inline">:included_applications</code> key of the
-<code class="inline">.app</code> file will also be loaded, but they won’t be started.</p>
-<p>Furthermore, all applications listed in the <code class="inline">:applications</code> key must be explicitly
-started before this application is. If not, <code class="inline">{:error, {:not_started, app}}</code> is
-returned, where <code class="inline">_type</code> is the name of the missing application.</p>
-<p>In case you want to automatically  load <strong>and start</strong> all of <code class="inline">_type</code>‘s dependencies,
-see <code class="inline">ensure_all_started/2</code>.</p>
-<p>The <code class="inline">type</code> argument specifies the type of the application:</p>
-<ul>
-<li><p><code class="inline">:permanent</code> - if <code class="inline">_type</code> terminates, all other applications and the entire
-node are also terminated.</p>
-</li>
-<li><p><code class="inline">:transient</code> - if <code class="inline">_type</code> terminates with <code class="inline">:normal</code> reason, it is reported
-but no other applications are terminated. If a transient application
-terminates abnormally, all other applications and the entire node are
-also terminated.</p>
-</li>
-<li><code class="inline">:temporary</code> - if <code class="inline">_type</code> terminates, it is reported but no other
-applications are terminated (the default).
-</li>
-</ul>
-<p>Note that it is always possible to stop an application explicitly by calling
-<code class="inline">stop/1</code>. Regardless of the type of the application, no other applications will
-be affected.</p>
-<p>Note also that the <code class="inline">:transient</code> type is of little practical use, since when a
-supervision tree terminates, the reason is set to <code class="inline">:shutdown</code>, not <code class="inline">:normal</code>.</p>
+    <p>Method to convert a map into a Request struct</p>
+<h2>Options</h2>
+<p>The <code class="inline">payload</code> option defines the Map containing the request</p>
+<h2>Return Values</h2>
+<p>OpenAperture.OverseerApi.Request.t</p>
 
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="to_payload/1">
+    <span class="signature"><strong>to_payload(request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#to_payload/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>to_payload(<a href="OpenAperture.OverseerApi.Request.html#t:t/0">OpenAperture.OverseerApi.Request.t</a>) :: %{}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
   </section>
   
 </section>
