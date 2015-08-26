@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Messaging.RpcRequest</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_messaging v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Messaging.html">Messaging</a> &rarr; <a href="OpenAperture.Messaging.RpcRequest.html">RpcRequest</a></div>
+      <h1>
+        OpenAperture.Messaging.RpcRequest
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains definition for an RPC-style request</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#completed?/2">completed?(api, request)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to determine if the RpcRequest has been completed remotely</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete/2">delete(api, request)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to delete an RpcRequest from the Manager</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#from_payload/1">from_payload(payload)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to convert a map into a Request struct</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#save/2">save(api, request)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to create or update the RpcRequest in the Manager</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_payload/1">to_payload(request)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to convert a RpcRequest struct into a map</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <section id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: %OpenAperture.Messaging.RpcRequest{id: term, queue_name: term, request_body: term, response_body: term, status: term}
+  </p>
+  
+</div>
+
+        </section>
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="completed?/2">
+    <span class="signature"><strong>completed?(api, request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#completed?/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>completed?(pid, <a href="OpenAperture.Messaging.RpcRequest.html#t:t/0">OpenAperture.Messaging.RpcRequest.t</a>) :: {true | false, <a href="OpenAperture.Messaging.RpcRequest.html#t:t/0">OpenAperture.Messaging.RpcRequest.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to determine if the RpcRequest has been completed remotely</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the ManagerApi PID that should be used for executing requests</p>
+<p>The <code class="inline">request</code> option defines the Map containing the request</p>
+<h2>Return Values</h2>
+<p>{true, RpcRequest.t} | {false, RpcRequest.t}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="delete/2">
+    <span class="signature"><strong>delete(api, request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#delete/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>delete(pid, <a href="OpenAperture.Messaging.RpcRequest.html#t:t/0">OpenAperture.Messaging.RpcRequest.t</a>) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to delete an RpcRequest from the Manager</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the ManagerApi PID that should be used for executing requests</p>
+<p>The <code class="inline">request</code> option defines the Map containing the request</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="from_payload/1">
+    <span class="signature"><strong>from_payload(payload)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#from_payload/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>from_payload(%{}) :: <a href="OpenAperture.Messaging.RpcRequest.html#t:t/0">OpenAperture.Messaging.RpcRequest.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to convert a map into a Request struct</p>
+<h2>Options</h2>
+<p>The <code class="inline">payload</code> option defines the Map containing the request</p>
+<h2>Return Values</h2>
+<p>RpcRequest.t</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="save/2">
+    <span class="signature"><strong>save(api, request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#save/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>save(pid, <a href="OpenAperture.Messaging.RpcRequest.html#t:t/0">OpenAperture.Messaging.RpcRequest.t</a>) :: {:ok | :error, <a href="OpenAperture.Messaging.RpcRequest.html#t:t/0">OpenAperture.Messaging.RpcRequest.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to create or update the RpcRequest in the Manager</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the ManagerApi PID that should be used for executing requests</p>
+<p>The <code class="inline">request</code> option defines the Map containing the request</p>
+<h2>Return Values</h2>
+<p>{:ok, RpcRequest.t} | {:error, RpcRequest.t}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="to_payload/1">
+    <span class="signature"><strong>to_payload(request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#to_payload/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>to_payload(<a href="OpenAperture.Messaging.RpcRequest.html#t:t/0">OpenAperture.Messaging.RpcRequest.t</a>) :: %{}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to convert a RpcRequest struct into a map</p>
+<h2>Options</h2>
+<p>The <code class="inline">request</code> option defines the RpcRequest</p>
+<h2>Return Values</h2>
+<p>Map</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

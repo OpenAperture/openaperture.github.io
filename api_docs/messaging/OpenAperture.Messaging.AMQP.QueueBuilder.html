@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAperture.Messaging.AMQP.QueueBuilder</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">openaperture_messaging v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Messaging.html">Messaging</a> &rarr; AMQP &rarr; <a href="OpenAperture.Messaging.AMQP.QueueBuilder.html">QueueBuilder</a></div>
+      <h1>
+        OpenAperture.Messaging.AMQP.QueueBuilder
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the logic to build a populated OpenAperture.Messaging.Queue</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#build/5">build(api, queue_name, exchange_id, options \\ [], binding_options \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to build a populated OpenAperture.Messaging.Queue</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#build_with_exchange/4">build_with_exchange(queue_name, exchange, options \\ [], binding_options \\ nil)</a></td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="build/5">
+    <span class="signature"><strong>build(api, queue_name, exchange_id, options \\ [], binding_options \\ nil)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#build/5" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>build(pid, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a> | nil) :: <a href="OpenAperture.Messaging.Queue.html#t:t/0">OpenAperture.Messaging.Queue.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to build a populated OpenAperture.Messaging.Queue</p>
+<h2>Options</h2>
+<p>The <code class="inline">api</code> option defines the OpenAperture.ManagerApi process</p>
+<p>The <code class="inline">queue_name</code> options value provides the name of the Queue</p>
+<p>The <code class="inline">exchange_id</code> option defines the exchange id to retrieve</p>
+<p>The <code class="inline">options</code> option deinfes additional Queue options</p>
+<h2>Return Values</h2>
+<p>{:ok, pid} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="build_with_exchange/4">
+    <span class="signature"><strong>build_with_exchange(queue_name, exchange, options \\ [], binding_options \\ nil)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#build_with_exchange/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>build_with_exchange(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, <a href="OpenAperture.Messaging.AMQP.Exchange.html#t:t/0">OpenAperture.Messaging.AMQP.Exchange.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a> | nil) :: <a href="OpenAperture.Messaging.Queue.html#t:t/0">OpenAperture.Messaging.Queue.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
