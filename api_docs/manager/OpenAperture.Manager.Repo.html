@@ -1,0 +1,610 @@
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+        <title>OpenAperture.Manager.Repo – Elixir.OpenAperture.Manager v0.0.1</title>
+      
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc">
+
+    <link rel="stylesheet" href="dist/app.css">
+  </head>
+  <body>
+
+    
+    <div class="row row-offcanvas row-offcanvas-left">
+<section id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
+  <p class="pull-right visible-xs">
+  <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+    <span class="glyphicon glyphicon-search"></span>
+  </button>
+  </p>
+
+  <h1 id="full_list_header">
+    
+      Elixir.OpenAperture.Manager v0.0.1
+    
+  </h1>
+
+  <h2 id="sub_list_header">
+    
+    <a href="overview.html">Overview</a>
+  </h2>
+
+  <div class="nav">
+    
+      <span><a id="modules_list" href="#full_list">Modules</a></span>
+    
+    
+      <span role="presentation" class="disabled">Exceptions</span>
+    
+    
+      <span role="presentation" class="disabled">Protocols</span>
+    
+  </div>
+
+  <div id="search">
+    <div class="col-xs-10">
+      <div class="input-group input-group-sm">
+        <label for="search_field" class="sr-only">Search</label>
+        <input type="text" id="search_field" class="form-control" placeholder="Search" autocomplete="off" autofocus="autofocus" results="0">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-xs-10 -->
+    <div class="col-xs-2" id="spinning">
+      <span></span>
+    </div><!-- /.col-xs-2 -->
+  </div><!-- /#search .row -->
+
+  <script src="dist/sidebar_items.js" defer></script>
+
+  <ul id="full_list">
+  </ul>
+
+  <div id="no_results"></div>
+</section><!--/.sidebar-offcanvas -->
+<section id="content" class="col-xs-12 col-sm-9">
+
+
+      <div class="breadcrumbs">
+        <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        Elixir.OpenAperture.Manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html#content">Manager</a> &rarr; <a href="OpenAperture.Manager.Repo.html#content">Repo</a>
+      </div>
+
+      <h1>
+        OpenAperture.Manager.Repo
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary_details">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+
+      
+
+      
+        <section id="summary_details" class="details_list">
+          <h1>Summary</h1>
+          <table class="summary">
+            <tr>
+  <td class="summary_signature"><a href="#adapter/0">adapter()</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.adapter/0</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#all/2">all(queryable, opts \\ [])</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.all/2</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#config/0">config()</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.config/0</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete!/2">delete!(model, opts \\ [])</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.delete!/2</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete/2">delete(model, opts \\ [])</a></td>
+  <td class="summary_synopsis"></td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete_all/2">delete_all(queryable, opts \\ [])</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.delete_all/2</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get!/3">get!(queryable, id, opts \\ [])</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.get!/3</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get/3">get(queryable, id, opts \\ [])</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.get/3</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_by!/3">get_by!(queryable, clauses, opts \\ [])</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.get_by!/3</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_by/3">get_by(queryable, clauses, opts \\ [])</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.get_by/3</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#insert!/2">insert!(model, opts \\ [])</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.insert!/2</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#insert/2">insert(model, opts \\ [])</a></td>
+  <td class="summary_synopsis"></td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#log/1">log(entry)</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.log/1</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#one!/2">one!(queryable, opts \\ [])</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.one!/2</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#one/2">one(queryable, opts \\ [])</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.one/2</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#paginate/2">paginate(query, options \\ [])</a></td>
+  <td class="summary_synopsis"></td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#preload/2">preload(model_or_models, preloads)</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.preload/2</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#rollback/1">rollback(value)</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.rollback/1</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.start_link/0</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#transaction/2">transaction(opts \\ [], fun)</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.transaction/2</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#update!/2">update!(model, opts \\ [])</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.update!/2</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#update/2">update(model, opts \\ [])</a></td>
+  <td class="summary_synopsis"></td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#update_all/3">update_all(queryable, updates, opts \\ [])</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Ecto.Repo.update_all/3</code></p>
+</td>
+</tr>
+
+          </table>
+        </section>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h1>Functions</h1>
+          <section class="detail">
+  <div class="detail_header" id="adapter/0">
+    <span class="signature"><strong>adapter()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#adapter/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.adapter/0</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="all/2">
+    <span class="signature"><strong>all(queryable, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#all/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.all/2</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="config/0">
+    <span class="signature"><strong>config()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#config/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.config/0</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="delete/2">
+    <span class="signature"><strong>delete(model, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#delete/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="delete!/2">
+    <span class="signature"><strong>delete!(model, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#delete!/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.delete!/2</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="delete_all/2">
+    <span class="signature"><strong>delete_all(queryable, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#delete_all/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.delete_all/2</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get/3">
+    <span class="signature"><strong>get(queryable, id, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.get/3</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get!/3">
+    <span class="signature"><strong>get!(queryable, id, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get!/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.get!/3</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_by/3">
+    <span class="signature"><strong>get_by(queryable, clauses, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_by/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.get_by/3</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_by!/3">
+    <span class="signature"><strong>get_by!(queryable, clauses, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_by!/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.get_by!/3</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="insert/2">
+    <span class="signature"><strong>insert(model, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#insert/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="insert!/2">
+    <span class="signature"><strong>insert!(model, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#insert!/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.insert!/2</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="log/1">
+    <span class="signature"><strong>log(entry)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#log/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.log/1</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="one/2">
+    <span class="signature"><strong>one(queryable, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#one/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.one/2</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="one!/2">
+    <span class="signature"><strong>one!(queryable, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#one!/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.one!/2</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="paginate/2">
+    <span class="signature"><strong>paginate(query, options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#paginate/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>paginate(Ecto.Query.t, %{} | <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: Scrivener.Page.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="preload/2">
+    <span class="signature"><strong>preload(model_or_models, preloads)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#preload/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.preload/2</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="rollback/1">
+    <span class="signature"><strong>rollback(value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#rollback/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.rollback/1</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/0">
+    <span class="signature"><strong>start_link()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.start_link/0</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="transaction/2">
+    <span class="signature"><strong>transaction(opts \\ [], fun)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#transaction/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.transaction/2</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="update/2">
+    <span class="signature"><strong>update(model, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#update/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="update!/2">
+    <span class="signature"><strong>update!(model, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#update!/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.update!/2</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="update_all/3">
+    <span class="signature"><strong>update_all(queryable, updates, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#update_all/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Ecto.Repo.update_all/3</code>.</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+      </section> <!--/content -->
+</div><!--/row -->
+
+    <script src="dist/app.js"></script>
+  </body>
+</html>
+

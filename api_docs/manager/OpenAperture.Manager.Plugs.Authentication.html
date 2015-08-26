@@ -1,0 +1,231 @@
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+        <title>OpenAperture.Manager.Plugs.Authentication – Elixir.OpenAperture.Manager v0.0.1</title>
+      
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc">
+
+    <link rel="stylesheet" href="dist/app.css">
+  </head>
+  <body>
+
+    
+    <div class="row row-offcanvas row-offcanvas-left">
+<section id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
+  <p class="pull-right visible-xs">
+  <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+    <span class="glyphicon glyphicon-search"></span>
+  </button>
+  </p>
+
+  <h1 id="full_list_header">
+    
+      Elixir.OpenAperture.Manager v0.0.1
+    
+  </h1>
+
+  <h2 id="sub_list_header">
+    
+    <a href="overview.html">Overview</a>
+  </h2>
+
+  <div class="nav">
+    
+      <span><a id="modules_list" href="#full_list">Modules</a></span>
+    
+    
+      <span role="presentation" class="disabled">Exceptions</span>
+    
+    
+      <span role="presentation" class="disabled">Protocols</span>
+    
+  </div>
+
+  <div id="search">
+    <div class="col-xs-10">
+      <div class="input-group input-group-sm">
+        <label for="search_field" class="sr-only">Search</label>
+        <input type="text" id="search_field" class="form-control" placeholder="Search" autocomplete="off" autofocus="autofocus" results="0">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-xs-10 -->
+    <div class="col-xs-2" id="spinning">
+      <span></span>
+    </div><!-- /.col-xs-2 -->
+  </div><!-- /#search .row -->
+
+  <script src="dist/sidebar_items.js" defer></script>
+
+  <ul id="full_list">
+  </ul>
+
+  <div id="no_results"></div>
+</section><!--/.sidebar-offcanvas -->
+<section id="content" class="col-xs-12 col-sm-9">
+
+
+      <div class="breadcrumbs">
+        <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        Elixir.OpenAperture.Manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html#content">Manager</a> &rarr; Plugs &rarr; <a href="OpenAperture.Manager.Plugs.Authentication.html#content">Authentication</a>
+      </div>
+
+      <h1>
+        OpenAperture.Manager.Plugs.Authentication
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary_details">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains an authentication filter for incoming requests.</p>
+
+        </section>
+      
+
+      
+
+      
+        <section id="summary_details" class="details_list">
+          <h1>Summary</h1>
+          <table class="summary">
+            <tr>
+  <td class="summary_signature"><a href="#authenticate_user/2">authenticate_user(conn, arg2)</a></td>
+  <td class="summary_synopsis"><p>Retrieves the access token set in the conn’s private data by
+<code class="inline">get_access_token/2</code> and checks it against the provided token info URL.
+If no access token is present, or the token validation check fails, returns
+a status of 401 to the client and halts request processing. Otherwise, just
+returns <code class="inline">conn</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#fetch_access_token/2">fetch_access_token(conn, opts)</a></td>
+  <td class="summary_synopsis"><p>Retrieves the access token part of an authorization header, if available,
+and adds it to the conns private data with the :auth_access_token key.
+Returns the conn unchanged if the auth header is not present</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#fetch_user/2">fetch_user(conn, arg2)</a></td>
+  <td class="summary_synopsis"><p>This plug fetches the user record (or creates a new one) for the
+user associated to the current access token</p>
+</td>
+</tr>
+
+          </table>
+        </section>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h1>Functions</h1>
+          <section class="detail">
+  <div class="detail_header" id="authenticate_user/2">
+    <span class="signature"><strong>authenticate_user(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#authenticate_user/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>authenticate_user(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Retrieves the access token set in the conn’s private data by
+<code class="inline">get_access_token/2</code> and checks it against the provided token info URL.
+If no access token is present, or the token validation check fails, returns
+a status of 401 to the client and halts request processing. Otherwise, just
+returns <code class="inline">conn</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="fetch_access_token/2">
+    <span class="signature"><strong>fetch_access_token(conn, opts)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#fetch_access_token/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>fetch_access_token(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Retrieves the access token part of an authorization header, if available,
+and adds it to the conns private data with the :auth_access_token key.
+Returns the conn unchanged if the auth header is not present.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="fetch_user/2">
+    <span class="signature"><strong>fetch_user(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#fetch_user/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>fetch_user(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>This plug fetches the user record (or creates a new one) for the
+user associated to the current access token</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+      </section> <!--/content -->
+</div><!--/row -->
+
+    <script src="dist/app.js"></script>
+  </body>
+</html>
+

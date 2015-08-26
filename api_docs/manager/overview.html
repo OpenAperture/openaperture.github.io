@@ -1,26 +1,80 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
   <head>
-    <title>Overview</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+        <title>Overview – Elixir.OpenAperture.Manager v0.0.1</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc">
 
-    <script type="text/javascript" charset="utf-8">
-      relpath = '';
-      if (relpath != '') relpath += '/';
-    </script>
-
-    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <link rel="stylesheet" href="dist/app.css">
   </head>
-
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
 
-    <section id="content">
-      <div class="breadcrumbs">Elixir.OpenAperture.Manager v0.0.1 &rarr; <a href="overview.html">Overview</a></div>
+    <div class="row row-offcanvas row-offcanvas-left">
+<section id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
+  <p class="pull-right visible-xs">
+  <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+    <span class="glyphicon glyphicon-search"></span>
+  </button>
+  </p>
+
+  <h1 id="full_list_header">
+    
+      Elixir.OpenAperture.Manager v0.0.1
+    
+  </h1>
+
+  <h2 id="sub_list_header">
+    
+    <a href="overview.html">Overview</a>
+  </h2>
+
+  <div class="nav">
+    
+      <span><a id="modules_list" href="#full_list">Modules</a></span>
+    
+    
+      <span role="presentation" class="disabled">Exceptions</span>
+    
+    
+      <span role="presentation" class="disabled">Protocols</span>
+    
+  </div>
+
+  <div id="search">
+    <div class="col-xs-10">
+      <div class="input-group input-group-sm">
+        <label for="search_field" class="sr-only">Search</label>
+        <input type="text" id="search_field" class="form-control" placeholder="Search" autocomplete="off" autofocus="autofocus" results="0">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-xs-10 -->
+    <div class="col-xs-2" id="spinning">
+      <span></span>
+    </div><!-- /.col-xs-2 -->
+  </div><!-- /#search .row -->
+
+  <script src="dist/sidebar_items.js" defer></script>
+
+  <ul id="full_list">
+  </ul>
+
+  <div id="no_results"></div>
+</section><!--/.sidebar-offcanvas -->
+<section id="content" class="col-xs-12 col-sm-9">
+
+
+      <div class="breadcrumbs">
+        <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        
+      </div>
 
       <h1>Elixir.OpenAperture.Manager v0.0.1</h1>
 
@@ -33,456 +87,420 @@
       </ul>
 
       
-        <h2 id="modules_summary">Modules summary <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
-        <table class="summary">
-          <tr>
+        <section id="modules_summary" class="details_list">
+          <h1>Modules summary</h1>
+          <table class="summary">
+            <tr>
   <td class="summary_signature"><a href="Mix.Tasks.Swagger.html">Mix.Tasks.Swagger</a></td>
-  
-    <td class="summary_synopsis"><p>Generates Swagger JSON</p>
+  <td class="summary_synopsis"><p>Generates Swagger JSON</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.ErrorView.html">OpenAperture.ErrorView</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.html">OpenAperture.Manager</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.BuildLogChannel.html">OpenAperture.Manager.BuildLogChannel</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.BuildLogMonitor.html">OpenAperture.Manager.BuildLogMonitor</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Configuration.html">OpenAperture.Manager.Configuration</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.CloudProviders.html">OpenAperture.Manager.Controllers.CloudProviders</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.EtcdClusters.html">OpenAperture.Manager.Controllers.EtcdClusters</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.FormatHelper.html">OpenAperture.Manager.Controllers.FormatHelper</a></td>
-  
-    <td class="summary_synopsis"><p>This module provides helper functions that are used by controllers to
+  <td class="summary_synopsis"><p>This module provides helper functions that are used by controllers to
 format incoming and outgoing data</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.MessagingBrokers.html">OpenAperture.Manager.Controllers.MessagingBrokers</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the controllers for managing MessagingBrokers</p>
+  <td class="summary_synopsis"><p>This module contains the controllers for managing MessagingBrokers</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.MessagingExchangeModules.html">OpenAperture.Manager.Controllers.MessagingExchangeModules</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the controllers for managing MessagingExchangeModules</p>
+  <td class="summary_synopsis"><p>This module contains the controllers for managing MessagingExchangeModules</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.MessagingExchanges.html">OpenAperture.Manager.Controllers.MessagingExchanges</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the controllers for managing MessagingExchanges</p>
+  <td class="summary_synopsis"><p>This module contains the controllers for managing MessagingExchanges</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.MessagingRpcRequests.html">OpenAperture.Manager.Controllers.MessagingRpcRequests</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the controllers for managing MessagingRpcRequests</p>
+  <td class="summary_synopsis"><p>This module contains the controllers for managing MessagingRpcRequests</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.ProductClusters.html">OpenAperture.Manager.Controllers.ProductClusters</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.ProductComponents.html">OpenAperture.Manager.Controllers.ProductComponents</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.ProductDeploymentPlanSteps.html">OpenAperture.Manager.Controllers.ProductDeploymentPlanSteps</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.ProductDeploymentPlans.html">OpenAperture.Manager.Controllers.ProductDeploymentPlans</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.ProductDeploymentSteps.html">OpenAperture.Manager.Controllers.ProductDeploymentSteps</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.ProductDeployments.html">OpenAperture.Manager.Controllers.ProductDeployments</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.ProductEnvironmentalVariables.html">OpenAperture.Manager.Controllers.ProductEnvironmentalVariables</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.ProductEnvironments.html">OpenAperture.Manager.Controllers.ProductEnvironments</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.Products.html">OpenAperture.Manager.Controllers.Products</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.ResponseBodyFormatter.html">OpenAperture.Manager.Controllers.ResponseBodyFormatter</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.ResponseFormatter.html">OpenAperture.Manager.Controllers.ResponseFormatter</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains helper methods for returning properly populated Plug.Conn’s</p>
+  <td class="summary_synopsis"><p>This module contains helper methods for returning properly populated Plug.Conn’s</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.Router.AuthorityController.html">OpenAperture.Manager.Controllers.Router.AuthorityController</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.Router.RouteController.html">OpenAperture.Manager.Controllers.Router.RouteController</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.Router.RoutesController.html">OpenAperture.Manager.Controllers.Router.RoutesController</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.Router.Util.html">OpenAperture.Manager.Controllers.Router.Util</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.Status.html">OpenAperture.Manager.Controllers.Status</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the Phoenix controller for managing OpenAperture server statuses</p>
+  <td class="summary_synopsis"><p>This module contains the Phoenix controller for managing OpenAperture server statuses</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.SystemComponentRefs.html">OpenAperture.Manager.Controllers.SystemComponentRefs</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the controller for managing SystemComponentRefs</p>
+  <td class="summary_synopsis"><p>This module contains the controller for managing SystemComponentRefs</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.SystemComponents.html">OpenAperture.Manager.Controllers.SystemComponents</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the controller for managing SystemComponents</p>
+  <td class="summary_synopsis"><p>This module contains the controller for managing SystemComponents</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.SystemEvents.html">OpenAperture.Manager.Controllers.SystemEvents</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the controller for managing SystemEvents</p>
+  <td class="summary_synopsis"><p>This module contains the controller for managing SystemEvents</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.Users.html">OpenAperture.Manager.Controllers.Users</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Controllers.Workflows.html">OpenAperture.Manager.Controllers.Workflows</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the controller for managing Workflows</p>
+  <td class="summary_synopsis"><p>This module contains the controller for managing Workflows</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.AuthSource.html">OpenAperture.Manager.DB.Models.AuthSource</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.AuthSourceUserRelation.html">OpenAperture.Manager.DB.Models.AuthSourceUserRelation</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.BaseModel.html">OpenAperture.Manager.DB.Models.BaseModel</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.CloudProvider.html">OpenAperture.Manager.DB.Models.CloudProvider</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.EtcdCluster.html">OpenAperture.Manager.DB.Models.EtcdCluster</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.EtcdClusterPort.html">OpenAperture.Manager.DB.Models.EtcdClusterPort</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.MessagingBroker.html">OpenAperture.Manager.DB.Models.MessagingBroker</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.MessagingBrokerConnection.html">OpenAperture.Manager.DB.Models.MessagingBrokerConnection</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.MessagingExchange.html">OpenAperture.Manager.DB.Models.MessagingExchange</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.MessagingExchangeBroker.html">OpenAperture.Manager.DB.Models.MessagingExchangeBroker</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.MessagingExchangeModule.html">OpenAperture.Manager.DB.Models.MessagingExchangeModule</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.MessagingRpcRequest.html">OpenAperture.Manager.DB.Models.MessagingRpcRequest</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.Product.html">OpenAperture.Manager.DB.Models.Product</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.ProductCluster.html">OpenAperture.Manager.DB.Models.ProductCluster</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.ProductComponent.html">OpenAperture.Manager.DB.Models.ProductComponent</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.ProductComponentOption.html">OpenAperture.Manager.DB.Models.ProductComponentOption</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.ProductDeployment.html">OpenAperture.Manager.DB.Models.ProductDeployment</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.ProductDeploymentPlan.html">OpenAperture.Manager.DB.Models.ProductDeploymentPlan</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.ProductDeploymentPlanStep.html">OpenAperture.Manager.DB.Models.ProductDeploymentPlanStep</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.ProductDeploymentPlanStepOption.html">OpenAperture.Manager.DB.Models.ProductDeploymentPlanStepOption</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.ProductDeploymentStep.html">OpenAperture.Manager.DB.Models.ProductDeploymentStep</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.ProductEnvironment.html">OpenAperture.Manager.DB.Models.ProductEnvironment</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.ProductEnvironmentalVariable.html">OpenAperture.Manager.DB.Models.ProductEnvironmentalVariable</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.Router.Authority.html">OpenAperture.Manager.DB.Models.Router.Authority</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.Router.DeletedAuthority.html">OpenAperture.Manager.DB.Models.Router.DeletedAuthority</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.Router.Route.html">OpenAperture.Manager.DB.Models.Router.Route</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.SystemComponent.html">OpenAperture.Manager.DB.Models.SystemComponent</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.SystemComponentRef.html">OpenAperture.Manager.DB.Models.SystemComponentRef</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.SystemEvent.html">OpenAperture.Manager.DB.Models.SystemEvent</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.User.html">OpenAperture.Manager.DB.Models.User</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Models.Workflow.html">OpenAperture.Manager.DB.Models.Workflow</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Queries.EtcdCluster.html">OpenAperture.Manager.DB.Queries.EtcdCluster</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Queries.EtcdClusterPort.html">OpenAperture.Manager.DB.Queries.EtcdClusterPort</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Queries.MessagingBroker.html">OpenAperture.Manager.DB.Queries.MessagingBroker</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Queries.Product.html">OpenAperture.Manager.DB.Queries.Product</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Queries.ProductCluster.html">OpenAperture.Manager.DB.Queries.ProductCluster</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Queries.ProductComponent.html">OpenAperture.Manager.DB.Queries.ProductComponent</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Queries.ProductDeployment.html">OpenAperture.Manager.DB.Queries.ProductDeployment</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Queries.ProductDeploymentPlan.html">OpenAperture.Manager.DB.Queries.ProductDeploymentPlan</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Queries.ProductDeploymentPlanStep.html">OpenAperture.Manager.DB.Queries.ProductDeploymentPlanStep</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Queries.ProductDeploymentStep.html">OpenAperture.Manager.DB.Queries.ProductDeploymentStep</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Queries.ProductEnvironment.html">OpenAperture.Manager.DB.Queries.ProductEnvironment</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Queries.ProductEnvironmentalVariable.html">OpenAperture.Manager.DB.Queries.ProductEnvironmentalVariable</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Queries.SystemEvent.html">OpenAperture.Manager.DB.Queries.SystemEvent</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.DB.Queries.Workflow.html">OpenAperture.Manager.DB.Queries.Workflow</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Endpoint.html">OpenAperture.Manager.Endpoint</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.LayoutView.html">OpenAperture.Manager.LayoutView</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Messaging.FleetManagerPublisher.html">OpenAperture.Manager.Messaging.FleetManagerPublisher</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the GenServer for publishing RPC messages to the FleetManager</p>
+  <td class="summary_synopsis"><p>This module contains the GenServer for publishing RPC messages to the FleetManager</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Messaging.RpcRequestsCleanup.html">OpenAperture.Manager.Messaging.RpcRequestsCleanup</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the GenServer for cleaning up expired MessagingRpcRequests</p>
+  <td class="summary_synopsis"><p>This module contains the GenServer for cleaning up expired MessagingRpcRequests</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Notifications.Publisher.html">OpenAperture.Manager.Notifications.Publisher</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the logic to publish messages to the Notifications system module</p>
+  <td class="summary_synopsis"><p>This module contains the logic to publish messages to the Notifications system module</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.OverseerApi.Heartbeat.html">OpenAperture.Manager.OverseerApi.Heartbeat</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the GenServer for the Manager system module to interact with the Overseer system module</p>
+  <td class="summary_synopsis"><p>This module contains the GenServer for the Manager system module to interact with the Overseer system module</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.OverseerApi.ModuleRegistration.html">OpenAperture.Manager.OverseerApi.ModuleRegistration</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains the GenServer for a Manager system module to interact with the Overseer system module</p>
+  <td class="summary_synopsis"><p>This module contains the GenServer for a Manager system module to interact with the Overseer system module</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.PageView.html">OpenAperture.Manager.PageView</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Plugs.Authentication.html">OpenAperture.Manager.Plugs.Authentication</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains an authentication filter for incoming requests</p>
+  <td class="summary_synopsis"><p>This module contains an authentication filter for incoming requests</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Plugs.Params.html">OpenAperture.Manager.Plugs.Params</a></td>
-  
-    <td class="summary_synopsis"><p>This module contains plugs for performing actions on request parameters</p>
+  <td class="summary_synopsis"><p>This module contains plugs for performing actions on request parameters</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Repo.html">OpenAperture.Manager.Repo</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Router.html">OpenAperture.Manager.Router</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Router.Helpers.html">OpenAperture.Manager.Router.Helpers</a></td>
-  
-    <td class="summary_synopsis"><p>Module with named helpers generated from OpenAperture.Manager.Router</p>
+  <td class="summary_synopsis"><p>Module with named helpers generated from OpenAperture.Manager.Router</p>
 </td>
-  
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.RoutingKey.html">OpenAperture.Manager.RoutingKey</a></td>
-  
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="OpenAperture.Manager.Web.html">OpenAperture.Manager.Web</a></td>
-  
-    <td class="summary_synopsis"><p>A module that keeps using definitions for controllers,
+  <td class="summary_synopsis"><p>A module that keeps using definitions for controllers,
 views and so on</p>
 </td>
-  
 </tr>
 
-        </table>
+          </table>
+        </section>
       
 
       
 
       
-    </section>
+      </section> <!--/content -->
+</div><!--/row -->
+
+    <script src="dist/app.js"></script>
   </body>
 </html>
+
