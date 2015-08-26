@@ -1,0 +1,294 @@
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+        <title>OpenAperture.Overseer.Components.UpgradeTask – openaperture_overseer v0.0.1</title>
+      
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc">
+
+    <link rel="stylesheet" href="dist/app.css">
+  </head>
+  <body>
+
+    
+    <div class="row row-offcanvas row-offcanvas-left">
+<section id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
+  <p class="pull-right visible-xs">
+  <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+    <span class="glyphicon glyphicon-search"></span>
+  </button>
+  </p>
+
+  <h1 id="full_list_header">
+    
+      openaperture_overseer v0.0.1
+    
+  </h1>
+
+  <h2 id="sub_list_header">
+    
+    <a href="overview.html">Overview</a>
+  </h2>
+
+  <div class="nav">
+    
+      <span><a id="modules_list" href="#full_list">Modules</a></span>
+    
+    
+      <span role="presentation" class="disabled">Exceptions</span>
+    
+    
+      <span role="presentation" class="disabled">Protocols</span>
+    
+  </div>
+
+  <div id="search">
+    <div class="col-xs-10">
+      <div class="input-group input-group-sm">
+        <label for="search_field" class="sr-only">Search</label>
+        <input type="text" id="search_field" class="form-control" placeholder="Search" autocomplete="off" autofocus="autofocus" results="0">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-xs-10 -->
+    <div class="col-xs-2" id="spinning">
+      <span></span>
+    </div><!-- /.col-xs-2 -->
+  </div><!-- /#search .row -->
+
+  <script src="dist/sidebar_items.js" defer></script>
+
+  <ul id="full_list">
+  </ul>
+
+  <div id="no_results"></div>
+</section><!--/.sidebar-offcanvas -->
+<section id="content" class="col-xs-12 col-sm-9">
+
+
+      <div class="breadcrumbs">
+        <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        openaperture_overseer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Overseer.html#content">Overseer</a> &rarr; Components &rarr; <a href="OpenAperture.Overseer.Components.UpgradeTask.html#content">UpgradeTask</a>
+      </div>
+
+      <h1>
+        OpenAperture.Overseer.Components.UpgradeTask
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary_details">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the Task for executing an upgrade</p>
+
+        </section>
+      
+
+      
+
+      
+        <section id="summary_details" class="details_list">
+          <h1>Summary</h1>
+          <table class="summary">
+            <tr>
+  <td class="summary_signature"><a href="#create/1">create(mgr)</a></td>
+  <td class="summary_synopsis"><p>Method to start a new UpgradeTask</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#create_upgrade_workflows/2">create_upgrade_workflows(component, ref_component)</a></td>
+  <td class="summary_synopsis"><p>Method to create the required Workflows for the ugprade</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#eligible_for_upgrade?/1">eligible_for_upgrade?(component)</a></td>
+  <td class="summary_synopsis"><p>Method to determine if a SystemComponent and SystemComponentRef are currently eligible to be upgraded</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#execute_upgrade/1">execute_upgrade(mgr)</a></td>
+  <td class="summary_synopsis"><p>Method to determine if an upgrade is possible and, if so, execute it</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#upgrade/3">upgrade(mgr, component, ref_component)</a></td>
+  <td class="summary_synopsis"><p>Method to determine if a SystemComponentRef is currently eligible to be upgraded</p>
+</td>
+</tr>
+
+          </table>
+        </section>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h1>Functions</h1>
+          <section class="detail">
+  <div class="detail_header" id="create/1">
+    <span class="signature"><strong>create(mgr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>create(pid) :: <a href="http://elixir-lang.org/docs/stable/elixir/Task.html#t:t/0">Task.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to start a new UpgradeTask</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">mgr</code> option defines the ComponentMgr PID</p>
+<h2>Return Values</h2>
+<p>Task</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="create_upgrade_workflows/2">
+    <span class="signature"><strong>create_upgrade_workflows(component, ref_component)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create_upgrade_workflows/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>create_upgrade_workflows(%{}, %{}) :: {:ok, list} | {:error, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to create the required Workflows for the ugprade</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">component</code> option defines the Map of the SystemComponent</p>
+<p>The <code class="inline">ref_component</code> option defines the Map of the SystemComponentRef</p>
+<h2>Return Value</h2>
+<p>{:ok, Workflows} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="eligible_for_upgrade?/1">
+    <span class="signature"><strong>eligible_for_upgrade?(component)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#eligible_for_upgrade?/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>eligible_for_upgrade?(%{}) :: {true, %{}} | {false, term, %{}}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to determine if a SystemComponent and SystemComponentRef are currently eligible to be upgraded</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">component</code> option defines the Map of the SystemComponent</p>
+<h2>Return Value</h2>
+<p>{true, SystemComponentRef} | {false, reason, SystemComponentRef}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="execute_upgrade/1">
+    <span class="signature"><strong>execute_upgrade(mgr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#execute_upgrade/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>execute_upgrade(pid) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to determine if an upgrade is possible and, if so, execute it</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">mgr</code> option defines the ComponentMgr PID</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="upgrade/3">
+    <span class="signature"><strong>upgrade(mgr, component, ref_component)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#upgrade/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>upgrade(pid, %{}, %{}) :: :ok | {:error, term}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to determine if a SystemComponentRef is currently eligible to be upgraded</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">mgr</code> option defines the ComponentMgr</p>
+<p>The <code class="inline">component</code> option defines the Map of the SystemComponent</p>
+<p>The <code class="inline">ref_component</code> option defines the Map of the SystemComponentRef</p>
+<h2>Return Value</h2>
+<p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+      </section> <!--/content -->
+</div><!--/row -->
+
+    <script src="dist/app.js"></script>
+  </body>
+</html>
+

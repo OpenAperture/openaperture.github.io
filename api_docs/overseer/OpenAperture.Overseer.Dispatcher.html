@@ -1,0 +1,452 @@
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+        <title>OpenAperture.Overseer.Dispatcher – openaperture_overseer v0.0.1</title>
+      
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc">
+
+    <link rel="stylesheet" href="dist/app.css">
+  </head>
+  <body>
+
+    
+    <div class="row row-offcanvas row-offcanvas-left">
+<section id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
+  <p class="pull-right visible-xs">
+  <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+    <span class="glyphicon glyphicon-search"></span>
+  </button>
+  </p>
+
+  <h1 id="full_list_header">
+    
+      openaperture_overseer v0.0.1
+    
+  </h1>
+
+  <h2 id="sub_list_header">
+    
+    <a href="overview.html">Overview</a>
+  </h2>
+
+  <div class="nav">
+    
+      <span><a id="modules_list" href="#full_list">Modules</a></span>
+    
+    
+      <span role="presentation" class="disabled">Exceptions</span>
+    
+    
+      <span role="presentation" class="disabled">Protocols</span>
+    
+  </div>
+
+  <div id="search">
+    <div class="col-xs-10">
+      <div class="input-group input-group-sm">
+        <label for="search_field" class="sr-only">Search</label>
+        <input type="text" id="search_field" class="form-control" placeholder="Search" autocomplete="off" autofocus="autofocus" results="0">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-xs-10 -->
+    <div class="col-xs-2" id="spinning">
+      <span></span>
+    </div><!-- /.col-xs-2 -->
+  </div><!-- /#search .row -->
+
+  <script src="dist/sidebar_items.js" defer></script>
+
+  <ul id="full_list">
+  </ul>
+
+  <div id="no_results"></div>
+</section><!--/.sidebar-offcanvas -->
+<section id="content" class="col-xs-12 col-sm-9">
+
+
+      <div class="breadcrumbs">
+        <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        openaperture_overseer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Overseer.html#content">Overseer</a> &rarr; <a href="OpenAperture.Overseer.Dispatcher.html#content">Dispatcher</a>
+      </div>
+
+      <h1>
+        OpenAperture.Overseer.Dispatcher
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary_details">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the logic to dispatch Overseer messsages to the appropriate GenServer(s)</p>
+
+        </section>
+      
+
+      
+
+      
+        <section id="summary_details" class="details_list">
+          <h1>Summary</h1>
+          <table class="summary">
+            <tr>
+  <td class="summary_signature"><a href="#acknowledge/1">acknowledge(delivery_tag)</a></td>
+  <td class="summary_synopsis"><p>Method to acknowledge a message has been processed</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#close_connection/1">close_connection(connection_options \\ nil)</a></td>
+  <td class="summary_synopsis"><p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc…)</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#process_request/3">process_request(unknown_action, options, delivery_tag)</a></td>
+  <td class="summary_synopsis"><p>Method to process a request with an unknown action</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#publish/3">publish(connection_options \\ nil, queue, payload)</a></td>
+  <td class="summary_synopsis"><p>Publishes a message/payload to a specific queue within the Messaging system</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#publish_rpc/4">publish_rpc(connection_options \\ nil, queue, api, request)</a></td>
+  <td class="summary_synopsis"><p>Publishes a an RPC request to a specific queue within the Messaging system</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#register_queues/0">register_queues()</a></td>
+  <td class="summary_synopsis"><p>Method to register the Overseer queues with the Messaging system</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#reject/2">reject(delivery_tag, redeliver \\ false)</a></td>
+  <td class="summary_synopsis"><p>Method to reject a message has been processed</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
+  <td class="summary_synopsis"><p>Specific start_link implementation (required by the supervisor)</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#subscribe/3">subscribe(connection_options \\ nil, queue, callback_handler)</a></td>
+  <td class="summary_synopsis"><p>Subscribes to a specific queue within the Messaging system</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unsubscribe/2">unsubscribe(connection_options \\ nil, subscription_handler)</a></td>
+  <td class="summary_synopsis"><p>Unsubscribes to from a SubscriptionHandler in the Messaging system</p>
+</td>
+</tr>
+
+          </table>
+        </section>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h1>Functions</h1>
+          <section class="detail">
+  <div class="detail_header" id="acknowledge/1">
+    <span class="signature"><strong>acknowledge(delivery_tag)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#acknowledge/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>acknowledge(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to acknowledge a message has been processed</p>
+<h2>Options</h2>
+<p>The <code class="inline">delivery_tag</code> option is the unique identifier of the message</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="close_connection/1">
+    <span class="signature"><strong>close_connection(connection_options \\ nil)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#close_connection/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>close_connection(OpenAperture.Messaging.ConnectionOptions.t) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to completely close a connection (and all associated subscriptions, channels, connections, etc…)</p>
+<h2>Options</h2>
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+<h2>Returns</h2>
+<p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="process_request/3">
+    <span class="signature"><strong>process_request(unknown_action, options, delivery_tag)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#process_request/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>process_request(term, %{}, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
+      
+        <li>process_request(:upgrade_request, %{}, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to process a request with an unknown action</p>
+<h2>Options</h2>
+<p>The <code class="inline">request</code> option is the Request</p>
+<p>The <code class="inline">options</code> option defines action-specific options</p>
+<p>The <code class="inline">delivery_tag</code> option is the unique identifier of the message</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="publish/3">
+    <span class="signature"><strong>publish(connection_options \\ nil, queue, payload)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#publish/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>publish(OpenAperture.Messaging.ConnectionOptions.t, OpenAperture.Messaging.Queue.t, term) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Publishes a message/payload to a specific queue within the Messaging system</p>
+<h2>Options</h2>
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+<p>The <code class="inline">queue</code> options value provides the Queue to which to subscribe</p>
+<p>The <code class="inline">payload</code> option represents the message data</p>
+<h2>Returns</h2>
+<p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="publish_rpc/4">
+    <span class="signature"><strong>publish_rpc(connection_options \\ nil, queue, api, request)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#publish_rpc/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Publishes a an RPC request to a specific queue within the Messaging system</p>
+<h2>Options</h2>
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+<p>The <code class="inline">queue</code> options value provides the Queue to which to subscribe</p>
+<p>The <code class="inline">request</code> option represents the message data</p>
+<h2>Returns</h2>
+<p>{:ok, OpenAperture.Messaging.AMQP.RpcHandler} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="register_queues/0">
+    <span class="signature"><strong>register_queues()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#register_queues/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>register_queues :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to register the Overseer queues with the Messaging system</p>
+<h2>Return Value</h2>
+<p>:ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="reject/2">
+    <span class="signature"><strong>reject(delivery_tag, redeliver \\ false)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#reject/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>reject(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to reject a message has been processed</p>
+<h2>Options</h2>
+<p>The <code class="inline">delivery_tag</code> option is the unique identifier of the message</p>
+<p>The <code class="inline">redeliver</code> option can be used to requeue a message</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/0">
+    <span class="signature"><strong>start_link()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Specific start_link implementation (required by the supervisor)</p>
+<h2>Options</h2>
+<h2>Return Values</h2>
+<p>{:ok, pid} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="subscribe/3">
+    <span class="signature"><strong>subscribe(connection_options \\ nil, queue, callback_handler)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#subscribe/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>subscribe(OpenAperture.Messaging.ConnectionOptions.t, OpenAperture.Messaging.Queue.t, term) :: {:ok, term} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Subscribes to a specific queue within the Messaging system.</p>
+<h2>Options</h2>
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+<p>The <code class="inline">queue</code> options value provides the Queue to which to subscribe</p>
+<p>The <code class="inline">callback_handler</code> option represents the method that should be called when a message is received.  The handler
+should be a function with 2 arguments (sync), or 3 arguments (async).</p>
+<h2>Returns</h2>
+<p>for AMQP:</p>
+<pre><code class="elixir">{:ok, subscription_handler} | {:error, reason}</code></pre>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="unsubscribe/2">
+    <span class="signature"><strong>unsubscribe(connection_options \\ nil, subscription_handler)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unsubscribe/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>unsubscribe(OpenAperture.Messaging.ConnectionOptions.t, pid) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Unsubscribes to from a SubscriptionHandler in the Messaging system.</p>
+<h2>Options</h2>
+<p>The <code class="inline">connection_options</code> options value provides the ConnectionOptions; defaults to the @connection_options attribute</p>
+<p>The <code class="inline">subscription_handler</code> option represents the PID of the SubscriptionHandler</p>
+<h2>Returns</h2>
+<p>for AMQP:
+  :ok | {:error, reason}</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+      </section> <!--/content -->
+</div><!--/row -->
+
+    <script src="dist/app.js"></script>
+  </body>
+</html>
+

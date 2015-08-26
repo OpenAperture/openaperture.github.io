@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-        <title>OpenAperture.Overseer – openaperture_overseer v0.0.1</title>
+        <title>OpenAperture.Overseer.Components.ComponentStatusMgr – openaperture_overseer v0.0.1</title>
       
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc">
@@ -74,11 +74,11 @@
         <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
-        openaperture_overseer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Overseer.html#content">Overseer</a>
+        openaperture_overseer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Overseer.html#content">Overseer</a> &rarr; Components &rarr; <a href="OpenAperture.Overseer.Components.ComponentStatusMgr.html#content">ComponentStatusMgr</a>
       </div>
 
       <h1>
-        OpenAperture.Overseer
+        OpenAperture.Overseer.Components.ComponentStatusMgr
         
       </h1>
 
@@ -96,7 +96,7 @@
 
       
         <section id="moduledoc" class="docstring">
-          <p>This module contains definition the OpenAperture Overseer implementation</p>
+          <p>This module contains the GenServer for a checking if upgrades need to be created</p>
 
         </section>
       
@@ -108,8 +108,18 @@
           <h1>Summary</h1>
           <table class="summary">
             <tr>
-  <td class="summary_signature"><a href="#start/2">start(type, args)</a></td>
-  <td class="summary_synopsis"><p>Starts the given <code class="inline">_type</code></p>
+  <td class="summary_signature"><a href="#check_for_upgrade/1">check_for_upgrade(state)</a></td>
+  <td class="summary_synopsis"><p>Method to check for upgrades for a SystemComponent</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_cast/2">handle_cast(msg, state)</a></td>
+  <td class="summary_synopsis"><p>GenServer callback to check for upgrades for a SystemComponent</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/1">start_link(mgr)</a></td>
+  <td class="summary_synopsis"><p>Specific start_link implementation</p>
 </td>
 </tr>
 
@@ -123,11 +133,11 @@
         <section id="functions_details" class="details_list">
           <h1>Functions</h1>
           <section class="detail">
-  <div class="detail_header" id="start/2">
-    <span class="signature"><strong>start(type, args)</strong></span>
+  <div class="detail_header" id="check_for_upgrade/1">
+    <span class="signature"><strong>check_for_upgrade(state)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#start/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#check_for_upgrade/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -135,39 +145,68 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>start(atom, [any]) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>check_for_upgrade(%{}) :: %{}</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Starts the given <code class="inline">_type</code>.</p>
-<p>If the <code class="inline">_type</code> is not loaded, the application will first be loaded using <code class="inline">load/1</code>.
-Any included application, defined in the <code class="inline">:included_applications</code> key of the
-<code class="inline">.app</code> file will also be loaded, but they won’t be started.</p>
-<p>Furthermore, all applications listed in the <code class="inline">:applications</code> key must be explicitly
-started before this application is. If not, <code class="inline">{:error, {:not_started, app}}</code> is
-returned, where <code class="inline">_type</code> is the name of the missing application.</p>
-<p>In case you want to automatically  load <strong>and start</strong> all of <code class="inline">_type</code>‘s dependencies,
-see <code class="inline">ensure_all_started/2</code>.</p>
-<p>The <code class="inline">type</code> argument specifies the type of the application:</p>
-<ul>
-<li><p><code class="inline">:permanent</code> - if <code class="inline">_type</code> terminates, all other applications and the entire
-node are also terminated.</p>
-</li>
-<li><p><code class="inline">:transient</code> - if <code class="inline">_type</code> terminates with <code class="inline">:normal</code> reason, it is reported
-but no other applications are terminated. If a transient application
-terminates abnormally, all other applications and the entire node are
-also terminated.</p>
-</li>
-<li><code class="inline">:temporary</code> - if <code class="inline">_type</code> terminates, it is reported but no other
-applications are terminated (the default).
-</li>
-</ul>
-<p>Note that it is always possible to stop an application explicitly by calling
-<code class="inline">stop/1</code>. Regardless of the type of the application, no other applications will
-be affected.</p>
-<p>Note also that the <code class="inline">:transient</code> type is of little practical use, since when a
-supervision tree terminates, the reason is set to <code class="inline">:shutdown</code>, not <code class="inline">:normal</code>.</p>
+    <p>Method to check for upgrades for a SystemComponent</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">state</code> option is the GenServer’s state</p>
+<h2>Return Values</h2>
+<p>state</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_cast/2">
+    <span class="signature"><strong>handle_cast(msg, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_cast/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_cast({:check_for_upgrade}, %{}) :: {:noreply, %{}}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>GenServer callback to check for upgrades for a SystemComponent</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">state</code> option is the GenServer’s state</p>
+<h2>Return Values</h2>
+<pre><code class="elixir">{:noreply, state}</code></pre>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/1">
+    <span class="signature"><strong>start_link(mgr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link(pid) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Specific start_link implementation</p>
+<h2>Return Values</h2>
+<p>{:ok, pid} | {:error, reason}</p>
 
   </section>
   

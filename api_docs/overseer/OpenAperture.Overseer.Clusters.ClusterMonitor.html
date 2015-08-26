@@ -1,0 +1,414 @@
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+        <title>OpenAperture.Overseer.Clusters.ClusterMonitor – openaperture_overseer v0.0.1</title>
+      
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc">
+
+    <link rel="stylesheet" href="dist/app.css">
+  </head>
+  <body>
+
+    
+    <div class="row row-offcanvas row-offcanvas-left">
+<section id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
+  <p class="pull-right visible-xs">
+  <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+    <span class="glyphicon glyphicon-search"></span>
+  </button>
+  </p>
+
+  <h1 id="full_list_header">
+    
+      openaperture_overseer v0.0.1
+    
+  </h1>
+
+  <h2 id="sub_list_header">
+    
+    <a href="overview.html">Overview</a>
+  </h2>
+
+  <div class="nav">
+    
+      <span><a id="modules_list" href="#full_list">Modules</a></span>
+    
+    
+      <span role="presentation" class="disabled">Exceptions</span>
+    
+    
+      <span role="presentation" class="disabled">Protocols</span>
+    
+  </div>
+
+  <div id="search">
+    <div class="col-xs-10">
+      <div class="input-group input-group-sm">
+        <label for="search_field" class="sr-only">Search</label>
+        <input type="text" id="search_field" class="form-control" placeholder="Search" autocomplete="off" autofocus="autofocus" results="0">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-xs-10 -->
+    <div class="col-xs-2" id="spinning">
+      <span></span>
+    </div><!-- /.col-xs-2 -->
+  </div><!-- /#search .row -->
+
+  <script src="dist/sidebar_items.js" defer></script>
+
+  <ul id="full_list">
+  </ul>
+
+  <div id="no_results"></div>
+</section><!--/.sidebar-offcanvas -->
+<section id="content" class="col-xs-12 col-sm-9">
+
+
+      <div class="breadcrumbs">
+        <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        openaperture_overseer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Overseer.html#content">Overseer</a> &rarr; Clusters &rarr; <a href="OpenAperture.Overseer.Clusters.ClusterMonitor.html#content">ClusterMonitor</a>
+      </div>
+
+      <h1>
+        OpenAperture.Overseer.Clusters.ClusterMonitor
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary_details">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the GenServer for monitoring a cluster in the associated exchange</p>
+
+        </section>
+      
+
+      
+
+      
+        <section id="summary_details" class="details_list">
+          <h1>Summary</h1>
+          <table class="summary">
+            <tr>
+  <td class="summary_signature"><a href="#handle_cast/2">handle_cast(msg, state)</a></td>
+  <td class="summary_synopsis"><p>GenServer callback to begin a Monitoring session</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#monitor/1">monitor(monitor)</a></td>
+  <td class="summary_synopsis"><p>Method to begin a Monitoring session</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#monitor_cluster/1">monitor_cluster(etcd_token)</a></td>
+  <td class="summary_synopsis"><p>Method to execute monitoring against a cluster</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#monitor_cluster_units/1">monitor_cluster_units(etcd_token)</a></td>
+  <td class="summary_synopsis"><p>Method to monitor units running on a cluster</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#monitor_host/3">monitor_host(list1, node_info, etcd_token)</a></td>
+  <td class="summary_synopsis"><p>Method to execute monitoring against a host</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#monitor_hosts/2">monitor_hosts(etcd_token, hosts)</a></td>
+  <td class="summary_synopsis"><p>Method to execute monitoring against a set of hosts</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#monitor_unit_instances/3">monitor_unit_instances(all_units, etcd_token, failure_count)</a></td>
+  <td class="summary_synopsis"><p>Method to execute monitoring of a unit</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#monitor_units/2">monitor_units(units, etcd_token)</a></td>
+  <td class="summary_synopsis"><p>Method to determine if there is at least 1 instance of each unit name running</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/1">start_link(cluster)</a></td>
+  <td class="summary_synopsis"><p>Specific start_link implementation</p>
+</td>
+</tr>
+
+          </table>
+        </section>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h1>Functions</h1>
+          <section class="detail">
+  <div class="detail_header" id="handle_cast/2">
+    <span class="signature"><strong>handle_cast(msg, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_cast/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_cast({:monitor}, %{}) :: {:noreply, %{}}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>GenServer callback to begin a Monitoring session</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">state</code> option is the GenServer’s state</p>
+<h2>Return Values</h2>
+<pre><code class="elixir">{:noreply, state}</code></pre>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="monitor/1">
+    <span class="signature"><strong>monitor(monitor)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#monitor/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>monitor(pid) :: :ok</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to begin a Monitoring session</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">state</code> option is the GenServer’s state</p>
+<h2>Return Values</h2>
+<p>:ok</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="monitor_cluster/1">
+    <span class="signature"><strong>monitor_cluster(etcd_token)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#monitor_cluster/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>monitor_cluster(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute monitoring against a cluster</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">etcd_token</code> option defines the etcd token for the cluster</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="monitor_cluster_units/1">
+    <span class="signature"><strong>monitor_cluster_units(etcd_token)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#monitor_cluster_units/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>monitor_cluster_units(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to monitor units running on a cluster</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">etcd_token</code> option defines the EtcdToken associated with the cluster</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="monitor_host/3">
+    <span class="signature"><strong>monitor_host(list1, node_info, etcd_token)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#monitor_host/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>monitor_host(list, %{}, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
+      
+        <li>monitor_host([], %{}, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute monitoring against a host</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">hosts</code> option defines the list of hosts to review</p>
+<p>The <code class="inline">node_info</code> option defines the Map of all host information</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="monitor_hosts/2">
+    <span class="signature"><strong>monitor_hosts(etcd_token, hosts)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#monitor_hosts/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>monitor_hosts(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, list) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute monitoring against a set of hosts</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">etcd_token</code> option defines the etcd token for the cluster</p>
+<p>The <code class="inline">hosts</code> option defines the list of hosts in the cluster</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="monitor_unit_instances/3">
+    <span class="signature"><strong>monitor_unit_instances(all_units, etcd_token, failure_count)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#monitor_unit_instances/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>monitor_unit_instances(list, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: term</li>
+      
+        <li>monitor_unit_instances([], <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, term) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to execute monitoring of a unit</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">etcd_token</code> option defines the EtcdToken associated with the cluster</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="monitor_units/2">
+    <span class="signature"><strong>monitor_units(units, etcd_token)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#monitor_units/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>monitor_units(list, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to determine if there is at least 1 instance of each unit name running</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">units</code> option defines a List of Units to review</p>
+<p>The <code class="inline">etcd_token</code> option defines the EtcdToken associated with the cluster</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/1">
+    <span class="signature"><strong>start_link(cluster)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link(%{}) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Specific start_link implementation</p>
+<h2>Return Values</h2>
+<p>{:ok, pid} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+      </section> <!--/content -->
+</div><!--/row -->
+
+    <script src="dist/app.js"></script>
+  </body>
+</html>
+

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-        <title>OpenAperture.Overseer – openaperture_overseer v0.0.1</title>
+        <title>OpenAperture.Overseer.MessageManager – openaperture_overseer v0.0.1</title>
       
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc">
@@ -74,11 +74,11 @@
         <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
-        openaperture_overseer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Overseer.html#content">Overseer</a>
+        openaperture_overseer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Overseer.html#content">Overseer</a> &rarr; <a href="OpenAperture.Overseer.MessageManager.html#content">MessageManager</a>
       </div>
 
       <h1>
-        OpenAperture.Overseer
+        OpenAperture.Overseer.MessageManager
         
       </h1>
 
@@ -96,7 +96,7 @@
 
       
         <section id="moduledoc" class="docstring">
-          <p>This module contains definition the OpenAperture Overseer implementation</p>
+          <p>This module contains the logic for associating message references with their subscription handlers</p>
 
         </section>
       
@@ -108,8 +108,18 @@
           <h1>Summary</h1>
           <table class="summary">
             <tr>
-  <td class="summary_signature"><a href="#start/2">start(type, args)</a></td>
-  <td class="summary_synopsis"><p>Starts the given <code class="inline">_type</code></p>
+  <td class="summary_signature"><a href="#remove/1">remove(delivery_tag)</a></td>
+  <td class="summary_synopsis"><p>Method to stop tracking a delivered message</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
+  <td class="summary_synopsis"><p>Creates a <code class="inline">GenServer</code> representing Docker host cluster</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#track/1">track(async_info)</a></td>
+  <td class="summary_synopsis"><p>Method to start tracking a delivered message</p>
 </td>
 </tr>
 
@@ -123,11 +133,11 @@
         <section id="functions_details" class="details_list">
           <h1>Functions</h1>
           <section class="detail">
-  <div class="detail_header" id="start/2">
-    <span class="signature"><strong>start(type, args)</strong></span>
+  <div class="detail_header" id="remove/1">
+    <span class="signature"><strong>remove(delivery_tag)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#start/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#remove/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -135,39 +145,72 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>start(atom, [any]) :: :ok | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>remove(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: %{}</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Starts the given <code class="inline">_type</code>.</p>
-<p>If the <code class="inline">_type</code> is not loaded, the application will first be loaded using <code class="inline">load/1</code>.
-Any included application, defined in the <code class="inline">:included_applications</code> key of the
-<code class="inline">.app</code> file will also be loaded, but they won’t be started.</p>
-<p>Furthermore, all applications listed in the <code class="inline">:applications</code> key must be explicitly
-started before this application is. If not, <code class="inline">{:error, {:not_started, app}}</code> is
-returned, where <code class="inline">_type</code> is the name of the missing application.</p>
-<p>In case you want to automatically  load <strong>and start</strong> all of <code class="inline">_type</code>‘s dependencies,
-see <code class="inline">ensure_all_started/2</code>.</p>
-<p>The <code class="inline">type</code> argument specifies the type of the application:</p>
+    <p>Method to stop tracking a delivered message</p>
+<h2>Options</h2>
+<p>The <code class="inline">delivery_tag</code> option is the unique identifier of the message</p>
+<h2>Return Value</h2>
+<p>Map containing the subscription_handler and delivery_tag</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/0">
+    <span class="signature"><strong>start_link()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Creates a <code class="inline">GenServer</code> representing Docker host cluster.</p>
+<h2>Return values</h2>
+<p>{:ok, pid} | {:error, String.t}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="track/1">
+    <span class="signature"><strong>track(async_info)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#track/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>track(%{}) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to start tracking a delivered message.</p>
+<h2>Options</h2>
+<p>The <code class="inline">_async_info</code> is a Map containing the following entries:</p>
 <ul>
-<li><p><code class="inline">:permanent</code> - if <code class="inline">_type</code> terminates, all other applications and the entire
-node are also terminated.</p>
+<li>:subscription_handler
 </li>
-<li><p><code class="inline">:transient</code> - if <code class="inline">_type</code> terminates with <code class="inline">:normal</code> reason, it is reported
-but no other applications are terminated. If a transient application
-terminates abnormally, all other applications and the entire node are
-also terminated.</p>
-</li>
-<li><code class="inline">:temporary</code> - if <code class="inline">_type</code> terminates, it is reported but no other
-applications are terminated (the default).
+<li>:delivery_tag
 </li>
 </ul>
-<p>Note that it is always possible to stop an application explicitly by calling
-<code class="inline">stop/1</code>. Regardless of the type of the application, no other applications will
-be affected.</p>
-<p>Note also that the <code class="inline">:transient</code> type is of little practical use, since when a
-supervision tree terminates, the reason is set to <code class="inline">:shutdown</code>, not <code class="inline">:normal</code>.</p>
 
   </section>
   

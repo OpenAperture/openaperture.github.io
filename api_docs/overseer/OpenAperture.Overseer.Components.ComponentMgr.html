@@ -1,0 +1,405 @@
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+        <title>OpenAperture.Overseer.Components.ComponentMgr – openaperture_overseer v0.0.1</title>
+      
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc">
+
+    <link rel="stylesheet" href="dist/app.css">
+  </head>
+  <body>
+
+    
+    <div class="row row-offcanvas row-offcanvas-left">
+<section id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
+  <p class="pull-right visible-xs">
+  <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+    <span class="glyphicon glyphicon-search"></span>
+  </button>
+  </p>
+
+  <h1 id="full_list_header">
+    
+      openaperture_overseer v0.0.1
+    
+  </h1>
+
+  <h2 id="sub_list_header">
+    
+    <a href="overview.html">Overview</a>
+  </h2>
+
+  <div class="nav">
+    
+      <span><a id="modules_list" href="#full_list">Modules</a></span>
+    
+    
+      <span role="presentation" class="disabled">Exceptions</span>
+    
+    
+      <span role="presentation" class="disabled">Protocols</span>
+    
+  </div>
+
+  <div id="search">
+    <div class="col-xs-10">
+      <div class="input-group input-group-sm">
+        <label for="search_field" class="sr-only">Search</label>
+        <input type="text" id="search_field" class="form-control" placeholder="Search" autocomplete="off" autofocus="autofocus" results="0">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-xs-10 -->
+    <div class="col-xs-2" id="spinning">
+      <span></span>
+    </div><!-- /.col-xs-2 -->
+  </div><!-- /#search .row -->
+
+  <script src="dist/sidebar_items.js" defer></script>
+
+  <ul id="full_list">
+  </ul>
+
+  <div id="no_results"></div>
+</section><!--/.sidebar-offcanvas -->
+<section id="content" class="col-xs-12 col-sm-9">
+
+
+      <div class="breadcrumbs">
+        <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        openaperture_overseer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Overseer.html#content">Overseer</a> &rarr; Components &rarr; <a href="OpenAperture.Overseer.Components.ComponentMgr.html#content">ComponentMgr</a>
+      </div>
+
+      <h1>
+        OpenAperture.Overseer.Components.ComponentMgr
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary_details">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the GenServer for managing a specific SystemComponent and kicking off upgrades as needed</p>
+
+        </section>
+      
+
+      
+
+      
+        <section id="summary_details" class="details_list">
+          <h1>Summary</h1>
+          <table class="summary">
+            <tr>
+  <td class="summary_signature"><a href="#component/1">component(mgr)</a></td>
+  <td class="summary_synopsis"><p>Method to retrieve the currently managed SystemComponent</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#current_upgrade_task/1">current_upgrade_task(mgr)</a></td>
+  <td class="summary_synopsis"><p>Method to get the current upgrade/monitor Task</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#handle_call/3">handle_call(msg, from, state)</a></td>
+  <td class="summary_synopsis"><p>GenServer callback to set the current status manager</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#refresh/1">refresh(mgr)</a></td>
+  <td class="summary_synopsis"><p>Method to refresh the currently managed SystemComponent</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#request_upgrade/1">request_upgrade(mgr)</a></td>
+  <td class="summary_synopsis"><p>Method to request an Upgrade of the component</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#save/2">save(mgr, updated_component)</a></td>
+  <td class="summary_synopsis"><p>Method to save a new version of the currently managed SystemComponent</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#set_task/3">set_task(mgr, task_type, task)</a></td>
+  <td class="summary_synopsis"><p>Method to set the upgrade or monitoring task associated with the SystemComponent</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/1">start_link(component)</a></td>
+  <td class="summary_synopsis"><p>Specific start_link implementation</p>
+</td>
+</tr>
+
+          </table>
+        </section>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h1>Functions</h1>
+          <section class="detail">
+  <div class="detail_header" id="component/1">
+    <span class="signature"><strong>component(mgr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#component/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>component(pid) :: %{}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the currently managed SystemComponent</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">mgr</code> option is the GenServer PID</p>
+<h2>Return Values</h2>
+<p>Map containing the cached component</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="current_upgrade_task/1">
+    <span class="signature"><strong>current_upgrade_task(mgr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#current_upgrade_task/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>current_upgrade_task(pid) :: <a href="http://elixir-lang.org/docs/stable/elixir/Task.html#t:t/0">Task.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to get the current upgrade/monitor Task</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">mgr</code> option is the GenServer PID</p>
+<h2>Return Values</h2>
+<p>the upgrade / monitoring async Task</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="handle_call/3">
+    <span class="signature"><strong>handle_call(msg, from, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_call/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_call({:set_upgrade_task, term, <a href="http://elixir-lang.org/docs/stable/elixir/Task.html#t:t/0">Task.t</a>}, pid, %{}) :: {:reply, <a href="http://elixir-lang.org/docs/stable/elixir/Task.html#t:t/0">Task.t</a>, %{}}</li>
+      
+        <li>handle_call({:set_status_mgr, pid}, pid, %{}) :: {:reply, pid, %{}}</li>
+      
+        <li>handle_call({:current_upgrade_task}, pid, %{}) :: {:reply, <a href="http://elixir-lang.org/docs/stable/elixir/Task.html#t:t/0">Task.t</a>, %{}}</li>
+      
+        <li>handle_call({:request_upgrade}, pid, %{}) :: {:reply, <a href="http://elixir-lang.org/docs/stable/elixir/Task.html#t:t/0">Task.t</a>, %{}}</li>
+      
+        <li>handle_call({:refresh_component}, pid, %{}) :: {:reply, %{}, %{}}</li>
+      
+        <li>handle_call({:save, %{}}, pid, %{}) :: {:reply, %{}, %{}}</li>
+      
+        <li>handle_call({:get_component}, pid, %{}) :: {:reply, %{}, %{}}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>GenServer callback to set the current status manager</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">_from</code> option is the caller’s PID</p>
+<p>The <code class="inline">state</code> option is the GenServer’s state</p>
+<p>The <code class="inline">task_type</code> option defines the atom identifying what kind of task (:update_task, :monitoring_task)</p>
+<p>The <code class="inline">task</code> option defines the Task</p>
+<h2>Return Values</h2>
+<pre><code class="elixir">{:reply, manager, state}</code></pre>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="refresh/1">
+    <span class="signature"><strong>refresh(mgr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#refresh/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>refresh(pid) :: %{}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to refresh the currently managed SystemComponent</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">mgr</code> option is the GenServer PID</p>
+<h2>Return Values</h2>
+<p>Map containing the refreshed component</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="request_upgrade/1">
+    <span class="signature"><strong>request_upgrade(mgr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#request_upgrade/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>request_upgrade(pid) :: <a href="http://elixir-lang.org/docs/stable/elixir/Task.html#t:t/0">Task.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to request an Upgrade of the component</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">mgr</code> option is the GenServer PID</p>
+<h2>Return Values</h2>
+<p>the upgrade / monitoring async Task</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="save/2">
+    <span class="signature"><strong>save(mgr, updated_component)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#save/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>save(pid, %{}) :: %{}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to save a new version of the currently managed SystemComponent</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">mgr</code> option is the GenServer PID</p>
+<p>The <code class="inline">updated_component</code> option defines the component to update</p>
+<h2>Return Values</h2>
+<p>Map containing the updated component</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="set_task/3">
+    <span class="signature"><strong>set_task(mgr, task_type, task)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#set_task/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>set_task(pid, term, <a href="http://elixir-lang.org/docs/stable/elixir/Task.html#t:t/0">Task.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/Task.html#t:t/0">Task.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to set the upgrade or monitoring task associated with the SystemComponent</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">mgr</code> option is the GenServer PID</p>
+<h2>Return Values</h2>
+<p>the upgrade / monitoring async Task</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/1">
+    <span class="signature"><strong>start_link(component)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link(%{}) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Specific start_link implementation</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">component</code> option defines the SystemComponent map to be managed</p>
+<h2>Return Values</h2>
+<p>{:ok, pid} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+      </section> <!--/content -->
+</div><!--/row -->
+
+    <script src="dist/app.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,322 @@
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+        <title>OpenAperture.Overseer.Clusters.ClustersMonitor – openaperture_overseer v0.0.1</title>
+      
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc">
+
+    <link rel="stylesheet" href="dist/app.css">
+  </head>
+  <body>
+
+    
+    <div class="row row-offcanvas row-offcanvas-left">
+<section id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
+  <p class="pull-right visible-xs">
+  <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+    <span class="glyphicon glyphicon-search"></span>
+  </button>
+  </p>
+
+  <h1 id="full_list_header">
+    
+      openaperture_overseer v0.0.1
+    
+  </h1>
+
+  <h2 id="sub_list_header">
+    
+    <a href="overview.html">Overview</a>
+  </h2>
+
+  <div class="nav">
+    
+      <span><a id="modules_list" href="#full_list">Modules</a></span>
+    
+    
+      <span role="presentation" class="disabled">Exceptions</span>
+    
+    
+      <span role="presentation" class="disabled">Protocols</span>
+    
+  </div>
+
+  <div id="search">
+    <div class="col-xs-10">
+      <div class="input-group input-group-sm">
+        <label for="search_field" class="sr-only">Search</label>
+        <input type="text" id="search_field" class="form-control" placeholder="Search" autocomplete="off" autofocus="autofocus" results="0">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-xs-10 -->
+    <div class="col-xs-2" id="spinning">
+      <span></span>
+    </div><!-- /.col-xs-2 -->
+  </div><!-- /#search .row -->
+
+  <script src="dist/sidebar_items.js" defer></script>
+
+  <ul id="full_list">
+  </ul>
+
+  <div id="no_results"></div>
+</section><!--/.sidebar-offcanvas -->
+<section id="content" class="col-xs-12 col-sm-9">
+
+
+      <div class="breadcrumbs">
+        <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        openaperture_overseer v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Overseer.html#content">Overseer</a> &rarr; Clusters &rarr; <a href="OpenAperture.Overseer.Clusters.ClustersMonitor.html#content">ClustersMonitor</a>
+      </div>
+
+      <h1>
+        OpenAperture.Overseer.Clusters.ClustersMonitor
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary_details">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module contains the GenServer for monitoring all of the clusters in the associated exchange</p>
+
+        </section>
+      
+
+      
+
+      
+        <section id="summary_details" class="details_list">
+          <h1>Summary</h1>
+          <table class="summary">
+            <tr>
+  <td class="summary_signature"><a href="#handle_cast/2">handle_cast(msg, state)</a></td>
+  <td class="summary_synopsis"><p>GenServer callback to begin a Monitoring session</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#monitor_cached_clusters/1">monitor_cached_clusters(state)</a></td>
+  <td class="summary_synopsis"><p>Method to request all cluster monitors start a monitoring session</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#monitor_cluster/2">monitor_cluster(state, cluster)</a></td>
+  <td class="summary_synopsis"><p>Method to start a monitor for a cluster</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#monitor_clusters/1">monitor_clusters(state)</a></td>
+  <td class="summary_synopsis"><p>Method to start a monitor for all clusters</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
+  <td class="summary_synopsis"><p>Specific start_link implementation</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#stop_monitoring_clusters/2">stop_monitoring_clusters(state, clusters \\ nil)</a></td>
+  <td class="summary_synopsis"><p>Method to stop a monitor for a cluster or clusters</p>
+</td>
+</tr>
+
+          </table>
+        </section>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h1>Functions</h1>
+          <section class="detail">
+  <div class="detail_header" id="handle_cast/2">
+    <span class="signature"><strong>handle_cast(msg, state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#handle_cast/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>handle_cast({:monitor}, %{}) :: {:noreply, %{}}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>GenServer callback to begin a Monitoring session</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">state</code> option is the GenServer’s state</p>
+<h2>Return Values</h2>
+<pre><code class="elixir">{:noreply, state}</code></pre>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="monitor_cached_clusters/1">
+    <span class="signature"><strong>monitor_cached_clusters(state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#monitor_cached_clusters/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>monitor_cached_clusters(%{}) :: %{}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to request all cluster monitors start a monitoring session</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">state</code> option is the GenServer’s state</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="monitor_cluster/2">
+    <span class="signature"><strong>monitor_cluster(state, cluster)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#monitor_cluster/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>monitor_cluster(%{}, %{}) :: %{}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to start a monitor for a cluster</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">state</code> option is the GenServer’s state</p>
+<h2>Return Values</h2>
+<p>state</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="monitor_clusters/1">
+    <span class="signature"><strong>monitor_clusters(state)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#monitor_clusters/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>monitor_clusters(%{}) :: %{}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to start a monitor for all clusters</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">state</code> option is the GenServer’s state</p>
+<h2>Return Values</h2>
+<p>state</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="start_link/0">
+    <span class="signature"><strong>start_link()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Specific start_link implementation</p>
+<h2>Return Values</h2>
+<p>{:ok, pid} | {:error, reason}</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="stop_monitoring_clusters/2">
+    <span class="signature"><strong>stop_monitoring_clusters(state, clusters \\ nil)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#stop_monitoring_clusters/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>stop_monitoring_clusters(%{}, list) :: %{}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to stop a monitor for a cluster or clusters</p>
+<h2>Option Values</h2>
+<p>The <code class="inline">state</code> option is the GenServer’s state</p>
+<p>The <code class="inline">clusters</code> option defines the list of clusters to stop monitoring</p>
+<h2>Return Values</h2>
+<p>state</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+      </section> <!--/content -->
+</div><!--/row -->
+
+    <script src="dist/app.js"></script>
+  </body>
+</html>
+
