@@ -177,7 +177,7 @@ sidebarNodes = {
 },{"id": "OpenAperture.Manager.Plugs.Params",
 "docs": ["parse_as_integer/2","validate_param/2"]
 },{"id": "OpenAperture.Manager.Repo",
-"docs": ["adapter/0","all/2","config/0","delete/2","delete!/2","delete_all/2","get/3","get!/3","get_by/3","get_by!/3","insert/2","insert!/2","log/1","one/2","one!/2","paginate/2","preload/2","rollback/1","start_link/0","transaction/2","update/2","update!/2","update_all/3"]
+"docs": ["all/2","config/0","delete/2","delete!/2","delete_all/2","get/3","get!/3","get_by/3","get_by!/3","insert/2","insert!/2","log/1","one/2","one!/2","paginate/2","preload/2","rollback/1","start_link/1","transaction/2","update/2","update!/2","update_all/3"]
 },{"id": "OpenAperture.Manager.Router",
 "docs": ["call/2","channel_for_topic/2","init/1"]
 },{"id": "OpenAperture.Manager.Router.Helpers",
