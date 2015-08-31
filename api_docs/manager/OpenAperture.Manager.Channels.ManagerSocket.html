@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-        <title>OpenAperture.Manager.BuildLogChannel – Elixir.OpenAperture.Manager v0.0.1</title>
+        <title>OpenAperture.Manager.Channels.ManagerSocket – Elixir.OpenAperture.Manager v0.0.1</title>
       
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc">
@@ -74,11 +74,11 @@
         <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
-        Elixir.OpenAperture.Manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html#content">Manager</a> &rarr; <a href="OpenAperture.Manager.BuildLogChannel.html#content">BuildLogChannel</a>
+        Elixir.OpenAperture.Manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html#content">Manager</a> &rarr; Channels &rarr; <a href="OpenAperture.Manager.Channels.ManagerSocket.html#content">ManagerSocket</a>
       </div>
 
       <h1>
-        OpenAperture.Manager.BuildLogChannel
+        OpenAperture.Manager.Channels.ManagerSocket
         
       </h1>
 
@@ -103,28 +103,24 @@
           <h1>Summary</h1>
           <table class="summary">
             <tr>
-  <td class="summary_signature"><a href="#handle_in/3">handle_in(event, message, socket)</a></td>
-  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Phoenix.Channel.handle_in/3</code></p>
+  <td class="summary_signature"><a href="#authenticate_user/1">authenticate_user(access_token)</a></td>
+  <td class="summary_synopsis"></td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#connect/2">connect(params, socket)</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Phoenix.Socket.connect/2</code></p>
 </td>
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#handle_info/2">handle_info(message, socket)</a></td>
-  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Phoenix.Channel.handle_info/2</code></p>
+  <td class="summary_signature"><a href="#fetch_access_token/1">fetch_access_token(auth_header)</a></td>
+  <td class="summary_synopsis"><p>Retrieves the access token part of an authorization header, if available,
+and adds it to the conns private data with the :auth_access_token key.
+Returns the conn unchanged if the auth header is not present</p>
 </td>
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#handle_out/3">handle_out(event, message, socket)</a></td>
-  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Phoenix.Channel.handle_out/3</code></p>
-</td>
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#join/3">join(arg1, auth_msg, socket)</a></td>
-  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Phoenix.Channel.join/3</code></p>
-</td>
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#terminate/2">terminate(reason, socket)</a></td>
-  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Phoenix.Channel.terminate/2</code></p>
+  <td class="summary_signature"><a href="#id/1">id(socket)</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Phoenix.Socket.id/1</code></p>
 </td>
 </tr>
 
@@ -138,81 +134,73 @@
         <section id="functions_details" class="details_list">
           <h1>Functions</h1>
           <section class="detail">
-  <div class="detail_header" id="handle_in/3">
-    <span class="signature"><strong>handle_in(event, message, socket)</strong></span>
+  <div class="detail_header" id="authenticate_user/1">
+    <span class="signature"><strong>authenticate_user(access_token)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#handle_in/3" class="detail_link" title="Link to this function">#</a>
+      <a href="#authenticate_user/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
   
   <section class="docstring">
-    <p>Callback implementation for <code class="inline">c:Phoenix.Channel.handle_in/3</code>.</p>
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="connect/2">
+    <span class="signature"><strong>connect(params, socket)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#connect/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Phoenix.Socket.connect/2</code>.</p>
 
   </section>
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="handle_info/2">
-    <span class="signature"><strong>handle_info(message, socket)</strong></span>
+  <div class="detail_header" id="fetch_access_token/1">
+    <span class="signature"><strong>fetch_access_token(auth_header)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#handle_info/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#fetch_access_token/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>fetch_access_token(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
   <section class="docstring">
-    <p>Callback implementation for <code class="inline">c:Phoenix.Channel.handle_info/2</code>.</p>
+    <p>Retrieves the access token part of an authorization header, if available,
+and adds it to the conns private data with the :auth_access_token key.
+Returns the conn unchanged if the auth header is not present.</p>
 
   </section>
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="handle_out/3">
-    <span class="signature"><strong>handle_out(event, message, socket)</strong></span>
+  <div class="detail_header" id="id/1">
+    <span class="signature"><strong>id(socket)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#handle_out/3" class="detail_link" title="Link to this function">#</a>
+      <a href="#id/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
   
   <section class="docstring">
-    <p>Callback implementation for <code class="inline">c:Phoenix.Channel.handle_out/3</code>.</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="join/3">
-    <span class="signature"><strong>join(arg1, auth_msg, socket)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#join/3" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    <p>Callback implementation for <code class="inline">c:Phoenix.Channel.join/3</code>.</p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="terminate/2">
-    <span class="signature"><strong>terminate(reason, socket)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#terminate/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    <p>Callback implementation for <code class="inline">c:Phoenix.Channel.terminate/2</code>.</p>
+    <p>Callback implementation for <code class="inline">c:Phoenix.Socket.id/1</code>.</p>
 
   </section>
   

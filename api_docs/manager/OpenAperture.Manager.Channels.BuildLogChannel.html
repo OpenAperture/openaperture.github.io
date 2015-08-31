@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-        <title>OpenAperture.Manager.Router – Elixir.OpenAperture.Manager v0.0.1</title>
+        <title>OpenAperture.Manager.Channels.BuildLogChannel – Elixir.OpenAperture.Manager v0.0.1</title>
       
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc">
@@ -74,11 +74,11 @@
         <button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
-        Elixir.OpenAperture.Manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html#content">Manager</a> &rarr; <a href="OpenAperture.Manager.Router.html#content">Router</a>
+        Elixir.OpenAperture.Manager v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; OpenAperture &rarr; <a href="OpenAperture.Manager.html#content">Manager</a> &rarr; Channels &rarr; <a href="OpenAperture.Manager.Channels.BuildLogChannel.html#content">BuildLogChannel</a>
       </div>
 
       <h1>
-        OpenAperture.Manager.Router
+        OpenAperture.Manager.Channels.BuildLogChannel
         
       </h1>
 
@@ -103,14 +103,23 @@
           <h1>Summary</h1>
           <table class="summary">
             <tr>
-  <td class="summary_signature"><a href="#call/2">call(conn, opts)</a></td>
-  <td class="summary_synopsis"><p>Callback invoked by Plug on every request</p>
+  <td class="summary_signature"><a href="#handle_in/3">handle_in(event, message, socket)</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Phoenix.Channel.handle_in/3</code></p>
 </td>
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#init/1">init(opts)</a></td>
-  <td class="summary_synopsis"><p>Callback required by Plug that initializes the router
-for serving web requests</p>
+  <td class="summary_signature"><a href="#handle_info/2">handle_info(message, socket)</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Phoenix.Channel.handle_info/2</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#join/3">join(arg1, auth_msg, socket)</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Phoenix.Channel.join/3</code></p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#terminate/2">terminate(reason, socket)</a></td>
+  <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c:Phoenix.Channel.terminate/2</code></p>
 </td>
 </tr>
 
@@ -124,34 +133,65 @@ for serving web requests</p>
         <section id="functions_details" class="details_list">
           <h1>Functions</h1>
           <section class="detail">
-  <div class="detail_header" id="call/2">
-    <span class="signature"><strong>call(conn, opts)</strong></span>
+  <div class="detail_header" id="handle_in/3">
+    <span class="signature"><strong>handle_in(event, message, socket)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#call/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#handle_in/3" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
   
   <section class="docstring">
-    <p>Callback invoked by Plug on every request.</p>
+    <p>Callback implementation for <code class="inline">c:Phoenix.Channel.handle_in/3</code>.</p>
 
   </section>
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="init/1">
-    <span class="signature"><strong>init(opts)</strong></span>
+  <div class="detail_header" id="handle_info/2">
+    <span class="signature"><strong>handle_info(message, socket)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#init/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#handle_info/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
   
   <section class="docstring">
-    <p>Callback required by Plug that initializes the router
-for serving web requests.</p>
+    <p>Callback implementation for <code class="inline">c:Phoenix.Channel.handle_info/2</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="join/3">
+    <span class="signature"><strong>join(arg1, auth_msg, socket)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#join/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Phoenix.Channel.join/3</code>.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="terminate/2">
+    <span class="signature"><strong>terminate(reason, socket)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#terminate/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Callback implementation for <code class="inline">c:Phoenix.Channel.terminate/2</code>.</p>
 
   </section>
   

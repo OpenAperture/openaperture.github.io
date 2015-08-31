@@ -103,6 +103,11 @@
           <h1>Summary</h1>
           <table class="summary">
             <tr>
+  <td class="summary_signature"><a href="#__sockets__/0">__sockets__()</a></td>
+  <td class="summary_synopsis"><p>Returns all sockets configured in this endpoint</p>
+</td>
+</tr>
+<tr>
   <td class="summary_signature"><a href="#broadcast!/3">broadcast!(topic, event, msg)</a></td>
   <td class="summary_synopsis"></td>
 </tr>
@@ -159,6 +164,11 @@
 </td>
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#struct_url/0">struct_url()</a></td>
+  <td class="summary_synopsis"><p>Generates the endpoint base URL but as a <code class="inline">URI</code> struct</p>
+</td>
+</tr>
+<tr>
   <td class="summary_signature"><a href="#subscribe/3">subscribe(pid, topic, opts \\ [])</a></td>
   <td class="summary_synopsis"></td>
 </tr>
@@ -182,6 +192,22 @@
         <section id="functions_details" class="details_list">
           <h1>Functions</h1>
           <section class="detail">
+  <div class="detail_header" id="__sockets__/0">
+    <span class="signature"><strong>__sockets__()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#__sockets__/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Returns all sockets configured in this endpoint.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
   <div class="detail_header" id="broadcast/3">
     <span class="signature"><strong>broadcast(topic, event, msg)</strong></span>
     <div class="detail_header_links">
@@ -366,6 +392,27 @@
   
   <section class="docstring">
     <p>Generates the static URL without any path information.</p>
+<p>It uses the configuration under <code class="inline">:static_url</code> to generate
+such. It fallsback to <code class="inline">:url</code> if <code class="inline">:static_url</code> is not set.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="struct_url/0">
+    <span class="signature"><strong>struct_url()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#struct_url/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Generates the endpoint base URL but as a <code class="inline">URI</code> struct.</p>
+<p>It uses the configuration under <code class="inline">:url</code> to generate such.
+Useful for manipulating the url data and passing to
+URL helpers.</p>
 
   </section>
   
@@ -412,6 +459,7 @@
   
   <section class="docstring">
     <p>Generates the endpoint base URL without any path information.</p>
+<p>It uses the configuration under <code class="inline">:url</code> to generate such.</p>
 
   </section>
   

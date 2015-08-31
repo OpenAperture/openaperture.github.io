@@ -196,22 +196,6 @@
   <td class="summary_synopsis"></td>
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#long_poller_path/2">long_poller_path(conn_or_endpoint, atom2)</a></td>
-  <td class="summary_synopsis"></td>
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#long_poller_path/3">long_poller_path(conn_or_endpoint, atom2, params)</a></td>
-  <td class="summary_synopsis"></td>
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#long_poller_url/2">long_poller_url(conn_or_endpoint, atom2)</a></td>
-  <td class="summary_synopsis"></td>
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#long_poller_url/3">long_poller_url(conn_or_endpoint, atom2, params)</a></td>
-  <td class="summary_synopsis"></td>
-</tr>
-<tr>
   <td class="summary_signature"><a href="#messaging_brokers_path/2">messaging_brokers_path(conn_or_endpoint, atom2)</a></td>
   <td class="summary_synopsis"></td>
 </tr>
@@ -308,7 +292,7 @@
   <td class="summary_synopsis"></td>
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#path/2">path(conn, path)</a></td>
+  <td class="summary_signature"><a href="#path/2">path(data, path)</a></td>
   <td class="summary_synopsis"><p>Generates the path information including any necessary prefix</p>
 </td>
 </tr>
@@ -667,7 +651,7 @@
   <td class="summary_synopsis"></td>
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#url/1">url(conn)</a></td>
+  <td class="summary_signature"><a href="#url/1">url(data)</a></td>
   <td class="summary_synopsis"><p>Generates the connection/endpoint base URL without any path information</p>
 </td>
 </tr>
@@ -693,22 +677,6 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#users_url/4">users_url(conn_or_endpoint, atom2, id, params)</a></td>
-  <td class="summary_synopsis"></td>
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#web_socket_path/2">web_socket_path(conn_or_endpoint, atom2)</a></td>
-  <td class="summary_synopsis"></td>
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#web_socket_path/3">web_socket_path(conn_or_endpoint, atom2, params)</a></td>
-  <td class="summary_synopsis"></td>
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#web_socket_url/2">web_socket_url(conn_or_endpoint, atom2)</a></td>
-  <td class="summary_synopsis"></td>
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#web_socket_url/3">web_socket_url(conn_or_endpoint, atom2, params)</a></td>
   <td class="summary_synopsis"></td>
 </tr>
 <tr>
@@ -1066,66 +1034,6 @@
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#etcd_clusters_url/6" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="long_poller_path/2">
-    <span class="signature"><strong>long_poller_path(conn_or_endpoint, atom2)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#long_poller_path/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="long_poller_path/3">
-    <span class="signature"><strong>long_poller_path(conn_or_endpoint, atom2, params)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#long_poller_path/3" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="long_poller_url/2">
-    <span class="signature"><strong>long_poller_url(conn_or_endpoint, atom2)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#long_poller_url/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="long_poller_url/3">
-    <span class="signature"><strong>long_poller_url(conn_or_endpoint, atom2, params)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#long_poller_url/3" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -1497,7 +1405,7 @@
 </section>
 <section class="detail">
   <div class="detail_header" id="path/2">
-    <span class="signature"><strong>path(conn, path)</strong></span>
+    <span class="signature"><strong>path(data, path)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#path/2" class="detail_link" title="Link to this function">#</a>
@@ -2483,7 +2391,6 @@
   
   <section class="docstring">
     <p>Generates path to a static asset given its file path.</p>
-<p>It expects either a conn or an endpoint.</p>
 
   </section>
   
@@ -2500,7 +2407,6 @@
   
   <section class="docstring">
     <p>Generates url to a static asset given its file path.</p>
-<p>It expects either a conn or an endpoint.</p>
 
   </section>
   
@@ -2837,7 +2743,7 @@
 </section>
 <section class="detail">
   <div class="detail_header" id="url/1">
-    <span class="signature"><strong>url(conn)</strong></span>
+    <span class="signature"><strong>url(data)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#url/1" class="detail_link" title="Link to this function">#</a>
@@ -2932,66 +2838,6 @@
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#users_url/4" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="web_socket_path/2">
-    <span class="signature"><strong>web_socket_path(conn_or_endpoint, atom2)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#web_socket_path/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="web_socket_path/3">
-    <span class="signature"><strong>web_socket_path(conn_or_endpoint, atom2, params)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#web_socket_path/3" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="web_socket_url/2">
-    <span class="signature"><strong>web_socket_url(conn_or_endpoint, atom2)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#web_socket_url/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <section class="docstring">
-    
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="web_socket_url/3">
-    <span class="signature"><strong>web_socket_url(conn_or_endpoint, atom2, params)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#web_socket_url/3" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
