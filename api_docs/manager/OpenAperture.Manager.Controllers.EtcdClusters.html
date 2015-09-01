@@ -128,13 +128,11 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#destroy/2">destroy(conn, arg2)</a></td>
-  <td class="summary_synopsis"><p>Remove an Etcd Cluster instance from the database</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#index/2">index(conn, params)</a></td>
-  <td class="summary_synopsis"><p>List all Etcd Clusters the system knows about</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#init/1">init(action)</a></td>
@@ -148,8 +146,7 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#machines/2">machines(conn, arg2)</a></td>
-  <td class="summary_synopsis"><p>GET /clusters/:etcd_token/machines - Retrieve associated machines</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#no_content/2">no_content(conn, location \\ &quot;&quot;)</a></td>
@@ -173,13 +170,11 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#products/2">products(conn, arg2)</a></td>
-  <td class="summary_synopsis"><p>GET /clusters/:etcd_token/products - Retrieve associated products</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#register/2">register(conn, params)</a></td>
-  <td class="summary_synopsis"><p>Create a new Etcd Cluster instance</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#restart_unit/2">restart_unit(conn, arg2)</a></td>
@@ -188,6 +183,35 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#show/2">show(conn, arg2)</a></td>
+  <td class="summary_synopsis"></td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_destroy/0">swaggerdoc_destroy()</a></td>
+  <td class="summary_synopsis"><p>Remove an Etcd Cluster instance from the database</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_index/0">swaggerdoc_index()</a></td>
+  <td class="summary_synopsis"><p>List all Etcd Clusters the system knows about</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_machines/0">swaggerdoc_machines()</a></td>
+  <td class="summary_synopsis"><p>GET /clusters/:etcd_token/machines - Retrieve associated machines</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_products/0">swaggerdoc_products()</a></td>
+  <td class="summary_synopsis"><p>GET /clusters/:etcd_token/products - Retrieve associated products</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_register/0">swaggerdoc_register()</a></td>
+  <td class="summary_synopsis"><p>Register an EtcdCluster (create a new db reference)</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_show/0">swaggerdoc_show()</a></td>
   <td class="summary_synopsis"><p>Retrieve a specific Etcd Cluster instance, specified by its etcd token</p>
 </td>
 </tr>
@@ -342,9 +366,15 @@
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>destroy(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
   <section class="docstring">
-    <p>Remove an Etcd Cluster instance from the database.</p>
-
+    
   </section>
   
 </section>
@@ -358,9 +388,15 @@
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>index(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
   <section class="docstring">
-    <p>List all Etcd Clusters the system knows about.</p>
-
+    
   </section>
   
 </section>
@@ -419,14 +455,15 @@
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>machines(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
   <section class="docstring">
-    <p>GET /clusters/:etcd_token/machines - Retrieve associated machines</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.</p>
-<p>The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Plug.Conn</p>
-
+    
   </section>
   
 </section>
@@ -546,14 +583,15 @@
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>products(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
   <section class="docstring">
-    <p>GET /clusters/:etcd_token/products - Retrieve associated products</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.</p>
-<p>The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Plug.Conn</p>
-
+    
   </section>
   
 </section>
@@ -567,9 +605,15 @@
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>register(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
   <section class="docstring">
-    <p>Create a new Etcd Cluster instance.</p>
-
+    
   </section>
   
 </section>
@@ -600,6 +644,118 @@
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#show/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>show(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_destroy/0">
+    <span class="signature"><strong>swaggerdoc_destroy()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_destroy/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Remove an Etcd Cluster instance from the database.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_index/0">
+    <span class="signature"><strong>swaggerdoc_index()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_index/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>List all Etcd Clusters the system knows about.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_machines/0">
+    <span class="signature"><strong>swaggerdoc_machines()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_machines/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /clusters/:etcd_token/machines - Retrieve associated machines</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.</p>
+<p>The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Plug.Conn</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_products/0">
+    <span class="signature"><strong>swaggerdoc_products()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_products/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /clusters/:etcd_token/products - Retrieve associated products</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.</p>
+<p>The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Plug.Conn</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_register/0">
+    <span class="signature"><strong>swaggerdoc_register()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_register/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Register an EtcdCluster (create a new db reference)</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_show/0">
+    <span class="signature"><strong>swaggerdoc_show()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_show/0" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
