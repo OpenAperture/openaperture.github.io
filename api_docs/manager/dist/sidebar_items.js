@@ -58,7 +58,7 @@ sidebarNodes = {
 },{"id": "OpenAperture.Manager.Controllers.Router.Util",
 "docs": ["parse_hostspec/1"]
 },{"id": "OpenAperture.Manager.Controllers.Status",
-"docs": ["action/2","call/2","index/2","init/1"]
+"docs": ["action/2","call/2","index/2","init/1","swaggerdoc_index/0"]
 },{"id": "OpenAperture.Manager.Controllers.SystemComponentRefs",
 "docs": ["action/2","bad_request/3","call/2","conflict/2","create/2","created/2","destroy/2","index/2","init/1","internal_server_error/3","no_content/2","not_found/2","ok/3","show/2","update/2"]
 },{"id": "OpenAperture.Manager.Controllers.SystemComponents",
