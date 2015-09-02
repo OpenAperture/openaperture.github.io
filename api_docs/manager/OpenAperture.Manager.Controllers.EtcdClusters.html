@@ -155,8 +155,7 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#node_info/2">node_info(conn, arg2)</a></td>
-  <td class="summary_synopsis"><p>GET /clusters/:etcd_token/nodes - Retrieve node information about all machines associated with the etcd_token</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#not_found/2">not_found(conn, item_name)</a></td>
@@ -178,8 +177,7 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#restart_unit/2">restart_unit(conn, arg2)</a></td>
-  <td class="summary_synopsis"><p>GET /clusters/:etcd_token/machines/:machine_id/units/:unit_name/restart - Retrieve associated units’ state</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#show/2">show(conn, arg2)</a></td>
@@ -201,6 +199,11 @@
 </td>
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#swaggerdoc_node_info/0">swaggerdoc_node_info()</a></td>
+  <td class="summary_synopsis"><p>GET /clusters/:etcd_token/nodes - Retrieve node information about all machines associated with the etcd_token</p>
+</td>
+</tr>
+<tr>
   <td class="summary_signature"><a href="#swaggerdoc_products/0">swaggerdoc_products()</a></td>
   <td class="summary_synopsis"><p>GET /clusters/:etcd_token/products - Retrieve associated products</p>
 </td>
@@ -211,24 +214,41 @@
 </td>
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#swaggerdoc_restart_unit/0">swaggerdoc_restart_unit()</a></td>
+  <td class="summary_synopsis"><p>GET /clusters/:etcd_token/machines/:machine_id/units/:unit_name/restart - Retrieve associated units’ state</p>
+</td>
+</tr>
+<tr>
   <td class="summary_signature"><a href="#swaggerdoc_show/0">swaggerdoc_show()</a></td>
   <td class="summary_synopsis"><p>Retrieve a specific Etcd Cluster instance, specified by its etcd token</p>
 </td>
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#unit_logs/2">unit_logs(conn, arg2)</a></td>
+  <td class="summary_signature"><a href="#swaggerdoc_unit_logs/0">swaggerdoc_unit_logs()</a></td>
   <td class="summary_synopsis"><p>GET /clusters/:etcd_token/machines/:machine_id/units/:unit_name/logs - Retrieve associated units’ state</p>
 </td>
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#units/2">units(conn, arg2)</a></td>
+  <td class="summary_signature"><a href="#swaggerdoc_units/0">swaggerdoc_units()</a></td>
   <td class="summary_synopsis"><p>GET /clusters/:etcd_token/units - Retrieve associated units</p>
 </td>
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#units_state/2">units_state(conn, arg2)</a></td>
+  <td class="summary_signature"><a href="#swaggerdoc_units_state/0">swaggerdoc_units_state()</a></td>
   <td class="summary_synopsis"><p>GET /clusters/:etcd_token/state - Retrieve associated units’ state</p>
 </td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unit_logs/2">unit_logs(conn, arg2)</a></td>
+  <td class="summary_synopsis"></td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#units/2">units(conn, arg2)</a></td>
+  <td class="summary_synopsis"></td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#units_state/2">units_state(conn, arg2)</a></td>
+  <td class="summary_synopsis"></td>
 </tr>
 
           </table>
@@ -505,14 +525,15 @@
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>node_info(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
   <section class="docstring">
-    <p>GET /clusters/:etcd_token/nodes - Retrieve node information about all machines associated with the etcd_token</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.</p>
-<p>The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Plug.Conn</p>
-
+    
   </section>
   
 </section>
@@ -627,14 +648,15 @@
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>restart_unit(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
   <section class="docstring">
-    <p>GET /clusters/:etcd_token/machines/:machine_id/units/:unit_name/restart - Retrieve associated units’ state</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.</p>
-<p>The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Plug.Conn</p>
-
+    
   </section>
   
 </section>
@@ -714,6 +736,27 @@
   
 </section>
 <section class="detail">
+  <div class="detail_header" id="swaggerdoc_node_info/0">
+    <span class="signature"><strong>swaggerdoc_node_info()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_node_info/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /clusters/:etcd_token/nodes - Retrieve node information about all machines associated with the etcd_token</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.</p>
+<p>The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Plug.Conn</p>
+
+  </section>
+  
+</section>
+<section class="detail">
   <div class="detail_header" id="swaggerdoc_products/0">
     <span class="signature"><strong>swaggerdoc_products()</strong></span>
     <div class="detail_header_links">
@@ -751,6 +794,27 @@
   
 </section>
 <section class="detail">
+  <div class="detail_header" id="swaggerdoc_restart_unit/0">
+    <span class="signature"><strong>swaggerdoc_restart_unit()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_restart_unit/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /clusters/:etcd_token/machines/:machine_id/units/:unit_name/restart - Retrieve associated units’ state</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.</p>
+<p>The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Plug.Conn</p>
+
+  </section>
+  
+</section>
+<section class="detail">
   <div class="detail_header" id="swaggerdoc_show/0">
     <span class="signature"><strong>swaggerdoc_show()</strong></span>
     <div class="detail_header_links">
@@ -767,11 +831,11 @@
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="unit_logs/2">
-    <span class="signature"><strong>unit_logs(conn, arg2)</strong></span>
+  <div class="detail_header" id="swaggerdoc_unit_logs/0">
+    <span class="signature"><strong>swaggerdoc_unit_logs()</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#unit_logs/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#swaggerdoc_unit_logs/0" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -788,11 +852,11 @@
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="units/2">
-    <span class="signature"><strong>units(conn, arg2)</strong></span>
+  <div class="detail_header" id="swaggerdoc_units/0">
+    <span class="signature"><strong>swaggerdoc_units()</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#units/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#swaggerdoc_units/0" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -809,11 +873,11 @@
   
 </section>
 <section class="detail">
-  <div class="detail_header" id="units_state/2">
-    <span class="signature"><strong>units_state(conn, arg2)</strong></span>
+  <div class="detail_header" id="swaggerdoc_units_state/0">
+    <span class="signature"><strong>swaggerdoc_units_state()</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#units_state/2" class="detail_link" title="Link to this function">#</a>
+      <a href="#swaggerdoc_units_state/0" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -826,6 +890,72 @@
 <h2>Return Values</h2>
 <p>Plug.Conn</p>
 
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="unit_logs/2">
+    <span class="signature"><strong>unit_logs(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unit_logs/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>unit_logs(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="units/2">
+    <span class="signature"><strong>units(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#units/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>units(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="units_state/2">
+    <span class="signature"><strong>units_state(conn, arg2)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#units_state/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>units_state(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    
   </section>
   
 </section>

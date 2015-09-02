@@ -17,7 +17,7 @@ sidebarNodes = {
 },{"id": "OpenAperture.Manager.Controllers.CloudProviders",
 "docs": ["action/2","bad_request/3","call/2","clusters/2","conflict/2","create/2","created/2","destroy/2","index/2","init/1","internal_server_error/3","no_content/2","not_found/2","ok/3","show/2","swaggerdoc_clusters/0","swaggerdoc_create/0","swaggerdoc_destroy/0","swaggerdoc_index/0","swaggerdoc_show/0","swaggerdoc_update/0","update/2"]
 },{"id": "OpenAperture.Manager.Controllers.EtcdClusters",
-"docs": ["action/2","bad_request/3","call/2","conflict/2","created/2","destroy/2","index/2","init/1","internal_server_error/3","machines/2","no_content/2","node_info/2","not_found/2","ok/3","products/2","register/2","restart_unit/2","show/2","swaggerdoc_destroy/0","swaggerdoc_index/0","swaggerdoc_machines/0","swaggerdoc_products/0","swaggerdoc_register/0","swaggerdoc_show/0","unit_logs/2","units/2","units_state/2"]
+"docs": ["action/2","bad_request/3","call/2","conflict/2","created/2","destroy/2","index/2","init/1","internal_server_error/3","machines/2","no_content/2","node_info/2","not_found/2","ok/3","products/2","register/2","restart_unit/2","show/2","swaggerdoc_destroy/0","swaggerdoc_index/0","swaggerdoc_machines/0","swaggerdoc_node_info/0","swaggerdoc_products/0","swaggerdoc_register/0","swaggerdoc_restart_unit/0","swaggerdoc_show/0","swaggerdoc_unit_logs/0","swaggerdoc_units/0","swaggerdoc_units_state/0","unit_logs/2","units/2","units_state/2"]
 },{"id": "OpenAperture.Manager.Controllers.FormatHelper",
 "docs": ["decrypt_value/1","encrypt_value/1","keywords_to_map/1","to_sendable/3","to_string_timestamps/1","unencrypt_field/3","unencrypt_fields/2"]
 },{"id": "OpenAperture.Manager.Controllers.MessagingBrokers",
