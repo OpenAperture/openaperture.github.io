@@ -128,8 +128,7 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#create/2">create(conn, params)</a></td>
-  <td class="summary_synopsis"><p>POST /workflows - Create a Workflow</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#created/2">created(conn, location \\ &quot;&quot;)</a></td>
@@ -138,30 +137,15 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#destroy/2">destroy(conn, params)</a></td>
-  <td class="summary_synopsis"><p>DELETE /workflows/:id - Delete a Workflow</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#execute/2">execute(conn, params)</a></td>
-  <td class="summary_synopsis"><p>POST /workflows/:id/execute - Begins execution of a Workflow</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#index/2">index(conn, params)</a></td>
-  <td class="summary_synopsis"><p>GET /workflows - Retrieve all Workflows for a lookback period</p>
-<ul>
-<li><p>Query Parameters:  </p>
-<ul>
-<li>lookback - integer, defaults to 24 (specify 0 for all)
-</li>
-<li>deployment_repo - string containing the deployment repo
-</li>
-<li>source_repo - string containing the source repo
-</li>
-</ul>
-</li>
-</ul>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#init/1">init(action)</a></td>
@@ -194,13 +178,53 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#show/2">show(conn, params)</a></td>
+  <td class="summary_synopsis"></td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_create/0">swaggerdoc_create()</a></td>
+  <td class="summary_synopsis"><p>POST /workflows - Create a Workflow</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_destroy/0">swaggerdoc_destroy()</a></td>
+  <td class="summary_synopsis"><p>DELETE /workflows/:id - Delete a Workflow</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_execute/0">swaggerdoc_execute()</a></td>
+  <td class="summary_synopsis"><p>POST /workflows/:id/execute - Begins execution of a Workflow</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_index/0">swaggerdoc_index()</a></td>
+  <td class="summary_synopsis"><p>GET /workflows - Retrieve all Workflows for a lookback period</p>
+<ul>
+<li><p>Query Parameters:  </p>
+<ul>
+<li>lookback - integer, defaults to 24 (specify 0 for all)
+</li>
+<li>deployment_repo - string containing the deployment repo
+</li>
+<li>source_repo - string containing the source repo
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_show/0">swaggerdoc_show()</a></td>
   <td class="summary_synopsis"><p>GET /workflowss/:id</p>
 </td>
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#update/2">update(conn, params)</a></td>
+  <td class="summary_signature"><a href="#swaggerdoc_update/0">swaggerdoc_update()</a></td>
   <td class="summary_synopsis"><p>PUT/PATCH /workflows/:id - Update a Workflow</p>
 </td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#update/2">update(conn, params)</a></td>
+  <td class="summary_synopsis"></td>
 </tr>
 
           </table>
@@ -313,18 +337,12 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create(term, [any]) :: term</li>
+        <li>create(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>POST /workflows - Create a Workflow</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -369,18 +387,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>destroy(term, [any]) :: term</li>
+        <li>destroy(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>DELETE /workflows/:id - Delete a Workflow</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -397,18 +409,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>execute(term, [any]) :: term</li>
+        <li>execute(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>POST /workflows/:id/execute - Begins execution of a Workflow</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.</p>
-<p>The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -425,30 +431,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>index(term, [any]) :: term</li>
+        <li>index(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>GET /workflows - Retrieve all Workflows for a lookback period</p>
-<ul>
-<li><p>Query Parameters:  </p>
-<ul>
-<li>lookback - integer, defaults to 24 (specify 0 for all)
-</li>
-<li>deployment_repo - string containing the deployment repo
-</li>
-<li>source_repo - string containing the source repo
-</li>
-</ul>
-</li>
-</ul>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -610,9 +598,120 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>show(term, Map) :: term</li>
+        <li>show(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_create/0">
+    <span class="signature"><strong>swaggerdoc_create()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_create/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>POST /workflows - Create a Workflow</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_destroy/0">
+    <span class="signature"><strong>swaggerdoc_destroy()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_destroy/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>DELETE /workflows/:id - Delete a Workflow</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_execute/0">
+    <span class="signature"><strong>swaggerdoc_execute()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_execute/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>POST /workflows/:id/execute - Begins execution of a Workflow</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.</p>
+<p>The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_index/0">
+    <span class="signature"><strong>swaggerdoc_index()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_index/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /workflows - Retrieve all Workflows for a lookback period</p>
+<ul>
+<li><p>Query Parameters:  </p>
+<ul>
+<li>lookback - integer, defaults to 24 (specify 0 for all)
+</li>
+<li>deployment_repo - string containing the deployment repo
+</li>
+<li>source_repo - string containing the source repo
+</li>
+</ul>
+</li>
+</ul>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_show/0">
+    <span class="signature"><strong>swaggerdoc_show()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_show/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
   
   <section class="docstring">
     <p>GET /workflowss/:id</p>
@@ -622,6 +721,27 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
 <p>The <code class="inline">params</code> option defines an array of arguments.</p>
 <h2>Return Values</h2>
 <p>Underlying HTTP connection.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_update/0">
+    <span class="signature"><strong>swaggerdoc_update()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_update/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>PUT/PATCH /workflows/:id - Update a Workflow</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
 
   </section>
   
@@ -639,18 +759,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>update(term, [any]) :: term</li>
+        <li>update(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>PUT/PATCH /workflows/:id - Update a Workflow</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
