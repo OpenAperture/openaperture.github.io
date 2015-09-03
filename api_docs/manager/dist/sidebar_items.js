@@ -37,7 +37,7 @@ sidebarNodes = {
 },{"id": "OpenAperture.Manager.Controllers.ProductDeploymentPlans",
 "docs": ["action/2","bad_request/3","call/2","conflict/2","create/2","created/2","destroy_all_plans/2","destroy_plan/2","index/2","init/1","internal_server_error/3","no_content/2","not_found/2","ok/3","show/2","swaggerdoc_create/0","swaggerdoc_destroy_all_plans/0","swaggerdoc_destroy_plan/0","swaggerdoc_index/0","swaggerdoc_show/0","swaggerdoc_update/0","update/2"]
 },{"id": "OpenAperture.Manager.Controllers.ProductDeploymentSteps",
-"docs": ["action/2","bad_request/3","call/2","conflict/2","create/2","created/2","destroy/2","index/2","init/1","internal_server_error/3","no_content/2","not_found/2","ok/3","show/2","swaggerdoc_create/0","swaggerdoc_index/0","swaggerdoc_show/0","swaggerdoc_update/0","update/2"]
+"docs": ["action/2","bad_request/3","call/2","conflict/2","create/2","created/2","destroy/2","index/2","init/1","internal_server_error/3","no_content/2","not_found/2","ok/3","show/2","swaggerdoc_create/0","swaggerdoc_destroy/0","swaggerdoc_index/0","swaggerdoc_show/0","swaggerdoc_update/0","update/2"]
 },{"id": "OpenAperture.Manager.Controllers.ProductDeployments",
 "docs": ["action/2","bad_request/3","call/2","conflict/2","create/2","created/2","destroy/2","execute/2","index/2","init/1","internal_server_error/3","no_content/2","not_found/2","ok/3","show/2","swaggerdoc_create/0","swaggerdoc_destroy/0","swaggerdoc_execute/0","swaggerdoc_index/0","swaggerdoc_show/0","swaggerdoc_update/0","update/2"]
 },{"id": "OpenAperture.Manager.Controllers.ProductEnvironmentalVariables",
