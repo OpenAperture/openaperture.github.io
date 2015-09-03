@@ -50,11 +50,11 @@ sidebarNodes = {
 "docs": ["error_body/2","message_for_type/2","sanitize_changeset_errors/1"]
 },{"id": "OpenAperture.Manager.Controllers.ResponseFormatter"
 },{"id": "OpenAperture.Manager.Controllers.Router.AuthorityController",
-"docs": ["action/2","bad_request/3","call/2","conflict/2","create/2","created/2","delete/2","index/2","index_detailed/2","init/1","internal_server_error/3","no_content/2","not_found/2","ok/3","show/2","show_detailed/2","update/2"]
+"docs": ["action/2","bad_request/3","call/2","conflict/2","create/2","created/2","delete/2","index/2","index_detailed/2","init/1","internal_server_error/3","no_content/2","not_found/2","ok/3","show/2","show_detailed/2","swaggerdoc_create/0","swaggerdoc_delete/0","swaggerdoc_index/0","swaggerdoc_index_detailed/0","swaggerdoc_show/0","swaggerdoc_show_detailed/0","swaggerdoc_update/0","update/2"]
 },{"id": "OpenAperture.Manager.Controllers.Router.RouteController",
-"docs": ["action/2","bad_request/3","call/2","clear/2","conflict/2","create/2","created/2","delete/2","index/2","init/1","internal_server_error/3","no_content/2","not_found/2","ok/3","update/2"]
+"docs": ["action/2","bad_request/3","call/2","clear/2","conflict/2","create/2","created/2","delete/2","index/2","init/1","internal_server_error/3","no_content/2","not_found/2","ok/3","swaggerdoc_clear/0","swaggerdoc_create/0","swaggerdoc_delete/0","swaggerdoc_index/0","swaggerdoc_update/0","update/2"]
 },{"id": "OpenAperture.Manager.Controllers.Router.RoutesController",
-"docs": ["action/2","bad_request/3","call/2","conflict/2","created/2","index/2","index_deleted/2","init/1","internal_server_error/3","no_content/2","not_found/2","ok/3"]
+"docs": ["action/2","bad_request/3","call/2","conflict/2","created/2","index/2","index_deleted/2","init/1","internal_server_error/3","no_content/2","not_found/2","ok/3","swaggerdoc_index/0","swaggerdoc_index_deleted/0"]
 },{"id": "OpenAperture.Manager.Controllers.Router.Util",
 "docs": ["parse_hostspec/1"]
 },{"id": "OpenAperture.Manager.Controllers.Status",
