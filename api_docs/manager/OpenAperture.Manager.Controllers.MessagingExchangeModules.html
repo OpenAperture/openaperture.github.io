@@ -128,8 +128,7 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#create/2">create(conn, params)</a></td>
-  <td class="summary_synopsis"><p>POST /messaging/exchanges - Create a MessagingExchangeModule</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#created/2">created(conn, location \\ &quot;&quot;)</a></td>
@@ -138,13 +137,11 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#destroy/2">destroy(conn, params)</a></td>
-  <td class="summary_synopsis"><p>DELETE /messaging/exchanges/:id/modules/:hostname - Delete a MessagingExchangeModule</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#index/2">index(conn, arg2)</a></td>
-  <td class="summary_synopsis"><p>GET /messaging/exchanges/:id/modules - Retrieve all MessagingExchangeModules for an exchange</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#init/1">init(action)</a></td>
@@ -173,6 +170,25 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#show/2">show(conn, arg2)</a></td>
+  <td class="summary_synopsis"></td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_create/0">swaggerdoc_create()</a></td>
+  <td class="summary_synopsis"><p>POST /messaging/exchanges/:id/modules - Create a MessagingExchangeModule</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_destroy/0">swaggerdoc_destroy()</a></td>
+  <td class="summary_synopsis"><p>DELETE /messaging/exchanges/:id/modules/:hostname - Delete a MessagingExchangeModule</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_index/0">swaggerdoc_index()</a></td>
+  <td class="summary_synopsis"><p>GET /messaging/exchanges/:id/modules - Retrieve all MessagingExchangeModules for an exchange</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_show/0">swaggerdoc_show()</a></td>
   <td class="summary_synopsis"><p>GET /messaging/exchanges/:id/modules/:hostname - Retrieve a MessagingExchangeModule</p>
 </td>
 </tr>
@@ -287,18 +303,12 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create(term, [any]) :: term</li>
+        <li>create(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>POST /messaging/exchanges - Create a MessagingExchangeModule</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -343,18 +353,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>destroy(term, [any]) :: term</li>
+        <li>destroy(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>DELETE /messaging/exchanges/:id/modules/:hostname - Delete a MessagingExchangeModule</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -371,18 +375,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>index(term, [any]) :: term</li>
+        <li>index(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>GET /messaging/exchanges/:id/modules - Retrieve all MessagingExchangeModules for an exchange</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -529,9 +527,87 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>show(term, [any]) :: term</li>
+        <li>show(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_create/0">
+    <span class="signature"><strong>swaggerdoc_create()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_create/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>POST /messaging/exchanges/:id/modules - Create a MessagingExchangeModule</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_destroy/0">
+    <span class="signature"><strong>swaggerdoc_destroy()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_destroy/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>DELETE /messaging/exchanges/:id/modules/:hostname - Delete a MessagingExchangeModule</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_index/0">
+    <span class="signature"><strong>swaggerdoc_index()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_index/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /messaging/exchanges/:id/modules - Retrieve all MessagingExchangeModules for an exchange</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_show/0">
+    <span class="signature"><strong>swaggerdoc_show()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_show/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
   
   <section class="docstring">
     <p>GET /messaging/exchanges/:id/modules/:hostname - Retrieve a MessagingExchangeModule</p>

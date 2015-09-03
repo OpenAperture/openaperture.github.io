@@ -128,13 +128,11 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#create/2">create(conn, params)</a></td>
-  <td class="summary_synopsis"><p>POST /messaging/exchanges - Create a MessagingExchange</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#create_broker_restriction/2">create_broker_restriction(conn, params)</a></td>
-  <td class="summary_synopsis"><p>POST /messaging/exchanges/:id/brokers - Create a MessagingExchangeBroker</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#created/2">created(conn, location \\ &quot;&quot;)</a></td>
@@ -143,23 +141,19 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#destroy/2">destroy(conn, params)</a></td>
-  <td class="summary_synopsis"><p>DELETE /messaging/exchanges/:id - Delete a MessagingExchange</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#destroy_broker_restrictions/2">destroy_broker_restrictions(conn, params)</a></td>
-  <td class="summary_synopsis"><p>DELETE /messaging/exchanges/:id/brokers - Delete MessagingExchangeBrokers</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#get_broker_restrictions/2">get_broker_restrictions(conn, params)</a></td>
-  <td class="summary_synopsis"><p>GET /messaging/exchanges/:id/brokers - Retrieve MessagingExchangeBrokers</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#index/2">index(conn, params)</a></td>
-  <td class="summary_synopsis"><p>GET /messaging/exchanges - Retrieve all MessagingExchanges</p>
-</td>
+  <td class="summary_synopsis"></td>
 </tr>
 <tr>
   <td class="summary_signature"><a href="#init/1">init(action)</a></td>
@@ -192,23 +186,69 @@
 </tr>
 <tr>
   <td class="summary_signature"><a href="#show/2">show(conn, arg2)</a></td>
+  <td class="summary_synopsis"></td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#show_clusters/2">show_clusters(conn, params)</a></td>
+  <td class="summary_synopsis"></td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#show_components/2">show_components(conn, arg2)</a></td>
+  <td class="summary_synopsis"></td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_create/0">swaggerdoc_create()</a></td>
+  <td class="summary_synopsis"><p>POST /messaging/exchanges - Create a MessagingExchange</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_create_broker_restriction/0">swaggerdoc_create_broker_restriction()</a></td>
+  <td class="summary_synopsis"><p>POST /messaging/exchanges/:id/brokers - Create a MessagingExchangeBroker</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_destroy/0">swaggerdoc_destroy()</a></td>
+  <td class="summary_synopsis"><p>DELETE /messaging/exchanges/:id - Delete a MessagingExchange</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_destroy_broker_restrictions/0">swaggerdoc_destroy_broker_restrictions()</a></td>
+  <td class="summary_synopsis"><p>DELETE /messaging/exchanges/:id/brokers - Delete MessagingExchangeBrokers</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_get_broker_restrictions/0">swaggerdoc_get_broker_restrictions()</a></td>
+  <td class="summary_synopsis"><p>GET /messaging/exchanges/:id/brokers - Retrieve MessagingExchangeBrokers</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_index/0">swaggerdoc_index()</a></td>
+  <td class="summary_synopsis"><p>GET /messaging/exchanges - Retrieve all MessagingExchanges</p>
+</td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#swaggerdoc_show/0">swaggerdoc_show()</a></td>
   <td class="summary_synopsis"><p>GET /messaging/exchanges/:id - Retrieve a MessagingExchange</p>
 </td>
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#show_clusters/2">show_clusters(conn, params)</a></td>
+  <td class="summary_signature"><a href="#swaggerdoc_show_clusters/0">swaggerdoc_show_clusters()</a></td>
   <td class="summary_synopsis"><p>GET /messaging/exchanges/:id/clusters - Retrieve EtcdClusters which have an associated MessagingExchange</p>
 </td>
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#show_components/2">show_components(conn, arg2)</a></td>
+  <td class="summary_signature"><a href="#swaggerdoc_show_components/0">swaggerdoc_show_components()</a></td>
   <td class="summary_synopsis"><p>GET /messaging/exchanges/:id/system_components - Retrieve associated SystemComponents</p>
 </td>
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#update/2">update(conn, params)</a></td>
+  <td class="summary_signature"><a href="#swaggerdoc_update/0">swaggerdoc_update()</a></td>
   <td class="summary_synopsis"><p>PUT/PATCH /messaging/exchanges/:id - Update a MessagingExchange</p>
 </td>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#update/2">update(conn, params)</a></td>
+  <td class="summary_synopsis"></td>
 </tr>
 
           </table>
@@ -321,18 +361,12 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create(term, [any]) :: term</li>
+        <li>create(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>POST /messaging/exchanges - Create a MessagingExchange</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -349,18 +383,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>create_broker_restriction(term, [any]) :: term</li>
+        <li>create_broker_restriction(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>POST /messaging/exchanges/:id/brokers - Create a MessagingExchangeBroker</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -405,18 +433,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>destroy(term, [any]) :: term</li>
+        <li>destroy(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>DELETE /messaging/exchanges/:id - Delete a MessagingExchange</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -433,18 +455,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>destroy_broker_restrictions(term, [any]) :: term</li>
+        <li>destroy_broker_restrictions(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>DELETE /messaging/exchanges/:id/brokers - Delete MessagingExchangeBrokers</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -461,18 +477,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_broker_restrictions(term, [any]) :: term</li>
+        <li>get_broker_restrictions(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>GET /messaging/exchanges/:id/brokers - Retrieve MessagingExchangeBrokers</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -489,18 +499,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>index(term, [any]) :: term</li>
+        <li>index(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>GET /messaging/exchanges - Retrieve all MessagingExchanges</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -662,18 +666,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>show(term, [any]) :: term</li>
+        <li>show(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>GET /messaging/exchanges/:id - Retrieve a MessagingExchange</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -690,18 +688,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>show_clusters(term, [any]) :: term</li>
+        <li>show_clusters(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>GET /messaging/exchanges/:id/clusters - Retrieve EtcdClusters which have an associated MessagingExchange</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
@@ -718,12 +710,216 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>show_components(term, [any]) :: term</li>
+        <li>show_components(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_create/0">
+    <span class="signature"><strong>swaggerdoc_create()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_create/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>POST /messaging/exchanges - Create a MessagingExchange</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_create_broker_restriction/0">
+    <span class="signature"><strong>swaggerdoc_create_broker_restriction()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_create_broker_restriction/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>POST /messaging/exchanges/:id/brokers - Create a MessagingExchangeBroker</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_destroy/0">
+    <span class="signature"><strong>swaggerdoc_destroy()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_destroy/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>DELETE /messaging/exchanges/:id - Delete a MessagingExchange</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_destroy_broker_restrictions/0">
+    <span class="signature"><strong>swaggerdoc_destroy_broker_restrictions()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_destroy_broker_restrictions/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>DELETE /messaging/exchanges/:id/brokers - Delete MessagingExchangeBrokers</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_get_broker_restrictions/0">
+    <span class="signature"><strong>swaggerdoc_get_broker_restrictions()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_get_broker_restrictions/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /messaging/exchanges/:id/brokers - Retrieve MessagingExchangeBrokers</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_index/0">
+    <span class="signature"><strong>swaggerdoc_index()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_index/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /messaging/exchanges - Retrieve all MessagingExchanges</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_show/0">
+    <span class="signature"><strong>swaggerdoc_show()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_show/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /messaging/exchanges/:id - Retrieve a MessagingExchange</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_show_clusters/0">
+    <span class="signature"><strong>swaggerdoc_show_clusters()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_show_clusters/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>GET /messaging/exchanges/:id/clusters - Retrieve EtcdClusters which have an associated MessagingExchange</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_show_components/0">
+    <span class="signature"><strong>swaggerdoc_show_components()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_show_components/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
     <p>GET /messaging/exchanges/:id/system_components - Retrieve associated SystemComponents</p>
+<h2>Options</h2>
+<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
+The <code class="inline">params</code> option defines an array of arguments.</p>
+<h2>Return Values</h2>
+<p>Underlying HTTP connection</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="swaggerdoc_update/0">
+    <span class="signature"><strong>swaggerdoc_update()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#swaggerdoc_update/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>PUT/PATCH /messaging/exchanges/:id - Update a MessagingExchange</p>
 <h2>Options</h2>
 <p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
 The <code class="inline">params</code> option defines an array of arguments.</p>
@@ -746,18 +942,12 @@ The <code class="inline">params</code> option defines an array of arguments.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>update(term, [any]) :: term</li>
+        <li>update(Plug.Conn.t, [any]) :: Plug.Conn.t</li>
       
     </ul>
   
   <section class="docstring">
-    <p>PUT/PATCH /messaging/exchanges/:id - Update a MessagingExchange</p>
-<h2>Options</h2>
-<p>The <code class="inline">conn</code> option defines the underlying HTTP connection.
-The <code class="inline">params</code> option defines an array of arguments.</p>
-<h2>Return Values</h2>
-<p>Underlying HTTP connection</p>
-
+    
   </section>
   
 </section>
