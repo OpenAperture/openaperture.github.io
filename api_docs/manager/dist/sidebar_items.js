@@ -1,8 +1,6 @@
 sidebarNodes = {
   "modules": [
-    {"id": "Mix.Tasks.Swagger",
-"docs": ["add_routes/2","build_definitions/2","default_responses/2","default_verb/1","path_from_route/2","run/1"]
-},{"id": "OpenAperture.ErrorView",
+    {"id": "OpenAperture.ErrorView",
 "docs": ["__phoenix_recompile__?/0","__resource__/0","__templates__/0","render/2","template_not_found/2"]
 },{"id": "OpenAperture.Manager",
 "docs": ["config_change/3","start/2"]
