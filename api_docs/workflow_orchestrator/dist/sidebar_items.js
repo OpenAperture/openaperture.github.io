@@ -23,7 +23,7 @@ sidebarNodes = {
 },{"id": "OpenAperture.WorkflowOrchestrator.Workflow",
 "docs": ["add_event_to_log/3","add_failure_notification/2","add_success_notification/2","complete?/1","create_from_payload/1","failed?/1","get_id/1","get_info/1","refresh/1","resolve_next_milestone/1","resolve_next_step/1","save/1","send_failure_notification/2","send_notification/3","send_success_notification/2","send_workflow_completed_email/1","workflow_failed/2"]
 },{"id": "OpenAperture.WorkflowOrchestrator.WorkflowFSM",
-"docs": ["build/3","call_builder/1","code_change/4","config/3","deploy/3","deploy_oa/3","execute/1","handle_event/3","handle_info/3","handle_sync_event/4","init/1","scheduled/3","start_link/2","terminate/3","workflow_completed/3","workflow_starting/3"]
+"docs": ["build/3","call_builder/1","code_change/4","config/3","deploy/3","deploy_ecs/3","deploy_oa/3","execute/1","handle_event/3","handle_info/3","handle_sync_event/4","init/1","scheduled/3","start_link/2","terminate/3","workflow_completed/3","workflow_starting/3"]
 
   }]
 

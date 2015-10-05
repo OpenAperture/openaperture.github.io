@@ -157,6 +157,18 @@ This callback will take the following action(s):</p>
 </td>
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#deploy_ecs/3">deploy_ecs(event, from, state_data)</a></td>
+  <td class="summary_synopsis"><p>:gen_fsm callback - <a href="http://www.erlang.org/doc/man/gen_fsm.html#Module:StateName-3">http://www.erlang.org/doc/man/gen_fsm.html#Module:StateName-3</a> for the state :deploy
+This callback will take the following action(s):</p>
+<ul>
+<li>Publish a Deployer request to a Deployer in the same exchange
+</li>
+<li>Transition to :workflow_completed
+</li>
+</ul>
+</td>
+</tr>
+<tr>
   <td class="summary_signature"><a href="#deploy_oa/3">deploy_oa(event, from, state_data)</a></td>
   <td class="summary_synopsis"><p>:gen_fsm callback - <a href="http://www.erlang.org/doc/man/gen_fsm.html#Module:StateName-3">http://www.erlang.org/doc/man/gen_fsm.html#Module:StateName-3</a> for the state :deploy_oa
 This callback will take the following action(s):</p>
@@ -396,6 +408,42 @@ This callback will take the following action(s):</p>
 </ul>
 </li>
 <li>Publish a Deployer request
+</li>
+<li>Transition to :workflow_completed
+</li>
+</ul>
+<h2>Options</h2>
+<p>The <code class="inline">current_state</code> option contains the last state of the :gen_fsm server</p>
+<p>The <code class="inline">from</code> option contains the caller of the state transition</p>
+<p>The <code class="inline">state_data</code> option contains the default state data of the :gen_fsm server</p>
+<h2>Return Values</h2>
+<pre><code class="elixir">{:reply, :in_progress, :workflow_completed, state_data}</code></pre>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="deploy_ecs/3">
+    <span class="signature"><strong>deploy_ecs(event, from, state_data)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#deploy_ecs/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>deploy_ecs(term, term, %{}) :: {:reply, :in_progress, :workflow_completed, %{}}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>:gen_fsm callback - <a href="http://www.erlang.org/doc/man/gen_fsm.html#Module:StateName-3">http://www.erlang.org/doc/man/gen_fsm.html#Module:StateName-3</a> for the state :deploy
+This callback will take the following action(s):</p>
+<ul>
+<li>Publish a Deployer request to a Deployer in the same exchange
 </li>
 <li>Transition to :workflow_completed
 </li>
