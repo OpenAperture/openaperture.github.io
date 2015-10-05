@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>OpenAperture.Deployer.Supervisor – openaperture_deployer v0.0.1</title>
+    <title>OpenAperture.Deployer.Milestones.DeployEcs – openaperture_deployer v0.0.1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.10.1-dev">
     <link rel="stylesheet" href="dist/app.css" />
@@ -60,14 +60,14 @@
 
 
       <h1>
-        OpenAperture.Deployer.Supervisor
+        OpenAperture.Deployer.Milestones.DeployEcs
         
         
       </h1>
 
       
         <section id="moduledoc" class="docstring">
-          <p>Defines the supervison tree of the application.</p>
+          <p>Defines a single deployment task.</p>
 
         </section>
       
@@ -89,17 +89,21 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
-    <a href="#init/1">init(atom1)</a>
+    <a href="#deploy/1">deploy(deploy_request)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Callback implementation for <code class="inline">c::supervisor.init/1</code></p>
+    <div class="summary-synopsis"><p>Deploys the Dockerized app to ECS</p>
 </div>
   
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#start_link/0">start_link()</a>
+    <a href="#start_link/1">start_link(deploy_request)</a>
   </div>
+  
+    <div class="summary-synopsis"><p>Starts a new Deployment Task.
+Returns <code class="inline">{:ok, pid}</code> or <code class="inline">{:error, reason}</code></p>
+</div>
   
 </div>
 
@@ -123,31 +127,51 @@
             </a>
             Functions
           </h1>
-          <div class="detail" id="init/1">
+          <div class="detail" id="deploy/1">
   <div class="detail-header">
-    <a href="#init/1" class="detail-link" title="Link to this function">
+    <a href="#deploy/1" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
     </a>
-    <span class="signature">init(atom1)</span>
+    <span class="signature">deploy(deploy_request)</span>
       
   </div>
   
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">deploy(OpenAperture.Deployer.Request) :: OpenAperture.Deployer.Request</code></pre>
+        
+      </div>
+    </div>
+  
   <section class="docstring">
-    <p>Callback implementation for <code class="inline">c::supervisor.init/1</code>.</p>
+    <p>Deploys the Dockerized app to ECS</p>
 
   </section>
 </div>
-<div class="detail" id="start_link/0">
+<div class="detail" id="start_link/1">
   <div class="detail-header">
-    <a href="#start_link/0" class="detail-link" title="Link to this function">
+    <a href="#start_link/1" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
     </a>
-    <span class="signature">start_link()</span>
+    <span class="signature">start_link(deploy_request)</span>
       
   </div>
   
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">start_link(%{}) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</code></pre>
+        
+      </div>
+    </div>
+  
   <section class="docstring">
-    
+    <p>Starts a new Deployment Task.
+Returns <code class="inline">{:ok, pid}</code> or <code class="inline">{:error, reason}</code></p>
+
   </section>
 </div>
 
