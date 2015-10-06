@@ -95,6 +95,13 @@ remote docker repository</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#get_ecs_task_definition/1">get_ecs_task_definition(repo)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to retrieve the ECS task definitino (if present)</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#get_fleet_config!/1">get_fleet_config!(repo)</a></td>
   
     <td class="summary_synopsis"><p>Method to load any custom Fleet configuration</p>
@@ -151,6 +158,13 @@ remote docker repository</p>
   <td class="summary_signature"><a href="#resolve_dockerfile_template/2">resolve_dockerfile_template(repo, template_options)</a></td>
   
     <td class="summary_synopsis"><p>Method to run the templating engine against the templated Dockerfile. Returns true if any changes are made</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#resolve_ecs_file_template/2">resolve_ecs_file_template(repo, template_options)</a></td>
+  
+    <td class="summary_synopsis"><p>Method to run the templating engine against the optional templated ecs_task_definition.json.eex. Returns true if any changes are made</p>
 </td>
   
 </tr>
@@ -297,6 +311,29 @@ remote docker repository</p>
   
   <section class="docstring">
     <p>Method to load any custom AWS configuration</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="get_ecs_task_definition/1">
+    <span class="signature"><strong>get_ecs_task_definition(repo)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_ecs_task_definition/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_ecs_task_definition(DeploymentRepo) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to retrieve the ECS task definitino (if present)</p>
 
   </section>
   
@@ -496,6 +533,29 @@ remote docker repository</p>
   
   <section class="docstring">
     <p>Method to run the templating engine against the templated Dockerfile. Returns true if any changes are made.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="resolve_ecs_file_template/2">
+    <span class="signature"><strong>resolve_ecs_file_template(repo, template_options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#resolve_ecs_file_template/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>resolve_ecs_file_template(DeploymentRepo, List) :: term</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Method to run the templating engine against the optional templated ecs_task_definition.json.eex. Returns true if any changes are made.</p>
 
   </section>
   
