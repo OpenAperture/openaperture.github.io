@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>OpenAperture.Deployer.Milestones.MonitorEcs – openaperture_deployer v0.0.1</title>
+    <title>OpenAperture.Deployer.ECS – openaperture_deployer v0.0.1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.10.1-dev">
     <link rel="stylesheet" href="dist/app.css" />
@@ -60,16 +60,11 @@
 
 
       <h1>
-        OpenAperture.Deployer.Milestones.MonitorEcs
+        OpenAperture.Deployer.ECS
         
         
       </h1>
 
-      
-        <section id="moduledoc" class="docstring">
-          <p>Defines a single deployment task.</p>
-
-        </section>
       
 
       
@@ -89,21 +84,32 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
-    <a href="#monitor/1">monitor(deploy_request)</a>
+    <a href="#deploy_task/2">deploy_task(aws, task_definition)</a>
   </div>
-  
-    <div class="summary-synopsis"><p>Monitors an in-progress Fleet deployment</p>
-</div>
   
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#start_link/1">start_link(deploy_request)</a>
+    <a href="#handle_response/1">handle_response(arg1)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Starts a new Deployment Task.
-Returns <code class="inline">{:ok, pid}</code> or <code class="inline">{:error, reason}</code></p>
 </div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#monitor_service/3">monitor_service(client, aws, task_arn)</a>
+  </div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#register_task_definition/2">register_task_definition(client, task_definition)</a>
+  </div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#update_service/4">update_service(client, aws, task_arn, use_full_task_count \\ false)</a>
+  </div>
   
 </div>
 
@@ -127,54 +133,69 @@ Returns <code class="inline">{:ok, pid}</code> or <code class="inline">{:error, 
             </a>
             Functions
           </h1>
-          <div class="detail" id="monitor/1">
+          <div class="detail" id="deploy_task/2">
   <div class="detail-header">
-    <a href="#monitor/1" class="detail-link" title="Link to this function">
+    <a href="#deploy_task/2" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
     </a>
-    <span class="signature">monitor(deploy_request)</span>
+    <span class="signature">deploy_task(aws, task_definition)</span>
       
   </div>
   
-    <div class="specs">
-      <h4 class="specs-title">Specs</h4>
-      <div class="specs-list">
-        
-          <pre><code class="elixir">monitor(OpenAperture.Deployer.Request) :: OpenAperture.Deployer.Request</code></pre>
-        
-      </div>
-    </div>
-  
   <section class="docstring">
-    <p>Monitors an in-progress Fleet deployment</p>
-<h2>Options</h2>
-<p>The <code class="inline">deploy_request</code> option contains the DeployerRequest</p>
-<p>The <code class="inline">monitoring_loop_cnt</code> option defines the current number of execution cycles</p>
-
+    
   </section>
 </div>
-<div class="detail" id="start_link/1">
+<div class="detail" id="handle_response/1">
   <div class="detail-header">
-    <a href="#start_link/1" class="detail-link" title="Link to this function">
+    <a href="#handle_response/1" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
     </a>
-    <span class="signature">start_link(deploy_request)</span>
+    <span class="signature">handle_response(arg1)</span>
       
   </div>
   
-    <div class="specs">
-      <h4 class="specs-title">Specs</h4>
-      <div class="specs-list">
-        
-          <pre><code class="elixir">start_link(%{}) :: {:ok, pid} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</code></pre>
-        
-      </div>
-    </div>
+  <section class="docstring">
+    
+  </section>
+</div>
+<div class="detail" id="monitor_service/3">
+  <div class="detail-header">
+    <a href="#monitor_service/3" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">monitor_service(client, aws, task_arn)</span>
+      
+  </div>
   
   <section class="docstring">
-    <p>Starts a new Deployment Task.
-Returns <code class="inline">{:ok, pid}</code> or <code class="inline">{:error, reason}</code></p>
-
+    
+  </section>
+</div>
+<div class="detail" id="register_task_definition/2">
+  <div class="detail-header">
+    <a href="#register_task_definition/2" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">register_task_definition(client, task_definition)</span>
+      
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+</div>
+<div class="detail" id="update_service/4">
+  <div class="detail-header">
+    <a href="#update_service/4" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">update_service(client, aws, task_arn, use_full_task_count \\ false)</span>
+      
+  </div>
+  
+  <section class="docstring">
+    
   </section>
 </div>
 
