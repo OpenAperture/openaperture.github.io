@@ -45,7 +45,7 @@
 
       
         <section id="moduledoc" class="docstring">
-          <p>This module provides methods to resolve a specific host IP from an etcd token</p>
+          <p>This module provides methods to resolve a specific host IP</p>
 
         </section>
       
@@ -56,9 +56,9 @@
         <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#next_available/1">next_available(etcd_token)</a></td>
+  <td class="summary_signature"><a href="#next_available/0">next_available()</a></td>
   
-    <td class="summary_synopsis"><p>Method to retrieve the next available host for an Etcd Cluster</p>
+    <td class="summary_synopsis"><p>Method to retrieve the next available docker host</p>
 </td>
   
 </tr>
@@ -72,11 +72,11 @@
         <section id="functions_details" class="details_list">
           <h2>Functions</h2>
           <section class="detail">
-  <div class="detail_header" id="next_available/1">
-    <span class="signature"><strong>next_available(etcd_token)</strong></span>
+  <div class="detail_header" id="next_available/0">
+    <span class="signature"><strong>next_available()</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#next_available/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#next_available/0" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -84,14 +84,12 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>next_available(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
+        <li>next_available :: {:ok, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>} | {:error, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</li>
       
     </ul>
   
   <section class="docstring">
-    <p>Method to retrieve the next available host for an Etcd Cluster</p>
-<h2>Options</h2>
-<p>The <code class="inline">etcd_token</code> option is the String etcd token</p>
+    <p>Method to retrieve the next available docker host</p>
 <h2>Return Values</h2>
 <p>{:ok, docker_host} | {:error, reason}</p>
 
